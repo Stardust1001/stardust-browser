@@ -1,8 +1,16 @@
-export clipboard from './clipboard.js'
-export file from './file.js'
-export fullscreen from './fullscreen.js'
-export funcs from './funcs.js'
-export storage from './storage.js'
+import clipboard from './clipboard.js'
+import file from './file.js'
+import fullscreen from './fullscreen.js'
+import funcs from './funcs.js'
+import storage from './storage.js'
+
+export {
+  clipboard,
+  file,
+  fullscreen,
+  funcs,
+  storage
+}
 
 export default {
   clipboard,
