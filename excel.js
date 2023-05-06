@@ -20,3 +20,9 @@ const export2Csv = options => {
     filename.toLowerCase().endsWith('.csv') ? filename : (filename + '.csv')
   )
 }
+
+export default {
+  exportTable2Excel,
+  Export2Excel,
+  export2Csv
+}
