@@ -19,34 +19,34 @@ export const validateData = (data) => {
 }
 
 export const validateGet = (model, id) => {
-  this.validateModel(model)
-  this.validateId(id)
+  validateModel(model)
+  validateId(id)
 }
 
 export const validateAdd = (model, data) => {
-  this.validateModel(model)
-  this.validateData(data)
+  validateModel(model)
+  validateData(data)
 }
 
 export const validateSearch = (model, data) => {
-  this.validateModel(model)
-  this.validateData(data)
+  validateModel(model)
+  validateData(data)
 }
 
 export const validateUpdate = (model, id, data) => {
-  this.validateModel(model)
-  this.validateId(id)
-  this.validateData(data)
+  validateModel(model)
+  validateId(id)
+  validateData(data)
 }
 
 export const validateRemove = (model, id) => {
-  this.validateModel(model)
-  this.validateId(id)
+  validateModel(model)
+  validateId(id)
 }
 
 export const validateFunc = (model, data) => {
-  this.validateModel(model)
-  this.validateData(data)
+  validateModel(model)
+  validateData(data)
   if (data.length < 2) {
     throw 'data 错误'
   }
