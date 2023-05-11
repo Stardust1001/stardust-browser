@@ -1,5 +1,5 @@
 import api from './api/index.js'
-import validates from './validaets.js'
+import validates from './validates.js'
 
 export {
   api,

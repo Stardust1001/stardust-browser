@@ -1,4 +1,4 @@
-import validates from '../utils/validates.js'
+import validates from '../validates.js'
 
 export const createRestful = (req = request) => {
   return {
