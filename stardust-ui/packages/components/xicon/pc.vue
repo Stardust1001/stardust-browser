@@ -2,7 +2,7 @@
 const modules = import.meta.glob('../../assets/icons/*.png')
 
 export default {
-  name: 'pc-x-icon',
+  name: 'PcXIcon',
   props: {
     name: String
   },

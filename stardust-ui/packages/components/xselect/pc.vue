@@ -3,7 +3,7 @@ import utils from '../../utils.js'
 import { remoteSearch, calcMainLabel, calcRemarkLabel } from './util.js'
 
 export default {
-  name: 'pc-x-select',
+  name: 'PcXSelect',
   props: {
     modelName: String,
     params: Object,

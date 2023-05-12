@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'pc-x-pagination',
+  name: 'PcXPagination',
   props: {
     query: Object,
     total: Number

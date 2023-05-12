@@ -2,7 +2,7 @@
 import tableUtils from '../xtable/utils.js'
 
 export default {
-  name: 'x-info',
+  name: 'XInfo',
   props: {
     data: Object,
     fields: Array,

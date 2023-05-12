@@ -2,7 +2,7 @@
 const modules = import.meta.glob('../../assets/icons/*.png')
 
 export default {
-  name: 'mobile-x-icon',
+  name: 'MobileXIcon',
   props: {
     name: String
   },

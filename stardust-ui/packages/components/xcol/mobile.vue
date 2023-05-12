@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'mobile-x-col',
+  name: 'MobileXCol',
   inheritAttrs: false,
   computed: {
     attrs () {

@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'mobile-x-button'
+  name: 'MobileXButton'
 }
 </script>
 

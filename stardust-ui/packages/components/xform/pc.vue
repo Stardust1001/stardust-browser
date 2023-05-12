@@ -2,7 +2,7 @@
 import utils from './utils.js'
 
 export default {
-  name: 'pc-x-form',
+  name: 'PcXForm',
   inheritAttrs: false,
   props: {
     ...utils.props(),

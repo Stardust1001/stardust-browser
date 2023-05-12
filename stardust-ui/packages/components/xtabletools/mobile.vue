@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'mobile-x-table-tools',
+  name: 'MobileXTableTools',
   inheritAttrs: false,
   props: {
     searchBtn: Object,

@@ -8,7 +8,7 @@ const areas = {
 }
 
 export default {
-  name: 'x-district-select',
+  name: 'XDistrictSelect',
   props: {
     modelValue: String,
     level: {

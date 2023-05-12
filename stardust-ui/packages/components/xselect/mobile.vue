@@ -3,7 +3,7 @@ import utils from '../../utils.js'
 import { remoteSearch } from './util.js'
 
 export default {
-  name: 'mobile-x-select',
+  name: 'MobileXSelect',
   inheritAttrs: false,
   props: {
     modelValue: Boolean | Number | String | Array,

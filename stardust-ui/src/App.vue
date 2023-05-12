@@ -17,7 +17,7 @@ const form = reactive({
   form: {},
   formItems: [
     { label: '姓名', prop: 'name' },
-    { label: '性别', prop: 'gender', comp: 'x-select', options: ['男', '女'] },
+    { label: '性别', prop: 'gender', comp: 'XSelect', options: ['男', '女'] },
     { label: '年龄', prop: 'age', comp: 'ElInputNumber' },
   ].map(e => ({ span: 8, ...e }))
 })

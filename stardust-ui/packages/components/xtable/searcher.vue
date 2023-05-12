@@ -3,7 +3,7 @@ import storage from '../../../../storage.js'
 import render, { OPS, COMPONENT_OPS } from './searcher.jsx'
 
 export default {
-  name: 'searcher',
+  name: 'Searcher',
   props: {
     uid: String,
     columns: Array,

@@ -2,7 +2,7 @@
 import utils from '../../utils.js'
 
 export default {
-  name: 'pc-x-radios',
+  name: 'PcXRadios',
   inheritAttrs: false,
   props: {
     modelValue: Number | String,

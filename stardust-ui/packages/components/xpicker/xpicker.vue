@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'x-picker',
+  name: 'XPicker',
   props: {
     modelValue: Boolean | Number | String,
     placeholder: String,

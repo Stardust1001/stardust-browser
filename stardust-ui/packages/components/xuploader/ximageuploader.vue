@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'x-image-uploader',
+  name: 'XImageUploader',
   props: {
     modelValue: Array | String,
     multiple: Boolean

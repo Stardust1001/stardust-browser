@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'settings',
+  name: 'Settings',
   props: {
     visible: Boolean,
     modelValue: Object

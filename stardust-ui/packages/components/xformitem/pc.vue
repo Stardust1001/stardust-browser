@@ -2,7 +2,7 @@
 import { PcItem } from './utils.jsx'
 
 export default {
-  name: 'pc-x-form-item',
+  name: 'PcXFormItem',
   props: {
     modelValue: Boolean | Number | String | Array,
     comp: {

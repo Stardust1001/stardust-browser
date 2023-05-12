@@ -2,7 +2,7 @@
 const modes = ['selection', 'radio']
 
 export default {
-  name: 'x-table-viewer',
+  name: 'XTableViewer',
   inheritAttrs: false,
   props: {
     title: {

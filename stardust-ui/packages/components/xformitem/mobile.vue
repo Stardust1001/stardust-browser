@@ -2,7 +2,7 @@
 import { MobileItem } from './utils.jsx'
 
 export default {
-  name: 'mobile-x-form-item',
+  name: 'MobileXFormItem',
   props: {
     modelValue: Boolean | Number | String | Array,
     clearable: {

@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'x-auto-rows',
+  name: 'XAutoRows',
   props: {
     span: {
       type: Number,

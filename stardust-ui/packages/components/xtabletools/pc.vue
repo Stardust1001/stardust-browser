@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'pc-x-table-tools',
+  name: 'PcXTableTools',
   inheritAttrs: false,
   props: {
     searchBtn: Object,

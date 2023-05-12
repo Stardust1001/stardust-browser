@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'mobile-x-dialog',
+  name: 'MobileXDialog',
   props: {
     modelValue: {
       type: Boolean,

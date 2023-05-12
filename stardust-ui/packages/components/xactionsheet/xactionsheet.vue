@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'x-action-sheet',
+  name: 'XActionSheet',
   props: {
     actionSheet: Object
   }

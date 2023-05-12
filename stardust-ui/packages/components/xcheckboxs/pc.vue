@@ -2,7 +2,7 @@
 import utils from '../../utils.js'
 
 export default {
-  name: 'pc-x-checkboxs',
+  name: 'PcXCheckboxs',
   inheritAttrs: false,
   props: {
     modelValue: Array,

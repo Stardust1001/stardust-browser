@@ -2,7 +2,7 @@
 import utils from './utils.js'
 
 export default {
-  name: 'mobile-x-table',
+  name: 'MobileXTable',
   inheritAttrs: false,
   props: {
     ...utils.props(),

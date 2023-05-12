@@ -2,7 +2,7 @@
 // 功能若复杂，这里继续修改
 
 export default {
-  name: 'x-tinymce',
+  name: 'XTinymce',
   props: {
     modelValue: {
       type: String,

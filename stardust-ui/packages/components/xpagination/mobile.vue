@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'mobile-x-pagination',
+  name: 'MobileXPagination',
   props: {
     query: Object,
     total: Number

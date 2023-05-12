@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'pc-x-row',
+  name: 'PcXRow',
   props: {
     cols: {
       type: Array,

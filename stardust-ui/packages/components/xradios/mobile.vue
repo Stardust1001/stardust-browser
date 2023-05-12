@@ -2,7 +2,7 @@
 import utils from '../../utils.js'
 
 export default {
-  name: 'mobile-x-radios',
+  name: 'MobileXRadios',
   inheritAttrs: false,
   props: {
     text: {

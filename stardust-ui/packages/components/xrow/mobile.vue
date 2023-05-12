@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'mobile-x-row',
+  name: 'MobileXRow',
   props: {
     cols: {
       type: Array,

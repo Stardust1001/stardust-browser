@@ -2,7 +2,7 @@
 const { funcs } = StardustBrowser
 
 export default {
-  name: 'x-chart',
+  name: 'XChart',
   props: {
     height: {
       type: String,

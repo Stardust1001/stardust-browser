@@ -2,7 +2,7 @@
 import utils from '../../utils.js'
 
 export default {
-  name: 'mobile-x-checkboxs',
+  name: 'MobileXCheckboxs',
   inheritAttrs: false,
   props: {
     text: {

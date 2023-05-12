@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'pc-x-dialog',
+  name: 'PcXDialog',
   props: {
     platform: String,
     drawer: {

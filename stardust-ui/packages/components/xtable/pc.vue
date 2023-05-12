@@ -4,7 +4,7 @@ import Searcher from './searcher.vue'
 import Settings from './settings.vue'
 
 export default {
-  name: 'pc-x-table',
+  name: 'PcXTable',
   inheritAttrs: false,
   props: {
     ...utils.props()

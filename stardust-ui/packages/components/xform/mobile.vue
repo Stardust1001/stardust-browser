@@ -2,7 +2,7 @@
 import utils from './utils.js'
 
 export default {
-  name: 'mobile-x-form',
+  name: 'MobileXForm',
   inheritAttrs: false,
   props: {
     ...utils.props()

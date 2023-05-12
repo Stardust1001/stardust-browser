@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'pc-x-button'
+  name: 'PcXButton'
 }
 </script>
 

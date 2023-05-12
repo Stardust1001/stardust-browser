@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'x-looper',
+  name: 'XLooper',
   props: {
     compName: String,
     items: Array

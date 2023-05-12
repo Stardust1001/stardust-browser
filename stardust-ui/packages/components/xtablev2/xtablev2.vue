@@ -5,7 +5,7 @@ import Searcher from '../xtable/searcher.vue'
 import Settings from '../xtable/settings.vue'
 
 export default {
-  name: 'x-table-v2',
+  name: 'XTableV2',
   props: {
     ...tableUtils.props(),
     fixed: {

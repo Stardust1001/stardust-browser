@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'pc-x-col',
+  name: 'PcXCol',
   inheritAttrs: false,
   computed: {
     attrs () {
