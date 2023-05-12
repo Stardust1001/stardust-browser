@@ -1,13 +1,13 @@
 {
   "name": "@stardust-js/browser",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Everything I want to publish here",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "push": "git add . && git commit -m \"add\" && git push origin master",
     "pull": "git status && git pull",
-    "cloc": "cloc . --exclude-dir=node_modules"
+    "cloc": "cloc . --exclude-dir=node_modules,@stardust-js,es"
   },
   "repository": {
     "type": "git",
