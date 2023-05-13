@@ -133,7 +133,7 @@ export default {
       @cancel="handleCancel"
     >
       <component
-        :is="useTableV2 ? 'XTableV2' : 'XTable'"
+        :is="useTableV2 ? 'x-table-v2' : 'x-table'"
         v-model:tref="table.tableRef"
         :table="table"
         v-bind="_tableAttrs"

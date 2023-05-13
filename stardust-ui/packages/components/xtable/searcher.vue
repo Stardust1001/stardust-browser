@@ -1,6 +1,7 @@
 <script>
-import storage from '../../../../storage.js'
 import render, { OPS, COMPONENT_OPS } from './searcher.jsx'
+
+const { storage } = StardustBrowser
 
 export default {
   name: 'Searcher',

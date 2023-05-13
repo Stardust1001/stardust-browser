@@ -32,22 +32,32 @@ const makePlatformComp = (name) => {
   }
 }
 
-const components = {}
-// 准备 pc 开头的和 mobile 开头的组件
-for (let key in modules) {
-  const comp = modules[key].default
-  if (/(pc|mobile)/i.test(comp.name)) {
-    components[comp.name] = comp
+const components = (() => {
+  const all = {}
+  for (const key in modules) {
+    const comp = modules[key].default
+    // 含有 X 的组件名称才是要注册的，其他的是内部组件，不是对外提供的
+    if (!/X[A-Z][a-z]/.test(comp.name)) continue
+    all[comp.name] = comp
   }
-}
-const names = Object.values(modules).map(m => m.default.name)
-const union = [...new Set(names.map(n => n.replace(/(pc|mobile)/i, '')))]
-// 把 pc 和 mobile 都共有的组件也准备，这些组件同时有PC端和移动端两个版本
-for (let name of union) {
-  // 含有 X 的组件名称才是要注册的，其他的是内部组件，不是对外提供的
-  if (!/X[A-Z][a-z]/.test(name)) continue
-  components[name] = makePlatformComp(name)
-}
+  const names = Object.keys(all)
+  const union = [...new Set(names.map(n => n.replace(/(pc|mobile)/i, '')))]
+
+  const comps = {}
+  for (const name of names) {
+    if (/(pc|mobile)/i.test(name)) {
+      comps[name] = all[name]
+    }
+  }
+  for (const name of union) {
+    if (!names.find(n => /(pc|mobile)/i.test(n) && n.toLowerCase().includes(name.toLowerCase()))) {
+      comps[name] = all[name]
+    } else {
+      comps[name] = makePlatformComp(name)
+    }
+  }
+  return comps
+})()
 
 const install = (app, options) => {
   // 把 element-plus 的 icons-vue 也注册了
