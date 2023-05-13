@@ -1,16 +1,15 @@
-import { openBlock as o, createElementBlock as n, createElementVNode as e, createStaticVNode as u } from "vue";
 /*! Element Plus Icons Vue v2.1.0 */
-var v = {
+var n = {
   name: "AddLocation"
-}, s = (t, a) => {
-  let _ = t.__vccOpts || t;
-  for (let [r, l] of a)
-    _[r] = l;
-  return _;
-}, d = {
+}, _ = (e, a) => {
+  let t = e.__vccOpts || e;
+  for (let [l, r] of a)
+    t[l] = r;
+  return t;
+}, u = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, c = /* @__PURE__ */ e(
+}, c = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -19,7 +18,7 @@ var v = {
   null,
   -1
   /* HOISTED */
-), h = /* @__PURE__ */ e(
+), s = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -28,7 +27,7 @@ var v = {
   null,
   -1
   /* HOISTED */
-), p = /* @__PURE__ */ e(
+), d = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -37,20 +36,20 @@ var v = {
   null,
   -1
   /* HOISTED */
-), f = [
+), i = [
   c,
-  h,
-  p
+  s,
+  d
 ];
-function w(t, a, _, r, l, i) {
-  return o(), n("svg", d, f);
+function v(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", u, i);
 }
-var m = /* @__PURE__ */ s(v, [["render", w], ["__file", "add-location.vue"]]), g = {
+var h = /* @__PURE__ */ _(n, [["render", v], ["__file", "add-location.vue"]]), p = {
   name: "Aim"
-}, $ = {
+}, f = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, z = /* @__PURE__ */ e(
+}, m = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -59,7 +58,7 @@ var m = /* @__PURE__ */ s(v, [["render", w], ["__file", "add-location.vue"]]), g
   null,
   -1
   /* HOISTED */
-), x = /* @__PURE__ */ e(
+), V = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -68,19 +67,19 @@ var m = /* @__PURE__ */ s(v, [["render", w], ["__file", "add-location.vue"]]), g
   null,
   -1
   /* HOISTED */
-), H = [
-  z,
-  x
+), w = [
+  m,
+  V
 ];
-function M(t, a, _, r, l, i) {
-  return o(), n("svg", $, H);
+function g(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", f, w);
 }
-var C = /* @__PURE__ */ s(g, [["render", M], ["__file", "aim.vue"]]), V = {
+var $ = /* @__PURE__ */ _(p, [["render", g], ["__file", "aim.vue"]]), z = {
   name: "AlarmClock"
-}, y = {
+}, B = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, B = /* @__PURE__ */ e(
+}, x = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -89,7 +88,7 @@ var C = /* @__PURE__ */ s(g, [["render", M], ["__file", "aim.vue"]]), V = {
   null,
   -1
   /* HOISTED */
-), L = /* @__PURE__ */ e(
+), k = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -98,19 +97,19 @@ var C = /* @__PURE__ */ s(g, [["render", M], ["__file", "aim.vue"]]), V = {
   null,
   -1
   /* HOISTED */
-), A = [
-  B,
-  L
+), E = [
+  x,
+  k
 ];
-function b(t, a, _, r, l, i) {
-  return o(), n("svg", y, A);
+function H(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", B, E);
 }
-var k = /* @__PURE__ */ s(V, [["render", b], ["__file", "alarm-clock.vue"]]), S = {
+var M = /* @__PURE__ */ _(z, [["render", H], ["__file", "alarm-clock.vue"]]), C = {
   name: "Apple"
-}, q = {
+}, N = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, F = /* @__PURE__ */ e(
+}, y = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -119,18 +118,18 @@ var k = /* @__PURE__ */ s(V, [["render", b], ["__file", "alarm-clock.vue"]]), S 
   null,
   -1
   /* HOISTED */
-), D = [
-  F
+), L = [
+  y
 ];
-function P(t, a, _, r, l, i) {
-  return o(), n("svg", q, D);
+function A(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", N, L);
 }
-var R = /* @__PURE__ */ s(S, [["render", P], ["__file", "apple.vue"]]), T = {
+var b = /* @__PURE__ */ _(C, [["render", A], ["__file", "apple.vue"]]), S = {
   name: "ArrowDownBold"
-}, O = {
+}, q = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, G = /* @__PURE__ */ e(
+}, F = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -139,18 +138,18 @@ var R = /* @__PURE__ */ s(S, [["render", P], ["__file", "apple.vue"]]), T = {
   null,
   -1
   /* HOISTED */
-), U = [
-  G
+), D = [
+  F
 ];
-function W(t, a, _, r, l, i) {
-  return o(), n("svg", O, U);
+function P(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", q, D);
 }
-var I = /* @__PURE__ */ s(T, [["render", W], ["__file", "arrow-down-bold.vue"]]), E = {
+var R = /* @__PURE__ */ _(S, [["render", P], ["__file", "arrow-down-bold.vue"]]), T = {
   name: "ArrowDown"
-}, N = {
+}, O = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Z = /* @__PURE__ */ e(
+}, G = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -159,18 +158,18 @@ var I = /* @__PURE__ */ s(T, [["render", W], ["__file", "arrow-down-bold.vue"]])
   null,
   -1
   /* HOISTED */
-), K = [
-  Z
+), U = [
+  G
 ];
-function Q(t, a, _, r, l, i) {
-  return o(), n("svg", N, K);
+function W(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", O, U);
 }
-var j = /* @__PURE__ */ s(E, [["render", Q], ["__file", "arrow-down.vue"]]), J = {
+var I = /* @__PURE__ */ _(T, [["render", W], ["__file", "arrow-down.vue"]]), Z = {
   name: "ArrowLeftBold"
-}, X = {
+}, K = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Y = /* @__PURE__ */ e(
+}, Q = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -179,18 +178,18 @@ var j = /* @__PURE__ */ s(E, [["render", Q], ["__file", "arrow-down.vue"]]), J =
   null,
   -1
   /* HOISTED */
-), e2 = [
-  Y
+), j = [
+  Q
 ];
-function t2(t, a, _, r, l, i) {
-  return o(), n("svg", X, e2);
+function J(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", K, j);
 }
-var _2 = /* @__PURE__ */ s(J, [["render", t2], ["__file", "arrow-left-bold.vue"]]), a2 = {
+var X = /* @__PURE__ */ _(Z, [["render", J], ["__file", "arrow-left-bold.vue"]]), Y = {
   name: "ArrowLeft"
-}, r2 = {
+}, e2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, l2 = /* @__PURE__ */ e(
+}, t2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -199,18 +198,18 @@ var _2 = /* @__PURE__ */ s(J, [["render", t2], ["__file", "arrow-left-bold.vue"]
   null,
   -1
   /* HOISTED */
-), o2 = [
-  l2
+), a2 = [
+  t2
 ];
-function n2(t, a, _, r, l, i) {
-  return o(), n("svg", r2, o2);
+function l2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", e2, a2);
 }
-var s2 = /* @__PURE__ */ s(a2, [["render", n2], ["__file", "arrow-left.vue"]]), i2 = {
+var r2 = /* @__PURE__ */ _(Y, [["render", l2], ["__file", "arrow-left.vue"]]), _2 = {
   name: "ArrowRightBold"
-}, u2 = {
+}, o2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, v2 = /* @__PURE__ */ e(
+}, n2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -219,18 +218,18 @@ var s2 = /* @__PURE__ */ s(a2, [["render", n2], ["__file", "arrow-left.vue"]]), 
   null,
   -1
   /* HOISTED */
-), d2 = [
-  v2
+), u2 = [
+  n2
 ];
-function c2(t, a, _, r, l, i) {
-  return o(), n("svg", u2, d2);
+function c2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", o2, u2);
 }
-var h2 = /* @__PURE__ */ s(i2, [["render", c2], ["__file", "arrow-right-bold.vue"]]), p2 = {
+var s2 = /* @__PURE__ */ _(_2, [["render", c2], ["__file", "arrow-right-bold.vue"]]), d2 = {
   name: "ArrowRight"
-}, f2 = {
+}, i2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, w2 = /* @__PURE__ */ e(
+}, v2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -239,18 +238,18 @@ var h2 = /* @__PURE__ */ s(i2, [["render", c2], ["__file", "arrow-right-bold.vue
   null,
   -1
   /* HOISTED */
-), m2 = [
-  w2
+), h2 = [
+  v2
 ];
-function g2(t, a, _, r, l, i) {
-  return o(), n("svg", f2, m2);
+function p2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", i2, h2);
 }
-var $2 = /* @__PURE__ */ s(p2, [["render", g2], ["__file", "arrow-right.vue"]]), z2 = {
+var f2 = /* @__PURE__ */ _(d2, [["render", p2], ["__file", "arrow-right.vue"]]), m2 = {
   name: "ArrowUpBold"
-}, x2 = {
+}, V2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, H2 = /* @__PURE__ */ e(
+}, w2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -259,18 +258,18 @@ var $2 = /* @__PURE__ */ s(p2, [["render", g2], ["__file", "arrow-right.vue"]]),
   null,
   -1
   /* HOISTED */
-), M2 = [
-  H2
+), g2 = [
+  w2
 ];
-function C2(t, a, _, r, l, i) {
-  return o(), n("svg", x2, M2);
+function $2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", V2, g2);
 }
-var V2 = /* @__PURE__ */ s(z2, [["render", C2], ["__file", "arrow-up-bold.vue"]]), y2 = {
+var z2 = /* @__PURE__ */ _(m2, [["render", $2], ["__file", "arrow-up-bold.vue"]]), B2 = {
   name: "ArrowUp"
-}, B2 = {
+}, x2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, L2 = /* @__PURE__ */ e(
+}, k2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -279,18 +278,18 @@ var V2 = /* @__PURE__ */ s(z2, [["render", C2], ["__file", "arrow-up-bold.vue"]]
   null,
   -1
   /* HOISTED */
-), A2 = [
-  L2
+), E2 = [
+  k2
 ];
-function b2(t, a, _, r, l, i) {
-  return o(), n("svg", B2, A2);
+function H2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", x2, E2);
 }
-var k2 = /* @__PURE__ */ s(y2, [["render", b2], ["__file", "arrow-up.vue"]]), S2 = {
+var M2 = /* @__PURE__ */ _(B2, [["render", H2], ["__file", "arrow-up.vue"]]), C2 = {
   name: "Avatar"
-}, q2 = {
+}, N2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, F2 = /* @__PURE__ */ e(
+}, y2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -299,18 +298,18 @@ var k2 = /* @__PURE__ */ s(y2, [["render", b2], ["__file", "arrow-up.vue"]]), S2
   null,
   -1
   /* HOISTED */
-), D2 = [
-  F2
+), L2 = [
+  y2
 ];
-function P2(t, a, _, r, l, i) {
-  return o(), n("svg", q2, D2);
+function A2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", N2, L2);
 }
-var R2 = /* @__PURE__ */ s(S2, [["render", P2], ["__file", "avatar.vue"]]), T2 = {
+var b2 = /* @__PURE__ */ _(C2, [["render", A2], ["__file", "avatar.vue"]]), S2 = {
   name: "Back"
-}, O2 = {
+}, q2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, G2 = /* @__PURE__ */ e(
+}, F2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -319,7 +318,7 @@ var R2 = /* @__PURE__ */ s(S2, [["render", P2], ["__file", "avatar.vue"]]), T2 =
   null,
   -1
   /* HOISTED */
-), U2 = /* @__PURE__ */ e(
+), D2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -328,19 +327,19 @@ var R2 = /* @__PURE__ */ s(S2, [["render", P2], ["__file", "avatar.vue"]]), T2 =
   null,
   -1
   /* HOISTED */
-), W2 = [
-  G2,
-  U2
+), P2 = [
+  F2,
+  D2
 ];
-function I2(t, a, _, r, l, i) {
-  return o(), n("svg", O2, W2);
+function R2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", q2, P2);
 }
-var E2 = /* @__PURE__ */ s(T2, [["render", I2], ["__file", "back.vue"]]), N2 = {
+var T2 = /* @__PURE__ */ _(S2, [["render", R2], ["__file", "back.vue"]]), O2 = {
   name: "Baseball"
-}, Z2 = {
+}, G2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, K2 = /* @__PURE__ */ e(
+}, U2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -349,7 +348,7 @@ var E2 = /* @__PURE__ */ s(T2, [["render", I2], ["__file", "back.vue"]]), N2 = {
   null,
   -1
   /* HOISTED */
-), Q2 = /* @__PURE__ */ e(
+), W2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -358,19 +357,19 @@ var E2 = /* @__PURE__ */ s(T2, [["render", I2], ["__file", "back.vue"]]), N2 = {
   null,
   -1
   /* HOISTED */
-), j2 = [
-  K2,
-  Q2
+), I2 = [
+  U2,
+  W2
 ];
-function J2(t, a, _, r, l, i) {
-  return o(), n("svg", Z2, j2);
+function Z2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", G2, I2);
 }
-var X2 = /* @__PURE__ */ s(N2, [["render", J2], ["__file", "baseball.vue"]]), Y2 = {
+var K2 = /* @__PURE__ */ _(O2, [["render", Z2], ["__file", "baseball.vue"]]), Q2 = {
   name: "Basketball"
-}, e0 = {
+}, j2 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, t0 = /* @__PURE__ */ e(
+}, J2 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -379,18 +378,18 @@ var X2 = /* @__PURE__ */ s(N2, [["render", J2], ["__file", "baseball.vue"]]), Y2
   null,
   -1
   /* HOISTED */
-), _0 = [
-  t0
+), X2 = [
+  J2
 ];
-function a0(t, a, _, r, l, i) {
-  return o(), n("svg", e0, _0);
+function Y2(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", j2, X2);
 }
-var r0 = /* @__PURE__ */ s(Y2, [["render", a0], ["__file", "basketball.vue"]]), l0 = {
+var ee = /* @__PURE__ */ _(Q2, [["render", Y2], ["__file", "basketball.vue"]]), te = {
   name: "BellFilled"
-}, o0 = {
+}, ae = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, n0 = /* @__PURE__ */ e(
+}, le = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -399,18 +398,18 @@ var r0 = /* @__PURE__ */ s(Y2, [["render", a0], ["__file", "basketball.vue"]]), 
   null,
   -1
   /* HOISTED */
-), s0 = [
-  n0
+), re = [
+  le
 ];
-function i0(t, a, _, r, l, i) {
-  return o(), n("svg", o0, s0);
+function _e(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ae, re);
 }
-var u0 = /* @__PURE__ */ s(l0, [["render", i0], ["__file", "bell-filled.vue"]]), v0 = {
+var oe = /* @__PURE__ */ _(te, [["render", _e], ["__file", "bell-filled.vue"]]), ne = {
   name: "Bell"
-}, d0 = {
+}, ue = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, c0 = /* @__PURE__ */ e(
+}, ce = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -419,7 +418,7 @@ var u0 = /* @__PURE__ */ s(l0, [["render", i0], ["__file", "bell-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), h0 = /* @__PURE__ */ e(
+), se = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -428,7 +427,7 @@ var u0 = /* @__PURE__ */ s(l0, [["render", i0], ["__file", "bell-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), p0 = /* @__PURE__ */ e(
+), de = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -437,31 +436,31 @@ var u0 = /* @__PURE__ */ s(l0, [["render", i0], ["__file", "bell-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), f0 = [
-  c0,
-  h0,
-  p0
+), ie = [
+  ce,
+  se,
+  de
 ];
-function w0(t, a, _, r, l, i) {
-  return o(), n("svg", d0, f0);
+function ve(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ue, ie);
 }
-var m0 = /* @__PURE__ */ s(v0, [["render", w0], ["__file", "bell.vue"]]), g0 = {
+var he = /* @__PURE__ */ _(ne, [["render", ve], ["__file", "bell.vue"]]), pe = {
   name: "Bicycle"
-}, $0 = {
+}, fe = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, z0 = /* @__PURE__ */ u('<path fill="currentColor" d="M256 832a128 128 0 1 0 0-256 128 128 0 0 0 0 256zm0 64a192 192 0 1 1 0-384 192 192 0 0 1 0 384z"></path><path fill="currentColor" d="M288 672h320q32 0 32 32t-32 32H288q-32 0-32-32t32-32z"></path><path fill="currentColor" d="M768 832a128 128 0 1 0 0-256 128 128 0 0 0 0 256zm0 64a192 192 0 1 1 0-384 192 192 0 0 1 0 384z"></path><path fill="currentColor" d="M480 192a32 32 0 0 1 0-64h160a32 32 0 0 1 31.04 24.256l96 384a32 32 0 0 1-62.08 15.488L615.04 192H480zM96 384a32 32 0 0 1 0-64h128a32 32 0 0 1 30.336 21.888l64 192a32 32 0 1 1-60.672 20.224L200.96 384H96z"></path><path fill="currentColor" d="m373.376 599.808-42.752-47.616 320-288 42.752 47.616z"></path>', 5), x0 = [
-  z0
+}, me = /* @__PURE__ */ Vue.createStaticVNode('<path fill="currentColor" d="M256 832a128 128 0 1 0 0-256 128 128 0 0 0 0 256zm0 64a192 192 0 1 1 0-384 192 192 0 0 1 0 384z"></path><path fill="currentColor" d="M288 672h320q32 0 32 32t-32 32H288q-32 0-32-32t32-32z"></path><path fill="currentColor" d="M768 832a128 128 0 1 0 0-256 128 128 0 0 0 0 256zm0 64a192 192 0 1 1 0-384 192 192 0 0 1 0 384z"></path><path fill="currentColor" d="M480 192a32 32 0 0 1 0-64h160a32 32 0 0 1 31.04 24.256l96 384a32 32 0 0 1-62.08 15.488L615.04 192H480zM96 384a32 32 0 0 1 0-64h128a32 32 0 0 1 30.336 21.888l64 192a32 32 0 1 1-60.672 20.224L200.96 384H96z"></path><path fill="currentColor" d="m373.376 599.808-42.752-47.616 320-288 42.752 47.616z"></path>', 5), Ve = [
+  me
 ];
-function H0(t, a, _, r, l, i) {
-  return o(), n("svg", $0, x0);
+function we(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", fe, Ve);
 }
-var M0 = /* @__PURE__ */ s(g0, [["render", H0], ["__file", "bicycle.vue"]]), C0 = {
+var ge = /* @__PURE__ */ _(pe, [["render", we], ["__file", "bicycle.vue"]]), $e = {
   name: "BottomLeft"
-}, V0 = {
+}, ze = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, y0 = /* @__PURE__ */ e(
+}, Be = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -470,7 +469,7 @@ var M0 = /* @__PURE__ */ s(g0, [["render", H0], ["__file", "bicycle.vue"]]), C0 
   null,
   -1
   /* HOISTED */
-), B0 = /* @__PURE__ */ e(
+), xe = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -479,19 +478,19 @@ var M0 = /* @__PURE__ */ s(g0, [["render", H0], ["__file", "bicycle.vue"]]), C0 
   null,
   -1
   /* HOISTED */
-), L0 = [
-  y0,
-  B0
+), ke = [
+  Be,
+  xe
 ];
-function A0(t, a, _, r, l, i) {
-  return o(), n("svg", V0, L0);
+function Ee(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ze, ke);
 }
-var b0 = /* @__PURE__ */ s(C0, [["render", A0], ["__file", "bottom-left.vue"]]), k0 = {
+var He = /* @__PURE__ */ _($e, [["render", Ee], ["__file", "bottom-left.vue"]]), Me = {
   name: "BottomRight"
-}, S0 = {
+}, Ce = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, q0 = /* @__PURE__ */ e(
+}, Ne = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -500,7 +499,7 @@ var b0 = /* @__PURE__ */ s(C0, [["render", A0], ["__file", "bottom-left.vue"]]),
   null,
   -1
   /* HOISTED */
-), F0 = /* @__PURE__ */ e(
+), ye = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -509,19 +508,19 @@ var b0 = /* @__PURE__ */ s(C0, [["render", A0], ["__file", "bottom-left.vue"]]),
   null,
   -1
   /* HOISTED */
-), D0 = [
-  q0,
-  F0
+), Le = [
+  Ne,
+  ye
 ];
-function P0(t, a, _, r, l, i) {
-  return o(), n("svg", S0, D0);
+function Ae(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ce, Le);
 }
-var R0 = /* @__PURE__ */ s(k0, [["render", P0], ["__file", "bottom-right.vue"]]), T0 = {
+var be = /* @__PURE__ */ _(Me, [["render", Ae], ["__file", "bottom-right.vue"]]), Se = {
   name: "Bottom"
-}, O0 = {
+}, qe = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, G0 = /* @__PURE__ */ e(
+}, Fe = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -530,18 +529,18 @@ var R0 = /* @__PURE__ */ s(k0, [["render", P0], ["__file", "bottom-right.vue"]])
   null,
   -1
   /* HOISTED */
-), U0 = [
-  G0
+), De = [
+  Fe
 ];
-function W0(t, a, _, r, l, i) {
-  return o(), n("svg", O0, U0);
+function Pe(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", qe, De);
 }
-var I0 = /* @__PURE__ */ s(T0, [["render", W0], ["__file", "bottom.vue"]]), E0 = {
+var Re = /* @__PURE__ */ _(Se, [["render", Pe], ["__file", "bottom.vue"]]), Te = {
   name: "Bowl"
-}, N0 = {
+}, Oe = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Z0 = /* @__PURE__ */ e(
+}, Ge = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -550,18 +549,18 @@ var I0 = /* @__PURE__ */ s(T0, [["render", W0], ["__file", "bottom.vue"]]), E0 =
   null,
   -1
   /* HOISTED */
-), K0 = [
-  Z0
+), Ue = [
+  Ge
 ];
-function Q0(t, a, _, r, l, i) {
-  return o(), n("svg", N0, K0);
+function We(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Oe, Ue);
 }
-var j0 = /* @__PURE__ */ s(E0, [["render", Q0], ["__file", "bowl.vue"]]), J0 = {
+var Ie = /* @__PURE__ */ _(Te, [["render", We], ["__file", "bowl.vue"]]), Ze = {
   name: "Box"
-}, X0 = {
+}, Ke = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Y0 = /* @__PURE__ */ e(
+}, Qe = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -570,7 +569,7 @@ var j0 = /* @__PURE__ */ s(E0, [["render", Q0], ["__file", "bowl.vue"]]), J0 = {
   null,
   -1
   /* HOISTED */
-), e1 = /* @__PURE__ */ e(
+), je = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -579,7 +578,7 @@ var j0 = /* @__PURE__ */ s(E0, [["render", Q0], ["__file", "bowl.vue"]]), J0 = {
   null,
   -1
   /* HOISTED */
-), t1 = /* @__PURE__ */ e(
+), Je = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -588,20 +587,20 @@ var j0 = /* @__PURE__ */ s(E0, [["render", Q0], ["__file", "bowl.vue"]]), J0 = {
   null,
   -1
   /* HOISTED */
-), _1 = [
-  Y0,
-  e1,
-  t1
+), Xe = [
+  Qe,
+  je,
+  Je
 ];
-function a1(t, a, _, r, l, i) {
-  return o(), n("svg", X0, _1);
+function Ye(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ke, Xe);
 }
-var r1 = /* @__PURE__ */ s(J0, [["render", a1], ["__file", "box.vue"]]), l1 = {
+var e0 = /* @__PURE__ */ _(Ze, [["render", Ye], ["__file", "box.vue"]]), t0 = {
   name: "Briefcase"
-}, o1 = {
+}, a0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, n1 = /* @__PURE__ */ e(
+}, l0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -610,18 +609,18 @@ var r1 = /* @__PURE__ */ s(J0, [["render", a1], ["__file", "box.vue"]]), l1 = {
   null,
   -1
   /* HOISTED */
-), s1 = [
-  n1
+), r0 = [
+  l0
 ];
-function i1(t, a, _, r, l, i) {
-  return o(), n("svg", o1, s1);
+function _0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", a0, r0);
 }
-var u1 = /* @__PURE__ */ s(l1, [["render", i1], ["__file", "briefcase.vue"]]), v1 = {
+var o0 = /* @__PURE__ */ _(t0, [["render", _0], ["__file", "briefcase.vue"]]), n0 = {
   name: "BrushFilled"
-}, d1 = {
+}, u0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, c1 = /* @__PURE__ */ e(
+}, c0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -630,18 +629,18 @@ var u1 = /* @__PURE__ */ s(l1, [["render", i1], ["__file", "briefcase.vue"]]), v
   null,
   -1
   /* HOISTED */
-), h1 = [
-  c1
+), s0 = [
+  c0
 ];
-function p1(t, a, _, r, l, i) {
-  return o(), n("svg", d1, h1);
+function d0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", u0, s0);
 }
-var f1 = /* @__PURE__ */ s(v1, [["render", p1], ["__file", "brush-filled.vue"]]), w1 = {
+var i0 = /* @__PURE__ */ _(n0, [["render", d0], ["__file", "brush-filled.vue"]]), v0 = {
   name: "Brush"
-}, m1 = {
+}, h0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, g1 = /* @__PURE__ */ e(
+}, p0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -650,18 +649,18 @@ var f1 = /* @__PURE__ */ s(v1, [["render", p1], ["__file", "brush-filled.vue"]])
   null,
   -1
   /* HOISTED */
-), $1 = [
-  g1
+), f0 = [
+  p0
 ];
-function z1(t, a, _, r, l, i) {
-  return o(), n("svg", m1, $1);
+function m0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", h0, f0);
 }
-var x1 = /* @__PURE__ */ s(w1, [["render", z1], ["__file", "brush.vue"]]), H1 = {
+var V0 = /* @__PURE__ */ _(v0, [["render", m0], ["__file", "brush.vue"]]), w0 = {
   name: "Burger"
-}, M1 = {
+}, g0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, C1 = /* @__PURE__ */ e(
+}, $0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -670,18 +669,18 @@ var x1 = /* @__PURE__ */ s(w1, [["render", z1], ["__file", "brush.vue"]]), H1 = 
   null,
   -1
   /* HOISTED */
-), V1 = [
-  C1
+), z0 = [
+  $0
 ];
-function y1(t, a, _, r, l, i) {
-  return o(), n("svg", M1, V1);
+function B0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", g0, z0);
 }
-var B1 = /* @__PURE__ */ s(H1, [["render", y1], ["__file", "burger.vue"]]), L1 = {
+var x0 = /* @__PURE__ */ _(w0, [["render", B0], ["__file", "burger.vue"]]), k0 = {
   name: "Calendar"
-}, A1 = {
+}, E0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, b1 = /* @__PURE__ */ e(
+}, H0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -690,18 +689,18 @@ var B1 = /* @__PURE__ */ s(H1, [["render", y1], ["__file", "burger.vue"]]), L1 =
   null,
   -1
   /* HOISTED */
-), k1 = [
-  b1
+), M0 = [
+  H0
 ];
-function S1(t, a, _, r, l, i) {
-  return o(), n("svg", A1, k1);
+function C0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", E0, M0);
 }
-var q1 = /* @__PURE__ */ s(L1, [["render", S1], ["__file", "calendar.vue"]]), F1 = {
+var N0 = /* @__PURE__ */ _(k0, [["render", C0], ["__file", "calendar.vue"]]), y0 = {
   name: "CameraFilled"
-}, D1 = {
+}, L0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, P1 = /* @__PURE__ */ e(
+}, A0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -710,18 +709,18 @@ var q1 = /* @__PURE__ */ s(L1, [["render", S1], ["__file", "calendar.vue"]]), F1
   null,
   -1
   /* HOISTED */
-), R1 = [
-  P1
+), b0 = [
+  A0
 ];
-function T1(t, a, _, r, l, i) {
-  return o(), n("svg", D1, R1);
+function S0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", L0, b0);
 }
-var O1 = /* @__PURE__ */ s(F1, [["render", T1], ["__file", "camera-filled.vue"]]), G1 = {
+var q0 = /* @__PURE__ */ _(y0, [["render", S0], ["__file", "camera-filled.vue"]]), F0 = {
   name: "Camera"
-}, U1 = {
+}, D0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, W1 = /* @__PURE__ */ e(
+}, P0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -730,18 +729,18 @@ var O1 = /* @__PURE__ */ s(F1, [["render", T1], ["__file", "camera-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), I1 = [
-  W1
+), R0 = [
+  P0
 ];
-function E1(t, a, _, r, l, i) {
-  return o(), n("svg", U1, I1);
+function T0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", D0, R0);
 }
-var N1 = /* @__PURE__ */ s(G1, [["render", E1], ["__file", "camera.vue"]]), Z1 = {
+var O0 = /* @__PURE__ */ _(F0, [["render", T0], ["__file", "camera.vue"]]), G0 = {
   name: "CaretBottom"
-}, K1 = {
+}, U0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Q1 = /* @__PURE__ */ e(
+}, W0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -750,18 +749,18 @@ var N1 = /* @__PURE__ */ s(G1, [["render", E1], ["__file", "camera.vue"]]), Z1 =
   null,
   -1
   /* HOISTED */
-), j1 = [
-  Q1
+), I0 = [
+  W0
 ];
-function J1(t, a, _, r, l, i) {
-  return o(), n("svg", K1, j1);
+function Z0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", U0, I0);
 }
-var X1 = /* @__PURE__ */ s(Z1, [["render", J1], ["__file", "caret-bottom.vue"]]), Y1 = {
+var K0 = /* @__PURE__ */ _(G0, [["render", Z0], ["__file", "caret-bottom.vue"]]), Q0 = {
   name: "CaretLeft"
-}, e4 = {
+}, j0 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, t4 = /* @__PURE__ */ e(
+}, J0 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -770,18 +769,18 @@ var X1 = /* @__PURE__ */ s(Z1, [["render", J1], ["__file", "caret-bottom.vue"]])
   null,
   -1
   /* HOISTED */
-), _4 = [
-  t4
+), X0 = [
+  J0
 ];
-function a4(t, a, _, r, l, i) {
-  return o(), n("svg", e4, _4);
+function Y0(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", j0, X0);
 }
-var r4 = /* @__PURE__ */ s(Y1, [["render", a4], ["__file", "caret-left.vue"]]), l4 = {
+var e1 = /* @__PURE__ */ _(Q0, [["render", Y0], ["__file", "caret-left.vue"]]), t1 = {
   name: "CaretRight"
-}, o4 = {
+}, a1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, n4 = /* @__PURE__ */ e(
+}, l1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -790,18 +789,18 @@ var r4 = /* @__PURE__ */ s(Y1, [["render", a4], ["__file", "caret-left.vue"]]), 
   null,
   -1
   /* HOISTED */
-), s4 = [
-  n4
+), r1 = [
+  l1
 ];
-function i4(t, a, _, r, l, i) {
-  return o(), n("svg", o4, s4);
+function _1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", a1, r1);
 }
-var u4 = /* @__PURE__ */ s(l4, [["render", i4], ["__file", "caret-right.vue"]]), v4 = {
+var o1 = /* @__PURE__ */ _(t1, [["render", _1], ["__file", "caret-right.vue"]]), n1 = {
   name: "CaretTop"
-}, d4 = {
+}, u1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, c4 = /* @__PURE__ */ e(
+}, c1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -810,18 +809,18 @@ var u4 = /* @__PURE__ */ s(l4, [["render", i4], ["__file", "caret-right.vue"]]),
   null,
   -1
   /* HOISTED */
-), h4 = [
-  c4
+), s1 = [
+  c1
 ];
-function p4(t, a, _, r, l, i) {
-  return o(), n("svg", d4, h4);
+function d1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", u1, s1);
 }
-var f4 = /* @__PURE__ */ s(v4, [["render", p4], ["__file", "caret-top.vue"]]), w4 = {
+var i1 = /* @__PURE__ */ _(n1, [["render", d1], ["__file", "caret-top.vue"]]), v1 = {
   name: "Cellphone"
-}, m4 = {
+}, h1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, g4 = /* @__PURE__ */ e(
+}, p1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -830,18 +829,18 @@ var f4 = /* @__PURE__ */ s(v4, [["render", p4], ["__file", "caret-top.vue"]]), w
   null,
   -1
   /* HOISTED */
-), $4 = [
-  g4
+), f1 = [
+  p1
 ];
-function z4(t, a, _, r, l, i) {
-  return o(), n("svg", m4, $4);
+function m1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", h1, f1);
 }
-var x4 = /* @__PURE__ */ s(w4, [["render", z4], ["__file", "cellphone.vue"]]), H4 = {
+var V1 = /* @__PURE__ */ _(v1, [["render", m1], ["__file", "cellphone.vue"]]), w1 = {
   name: "ChatDotRound"
-}, M4 = {
+}, g1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, C4 = /* @__PURE__ */ e(
+}, $1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -850,7 +849,7 @@ var x4 = /* @__PURE__ */ s(w4, [["render", z4], ["__file", "cellphone.vue"]]), H
   null,
   -1
   /* HOISTED */
-), V4 = /* @__PURE__ */ e(
+), z1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -859,19 +858,19 @@ var x4 = /* @__PURE__ */ s(w4, [["render", z4], ["__file", "cellphone.vue"]]), H
   null,
   -1
   /* HOISTED */
-), y4 = [
-  C4,
-  V4
+), B1 = [
+  $1,
+  z1
 ];
-function B4(t, a, _, r, l, i) {
-  return o(), n("svg", M4, y4);
+function x1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", g1, B1);
 }
-var L4 = /* @__PURE__ */ s(H4, [["render", B4], ["__file", "chat-dot-round.vue"]]), A4 = {
+var k1 = /* @__PURE__ */ _(w1, [["render", x1], ["__file", "chat-dot-round.vue"]]), E1 = {
   name: "ChatDotSquare"
-}, b4 = {
+}, H1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, k4 = /* @__PURE__ */ e(
+}, M1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -880,7 +879,7 @@ var L4 = /* @__PURE__ */ s(H4, [["render", B4], ["__file", "chat-dot-round.vue"]
   null,
   -1
   /* HOISTED */
-), S4 = /* @__PURE__ */ e(
+), C1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -889,19 +888,19 @@ var L4 = /* @__PURE__ */ s(H4, [["render", B4], ["__file", "chat-dot-round.vue"]
   null,
   -1
   /* HOISTED */
-), q4 = [
-  k4,
-  S4
+), N1 = [
+  M1,
+  C1
 ];
-function F4(t, a, _, r, l, i) {
-  return o(), n("svg", b4, q4);
+function y1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", H1, N1);
 }
-var D4 = /* @__PURE__ */ s(A4, [["render", F4], ["__file", "chat-dot-square.vue"]]), P4 = {
+var L1 = /* @__PURE__ */ _(E1, [["render", y1], ["__file", "chat-dot-square.vue"]]), A1 = {
   name: "ChatLineRound"
-}, R4 = {
+}, b1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, T4 = /* @__PURE__ */ e(
+}, S1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -910,7 +909,7 @@ var D4 = /* @__PURE__ */ s(A4, [["render", F4], ["__file", "chat-dot-square.vue"
   null,
   -1
   /* HOISTED */
-), O4 = /* @__PURE__ */ e(
+), q1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -919,19 +918,19 @@ var D4 = /* @__PURE__ */ s(A4, [["render", F4], ["__file", "chat-dot-square.vue"
   null,
   -1
   /* HOISTED */
-), G4 = [
-  T4,
-  O4
+), F1 = [
+  S1,
+  q1
 ];
-function U4(t, a, _, r, l, i) {
-  return o(), n("svg", R4, G4);
+function D1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", b1, F1);
 }
-var W4 = /* @__PURE__ */ s(P4, [["render", U4], ["__file", "chat-line-round.vue"]]), I4 = {
+var P1 = /* @__PURE__ */ _(A1, [["render", D1], ["__file", "chat-line-round.vue"]]), R1 = {
   name: "ChatLineSquare"
-}, E4 = {
+}, T1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, N4 = /* @__PURE__ */ e(
+}, O1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -940,7 +939,7 @@ var W4 = /* @__PURE__ */ s(P4, [["render", U4], ["__file", "chat-line-round.vue"
   null,
   -1
   /* HOISTED */
-), Z4 = /* @__PURE__ */ e(
+), G1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -949,19 +948,19 @@ var W4 = /* @__PURE__ */ s(P4, [["render", U4], ["__file", "chat-line-round.vue"
   null,
   -1
   /* HOISTED */
-), K4 = [
-  N4,
-  Z4
+), U1 = [
+  O1,
+  G1
 ];
-function Q4(t, a, _, r, l, i) {
-  return o(), n("svg", E4, K4);
+function W1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", T1, U1);
 }
-var j4 = /* @__PURE__ */ s(I4, [["render", Q4], ["__file", "chat-line-square.vue"]]), J4 = {
+var I1 = /* @__PURE__ */ _(R1, [["render", W1], ["__file", "chat-line-square.vue"]]), Z1 = {
   name: "ChatRound"
-}, X4 = {
+}, K1 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Y4 = /* @__PURE__ */ e(
+}, Q1 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -970,18 +969,18 @@ var j4 = /* @__PURE__ */ s(I4, [["render", Q4], ["__file", "chat-line-square.vue
   null,
   -1
   /* HOISTED */
-), e6 = [
-  Y4
+), j1 = [
+  Q1
 ];
-function t6(t, a, _, r, l, i) {
-  return o(), n("svg", X4, e6);
+function J1(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", K1, j1);
 }
-var _6 = /* @__PURE__ */ s(J4, [["render", t6], ["__file", "chat-round.vue"]]), a6 = {
+var X1 = /* @__PURE__ */ _(Z1, [["render", J1], ["__file", "chat-round.vue"]]), Y1 = {
   name: "ChatSquare"
-}, r6 = {
+}, e4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, l6 = /* @__PURE__ */ e(
+}, t4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -990,18 +989,18 @@ var _6 = /* @__PURE__ */ s(J4, [["render", t6], ["__file", "chat-round.vue"]]), 
   null,
   -1
   /* HOISTED */
-), o6 = [
-  l6
+), a4 = [
+  t4
 ];
-function n6(t, a, _, r, l, i) {
-  return o(), n("svg", r6, o6);
+function l4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", e4, a4);
 }
-var s6 = /* @__PURE__ */ s(a6, [["render", n6], ["__file", "chat-square.vue"]]), i6 = {
+var r4 = /* @__PURE__ */ _(Y1, [["render", l4], ["__file", "chat-square.vue"]]), _4 = {
   name: "Check"
-}, u6 = {
+}, o4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, v6 = /* @__PURE__ */ e(
+}, n4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1010,18 +1009,18 @@ var s6 = /* @__PURE__ */ s(a6, [["render", n6], ["__file", "chat-square.vue"]]),
   null,
   -1
   /* HOISTED */
-), d6 = [
-  v6
+), u4 = [
+  n4
 ];
-function c6(t, a, _, r, l, i) {
-  return o(), n("svg", u6, d6);
+function c4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", o4, u4);
 }
-var h6 = /* @__PURE__ */ s(i6, [["render", c6], ["__file", "check.vue"]]), p6 = {
+var s4 = /* @__PURE__ */ _(_4, [["render", c4], ["__file", "check.vue"]]), d4 = {
   name: "Checked"
-}, f6 = {
+}, i4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, w6 = /* @__PURE__ */ e(
+}, v4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1030,18 +1029,18 @@ var h6 = /* @__PURE__ */ s(i6, [["render", c6], ["__file", "check.vue"]]), p6 = 
   null,
   -1
   /* HOISTED */
-), m6 = [
-  w6
+), h4 = [
+  v4
 ];
-function g6(t, a, _, r, l, i) {
-  return o(), n("svg", f6, m6);
+function p4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", i4, h4);
 }
-var $6 = /* @__PURE__ */ s(p6, [["render", g6], ["__file", "checked.vue"]]), z6 = {
+var f4 = /* @__PURE__ */ _(d4, [["render", p4], ["__file", "checked.vue"]]), m4 = {
   name: "Cherry"
-}, x6 = {
+}, V4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, H6 = /* @__PURE__ */ e(
+}, w4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1050,18 +1049,18 @@ var $6 = /* @__PURE__ */ s(p6, [["render", g6], ["__file", "checked.vue"]]), z6 
   null,
   -1
   /* HOISTED */
-), M6 = [
-  H6
+), g4 = [
+  w4
 ];
-function C6(t, a, _, r, l, i) {
-  return o(), n("svg", x6, M6);
+function $4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", V4, g4);
 }
-var V6 = /* @__PURE__ */ s(z6, [["render", C6], ["__file", "cherry.vue"]]), y6 = {
+var z4 = /* @__PURE__ */ _(m4, [["render", $4], ["__file", "cherry.vue"]]), B4 = {
   name: "Chicken"
-}, B6 = {
+}, x4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, L6 = /* @__PURE__ */ e(
+}, k4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1070,20 +1069,20 @@ var V6 = /* @__PURE__ */ s(z6, [["render", C6], ["__file", "cherry.vue"]]), y6 =
   null,
   -1
   /* HOISTED */
-), A6 = [
-  L6
+), E4 = [
+  k4
 ];
-function b6(t, a, _, r, l, i) {
-  return o(), n("svg", B6, A6);
+function H4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", x4, E4);
 }
-var k6 = /* @__PURE__ */ s(y6, [["render", b6], ["__file", "chicken.vue"]]), S6 = {
+var M4 = /* @__PURE__ */ _(B4, [["render", H4], ["__file", "chicken.vue"]]), C4 = {
   name: "ChromeFilled"
-}, q6 = {
+}, N4 = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, F6 = /* @__PURE__ */ e(
+}, y4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1092,7 +1091,7 @@ var k6 = /* @__PURE__ */ s(y6, [["render", b6], ["__file", "chicken.vue"]]), S6 
   null,
   -1
   /* HOISTED */
-), D6 = /* @__PURE__ */ e(
+), L4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1101,7 +1100,7 @@ var k6 = /* @__PURE__ */ s(y6, [["render", b6], ["__file", "chicken.vue"]]), S6 
   null,
   -1
   /* HOISTED */
-), P6 = /* @__PURE__ */ e(
+), A4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1110,20 +1109,20 @@ var k6 = /* @__PURE__ */ s(y6, [["render", b6], ["__file", "chicken.vue"]]), S6 
   null,
   -1
   /* HOISTED */
-), R6 = [
-  F6,
-  D6,
-  P6
+), b4 = [
+  y4,
+  L4,
+  A4
 ];
-function T6(t, a, _, r, l, i) {
-  return o(), n("svg", q6, R6);
+function S4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", N4, b4);
 }
-var O6 = /* @__PURE__ */ s(S6, [["render", T6], ["__file", "chrome-filled.vue"]]), G6 = {
+var q4 = /* @__PURE__ */ _(C4, [["render", S4], ["__file", "chrome-filled.vue"]]), F4 = {
   name: "CircleCheckFilled"
-}, U6 = {
+}, D4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, W6 = /* @__PURE__ */ e(
+}, P4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1132,18 +1131,18 @@ var O6 = /* @__PURE__ */ s(S6, [["render", T6], ["__file", "chrome-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), I6 = [
-  W6
+), R4 = [
+  P4
 ];
-function E6(t, a, _, r, l, i) {
-  return o(), n("svg", U6, I6);
+function T4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", D4, R4);
 }
-var N6 = /* @__PURE__ */ s(G6, [["render", E6], ["__file", "circle-check-filled.vue"]]), Z6 = {
+var O4 = /* @__PURE__ */ _(F4, [["render", T4], ["__file", "circle-check-filled.vue"]]), G4 = {
   name: "CircleCheck"
-}, K6 = {
+}, U4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Q6 = /* @__PURE__ */ e(
+}, W4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1152,7 +1151,7 @@ var N6 = /* @__PURE__ */ s(G6, [["render", E6], ["__file", "circle-check-filled.
   null,
   -1
   /* HOISTED */
-), j6 = /* @__PURE__ */ e(
+), I4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1161,19 +1160,19 @@ var N6 = /* @__PURE__ */ s(G6, [["render", E6], ["__file", "circle-check-filled.
   null,
   -1
   /* HOISTED */
-), J6 = [
-  Q6,
-  j6
+), Z4 = [
+  W4,
+  I4
 ];
-function X6(t, a, _, r, l, i) {
-  return o(), n("svg", K6, J6);
+function K4(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", U4, Z4);
 }
-var Y6 = /* @__PURE__ */ s(Z6, [["render", X6], ["__file", "circle-check.vue"]]), e3 = {
+var Q4 = /* @__PURE__ */ _(G4, [["render", K4], ["__file", "circle-check.vue"]]), j4 = {
   name: "CircleCloseFilled"
-}, t3 = {
+}, J4 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, _3 = /* @__PURE__ */ e(
+}, X4 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1182,18 +1181,18 @@ var Y6 = /* @__PURE__ */ s(Z6, [["render", X6], ["__file", "circle-check.vue"]])
   null,
   -1
   /* HOISTED */
-), a3 = [
-  _3
+), Y4 = [
+  X4
 ];
-function r3(t, a, _, r, l, i) {
-  return o(), n("svg", t3, a3);
+function e6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", J4, Y4);
 }
-var l3 = /* @__PURE__ */ s(e3, [["render", r3], ["__file", "circle-close-filled.vue"]]), o3 = {
+var t6 = /* @__PURE__ */ _(j4, [["render", e6], ["__file", "circle-close-filled.vue"]]), a6 = {
   name: "CircleClose"
-}, n3 = {
+}, l6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, s3 = /* @__PURE__ */ e(
+}, r6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1202,7 +1201,7 @@ var l3 = /* @__PURE__ */ s(e3, [["render", r3], ["__file", "circle-close-filled.
   null,
   -1
   /* HOISTED */
-), i3 = /* @__PURE__ */ e(
+), _6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1211,19 +1210,19 @@ var l3 = /* @__PURE__ */ s(e3, [["render", r3], ["__file", "circle-close-filled.
   null,
   -1
   /* HOISTED */
-), u3 = [
-  s3,
-  i3
+), o6 = [
+  r6,
+  _6
 ];
-function v3(t, a, _, r, l, i) {
-  return o(), n("svg", n3, u3);
+function n6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", l6, o6);
 }
-var d3 = /* @__PURE__ */ s(o3, [["render", v3], ["__file", "circle-close.vue"]]), c3 = {
+var u6 = /* @__PURE__ */ _(a6, [["render", n6], ["__file", "circle-close.vue"]]), c6 = {
   name: "CirclePlusFilled"
-}, h3 = {
+}, s6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, p3 = /* @__PURE__ */ e(
+}, d6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1232,18 +1231,18 @@ var d3 = /* @__PURE__ */ s(o3, [["render", v3], ["__file", "circle-close.vue"]])
   null,
   -1
   /* HOISTED */
-), f3 = [
-  p3
+), i6 = [
+  d6
 ];
-function w3(t, a, _, r, l, i) {
-  return o(), n("svg", h3, f3);
+function v6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", s6, i6);
 }
-var m3 = /* @__PURE__ */ s(c3, [["render", w3], ["__file", "circle-plus-filled.vue"]]), g3 = {
+var h6 = /* @__PURE__ */ _(c6, [["render", v6], ["__file", "circle-plus-filled.vue"]]), p6 = {
   name: "CirclePlus"
-}, $3 = {
+}, f6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, z3 = /* @__PURE__ */ e(
+}, m6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1252,7 +1251,7 @@ var m3 = /* @__PURE__ */ s(c3, [["render", w3], ["__file", "circle-plus-filled.v
   null,
   -1
   /* HOISTED */
-), x3 = /* @__PURE__ */ e(
+), V6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1261,7 +1260,7 @@ var m3 = /* @__PURE__ */ s(c3, [["render", w3], ["__file", "circle-plus-filled.v
   null,
   -1
   /* HOISTED */
-), H3 = /* @__PURE__ */ e(
+), w6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1270,20 +1269,20 @@ var m3 = /* @__PURE__ */ s(c3, [["render", w3], ["__file", "circle-plus-filled.v
   null,
   -1
   /* HOISTED */
-), M3 = [
-  z3,
-  x3,
-  H3
+), g6 = [
+  m6,
+  V6,
+  w6
 ];
-function C3(t, a, _, r, l, i) {
-  return o(), n("svg", $3, M3);
+function $6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", f6, g6);
 }
-var V3 = /* @__PURE__ */ s(g3, [["render", C3], ["__file", "circle-plus.vue"]]), y3 = {
+var z6 = /* @__PURE__ */ _(p6, [["render", $6], ["__file", "circle-plus.vue"]]), B6 = {
   name: "Clock"
-}, B3 = {
+}, x6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, L3 = /* @__PURE__ */ e(
+}, k6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1292,7 +1291,7 @@ var V3 = /* @__PURE__ */ s(g3, [["render", C3], ["__file", "circle-plus.vue"]]),
   null,
   -1
   /* HOISTED */
-), A3 = /* @__PURE__ */ e(
+), E6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1301,7 +1300,7 @@ var V3 = /* @__PURE__ */ s(g3, [["render", C3], ["__file", "circle-plus.vue"]]),
   null,
   -1
   /* HOISTED */
-), b3 = /* @__PURE__ */ e(
+), H6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1310,20 +1309,20 @@ var V3 = /* @__PURE__ */ s(g3, [["render", C3], ["__file", "circle-plus.vue"]]),
   null,
   -1
   /* HOISTED */
-), k3 = [
-  L3,
-  A3,
-  b3
+), M6 = [
+  k6,
+  E6,
+  H6
 ];
-function S3(t, a, _, r, l, i) {
-  return o(), n("svg", B3, k3);
+function C6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", x6, M6);
 }
-var q3 = /* @__PURE__ */ s(y3, [["render", S3], ["__file", "clock.vue"]]), F3 = {
+var N6 = /* @__PURE__ */ _(B6, [["render", C6], ["__file", "clock.vue"]]), y6 = {
   name: "CloseBold"
-}, D3 = {
+}, L6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, P3 = /* @__PURE__ */ e(
+}, A6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1332,18 +1331,18 @@ var q3 = /* @__PURE__ */ s(y3, [["render", S3], ["__file", "clock.vue"]]), F3 = 
   null,
   -1
   /* HOISTED */
-), R3 = [
-  P3
+), b6 = [
+  A6
 ];
-function T3(t, a, _, r, l, i) {
-  return o(), n("svg", D3, R3);
+function S6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", L6, b6);
 }
-var O3 = /* @__PURE__ */ s(F3, [["render", T3], ["__file", "close-bold.vue"]]), G3 = {
+var q6 = /* @__PURE__ */ _(y6, [["render", S6], ["__file", "close-bold.vue"]]), F6 = {
   name: "Close"
-}, U3 = {
+}, D6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, W3 = /* @__PURE__ */ e(
+}, P6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1352,18 +1351,18 @@ var O3 = /* @__PURE__ */ s(F3, [["render", T3], ["__file", "close-bold.vue"]]), 
   null,
   -1
   /* HOISTED */
-), I3 = [
-  W3
+), R6 = [
+  P6
 ];
-function E3(t, a, _, r, l, i) {
-  return o(), n("svg", U3, I3);
+function T6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", D6, R6);
 }
-var N3 = /* @__PURE__ */ s(G3, [["render", E3], ["__file", "close.vue"]]), Z3 = {
+var O6 = /* @__PURE__ */ _(F6, [["render", T6], ["__file", "close.vue"]]), G6 = {
   name: "Cloudy"
-}, K3 = {
+}, U6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Q3 = /* @__PURE__ */ e(
+}, W6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1372,18 +1371,18 @@ var N3 = /* @__PURE__ */ s(G3, [["render", E3], ["__file", "close.vue"]]), Z3 = 
   null,
   -1
   /* HOISTED */
-), j3 = [
-  Q3
+), I6 = [
+  W6
 ];
-function J3(t, a, _, r, l, i) {
-  return o(), n("svg", K3, j3);
+function Z6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", U6, I6);
 }
-var X3 = /* @__PURE__ */ s(Z3, [["render", J3], ["__file", "cloudy.vue"]]), Y3 = {
+var K6 = /* @__PURE__ */ _(G6, [["render", Z6], ["__file", "cloudy.vue"]]), Q6 = {
   name: "CoffeeCup"
-}, ee = {
+}, j6 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, te = /* @__PURE__ */ e(
+}, J6 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1392,18 +1391,18 @@ var X3 = /* @__PURE__ */ s(Z3, [["render", J3], ["__file", "cloudy.vue"]]), Y3 =
   null,
   -1
   /* HOISTED */
-), _e = [
-  te
+), X6 = [
+  J6
 ];
-function ae(t, a, _, r, l, i) {
-  return o(), n("svg", ee, _e);
+function Y6(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", j6, X6);
 }
-var re = /* @__PURE__ */ s(Y3, [["render", ae], ["__file", "coffee-cup.vue"]]), le = {
+var e3 = /* @__PURE__ */ _(Q6, [["render", Y6], ["__file", "coffee-cup.vue"]]), t3 = {
   name: "Coffee"
-}, oe = {
+}, a3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ne = /* @__PURE__ */ e(
+}, l3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1412,18 +1411,18 @@ var re = /* @__PURE__ */ s(Y3, [["render", ae], ["__file", "coffee-cup.vue"]]), 
   null,
   -1
   /* HOISTED */
-), se = [
-  ne
+), r3 = [
+  l3
 ];
-function ie(t, a, _, r, l, i) {
-  return o(), n("svg", oe, se);
+function _3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", a3, r3);
 }
-var ue = /* @__PURE__ */ s(le, [["render", ie], ["__file", "coffee.vue"]]), ve = {
+var o3 = /* @__PURE__ */ _(t3, [["render", _3], ["__file", "coffee.vue"]]), n3 = {
   name: "Coin"
-}, de = {
+}, u3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ce = /* @__PURE__ */ e(
+}, c3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1432,7 +1431,7 @@ var ue = /* @__PURE__ */ s(le, [["render", ie], ["__file", "coffee.vue"]]), ve =
   null,
   -1
   /* HOISTED */
-), he = /* @__PURE__ */ e(
+), s3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1441,7 +1440,7 @@ var ue = /* @__PURE__ */ s(le, [["render", ie], ["__file", "coffee.vue"]]), ve =
   null,
   -1
   /* HOISTED */
-), pe = /* @__PURE__ */ e(
+), d3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1450,20 +1449,20 @@ var ue = /* @__PURE__ */ s(le, [["render", ie], ["__file", "coffee.vue"]]), ve =
   null,
   -1
   /* HOISTED */
-), fe = [
-  ce,
-  he,
-  pe
+), i3 = [
+  c3,
+  s3,
+  d3
 ];
-function we(t, a, _, r, l, i) {
-  return o(), n("svg", de, fe);
+function v3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", u3, i3);
 }
-var me = /* @__PURE__ */ s(ve, [["render", we], ["__file", "coin.vue"]]), ge = {
+var h3 = /* @__PURE__ */ _(n3, [["render", v3], ["__file", "coin.vue"]]), p3 = {
   name: "ColdDrink"
-}, $e = {
+}, f3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ze = /* @__PURE__ */ e(
+}, m3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1472,18 +1471,18 @@ var me = /* @__PURE__ */ s(ve, [["render", we], ["__file", "coin.vue"]]), ge = {
   null,
   -1
   /* HOISTED */
-), xe = [
-  ze
+), V3 = [
+  m3
 ];
-function He(t, a, _, r, l, i) {
-  return o(), n("svg", $e, xe);
+function w3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", f3, V3);
 }
-var Me = /* @__PURE__ */ s(ge, [["render", He], ["__file", "cold-drink.vue"]]), Ce = {
+var g3 = /* @__PURE__ */ _(p3, [["render", w3], ["__file", "cold-drink.vue"]]), $3 = {
   name: "CollectionTag"
-}, Ve = {
+}, z3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ye = /* @__PURE__ */ e(
+}, B3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1492,18 +1491,18 @@ var Me = /* @__PURE__ */ s(ge, [["render", He], ["__file", "cold-drink.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Be = [
-  ye
+), x3 = [
+  B3
 ];
-function Le(t, a, _, r, l, i) {
-  return o(), n("svg", Ve, Be);
+function k3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", z3, x3);
 }
-var Ae = /* @__PURE__ */ s(Ce, [["render", Le], ["__file", "collection-tag.vue"]]), be = {
+var E3 = /* @__PURE__ */ _($3, [["render", k3], ["__file", "collection-tag.vue"]]), H3 = {
   name: "Collection"
-}, ke = {
+}, M3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Se = /* @__PURE__ */ e(
+}, C3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1512,7 +1511,7 @@ var Ae = /* @__PURE__ */ s(Ce, [["render", Le], ["__file", "collection-tag.vue"]
   null,
   -1
   /* HOISTED */
-), qe = /* @__PURE__ */ e(
+), N3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1521,19 +1520,19 @@ var Ae = /* @__PURE__ */ s(Ce, [["render", Le], ["__file", "collection-tag.vue"]
   null,
   -1
   /* HOISTED */
-), Fe = [
-  Se,
-  qe
+), y3 = [
+  C3,
+  N3
 ];
-function De(t, a, _, r, l, i) {
-  return o(), n("svg", ke, Fe);
+function L3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", M3, y3);
 }
-var Pe = /* @__PURE__ */ s(be, [["render", De], ["__file", "collection.vue"]]), Re = {
+var A3 = /* @__PURE__ */ _(H3, [["render", L3], ["__file", "collection.vue"]]), b3 = {
   name: "Comment"
-}, Te = {
+}, S3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Oe = /* @__PURE__ */ e(
+}, q3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1542,18 +1541,18 @@ var Pe = /* @__PURE__ */ s(be, [["render", De], ["__file", "collection.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Ge = [
-  Oe
+), F3 = [
+  q3
 ];
-function Ue(t, a, _, r, l, i) {
-  return o(), n("svg", Te, Ge);
+function D3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", S3, F3);
 }
-var We = /* @__PURE__ */ s(Re, [["render", Ue], ["__file", "comment.vue"]]), Ie = {
+var P3 = /* @__PURE__ */ _(b3, [["render", D3], ["__file", "comment.vue"]]), R3 = {
   name: "Compass"
-}, Ee = {
+}, T3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ne = /* @__PURE__ */ e(
+}, O3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1562,7 +1561,7 @@ var We = /* @__PURE__ */ s(Re, [["render", Ue], ["__file", "comment.vue"]]), Ie 
   null,
   -1
   /* HOISTED */
-), Ze = /* @__PURE__ */ e(
+), G3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1571,19 +1570,19 @@ var We = /* @__PURE__ */ s(Re, [["render", Ue], ["__file", "comment.vue"]]), Ie 
   null,
   -1
   /* HOISTED */
-), Ke = [
-  Ne,
-  Ze
+), U3 = [
+  O3,
+  G3
 ];
-function Qe(t, a, _, r, l, i) {
-  return o(), n("svg", Ee, Ke);
+function W3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", T3, U3);
 }
-var je = /* @__PURE__ */ s(Ie, [["render", Qe], ["__file", "compass.vue"]]), Je = {
+var I3 = /* @__PURE__ */ _(R3, [["render", W3], ["__file", "compass.vue"]]), Z3 = {
   name: "Connection"
-}, Xe = {
+}, K3 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ye = /* @__PURE__ */ e(
+}, Q3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1592,7 +1591,7 @@ var je = /* @__PURE__ */ s(Ie, [["render", Qe], ["__file", "compass.vue"]]), Je 
   null,
   -1
   /* HOISTED */
-), e8 = /* @__PURE__ */ e(
+), j3 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1601,19 +1600,19 @@ var je = /* @__PURE__ */ s(Ie, [["render", Qe], ["__file", "compass.vue"]]), Je 
   null,
   -1
   /* HOISTED */
-), t8 = [
-  Ye,
-  e8
+), J3 = [
+  Q3,
+  j3
 ];
-function _8(t, a, _, r, l, i) {
-  return o(), n("svg", Xe, t8);
+function X3(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", K3, J3);
 }
-var a8 = /* @__PURE__ */ s(Je, [["render", _8], ["__file", "connection.vue"]]), r8 = {
+var Y3 = /* @__PURE__ */ _(Z3, [["render", X3], ["__file", "connection.vue"]]), et = {
   name: "Coordinate"
-}, l8 = {
+}, tt = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, o8 = /* @__PURE__ */ e(
+}, at = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1622,7 +1621,7 @@ var a8 = /* @__PURE__ */ s(Je, [["render", _8], ["__file", "connection.vue"]]), 
   null,
   -1
   /* HOISTED */
-), n8 = /* @__PURE__ */ e(
+), lt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1631,19 +1630,19 @@ var a8 = /* @__PURE__ */ s(Je, [["render", _8], ["__file", "connection.vue"]]), 
   null,
   -1
   /* HOISTED */
-), s8 = [
-  o8,
-  n8
+), rt = [
+  at,
+  lt
 ];
-function i8(t, a, _, r, l, i) {
-  return o(), n("svg", l8, s8);
+function _t(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", tt, rt);
 }
-var u8 = /* @__PURE__ */ s(r8, [["render", i8], ["__file", "coordinate.vue"]]), v8 = {
+var ot = /* @__PURE__ */ _(et, [["render", _t], ["__file", "coordinate.vue"]]), nt = {
   name: "CopyDocument"
-}, d8 = {
+}, ut = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, c8 = /* @__PURE__ */ e(
+}, ct = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1652,7 +1651,7 @@ var u8 = /* @__PURE__ */ s(r8, [["render", i8], ["__file", "coordinate.vue"]]), 
   null,
   -1
   /* HOISTED */
-), h8 = /* @__PURE__ */ e(
+), st = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1661,19 +1660,19 @@ var u8 = /* @__PURE__ */ s(r8, [["render", i8], ["__file", "coordinate.vue"]]), 
   null,
   -1
   /* HOISTED */
-), p8 = [
-  c8,
-  h8
+), dt = [
+  ct,
+  st
 ];
-function f8(t, a, _, r, l, i) {
-  return o(), n("svg", d8, p8);
+function it(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ut, dt);
 }
-var w8 = /* @__PURE__ */ s(v8, [["render", f8], ["__file", "copy-document.vue"]]), m8 = {
+var vt = /* @__PURE__ */ _(nt, [["render", it], ["__file", "copy-document.vue"]]), ht = {
   name: "Cpu"
-}, g8 = {
+}, pt = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, $8 = /* @__PURE__ */ e(
+}, ft = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1682,7 +1681,7 @@ var w8 = /* @__PURE__ */ s(v8, [["render", f8], ["__file", "copy-document.vue"]]
   null,
   -1
   /* HOISTED */
-), z8 = /* @__PURE__ */ e(
+), mt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1691,19 +1690,19 @@ var w8 = /* @__PURE__ */ s(v8, [["render", f8], ["__file", "copy-document.vue"]]
   null,
   -1
   /* HOISTED */
-), x8 = [
-  $8,
-  z8
+), Vt = [
+  ft,
+  mt
 ];
-function H8(t, a, _, r, l, i) {
-  return o(), n("svg", g8, x8);
+function wt(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", pt, Vt);
 }
-var M8 = /* @__PURE__ */ s(m8, [["render", H8], ["__file", "cpu.vue"]]), C8 = {
+var gt = /* @__PURE__ */ _(ht, [["render", wt], ["__file", "cpu.vue"]]), $t = {
   name: "CreditCard"
-}, V8 = {
+}, zt = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, y8 = /* @__PURE__ */ e(
+}, Bt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1712,7 +1711,7 @@ var M8 = /* @__PURE__ */ s(m8, [["render", H8], ["__file", "cpu.vue"]]), C8 = {
   null,
   -1
   /* HOISTED */
-), B8 = /* @__PURE__ */ e(
+), xt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1721,19 +1720,19 @@ var M8 = /* @__PURE__ */ s(m8, [["render", H8], ["__file", "cpu.vue"]]), C8 = {
   null,
   -1
   /* HOISTED */
-), L8 = [
-  y8,
-  B8
+), kt = [
+  Bt,
+  xt
 ];
-function A8(t, a, _, r, l, i) {
-  return o(), n("svg", V8, L8);
+function Et(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", zt, kt);
 }
-var b8 = /* @__PURE__ */ s(C8, [["render", A8], ["__file", "credit-card.vue"]]), k8 = {
+var Ht = /* @__PURE__ */ _($t, [["render", Et], ["__file", "credit-card.vue"]]), Mt = {
   name: "Crop"
-}, S8 = {
+}, Ct = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, q8 = /* @__PURE__ */ e(
+}, Nt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1742,7 +1741,7 @@ var b8 = /* @__PURE__ */ s(C8, [["render", A8], ["__file", "credit-card.vue"]]),
   null,
   -1
   /* HOISTED */
-), F8 = /* @__PURE__ */ e(
+), yt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1751,19 +1750,19 @@ var b8 = /* @__PURE__ */ s(C8, [["render", A8], ["__file", "credit-card.vue"]]),
   null,
   -1
   /* HOISTED */
-), D8 = [
-  q8,
-  F8
+), Lt = [
+  Nt,
+  yt
 ];
-function P8(t, a, _, r, l, i) {
-  return o(), n("svg", S8, D8);
+function At(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ct, Lt);
 }
-var R8 = /* @__PURE__ */ s(k8, [["render", P8], ["__file", "crop.vue"]]), T8 = {
+var bt = /* @__PURE__ */ _(Mt, [["render", At], ["__file", "crop.vue"]]), St = {
   name: "DArrowLeft"
-}, O8 = {
+}, qt = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, G8 = /* @__PURE__ */ e(
+}, Ft = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1772,18 +1771,18 @@ var R8 = /* @__PURE__ */ s(k8, [["render", P8], ["__file", "crop.vue"]]), T8 = {
   null,
   -1
   /* HOISTED */
-), U8 = [
-  G8
+), Dt = [
+  Ft
 ];
-function W8(t, a, _, r, l, i) {
-  return o(), n("svg", O8, U8);
+function Pt(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", qt, Dt);
 }
-var I8 = /* @__PURE__ */ s(T8, [["render", W8], ["__file", "d-arrow-left.vue"]]), E8 = {
+var Rt = /* @__PURE__ */ _(St, [["render", Pt], ["__file", "d-arrow-left.vue"]]), Tt = {
   name: "DArrowRight"
-}, N8 = {
+}, Ot = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Z8 = /* @__PURE__ */ e(
+}, Gt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1792,18 +1791,18 @@ var I8 = /* @__PURE__ */ s(T8, [["render", W8], ["__file", "d-arrow-left.vue"]])
   null,
   -1
   /* HOISTED */
-), K8 = [
-  Z8
+), Ut = [
+  Gt
 ];
-function Q8(t, a, _, r, l, i) {
-  return o(), n("svg", N8, K8);
+function Wt(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ot, Ut);
 }
-var j8 = /* @__PURE__ */ s(E8, [["render", Q8], ["__file", "d-arrow-right.vue"]]), J8 = {
+var It = /* @__PURE__ */ _(Tt, [["render", Wt], ["__file", "d-arrow-right.vue"]]), Zt = {
   name: "DCaret"
-}, X8 = {
+}, Kt = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Y8 = /* @__PURE__ */ e(
+}, Qt = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1812,18 +1811,18 @@ var j8 = /* @__PURE__ */ s(E8, [["render", Q8], ["__file", "d-arrow-right.vue"]]
   null,
   -1
   /* HOISTED */
-), et = [
-  Y8
+), jt = [
+  Qt
 ];
-function tt(t, a, _, r, l, i) {
-  return o(), n("svg", X8, et);
+function Jt(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Kt, jt);
 }
-var _t = /* @__PURE__ */ s(J8, [["render", tt], ["__file", "d-caret.vue"]]), at = {
+var Xt = /* @__PURE__ */ _(Zt, [["render", Jt], ["__file", "d-caret.vue"]]), Yt = {
   name: "DataAnalysis"
-}, rt = {
+}, e8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, lt = /* @__PURE__ */ e(
+}, t8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1832,18 +1831,18 @@ var _t = /* @__PURE__ */ s(J8, [["render", tt], ["__file", "d-caret.vue"]]), at 
   null,
   -1
   /* HOISTED */
-), ot = [
-  lt
+), a8 = [
+  t8
 ];
-function nt(t, a, _, r, l, i) {
-  return o(), n("svg", rt, ot);
+function l8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", e8, a8);
 }
-var st = /* @__PURE__ */ s(at, [["render", nt], ["__file", "data-analysis.vue"]]), it = {
+var r8 = /* @__PURE__ */ _(Yt, [["render", l8], ["__file", "data-analysis.vue"]]), _8 = {
   name: "DataBoard"
-}, ut = {
+}, o8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, vt = /* @__PURE__ */ e(
+}, n8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1852,7 +1851,7 @@ var st = /* @__PURE__ */ s(at, [["render", nt], ["__file", "data-analysis.vue"]]
   null,
   -1
   /* HOISTED */
-), dt = /* @__PURE__ */ e(
+), u8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1861,7 +1860,7 @@ var st = /* @__PURE__ */ s(at, [["render", nt], ["__file", "data-analysis.vue"]]
   null,
   -1
   /* HOISTED */
-), ct = /* @__PURE__ */ e(
+), c8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1870,20 +1869,20 @@ var st = /* @__PURE__ */ s(at, [["render", nt], ["__file", "data-analysis.vue"]]
   null,
   -1
   /* HOISTED */
-), ht = [
-  vt,
-  dt,
-  ct
+), s8 = [
+  n8,
+  u8,
+  c8
 ];
-function pt(t, a, _, r, l, i) {
-  return o(), n("svg", ut, ht);
+function d8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", o8, s8);
 }
-var ft = /* @__PURE__ */ s(it, [["render", pt], ["__file", "data-board.vue"]]), wt = {
+var i8 = /* @__PURE__ */ _(_8, [["render", d8], ["__file", "data-board.vue"]]), v8 = {
   name: "DataLine"
-}, mt = {
+}, h8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, gt = /* @__PURE__ */ e(
+}, p8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1892,18 +1891,18 @@ var ft = /* @__PURE__ */ s(it, [["render", pt], ["__file", "data-board.vue"]]), 
   null,
   -1
   /* HOISTED */
-), $t = [
-  gt
+), f8 = [
+  p8
 ];
-function zt(t, a, _, r, l, i) {
-  return o(), n("svg", mt, $t);
+function m8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", h8, f8);
 }
-var xt = /* @__PURE__ */ s(wt, [["render", zt], ["__file", "data-line.vue"]]), Ht = {
+var V8 = /* @__PURE__ */ _(v8, [["render", m8], ["__file", "data-line.vue"]]), w8 = {
   name: "DeleteFilled"
-}, Mt = {
+}, g8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ct = /* @__PURE__ */ e(
+}, $8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1912,18 +1911,18 @@ var xt = /* @__PURE__ */ s(wt, [["render", zt], ["__file", "data-line.vue"]]), H
   null,
   -1
   /* HOISTED */
-), Vt = [
-  Ct
+), z8 = [
+  $8
 ];
-function yt(t, a, _, r, l, i) {
-  return o(), n("svg", Mt, Vt);
+function B8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", g8, z8);
 }
-var Bt = /* @__PURE__ */ s(Ht, [["render", yt], ["__file", "delete-filled.vue"]]), Lt = {
+var x8 = /* @__PURE__ */ _(w8, [["render", B8], ["__file", "delete-filled.vue"]]), k8 = {
   name: "DeleteLocation"
-}, At = {
+}, E8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, bt = /* @__PURE__ */ e(
+}, H8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1932,7 +1931,7 @@ var Bt = /* @__PURE__ */ s(Ht, [["render", yt], ["__file", "delete-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), kt = /* @__PURE__ */ e(
+), M8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1941,7 +1940,7 @@ var Bt = /* @__PURE__ */ s(Ht, [["render", yt], ["__file", "delete-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), St = /* @__PURE__ */ e(
+), C8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1950,20 +1949,20 @@ var Bt = /* @__PURE__ */ s(Ht, [["render", yt], ["__file", "delete-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), qt = [
-  bt,
-  kt,
-  St
+), N8 = [
+  H8,
+  M8,
+  C8
 ];
-function Ft(t, a, _, r, l, i) {
-  return o(), n("svg", At, qt);
+function y8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", E8, N8);
 }
-var Dt = /* @__PURE__ */ s(Lt, [["render", Ft], ["__file", "delete-location.vue"]]), Pt = {
+var L8 = /* @__PURE__ */ _(k8, [["render", y8], ["__file", "delete-location.vue"]]), A8 = {
   name: "Delete"
-}, Rt = {
+}, b8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Tt = /* @__PURE__ */ e(
+}, S8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1972,18 +1971,18 @@ var Dt = /* @__PURE__ */ s(Lt, [["render", Ft], ["__file", "delete-location.vue"
   null,
   -1
   /* HOISTED */
-), Ot = [
-  Tt
+), q8 = [
+  S8
 ];
-function Gt(t, a, _, r, l, i) {
-  return o(), n("svg", Rt, Ot);
+function F8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", b8, q8);
 }
-var Ut = /* @__PURE__ */ s(Pt, [["render", Gt], ["__file", "delete.vue"]]), Wt = {
+var D8 = /* @__PURE__ */ _(A8, [["render", F8], ["__file", "delete.vue"]]), P8 = {
   name: "Dessert"
-}, It = {
+}, R8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Et = /* @__PURE__ */ e(
+}, T8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -1992,18 +1991,18 @@ var Ut = /* @__PURE__ */ s(Pt, [["render", Gt], ["__file", "delete.vue"]]), Wt =
   null,
   -1
   /* HOISTED */
-), Nt = [
-  Et
+), O8 = [
+  T8
 ];
-function Zt(t, a, _, r, l, i) {
-  return o(), n("svg", It, Nt);
+function G8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", R8, O8);
 }
-var Kt = /* @__PURE__ */ s(Wt, [["render", Zt], ["__file", "dessert.vue"]]), Qt = {
+var U8 = /* @__PURE__ */ _(P8, [["render", G8], ["__file", "dessert.vue"]]), W8 = {
   name: "Discount"
-}, jt = {
+}, I8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Jt = /* @__PURE__ */ e(
+}, Z8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2012,7 +2011,7 @@ var Kt = /* @__PURE__ */ s(Wt, [["render", Zt], ["__file", "dessert.vue"]]), Qt 
   null,
   -1
   /* HOISTED */
-), Xt = /* @__PURE__ */ e(
+), K8 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2021,19 +2020,19 @@ var Kt = /* @__PURE__ */ s(Wt, [["render", Zt], ["__file", "dessert.vue"]]), Qt 
   null,
   -1
   /* HOISTED */
-), Yt = [
-  Jt,
-  Xt
+), Q8 = [
+  Z8,
+  K8
 ];
-function e_(t, a, _, r, l, i) {
-  return o(), n("svg", jt, Yt);
+function j8(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", I8, Q8);
 }
-var t_ = /* @__PURE__ */ s(Qt, [["render", e_], ["__file", "discount.vue"]]), __ = {
+var J8 = /* @__PURE__ */ _(W8, [["render", j8], ["__file", "discount.vue"]]), X8 = {
   name: "DishDot"
-}, a_ = {
+}, Y8 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, r_ = /* @__PURE__ */ e(
+}, ea = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2042,18 +2041,18 @@ var t_ = /* @__PURE__ */ s(Qt, [["render", e_], ["__file", "discount.vue"]]), __
   null,
   -1
   /* HOISTED */
-), l_ = [
-  r_
+), ta = [
+  ea
 ];
-function o_(t, a, _, r, l, i) {
-  return o(), n("svg", a_, l_);
+function aa(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Y8, ta);
 }
-var n_ = /* @__PURE__ */ s(__, [["render", o_], ["__file", "dish-dot.vue"]]), s_ = {
+var la = /* @__PURE__ */ _(X8, [["render", aa], ["__file", "dish-dot.vue"]]), ra = {
   name: "Dish"
-}, i_ = {
+}, _a = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, u_ = /* @__PURE__ */ e(
+}, oa = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2062,18 +2061,18 @@ var n_ = /* @__PURE__ */ s(__, [["render", o_], ["__file", "dish-dot.vue"]]), s_
   null,
   -1
   /* HOISTED */
-), v_ = [
-  u_
+), na = [
+  oa
 ];
-function d_(t, a, _, r, l, i) {
-  return o(), n("svg", i_, v_);
+function ua(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", _a, na);
 }
-var c_ = /* @__PURE__ */ s(s_, [["render", d_], ["__file", "dish.vue"]]), h_ = {
+var ca = /* @__PURE__ */ _(ra, [["render", ua], ["__file", "dish.vue"]]), sa = {
   name: "DocumentAdd"
-}, p_ = {
+}, da = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, f_ = /* @__PURE__ */ e(
+}, ia = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2082,18 +2081,18 @@ var c_ = /* @__PURE__ */ s(s_, [["render", d_], ["__file", "dish.vue"]]), h_ = {
   null,
   -1
   /* HOISTED */
-), w_ = [
-  f_
+), va = [
+  ia
 ];
-function m_(t, a, _, r, l, i) {
-  return o(), n("svg", p_, w_);
+function ha(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", da, va);
 }
-var g_ = /* @__PURE__ */ s(h_, [["render", m_], ["__file", "document-add.vue"]]), $_ = {
+var pa = /* @__PURE__ */ _(sa, [["render", ha], ["__file", "document-add.vue"]]), fa = {
   name: "DocumentChecked"
-}, z_ = {
+}, ma = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, x_ = /* @__PURE__ */ e(
+}, Va = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2102,18 +2101,18 @@ var g_ = /* @__PURE__ */ s(h_, [["render", m_], ["__file", "document-add.vue"]])
   null,
   -1
   /* HOISTED */
-), H_ = [
-  x_
+), wa = [
+  Va
 ];
-function M_(t, a, _, r, l, i) {
-  return o(), n("svg", z_, H_);
+function ga(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ma, wa);
 }
-var C_ = /* @__PURE__ */ s($_, [["render", M_], ["__file", "document-checked.vue"]]), V_ = {
+var $a = /* @__PURE__ */ _(fa, [["render", ga], ["__file", "document-checked.vue"]]), za = {
   name: "DocumentCopy"
-}, y_ = {
+}, Ba = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, B_ = /* @__PURE__ */ e(
+}, xa = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2122,18 +2121,18 @@ var C_ = /* @__PURE__ */ s($_, [["render", M_], ["__file", "document-checked.vue
   null,
   -1
   /* HOISTED */
-), L_ = [
-  B_
+), ka = [
+  xa
 ];
-function A_(t, a, _, r, l, i) {
-  return o(), n("svg", y_, L_);
+function Ea(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ba, ka);
 }
-var b_ = /* @__PURE__ */ s(V_, [["render", A_], ["__file", "document-copy.vue"]]), k_ = {
+var Ha = /* @__PURE__ */ _(za, [["render", Ea], ["__file", "document-copy.vue"]]), Ma = {
   name: "DocumentDelete"
-}, S_ = {
+}, Ca = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, q_ = /* @__PURE__ */ e(
+}, Na = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2142,18 +2141,18 @@ var b_ = /* @__PURE__ */ s(V_, [["render", A_], ["__file", "document-copy.vue"]]
   null,
   -1
   /* HOISTED */
-), F_ = [
-  q_
+), ya = [
+  Na
 ];
-function D_(t, a, _, r, l, i) {
-  return o(), n("svg", S_, F_);
+function La(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ca, ya);
 }
-var P_ = /* @__PURE__ */ s(k_, [["render", D_], ["__file", "document-delete.vue"]]), R_ = {
+var Aa = /* @__PURE__ */ _(Ma, [["render", La], ["__file", "document-delete.vue"]]), ba = {
   name: "DocumentRemove"
-}, T_ = {
+}, Sa = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, O_ = /* @__PURE__ */ e(
+}, qa = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2162,18 +2161,18 @@ var P_ = /* @__PURE__ */ s(k_, [["render", D_], ["__file", "document-delete.vue"
   null,
   -1
   /* HOISTED */
-), G_ = [
-  O_
+), Fa = [
+  qa
 ];
-function U_(t, a, _, r, l, i) {
-  return o(), n("svg", T_, G_);
+function Da(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Sa, Fa);
 }
-var W_ = /* @__PURE__ */ s(R_, [["render", U_], ["__file", "document-remove.vue"]]), I_ = {
+var Pa = /* @__PURE__ */ _(ba, [["render", Da], ["__file", "document-remove.vue"]]), Ra = {
   name: "Document"
-}, E_ = {
+}, Ta = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, N_ = /* @__PURE__ */ e(
+}, Oa = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2182,18 +2181,18 @@ var W_ = /* @__PURE__ */ s(R_, [["render", U_], ["__file", "document-remove.vue"
   null,
   -1
   /* HOISTED */
-), Z_ = [
-  N_
+), Ga = [
+  Oa
 ];
-function K_(t, a, _, r, l, i) {
-  return o(), n("svg", E_, Z_);
+function Ua(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ta, Ga);
 }
-var Q_ = /* @__PURE__ */ s(I_, [["render", K_], ["__file", "document.vue"]]), j_ = {
+var Wa = /* @__PURE__ */ _(Ra, [["render", Ua], ["__file", "document.vue"]]), Ia = {
   name: "Download"
-}, J_ = {
+}, Za = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, X_ = /* @__PURE__ */ e(
+}, Ka = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2202,18 +2201,18 @@ var Q_ = /* @__PURE__ */ s(I_, [["render", K_], ["__file", "document.vue"]]), j_
   null,
   -1
   /* HOISTED */
-), Y_ = [
-  X_
+), Qa = [
+  Ka
 ];
-function ea(t, a, _, r, l, i) {
-  return o(), n("svg", J_, Y_);
+function ja(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Za, Qa);
 }
-var ta = /* @__PURE__ */ s(j_, [["render", ea], ["__file", "download.vue"]]), _a = {
+var Ja = /* @__PURE__ */ _(Ia, [["render", ja], ["__file", "download.vue"]]), Xa = {
   name: "Drizzling"
-}, aa = {
+}, Ya = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ra = /* @__PURE__ */ e(
+}, el = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2222,18 +2221,18 @@ var ta = /* @__PURE__ */ s(j_, [["render", ea], ["__file", "download.vue"]]), _a
   null,
   -1
   /* HOISTED */
-), la = [
-  ra
+), tl = [
+  el
 ];
-function oa(t, a, _, r, l, i) {
-  return o(), n("svg", aa, la);
+function al(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ya, tl);
 }
-var na = /* @__PURE__ */ s(_a, [["render", oa], ["__file", "drizzling.vue"]]), sa = {
+var ll = /* @__PURE__ */ _(Xa, [["render", al], ["__file", "drizzling.vue"]]), rl = {
   name: "EditPen"
-}, ia = {
+}, _l = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ua = /* @__PURE__ */ e(
+}, ol = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2242,18 +2241,18 @@ var na = /* @__PURE__ */ s(_a, [["render", oa], ["__file", "drizzling.vue"]]), s
   null,
   -1
   /* HOISTED */
-), va = [
-  ua
+), nl = [
+  ol
 ];
-function da(t, a, _, r, l, i) {
-  return o(), n("svg", ia, va);
+function ul(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", _l, nl);
 }
-var ca = /* @__PURE__ */ s(sa, [["render", da], ["__file", "edit-pen.vue"]]), ha = {
+var cl = /* @__PURE__ */ _(rl, [["render", ul], ["__file", "edit-pen.vue"]]), sl = {
   name: "Edit"
-}, pa = {
+}, dl = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, fa = /* @__PURE__ */ e(
+}, il = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2262,7 +2261,7 @@ var ca = /* @__PURE__ */ s(sa, [["render", da], ["__file", "edit-pen.vue"]]), ha
   null,
   -1
   /* HOISTED */
-), wa = /* @__PURE__ */ e(
+), vl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2271,19 +2270,19 @@ var ca = /* @__PURE__ */ s(sa, [["render", da], ["__file", "edit-pen.vue"]]), ha
   null,
   -1
   /* HOISTED */
-), ma = [
-  fa,
-  wa
+), hl = [
+  il,
+  vl
 ];
-function ga(t, a, _, r, l, i) {
-  return o(), n("svg", pa, ma);
+function pl(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", dl, hl);
 }
-var $a = /* @__PURE__ */ s(ha, [["render", ga], ["__file", "edit.vue"]]), za = {
+var fl = /* @__PURE__ */ _(sl, [["render", pl], ["__file", "edit.vue"]]), ml = {
   name: "ElemeFilled"
-}, xa = {
+}, Vl = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ha = /* @__PURE__ */ e(
+}, wl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2292,18 +2291,18 @@ var $a = /* @__PURE__ */ s(ha, [["render", ga], ["__file", "edit.vue"]]), za = {
   null,
   -1
   /* HOISTED */
-), Ma = [
-  Ha
+), gl = [
+  wl
 ];
-function Ca(t, a, _, r, l, i) {
-  return o(), n("svg", xa, Ma);
+function $l(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Vl, gl);
 }
-var Va = /* @__PURE__ */ s(za, [["render", Ca], ["__file", "eleme-filled.vue"]]), ya = {
+var zl = /* @__PURE__ */ _(ml, [["render", $l], ["__file", "eleme-filled.vue"]]), Bl = {
   name: "Eleme"
-}, Ba = {
+}, xl = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, La = /* @__PURE__ */ e(
+}, kl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2312,18 +2311,18 @@ var Va = /* @__PURE__ */ s(za, [["render", Ca], ["__file", "eleme-filled.vue"]])
   null,
   -1
   /* HOISTED */
-), Aa = [
-  La
+), El = [
+  kl
 ];
-function ba(t, a, _, r, l, i) {
-  return o(), n("svg", Ba, Aa);
+function Hl(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", xl, El);
 }
-var ka = /* @__PURE__ */ s(ya, [["render", ba], ["__file", "eleme.vue"]]), Sa = {
+var Ml = /* @__PURE__ */ _(Bl, [["render", Hl], ["__file", "eleme.vue"]]), Cl = {
   name: "ElementPlus"
-}, qa = {
+}, Nl = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Fa = /* @__PURE__ */ e(
+}, yl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2332,18 +2331,18 @@ var ka = /* @__PURE__ */ s(ya, [["render", ba], ["__file", "eleme.vue"]]), Sa = 
   null,
   -1
   /* HOISTED */
-), Da = [
-  Fa
+), Ll = [
+  yl
 ];
-function Pa(t, a, _, r, l, i) {
-  return o(), n("svg", qa, Da);
+function Al(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Nl, Ll);
 }
-var Ra = /* @__PURE__ */ s(Sa, [["render", Pa], ["__file", "element-plus.vue"]]), Ta = {
+var bl = /* @__PURE__ */ _(Cl, [["render", Al], ["__file", "element-plus.vue"]]), Sl = {
   name: "Expand"
-}, Oa = {
+}, ql = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ga = /* @__PURE__ */ e(
+}, Fl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2352,18 +2351,18 @@ var Ra = /* @__PURE__ */ s(Sa, [["render", Pa], ["__file", "element-plus.vue"]])
   null,
   -1
   /* HOISTED */
-), Ua = [
-  Ga
+), Dl = [
+  Fl
 ];
-function Wa(t, a, _, r, l, i) {
-  return o(), n("svg", Oa, Ua);
+function Pl(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ql, Dl);
 }
-var Ia = /* @__PURE__ */ s(Ta, [["render", Wa], ["__file", "expand.vue"]]), Ea = {
+var Rl = /* @__PURE__ */ _(Sl, [["render", Pl], ["__file", "expand.vue"]]), Tl = {
   name: "Failed"
-}, Na = {
+}, Ol = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Za = /* @__PURE__ */ e(
+}, Gl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2372,18 +2371,18 @@ var Ia = /* @__PURE__ */ s(Ta, [["render", Wa], ["__file", "expand.vue"]]), Ea =
   null,
   -1
   /* HOISTED */
-), Ka = [
-  Za
+), Ul = [
+  Gl
 ];
-function Qa(t, a, _, r, l, i) {
-  return o(), n("svg", Na, Ka);
+function Wl(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ol, Ul);
 }
-var ja = /* @__PURE__ */ s(Ea, [["render", Qa], ["__file", "failed.vue"]]), Ja = {
+var Il = /* @__PURE__ */ _(Tl, [["render", Wl], ["__file", "failed.vue"]]), Zl = {
   name: "Female"
-}, Xa = {
+}, Kl = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ya = /* @__PURE__ */ e(
+}, Ql = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2392,7 +2391,7 @@ var ja = /* @__PURE__ */ s(Ea, [["render", Qa], ["__file", "failed.vue"]]), Ja =
   null,
   -1
   /* HOISTED */
-), er = /* @__PURE__ */ e(
+), jl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2401,7 +2400,7 @@ var ja = /* @__PURE__ */ s(Ea, [["render", Qa], ["__file", "failed.vue"]]), Ja =
   null,
   -1
   /* HOISTED */
-), tr = /* @__PURE__ */ e(
+), Jl = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2410,20 +2409,20 @@ var ja = /* @__PURE__ */ s(Ea, [["render", Qa], ["__file", "failed.vue"]]), Ja =
   null,
   -1
   /* HOISTED */
-), _r = [
-  Ya,
-  er,
-  tr
+), Xl = [
+  Ql,
+  jl,
+  Jl
 ];
-function ar(t, a, _, r, l, i) {
-  return o(), n("svg", Xa, _r);
+function Yl(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Kl, Xl);
 }
-var rr = /* @__PURE__ */ s(Ja, [["render", ar], ["__file", "female.vue"]]), lr = {
+var er = /* @__PURE__ */ _(Zl, [["render", Yl], ["__file", "female.vue"]]), tr = {
   name: "Files"
-}, or = {
+}, ar = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, nr = /* @__PURE__ */ e(
+}, lr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2432,18 +2431,18 @@ var rr = /* @__PURE__ */ s(Ja, [["render", ar], ["__file", "female.vue"]]), lr =
   null,
   -1
   /* HOISTED */
-), sr = [
-  nr
+), rr = [
+  lr
 ];
-function ir(t, a, _, r, l, i) {
-  return o(), n("svg", or, sr);
+function _r(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ar, rr);
 }
-var ur = /* @__PURE__ */ s(lr, [["render", ir], ["__file", "files.vue"]]), vr = {
+var or = /* @__PURE__ */ _(tr, [["render", _r], ["__file", "files.vue"]]), nr = {
   name: "Film"
-}, dr = {
+}, ur = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, cr = /* @__PURE__ */ e(
+}, cr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2452,7 +2451,7 @@ var ur = /* @__PURE__ */ s(lr, [["render", ir], ["__file", "files.vue"]]), vr = 
   null,
   -1
   /* HOISTED */
-), hr = /* @__PURE__ */ e(
+), sr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2461,19 +2460,19 @@ var ur = /* @__PURE__ */ s(lr, [["render", ir], ["__file", "files.vue"]]), vr = 
   null,
   -1
   /* HOISTED */
-), pr = [
+), dr = [
   cr,
-  hr
+  sr
 ];
-function fr(t, a, _, r, l, i) {
-  return o(), n("svg", dr, pr);
+function ir(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ur, dr);
 }
-var wr = /* @__PURE__ */ s(vr, [["render", fr], ["__file", "film.vue"]]), mr = {
+var vr = /* @__PURE__ */ _(nr, [["render", ir], ["__file", "film.vue"]]), hr = {
   name: "Filter"
-}, gr = {
+}, pr = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, $r = /* @__PURE__ */ e(
+}, fr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2482,18 +2481,18 @@ var wr = /* @__PURE__ */ s(vr, [["render", fr], ["__file", "film.vue"]]), mr = {
   null,
   -1
   /* HOISTED */
-), zr = [
-  $r
+), mr = [
+  fr
 ];
-function xr(t, a, _, r, l, i) {
-  return o(), n("svg", gr, zr);
+function Vr(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", pr, mr);
 }
-var Hr = /* @__PURE__ */ s(mr, [["render", xr], ["__file", "filter.vue"]]), Mr = {
+var wr = /* @__PURE__ */ _(hr, [["render", Vr], ["__file", "filter.vue"]]), gr = {
   name: "Finished"
-}, Cr = {
+}, $r = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Vr = /* @__PURE__ */ e(
+}, zr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2502,18 +2501,18 @@ var Hr = /* @__PURE__ */ s(mr, [["render", xr], ["__file", "filter.vue"]]), Mr =
   null,
   -1
   /* HOISTED */
-), yr = [
-  Vr
+), Br = [
+  zr
 ];
-function Br(t, a, _, r, l, i) {
-  return o(), n("svg", Cr, yr);
+function xr(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", $r, Br);
 }
-var Lr = /* @__PURE__ */ s(Mr, [["render", Br], ["__file", "finished.vue"]]), Ar = {
+var kr = /* @__PURE__ */ _(gr, [["render", xr], ["__file", "finished.vue"]]), Er = {
   name: "FirstAidKit"
-}, br = {
+}, Hr = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, kr = /* @__PURE__ */ e(
+}, Mr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2522,7 +2521,7 @@ var Lr = /* @__PURE__ */ s(Mr, [["render", Br], ["__file", "finished.vue"]]), Ar
   null,
   -1
   /* HOISTED */
-), Sr = /* @__PURE__ */ e(
+), Cr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2531,19 +2530,19 @@ var Lr = /* @__PURE__ */ s(Mr, [["render", Br], ["__file", "finished.vue"]]), Ar
   null,
   -1
   /* HOISTED */
-), qr = [
-  kr,
-  Sr
+), Nr = [
+  Mr,
+  Cr
 ];
-function Fr(t, a, _, r, l, i) {
-  return o(), n("svg", br, qr);
+function yr(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Hr, Nr);
 }
-var Dr = /* @__PURE__ */ s(Ar, [["render", Fr], ["__file", "first-aid-kit.vue"]]), Pr = {
+var Lr = /* @__PURE__ */ _(Er, [["render", yr], ["__file", "first-aid-kit.vue"]]), Ar = {
   name: "Flag"
-}, Rr = {
+}, br = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Tr = /* @__PURE__ */ e(
+}, Sr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2552,18 +2551,18 @@ var Dr = /* @__PURE__ */ s(Ar, [["render", Fr], ["__file", "first-aid-kit.vue"]]
   null,
   -1
   /* HOISTED */
-), Or = [
-  Tr
+), qr = [
+  Sr
 ];
-function Gr(t, a, _, r, l, i) {
-  return o(), n("svg", Rr, Or);
+function Fr(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", br, qr);
 }
-var Ur = /* @__PURE__ */ s(Pr, [["render", Gr], ["__file", "flag.vue"]]), Wr = {
+var Dr = /* @__PURE__ */ _(Ar, [["render", Fr], ["__file", "flag.vue"]]), Pr = {
   name: "Fold"
-}, Ir = {
+}, Rr = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Er = /* @__PURE__ */ e(
+}, Tr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2572,18 +2571,18 @@ var Ur = /* @__PURE__ */ s(Pr, [["render", Gr], ["__file", "flag.vue"]]), Wr = {
   null,
   -1
   /* HOISTED */
-), Nr = [
-  Er
+), Or = [
+  Tr
 ];
-function Zr(t, a, _, r, l, i) {
-  return o(), n("svg", Ir, Nr);
+function Gr(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Rr, Or);
 }
-var Kr = /* @__PURE__ */ s(Wr, [["render", Zr], ["__file", "fold.vue"]]), Qr = {
+var Ur = /* @__PURE__ */ _(Pr, [["render", Gr], ["__file", "fold.vue"]]), Wr = {
   name: "FolderAdd"
-}, jr = {
+}, Ir = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Jr = /* @__PURE__ */ e(
+}, Zr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2592,18 +2591,18 @@ var Kr = /* @__PURE__ */ s(Wr, [["render", Zr], ["__file", "fold.vue"]]), Qr = {
   null,
   -1
   /* HOISTED */
-), Xr = [
-  Jr
+), Kr = [
+  Zr
 ];
-function Yr(t, a, _, r, l, i) {
-  return o(), n("svg", jr, Xr);
+function Qr(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ir, Kr);
 }
-var e5 = /* @__PURE__ */ s(Qr, [["render", Yr], ["__file", "folder-add.vue"]]), t5 = {
+var jr = /* @__PURE__ */ _(Wr, [["render", Qr], ["__file", "folder-add.vue"]]), Jr = {
   name: "FolderChecked"
-}, _5 = {
+}, Xr = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, a5 = /* @__PURE__ */ e(
+}, Yr = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2612,18 +2611,18 @@ var e5 = /* @__PURE__ */ s(Qr, [["render", Yr], ["__file", "folder-add.vue"]]), 
   null,
   -1
   /* HOISTED */
-), r5 = [
-  a5
+), e_ = [
+  Yr
 ];
-function l5(t, a, _, r, l, i) {
-  return o(), n("svg", _5, r5);
+function t_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Xr, e_);
 }
-var o5 = /* @__PURE__ */ s(t5, [["render", l5], ["__file", "folder-checked.vue"]]), n5 = {
+var a_ = /* @__PURE__ */ _(Jr, [["render", t_], ["__file", "folder-checked.vue"]]), l_ = {
   name: "FolderDelete"
-}, s5 = {
+}, r_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, i5 = /* @__PURE__ */ e(
+}, __ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2632,18 +2631,18 @@ var o5 = /* @__PURE__ */ s(t5, [["render", l5], ["__file", "folder-checked.vue"]
   null,
   -1
   /* HOISTED */
-), u5 = [
-  i5
+), o_ = [
+  __
 ];
-function v5(t, a, _, r, l, i) {
-  return o(), n("svg", s5, u5);
+function n_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", r_, o_);
 }
-var d5 = /* @__PURE__ */ s(n5, [["render", v5], ["__file", "folder-delete.vue"]]), c5 = {
+var u_ = /* @__PURE__ */ _(l_, [["render", n_], ["__file", "folder-delete.vue"]]), c_ = {
   name: "FolderOpened"
-}, h5 = {
+}, s_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, p5 = /* @__PURE__ */ e(
+}, d_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2652,18 +2651,18 @@ var d5 = /* @__PURE__ */ s(n5, [["render", v5], ["__file", "folder-delete.vue"]]
   null,
   -1
   /* HOISTED */
-), f5 = [
-  p5
+), i_ = [
+  d_
 ];
-function w5(t, a, _, r, l, i) {
-  return o(), n("svg", h5, f5);
+function v_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", s_, i_);
 }
-var m5 = /* @__PURE__ */ s(c5, [["render", w5], ["__file", "folder-opened.vue"]]), g5 = {
+var h_ = /* @__PURE__ */ _(c_, [["render", v_], ["__file", "folder-opened.vue"]]), p_ = {
   name: "FolderRemove"
-}, $5 = {
+}, f_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, z5 = /* @__PURE__ */ e(
+}, m_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2672,18 +2671,18 @@ var m5 = /* @__PURE__ */ s(c5, [["render", w5], ["__file", "folder-opened.vue"]]
   null,
   -1
   /* HOISTED */
-), x5 = [
-  z5
+), V_ = [
+  m_
 ];
-function H5(t, a, _, r, l, i) {
-  return o(), n("svg", $5, x5);
+function w_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", f_, V_);
 }
-var M5 = /* @__PURE__ */ s(g5, [["render", H5], ["__file", "folder-remove.vue"]]), C5 = {
+var g_ = /* @__PURE__ */ _(p_, [["render", w_], ["__file", "folder-remove.vue"]]), $_ = {
   name: "Folder"
-}, V5 = {
+}, z_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, y5 = /* @__PURE__ */ e(
+}, B_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2692,18 +2691,18 @@ var M5 = /* @__PURE__ */ s(g5, [["render", H5], ["__file", "folder-remove.vue"]]
   null,
   -1
   /* HOISTED */
-), B5 = [
-  y5
+), x_ = [
+  B_
 ];
-function L5(t, a, _, r, l, i) {
-  return o(), n("svg", V5, B5);
+function k_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", z_, x_);
 }
-var A5 = /* @__PURE__ */ s(C5, [["render", L5], ["__file", "folder.vue"]]), b5 = {
+var E_ = /* @__PURE__ */ _($_, [["render", k_], ["__file", "folder.vue"]]), H_ = {
   name: "Food"
-}, k5 = {
+}, M_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, S5 = /* @__PURE__ */ e(
+}, C_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2712,18 +2711,18 @@ var A5 = /* @__PURE__ */ s(C5, [["render", L5], ["__file", "folder.vue"]]), b5 =
   null,
   -1
   /* HOISTED */
-), q5 = [
-  S5
+), N_ = [
+  C_
 ];
-function F5(t, a, _, r, l, i) {
-  return o(), n("svg", k5, q5);
+function y_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", M_, N_);
 }
-var D5 = /* @__PURE__ */ s(b5, [["render", F5], ["__file", "food.vue"]]), P5 = {
+var L_ = /* @__PURE__ */ _(H_, [["render", y_], ["__file", "food.vue"]]), A_ = {
   name: "Football"
-}, R5 = {
+}, b_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, T5 = /* @__PURE__ */ e(
+}, S_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2732,7 +2731,7 @@ var D5 = /* @__PURE__ */ s(b5, [["render", F5], ["__file", "food.vue"]]), P5 = {
   null,
   -1
   /* HOISTED */
-), O5 = /* @__PURE__ */ e(
+), q_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2741,19 +2740,19 @@ var D5 = /* @__PURE__ */ s(b5, [["render", F5], ["__file", "food.vue"]]), P5 = {
   null,
   -1
   /* HOISTED */
-), G5 = [
-  T5,
-  O5
+), F_ = [
+  S_,
+  q_
 ];
-function U5(t, a, _, r, l, i) {
-  return o(), n("svg", R5, G5);
+function D_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", b_, F_);
 }
-var W5 = /* @__PURE__ */ s(P5, [["render", U5], ["__file", "football.vue"]]), I5 = {
+var P_ = /* @__PURE__ */ _(A_, [["render", D_], ["__file", "football.vue"]]), R_ = {
   name: "ForkSpoon"
-}, E5 = {
+}, T_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, N5 = /* @__PURE__ */ e(
+}, O_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2762,18 +2761,18 @@ var W5 = /* @__PURE__ */ s(P5, [["render", U5], ["__file", "football.vue"]]), I5
   null,
   -1
   /* HOISTED */
-), Z5 = [
-  N5
+), G_ = [
+  O_
 ];
-function K5(t, a, _, r, l, i) {
-  return o(), n("svg", E5, Z5);
+function U_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", T_, G_);
 }
-var Q5 = /* @__PURE__ */ s(I5, [["render", K5], ["__file", "fork-spoon.vue"]]), j5 = {
+var W_ = /* @__PURE__ */ _(R_, [["render", U_], ["__file", "fork-spoon.vue"]]), I_ = {
   name: "Fries"
-}, J5 = {
+}, Z_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, X5 = /* @__PURE__ */ e(
+}, K_ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2782,18 +2781,18 @@ var Q5 = /* @__PURE__ */ s(I5, [["render", K5], ["__file", "fork-spoon.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Y5 = [
-  X5
+), Q_ = [
+  K_
 ];
-function el(t, a, _, r, l, i) {
-  return o(), n("svg", J5, Y5);
+function j_(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Z_, Q_);
 }
-var tl = /* @__PURE__ */ s(j5, [["render", el], ["__file", "fries.vue"]]), _l = {
+var J_ = /* @__PURE__ */ _(I_, [["render", j_], ["__file", "fries.vue"]]), X_ = {
   name: "FullScreen"
-}, al = {
+}, Y_ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, rl = /* @__PURE__ */ e(
+}, eo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2802,18 +2801,18 @@ var tl = /* @__PURE__ */ s(j5, [["render", el], ["__file", "fries.vue"]]), _l = 
   null,
   -1
   /* HOISTED */
-), ll = [
-  rl
+), to = [
+  eo
 ];
-function ol(t, a, _, r, l, i) {
-  return o(), n("svg", al, ll);
+function ao(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Y_, to);
 }
-var nl = /* @__PURE__ */ s(_l, [["render", ol], ["__file", "full-screen.vue"]]), sl = {
+var lo = /* @__PURE__ */ _(X_, [["render", ao], ["__file", "full-screen.vue"]]), ro = {
   name: "GobletFull"
-}, il = {
+}, _o = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ul = /* @__PURE__ */ e(
+}, oo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2822,18 +2821,18 @@ var nl = /* @__PURE__ */ s(_l, [["render", ol], ["__file", "full-screen.vue"]]),
   null,
   -1
   /* HOISTED */
-), vl = [
-  ul
+), no = [
+  oo
 ];
-function dl(t, a, _, r, l, i) {
-  return o(), n("svg", il, vl);
+function uo(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", _o, no);
 }
-var cl = /* @__PURE__ */ s(sl, [["render", dl], ["__file", "goblet-full.vue"]]), hl = {
+var co = /* @__PURE__ */ _(ro, [["render", uo], ["__file", "goblet-full.vue"]]), so = {
   name: "GobletSquareFull"
-}, pl = {
+}, io = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, fl = /* @__PURE__ */ e(
+}, vo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2842,18 +2841,18 @@ var cl = /* @__PURE__ */ s(sl, [["render", dl], ["__file", "goblet-full.vue"]]),
   null,
   -1
   /* HOISTED */
-), wl = [
-  fl
+), ho = [
+  vo
 ];
-function ml(t, a, _, r, l, i) {
-  return o(), n("svg", pl, wl);
+function po(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", io, ho);
 }
-var gl = /* @__PURE__ */ s(hl, [["render", ml], ["__file", "goblet-square-full.vue"]]), $l = {
+var fo = /* @__PURE__ */ _(so, [["render", po], ["__file", "goblet-square-full.vue"]]), mo = {
   name: "GobletSquare"
-}, zl = {
+}, Vo = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, xl = /* @__PURE__ */ e(
+}, wo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2862,18 +2861,18 @@ var gl = /* @__PURE__ */ s(hl, [["render", ml], ["__file", "goblet-square-full.v
   null,
   -1
   /* HOISTED */
-), Hl = [
-  xl
+), go = [
+  wo
 ];
-function Ml(t, a, _, r, l, i) {
-  return o(), n("svg", zl, Hl);
+function $o(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Vo, go);
 }
-var Cl = /* @__PURE__ */ s($l, [["render", Ml], ["__file", "goblet-square.vue"]]), Vl = {
+var zo = /* @__PURE__ */ _(mo, [["render", $o], ["__file", "goblet-square.vue"]]), Bo = {
   name: "Goblet"
-}, yl = {
+}, xo = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Bl = /* @__PURE__ */ e(
+}, ko = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2882,20 +2881,20 @@ var Cl = /* @__PURE__ */ s($l, [["render", Ml], ["__file", "goblet-square.vue"]]
   null,
   -1
   /* HOISTED */
-), Ll = [
-  Bl
+), Eo = [
+  ko
 ];
-function Al(t, a, _, r, l, i) {
-  return o(), n("svg", yl, Ll);
+function Ho(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", xo, Eo);
 }
-var bl = /* @__PURE__ */ s(Vl, [["render", Al], ["__file", "goblet.vue"]]), kl = {
+var Mo = /* @__PURE__ */ _(Bo, [["render", Ho], ["__file", "goblet.vue"]]), Co = {
   name: "GoldMedal"
-}, Sl = {
+}, No = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, ql = /* @__PURE__ */ e(
+}, yo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2904,7 +2903,7 @@ var bl = /* @__PURE__ */ s(Vl, [["render", Al], ["__file", "goblet.vue"]]), kl =
   null,
   -1
   /* HOISTED */
-), Fl = /* @__PURE__ */ e(
+), Lo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2913,19 +2912,19 @@ var bl = /* @__PURE__ */ s(Vl, [["render", Al], ["__file", "goblet.vue"]]), kl =
   null,
   -1
   /* HOISTED */
-), Dl = [
-  ql,
-  Fl
+), Ao = [
+  yo,
+  Lo
 ];
-function Pl(t, a, _, r, l, i) {
-  return o(), n("svg", Sl, Dl);
+function bo(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", No, Ao);
 }
-var Rl = /* @__PURE__ */ s(kl, [["render", Pl], ["__file", "gold-medal.vue"]]), Tl = {
+var So = /* @__PURE__ */ _(Co, [["render", bo], ["__file", "gold-medal.vue"]]), qo = {
   name: "GoodsFilled"
-}, Ol = {
+}, Fo = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Gl = /* @__PURE__ */ e(
+}, Do = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2934,18 +2933,18 @@ var Rl = /* @__PURE__ */ s(kl, [["render", Pl], ["__file", "gold-medal.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Ul = [
-  Gl
+), Po = [
+  Do
 ];
-function Wl(t, a, _, r, l, i) {
-  return o(), n("svg", Ol, Ul);
+function Ro(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Fo, Po);
 }
-var Il = /* @__PURE__ */ s(Tl, [["render", Wl], ["__file", "goods-filled.vue"]]), El = {
+var To = /* @__PURE__ */ _(qo, [["render", Ro], ["__file", "goods-filled.vue"]]), Oo = {
   name: "Goods"
-}, Nl = {
+}, Go = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Zl = /* @__PURE__ */ e(
+}, Uo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2954,18 +2953,18 @@ var Il = /* @__PURE__ */ s(Tl, [["render", Wl], ["__file", "goods-filled.vue"]])
   null,
   -1
   /* HOISTED */
-), Kl = [
-  Zl
+), Wo = [
+  Uo
 ];
-function Ql(t, a, _, r, l, i) {
-  return o(), n("svg", Nl, Kl);
+function Io(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Go, Wo);
 }
-var jl = /* @__PURE__ */ s(El, [["render", Ql], ["__file", "goods.vue"]]), Jl = {
+var Zo = /* @__PURE__ */ _(Oo, [["render", Io], ["__file", "goods.vue"]]), Ko = {
   name: "Grape"
-}, Xl = {
+}, Qo = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Yl = /* @__PURE__ */ e(
+}, jo = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2974,18 +2973,18 @@ var jl = /* @__PURE__ */ s(El, [["render", Ql], ["__file", "goods.vue"]]), Jl = 
   null,
   -1
   /* HOISTED */
-), eo = [
-  Yl
+), Jo = [
+  jo
 ];
-function to(t, a, _, r, l, i) {
-  return o(), n("svg", Xl, eo);
+function Xo(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Qo, Jo);
 }
-var _o = /* @__PURE__ */ s(Jl, [["render", to], ["__file", "grape.vue"]]), ao = {
+var Yo = /* @__PURE__ */ _(Ko, [["render", Xo], ["__file", "grape.vue"]]), en = {
   name: "Grid"
-}, ro = {
+}, tn = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, lo = /* @__PURE__ */ e(
+}, an = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -2994,18 +2993,18 @@ var _o = /* @__PURE__ */ s(Jl, [["render", to], ["__file", "grape.vue"]]), ao = 
   null,
   -1
   /* HOISTED */
-), oo = [
-  lo
+), ln = [
+  an
 ];
-function no(t, a, _, r, l, i) {
-  return o(), n("svg", ro, oo);
+function rn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", tn, ln);
 }
-var so = /* @__PURE__ */ s(ao, [["render", no], ["__file", "grid.vue"]]), io = {
+var _n = /* @__PURE__ */ _(en, [["render", rn], ["__file", "grid.vue"]]), on = {
   name: "Guide"
-}, uo = {
+}, nn = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, vo = /* @__PURE__ */ e(
+}, un = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3014,7 +3013,7 @@ var so = /* @__PURE__ */ s(ao, [["render", no], ["__file", "grid.vue"]]), io = {
   null,
   -1
   /* HOISTED */
-), co = /* @__PURE__ */ e(
+), cn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3023,21 +3022,21 @@ var so = /* @__PURE__ */ s(ao, [["render", no], ["__file", "grid.vue"]]), io = {
   null,
   -1
   /* HOISTED */
-), ho = [
-  vo,
-  co
+), sn = [
+  un,
+  cn
 ];
-function po(t, a, _, r, l, i) {
-  return o(), n("svg", uo, ho);
+function dn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", nn, sn);
 }
-var fo = /* @__PURE__ */ s(io, [["render", po], ["__file", "guide.vue"]]), wo = {
+var vn = /* @__PURE__ */ _(on, [["render", dn], ["__file", "guide.vue"]]), hn = {
   name: "Handbag"
-}, mo = {
+}, pn = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, go = /* @__PURE__ */ e(
+}, fn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3046,18 +3045,18 @@ var fo = /* @__PURE__ */ s(io, [["render", po], ["__file", "guide.vue"]]), wo = 
   null,
   -1
   /* HOISTED */
-), $o = [
-  go
+), mn = [
+  fn
 ];
-function zo(t, a, _, r, l, i) {
-  return o(), n("svg", mo, $o);
+function Vn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", pn, mn);
 }
-var xo = /* @__PURE__ */ s(wo, [["render", zo], ["__file", "handbag.vue"]]), Ho = {
+var wn = /* @__PURE__ */ _(hn, [["render", Vn], ["__file", "handbag.vue"]]), gn = {
   name: "Headset"
-}, Mo = {
+}, $n = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Co = /* @__PURE__ */ e(
+}, zn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3066,18 +3065,18 @@ var xo = /* @__PURE__ */ s(wo, [["render", zo], ["__file", "handbag.vue"]]), Ho 
   null,
   -1
   /* HOISTED */
-), Vo = [
-  Co
+), Bn = [
+  zn
 ];
-function yo(t, a, _, r, l, i) {
-  return o(), n("svg", Mo, Vo);
+function xn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", $n, Bn);
 }
-var Bo = /* @__PURE__ */ s(Ho, [["render", yo], ["__file", "headset.vue"]]), Lo = {
+var kn = /* @__PURE__ */ _(gn, [["render", xn], ["__file", "headset.vue"]]), En = {
   name: "HelpFilled"
-}, Ao = {
+}, Hn = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, bo = /* @__PURE__ */ e(
+}, Mn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3086,18 +3085,18 @@ var Bo = /* @__PURE__ */ s(Ho, [["render", yo], ["__file", "headset.vue"]]), Lo 
   null,
   -1
   /* HOISTED */
-), ko = [
-  bo
+), Cn = [
+  Mn
 ];
-function So(t, a, _, r, l, i) {
-  return o(), n("svg", Ao, ko);
+function Nn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Hn, Cn);
 }
-var qo = /* @__PURE__ */ s(Lo, [["render", So], ["__file", "help-filled.vue"]]), Fo = {
+var yn = /* @__PURE__ */ _(En, [["render", Nn], ["__file", "help-filled.vue"]]), Ln = {
   name: "Help"
-}, Do = {
+}, An = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Po = /* @__PURE__ */ e(
+}, bn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3106,18 +3105,18 @@ var qo = /* @__PURE__ */ s(Lo, [["render", So], ["__file", "help-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), Ro = [
-  Po
+), Sn = [
+  bn
 ];
-function To(t, a, _, r, l, i) {
-  return o(), n("svg", Do, Ro);
+function qn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", An, Sn);
 }
-var Oo = /* @__PURE__ */ s(Fo, [["render", To], ["__file", "help.vue"]]), Go = {
+var Fn = /* @__PURE__ */ _(Ln, [["render", qn], ["__file", "help.vue"]]), Dn = {
   name: "Hide"
-}, Uo = {
+}, Pn = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Wo = /* @__PURE__ */ e(
+}, Rn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3126,7 +3125,7 @@ var Oo = /* @__PURE__ */ s(Fo, [["render", To], ["__file", "help.vue"]]), Go = {
   null,
   -1
   /* HOISTED */
-), Io = /* @__PURE__ */ e(
+), Tn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3135,19 +3134,19 @@ var Oo = /* @__PURE__ */ s(Fo, [["render", To], ["__file", "help.vue"]]), Go = {
   null,
   -1
   /* HOISTED */
-), Eo = [
-  Wo,
-  Io
+), On = [
+  Rn,
+  Tn
 ];
-function No(t, a, _, r, l, i) {
-  return o(), n("svg", Uo, Eo);
+function Gn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Pn, On);
 }
-var Zo = /* @__PURE__ */ s(Go, [["render", No], ["__file", "hide.vue"]]), Ko = {
+var Un = /* @__PURE__ */ _(Dn, [["render", Gn], ["__file", "hide.vue"]]), Wn = {
   name: "Histogram"
-}, Qo = {
+}, In = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, jo = /* @__PURE__ */ e(
+}, Zn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3156,18 +3155,18 @@ var Zo = /* @__PURE__ */ s(Go, [["render", No], ["__file", "hide.vue"]]), Ko = {
   null,
   -1
   /* HOISTED */
-), Jo = [
-  jo
+), Kn = [
+  Zn
 ];
-function Xo(t, a, _, r, l, i) {
-  return o(), n("svg", Qo, Jo);
+function Qn(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", In, Kn);
 }
-var Yo = /* @__PURE__ */ s(Ko, [["render", Xo], ["__file", "histogram.vue"]]), e9 = {
+var jn = /* @__PURE__ */ _(Wn, [["render", Qn], ["__file", "histogram.vue"]]), Jn = {
   name: "HomeFilled"
-}, t9 = {
+}, Xn = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, _9 = /* @__PURE__ */ e(
+}, Yn = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3176,18 +3175,18 @@ var Yo = /* @__PURE__ */ s(Ko, [["render", Xo], ["__file", "histogram.vue"]]), e
   null,
   -1
   /* HOISTED */
-), a9 = [
-  _9
+), e5 = [
+  Yn
 ];
-function r9(t, a, _, r, l, i) {
-  return o(), n("svg", t9, a9);
+function t5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Xn, e5);
 }
-var l9 = /* @__PURE__ */ s(e9, [["render", r9], ["__file", "home-filled.vue"]]), o9 = {
+var a5 = /* @__PURE__ */ _(Jn, [["render", t5], ["__file", "home-filled.vue"]]), l5 = {
   name: "HotWater"
-}, n9 = {
+}, r5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, s9 = /* @__PURE__ */ e(
+}, _5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3196,18 +3195,18 @@ var l9 = /* @__PURE__ */ s(e9, [["render", r9], ["__file", "home-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), i9 = [
-  s9
+), o5 = [
+  _5
 ];
-function u9(t, a, _, r, l, i) {
-  return o(), n("svg", n9, i9);
+function n5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", r5, o5);
 }
-var v9 = /* @__PURE__ */ s(o9, [["render", u9], ["__file", "hot-water.vue"]]), d9 = {
+var u5 = /* @__PURE__ */ _(l5, [["render", n5], ["__file", "hot-water.vue"]]), c5 = {
   name: "House"
-}, c9 = {
+}, s5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, h9 = /* @__PURE__ */ e(
+}, d5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3216,18 +3215,18 @@ var v9 = /* @__PURE__ */ s(o9, [["render", u9], ["__file", "hot-water.vue"]]), d
   null,
   -1
   /* HOISTED */
-), p9 = [
-  h9
+), i5 = [
+  d5
 ];
-function f9(t, a, _, r, l, i) {
-  return o(), n("svg", c9, p9);
+function v5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", s5, i5);
 }
-var w9 = /* @__PURE__ */ s(d9, [["render", f9], ["__file", "house.vue"]]), m9 = {
+var h5 = /* @__PURE__ */ _(c5, [["render", v5], ["__file", "house.vue"]]), p5 = {
   name: "IceCreamRound"
-}, g9 = {
+}, f5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, $9 = /* @__PURE__ */ e(
+}, m5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3236,18 +3235,18 @@ var w9 = /* @__PURE__ */ s(d9, [["render", f9], ["__file", "house.vue"]]), m9 = 
   null,
   -1
   /* HOISTED */
-), z9 = [
-  $9
+), V5 = [
+  m5
 ];
-function x9(t, a, _, r, l, i) {
-  return o(), n("svg", g9, z9);
+function w5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", f5, V5);
 }
-var H9 = /* @__PURE__ */ s(m9, [["render", x9], ["__file", "ice-cream-round.vue"]]), M9 = {
+var g5 = /* @__PURE__ */ _(p5, [["render", w5], ["__file", "ice-cream-round.vue"]]), $5 = {
   name: "IceCreamSquare"
-}, C9 = {
+}, z5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, V9 = /* @__PURE__ */ e(
+}, B5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3256,18 +3255,18 @@ var H9 = /* @__PURE__ */ s(m9, [["render", x9], ["__file", "ice-cream-round.vue"
   null,
   -1
   /* HOISTED */
-), y9 = [
-  V9
+), x5 = [
+  B5
 ];
-function B9(t, a, _, r, l, i) {
-  return o(), n("svg", C9, y9);
+function k5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", z5, x5);
 }
-var L9 = /* @__PURE__ */ s(M9, [["render", B9], ["__file", "ice-cream-square.vue"]]), A9 = {
+var E5 = /* @__PURE__ */ _($5, [["render", k5], ["__file", "ice-cream-square.vue"]]), H5 = {
   name: "IceCream"
-}, b9 = {
+}, M5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, k9 = /* @__PURE__ */ e(
+}, C5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3276,18 +3275,18 @@ var L9 = /* @__PURE__ */ s(M9, [["render", B9], ["__file", "ice-cream-square.vue
   null,
   -1
   /* HOISTED */
-), S9 = [
-  k9
+), N5 = [
+  C5
 ];
-function q9(t, a, _, r, l, i) {
-  return o(), n("svg", b9, S9);
+function y5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", M5, N5);
 }
-var F9 = /* @__PURE__ */ s(A9, [["render", q9], ["__file", "ice-cream.vue"]]), D9 = {
+var L5 = /* @__PURE__ */ _(H5, [["render", y5], ["__file", "ice-cream.vue"]]), A5 = {
   name: "IceDrink"
-}, P9 = {
+}, b5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, R9 = /* @__PURE__ */ e(
+}, S5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3296,18 +3295,18 @@ var F9 = /* @__PURE__ */ s(A9, [["render", q9], ["__file", "ice-cream.vue"]]), D
   null,
   -1
   /* HOISTED */
-), T9 = [
-  R9
+), q5 = [
+  S5
 ];
-function O9(t, a, _, r, l, i) {
-  return o(), n("svg", P9, T9);
+function F5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", b5, q5);
 }
-var G9 = /* @__PURE__ */ s(D9, [["render", O9], ["__file", "ice-drink.vue"]]), U9 = {
+var D5 = /* @__PURE__ */ _(A5, [["render", F5], ["__file", "ice-drink.vue"]]), P5 = {
   name: "IceTea"
-}, W9 = {
+}, R5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, I9 = /* @__PURE__ */ e(
+}, T5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3316,18 +3315,18 @@ var G9 = /* @__PURE__ */ s(D9, [["render", O9], ["__file", "ice-drink.vue"]]), U
   null,
   -1
   /* HOISTED */
-), E9 = [
-  I9
+), O5 = [
+  T5
 ];
-function N9(t, a, _, r, l, i) {
-  return o(), n("svg", W9, E9);
+function G5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", R5, O5);
 }
-var Z9 = /* @__PURE__ */ s(U9, [["render", N9], ["__file", "ice-tea.vue"]]), K9 = {
+var U5 = /* @__PURE__ */ _(P5, [["render", G5], ["__file", "ice-tea.vue"]]), W5 = {
   name: "InfoFilled"
-}, Q9 = {
+}, I5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, j9 = /* @__PURE__ */ e(
+}, Z5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3336,18 +3335,18 @@ var Z9 = /* @__PURE__ */ s(U9, [["render", N9], ["__file", "ice-tea.vue"]]), K9 
   null,
   -1
   /* HOISTED */
-), J9 = [
-  j9
+), K5 = [
+  Z5
 ];
-function X9(t, a, _, r, l, i) {
-  return o(), n("svg", Q9, J9);
+function Q5(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", I5, K5);
 }
-var Y9 = /* @__PURE__ */ s(K9, [["render", X9], ["__file", "info-filled.vue"]]), en = {
+var j5 = /* @__PURE__ */ _(W5, [["render", Q5], ["__file", "info-filled.vue"]]), J5 = {
   name: "Iphone"
-}, tn = {
+}, X5 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, _n = /* @__PURE__ */ e(
+}, Y5 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3356,18 +3355,18 @@ var Y9 = /* @__PURE__ */ s(K9, [["render", X9], ["__file", "info-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), an = [
-  _n
+), e9 = [
+  Y5
 ];
-function rn(t, a, _, r, l, i) {
-  return o(), n("svg", tn, an);
+function t9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", X5, e9);
 }
-var ln = /* @__PURE__ */ s(en, [["render", rn], ["__file", "iphone.vue"]]), on = {
+var a9 = /* @__PURE__ */ _(J5, [["render", t9], ["__file", "iphone.vue"]]), l9 = {
   name: "Key"
-}, nn = {
+}, r9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, sn = /* @__PURE__ */ e(
+}, _9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3376,18 +3375,18 @@ var ln = /* @__PURE__ */ s(en, [["render", rn], ["__file", "iphone.vue"]]), on =
   null,
   -1
   /* HOISTED */
-), un = [
-  sn
+), o9 = [
+  _9
 ];
-function vn(t, a, _, r, l, i) {
-  return o(), n("svg", nn, un);
+function n9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", r9, o9);
 }
-var dn = /* @__PURE__ */ s(on, [["render", vn], ["__file", "key.vue"]]), cn = {
+var u9 = /* @__PURE__ */ _(l9, [["render", n9], ["__file", "key.vue"]]), c9 = {
   name: "KnifeFork"
-}, hn = {
+}, s9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, pn = /* @__PURE__ */ e(
+}, d9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3396,18 +3395,18 @@ var dn = /* @__PURE__ */ s(on, [["render", vn], ["__file", "key.vue"]]), cn = {
   null,
   -1
   /* HOISTED */
-), fn = [
-  pn
+), i9 = [
+  d9
 ];
-function wn(t, a, _, r, l, i) {
-  return o(), n("svg", hn, fn);
+function v9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", s9, i9);
 }
-var mn = /* @__PURE__ */ s(cn, [["render", wn], ["__file", "knife-fork.vue"]]), gn = {
+var h9 = /* @__PURE__ */ _(c9, [["render", v9], ["__file", "knife-fork.vue"]]), p9 = {
   name: "Lightning"
-}, $n = {
+}, f9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, zn = /* @__PURE__ */ e(
+}, m9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3416,7 +3415,7 @@ var mn = /* @__PURE__ */ s(cn, [["render", wn], ["__file", "knife-fork.vue"]]), 
   null,
   -1
   /* HOISTED */
-), xn = /* @__PURE__ */ e(
+), V9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3425,19 +3424,19 @@ var mn = /* @__PURE__ */ s(cn, [["render", wn], ["__file", "knife-fork.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Hn = [
-  zn,
-  xn
+), w9 = [
+  m9,
+  V9
 ];
-function Mn(t, a, _, r, l, i) {
-  return o(), n("svg", $n, Hn);
+function g9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", f9, w9);
 }
-var Cn = /* @__PURE__ */ s(gn, [["render", Mn], ["__file", "lightning.vue"]]), Vn = {
+var $9 = /* @__PURE__ */ _(p9, [["render", g9], ["__file", "lightning.vue"]]), z9 = {
   name: "Link"
-}, yn = {
+}, B9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Bn = /* @__PURE__ */ e(
+}, x9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3446,18 +3445,18 @@ var Cn = /* @__PURE__ */ s(gn, [["render", Mn], ["__file", "lightning.vue"]]), V
   null,
   -1
   /* HOISTED */
-), Ln = [
-  Bn
+), k9 = [
+  x9
 ];
-function An(t, a, _, r, l, i) {
-  return o(), n("svg", yn, Ln);
+function E9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", B9, k9);
 }
-var bn = /* @__PURE__ */ s(Vn, [["render", An], ["__file", "link.vue"]]), kn = {
+var H9 = /* @__PURE__ */ _(z9, [["render", E9], ["__file", "link.vue"]]), M9 = {
   name: "List"
-}, Sn = {
+}, C9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, qn = /* @__PURE__ */ e(
+}, N9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3466,18 +3465,18 @@ var bn = /* @__PURE__ */ s(Vn, [["render", An], ["__file", "link.vue"]]), kn = {
   null,
   -1
   /* HOISTED */
-), Fn = [
-  qn
+), y9 = [
+  N9
 ];
-function Dn(t, a, _, r, l, i) {
-  return o(), n("svg", Sn, Fn);
+function L9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", C9, y9);
 }
-var Pn = /* @__PURE__ */ s(kn, [["render", Dn], ["__file", "list.vue"]]), Rn = {
+var A9 = /* @__PURE__ */ _(M9, [["render", L9], ["__file", "list.vue"]]), b9 = {
   name: "Loading"
-}, Tn = {
+}, S9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, On = /* @__PURE__ */ e(
+}, q9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3486,18 +3485,18 @@ var Pn = /* @__PURE__ */ s(kn, [["render", Dn], ["__file", "list.vue"]]), Rn = {
   null,
   -1
   /* HOISTED */
-), Gn = [
-  On
+), F9 = [
+  q9
 ];
-function Un(t, a, _, r, l, i) {
-  return o(), n("svg", Tn, Gn);
+function D9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", S9, F9);
 }
-var Wn = /* @__PURE__ */ s(Rn, [["render", Un], ["__file", "loading.vue"]]), In = {
+var P9 = /* @__PURE__ */ _(b9, [["render", D9], ["__file", "loading.vue"]]), R9 = {
   name: "LocationFilled"
-}, En = {
+}, T9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Nn = /* @__PURE__ */ e(
+}, O9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3506,18 +3505,18 @@ var Wn = /* @__PURE__ */ s(Rn, [["render", Un], ["__file", "loading.vue"]]), In 
   null,
   -1
   /* HOISTED */
-), Zn = [
-  Nn
+), G9 = [
+  O9
 ];
-function Kn(t, a, _, r, l, i) {
-  return o(), n("svg", En, Zn);
+function U9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", T9, G9);
 }
-var Qn = /* @__PURE__ */ s(In, [["render", Kn], ["__file", "location-filled.vue"]]), jn = {
+var W9 = /* @__PURE__ */ _(R9, [["render", U9], ["__file", "location-filled.vue"]]), I9 = {
   name: "LocationInformation"
-}, Jn = {
+}, Z9 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Xn = /* @__PURE__ */ e(
+}, K9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3526,7 +3525,7 @@ var Qn = /* @__PURE__ */ s(In, [["render", Kn], ["__file", "location-filled.vue"
   null,
   -1
   /* HOISTED */
-), Yn = /* @__PURE__ */ e(
+), Q9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3535,7 +3534,7 @@ var Qn = /* @__PURE__ */ s(In, [["render", Kn], ["__file", "location-filled.vue"
   null,
   -1
   /* HOISTED */
-), es = /* @__PURE__ */ e(
+), j9 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3544,20 +3543,20 @@ var Qn = /* @__PURE__ */ s(In, [["render", Kn], ["__file", "location-filled.vue"
   null,
   -1
   /* HOISTED */
-), ts = [
-  Xn,
-  Yn,
-  es
+), J9 = [
+  K9,
+  Q9,
+  j9
 ];
-function _s(t, a, _, r, l, i) {
-  return o(), n("svg", Jn, ts);
+function X9(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Z9, J9);
 }
-var as = /* @__PURE__ */ s(jn, [["render", _s], ["__file", "location-information.vue"]]), rs = {
+var Y9 = /* @__PURE__ */ _(I9, [["render", X9], ["__file", "location-information.vue"]]), eu = {
   name: "Location"
-}, ls = {
+}, tu = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, os = /* @__PURE__ */ e(
+}, au = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3566,7 +3565,7 @@ var as = /* @__PURE__ */ s(jn, [["render", _s], ["__file", "location-information
   null,
   -1
   /* HOISTED */
-), ns = /* @__PURE__ */ e(
+), lu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3575,19 +3574,19 @@ var as = /* @__PURE__ */ s(jn, [["render", _s], ["__file", "location-information
   null,
   -1
   /* HOISTED */
-), ss = [
-  os,
-  ns
+), ru = [
+  au,
+  lu
 ];
-function is(t, a, _, r, l, i) {
-  return o(), n("svg", ls, ss);
+function _u(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", tu, ru);
 }
-var us = /* @__PURE__ */ s(rs, [["render", is], ["__file", "location.vue"]]), vs = {
+var ou = /* @__PURE__ */ _(eu, [["render", _u], ["__file", "location.vue"]]), nu = {
   name: "Lock"
-}, ds = {
+}, uu = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, cs = /* @__PURE__ */ e(
+}, cu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3596,7 +3595,7 @@ var us = /* @__PURE__ */ s(rs, [["render", is], ["__file", "location.vue"]]), vs
   null,
   -1
   /* HOISTED */
-), hs = /* @__PURE__ */ e(
+), su = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3605,19 +3604,19 @@ var us = /* @__PURE__ */ s(rs, [["render", is], ["__file", "location.vue"]]), vs
   null,
   -1
   /* HOISTED */
-), ps = [
-  cs,
-  hs
+), du = [
+  cu,
+  su
 ];
-function fs(t, a, _, r, l, i) {
-  return o(), n("svg", ds, ps);
+function iu(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", uu, du);
 }
-var ws = /* @__PURE__ */ s(vs, [["render", fs], ["__file", "lock.vue"]]), ms = {
+var vu = /* @__PURE__ */ _(nu, [["render", iu], ["__file", "lock.vue"]]), hu = {
   name: "Lollipop"
-}, gs = {
+}, pu = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, $s = /* @__PURE__ */ e(
+}, fu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3626,18 +3625,18 @@ var ws = /* @__PURE__ */ s(vs, [["render", fs], ["__file", "lock.vue"]]), ms = {
   null,
   -1
   /* HOISTED */
-), zs = [
-  $s
+), mu = [
+  fu
 ];
-function xs(t, a, _, r, l, i) {
-  return o(), n("svg", gs, zs);
+function Vu(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", pu, mu);
 }
-var Hs = /* @__PURE__ */ s(ms, [["render", xs], ["__file", "lollipop.vue"]]), Ms = {
+var wu = /* @__PURE__ */ _(hu, [["render", Vu], ["__file", "lollipop.vue"]]), gu = {
   name: "MagicStick"
-}, Cs = {
+}, $u = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Vs = /* @__PURE__ */ e(
+}, zu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3646,18 +3645,18 @@ var Hs = /* @__PURE__ */ s(ms, [["render", xs], ["__file", "lollipop.vue"]]), Ms
   null,
   -1
   /* HOISTED */
-), ys = [
-  Vs
+), Bu = [
+  zu
 ];
-function Bs(t, a, _, r, l, i) {
-  return o(), n("svg", Cs, ys);
+function xu(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", $u, Bu);
 }
-var Ls = /* @__PURE__ */ s(Ms, [["render", Bs], ["__file", "magic-stick.vue"]]), As = {
+var ku = /* @__PURE__ */ _(gu, [["render", xu], ["__file", "magic-stick.vue"]]), Eu = {
   name: "Magnet"
-}, bs = {
+}, Hu = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ks = /* @__PURE__ */ e(
+}, Mu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3666,18 +3665,18 @@ var Ls = /* @__PURE__ */ s(Ms, [["render", Bs], ["__file", "magic-stick.vue"]]),
   null,
   -1
   /* HOISTED */
-), Ss = [
-  ks
+), Cu = [
+  Mu
 ];
-function qs(t, a, _, r, l, i) {
-  return o(), n("svg", bs, Ss);
+function Nu(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Hu, Cu);
 }
-var Fs = /* @__PURE__ */ s(As, [["render", qs], ["__file", "magnet.vue"]]), Ds = {
+var yu = /* @__PURE__ */ _(Eu, [["render", Nu], ["__file", "magnet.vue"]]), Lu = {
   name: "Male"
-}, Ps = {
+}, Au = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Rs = /* @__PURE__ */ e(
+}, bu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3686,7 +3685,7 @@ var Fs = /* @__PURE__ */ s(As, [["render", qs], ["__file", "magnet.vue"]]), Ds =
   null,
   -1
   /* HOISTED */
-), Ts = /* @__PURE__ */ e(
+), Su = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3695,7 +3694,7 @@ var Fs = /* @__PURE__ */ s(As, [["render", qs], ["__file", "magnet.vue"]]), Ds =
   null,
   -1
   /* HOISTED */
-), Os = /* @__PURE__ */ e(
+), qu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3704,20 +3703,20 @@ var Fs = /* @__PURE__ */ s(As, [["render", qs], ["__file", "magnet.vue"]]), Ds =
   null,
   -1
   /* HOISTED */
-), Gs = [
-  Rs,
-  Ts,
-  Os
+), Fu = [
+  bu,
+  Su,
+  qu
 ];
-function Us(t, a, _, r, l, i) {
-  return o(), n("svg", Ps, Gs);
+function Du(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Au, Fu);
 }
-var Ws = /* @__PURE__ */ s(Ds, [["render", Us], ["__file", "male.vue"]]), Is = {
+var Pu = /* @__PURE__ */ _(Lu, [["render", Du], ["__file", "male.vue"]]), Ru = {
   name: "Management"
-}, Es = {
+}, Tu = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ns = /* @__PURE__ */ e(
+}, Ou = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3726,18 +3725,18 @@ var Ws = /* @__PURE__ */ s(Ds, [["render", Us], ["__file", "male.vue"]]), Is = {
   null,
   -1
   /* HOISTED */
-), Zs = [
-  Ns
+), Gu = [
+  Ou
 ];
-function Ks(t, a, _, r, l, i) {
-  return o(), n("svg", Es, Zs);
+function Uu(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Tu, Gu);
 }
-var Qs = /* @__PURE__ */ s(Is, [["render", Ks], ["__file", "management.vue"]]), js = {
+var Wu = /* @__PURE__ */ _(Ru, [["render", Uu], ["__file", "management.vue"]]), Iu = {
   name: "MapLocation"
-}, Js = {
+}, Zu = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Xs = /* @__PURE__ */ e(
+}, Ku = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3746,7 +3745,7 @@ var Qs = /* @__PURE__ */ s(Is, [["render", Ks], ["__file", "management.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Ys = /* @__PURE__ */ e(
+), Qu = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3755,19 +3754,19 @@ var Qs = /* @__PURE__ */ s(Is, [["render", Ks], ["__file", "management.vue"]]), 
   null,
   -1
   /* HOISTED */
-), ei = [
-  Xs,
-  Ys
+), ju = [
+  Ku,
+  Qu
 ];
-function ti(t, a, _, r, l, i) {
-  return o(), n("svg", Js, ei);
+function Ju(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Zu, ju);
 }
-var _i = /* @__PURE__ */ s(js, [["render", ti], ["__file", "map-location.vue"]]), ai = {
+var Xu = /* @__PURE__ */ _(Iu, [["render", Ju], ["__file", "map-location.vue"]]), Yu = {
   name: "Medal"
-}, ri = {
+}, ec = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, li = /* @__PURE__ */ e(
+}, tc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3776,7 +3775,7 @@ var _i = /* @__PURE__ */ s(js, [["render", ti], ["__file", "map-location.vue"]])
   null,
   -1
   /* HOISTED */
-), oi = /* @__PURE__ */ e(
+), ac = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3785,21 +3784,21 @@ var _i = /* @__PURE__ */ s(js, [["render", ti], ["__file", "map-location.vue"]])
   null,
   -1
   /* HOISTED */
-), ni = [
-  li,
-  oi
+), lc = [
+  tc,
+  ac
 ];
-function si(t, a, _, r, l, i) {
-  return o(), n("svg", ri, ni);
+function rc(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ec, lc);
 }
-var ii = /* @__PURE__ */ s(ai, [["render", si], ["__file", "medal.vue"]]), ui = {
+var _c = /* @__PURE__ */ _(Yu, [["render", rc], ["__file", "medal.vue"]]), oc = {
   name: "Memo"
-}, vi = {
+}, nc = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, di = /* @__PURE__ */ e(
+}, uc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3808,7 +3807,7 @@ var ii = /* @__PURE__ */ s(ai, [["render", si], ["__file", "medal.vue"]]), ui = 
   null,
   -1
   /* HOISTED */
-), ci = /* @__PURE__ */ e(
+), cc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3817,7 +3816,7 @@ var ii = /* @__PURE__ */ s(ai, [["render", si], ["__file", "medal.vue"]]), ui = 
   null,
   -1
   /* HOISTED */
-), hi = /* @__PURE__ */ e(
+), sc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3826,20 +3825,20 @@ var ii = /* @__PURE__ */ s(ai, [["render", si], ["__file", "medal.vue"]]), ui = 
   null,
   -1
   /* HOISTED */
-), pi = [
-  di,
-  ci,
-  hi
+), dc = [
+  uc,
+  cc,
+  sc
 ];
-function fi(t, a, _, r, l, i) {
-  return o(), n("svg", vi, pi);
+function ic(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", nc, dc);
 }
-var wi = /* @__PURE__ */ s(ui, [["render", fi], ["__file", "memo.vue"]]), mi = {
+var vc = /* @__PURE__ */ _(oc, [["render", ic], ["__file", "memo.vue"]]), hc = {
   name: "Menu"
-}, gi = {
+}, pc = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, $i = /* @__PURE__ */ e(
+}, fc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3848,18 +3847,18 @@ var wi = /* @__PURE__ */ s(ui, [["render", fi], ["__file", "memo.vue"]]), mi = {
   null,
   -1
   /* HOISTED */
-), zi = [
-  $i
+), mc = [
+  fc
 ];
-function xi(t, a, _, r, l, i) {
-  return o(), n("svg", gi, zi);
+function Vc(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", pc, mc);
 }
-var Hi = /* @__PURE__ */ s(mi, [["render", xi], ["__file", "menu.vue"]]), Mi = {
+var wc = /* @__PURE__ */ _(hc, [["render", Vc], ["__file", "menu.vue"]]), gc = {
   name: "MessageBox"
-}, Ci = {
+}, $c = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Vi = /* @__PURE__ */ e(
+}, zc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3868,18 +3867,18 @@ var Hi = /* @__PURE__ */ s(mi, [["render", xi], ["__file", "menu.vue"]]), Mi = {
   null,
   -1
   /* HOISTED */
-), yi = [
-  Vi
+), Bc = [
+  zc
 ];
-function Bi(t, a, _, r, l, i) {
-  return o(), n("svg", Ci, yi);
+function xc(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", $c, Bc);
 }
-var Li = /* @__PURE__ */ s(Mi, [["render", Bi], ["__file", "message-box.vue"]]), Ai = {
+var kc = /* @__PURE__ */ _(gc, [["render", xc], ["__file", "message-box.vue"]]), Ec = {
   name: "Message"
-}, bi = {
+}, Hc = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ki = /* @__PURE__ */ e(
+}, Mc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3888,7 +3887,7 @@ var Li = /* @__PURE__ */ s(Mi, [["render", Bi], ["__file", "message-box.vue"]]),
   null,
   -1
   /* HOISTED */
-), Si = /* @__PURE__ */ e(
+), Cc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3897,19 +3896,19 @@ var Li = /* @__PURE__ */ s(Mi, [["render", Bi], ["__file", "message-box.vue"]]),
   null,
   -1
   /* HOISTED */
-), qi = [
-  ki,
-  Si
+), Nc = [
+  Mc,
+  Cc
 ];
-function Fi(t, a, _, r, l, i) {
-  return o(), n("svg", bi, qi);
+function yc(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Hc, Nc);
 }
-var Di = /* @__PURE__ */ s(Ai, [["render", Fi], ["__file", "message.vue"]]), Pi = {
+var Lc = /* @__PURE__ */ _(Ec, [["render", yc], ["__file", "message.vue"]]), Ac = {
   name: "Mic"
-}, Ri = {
+}, bc = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ti = /* @__PURE__ */ e(
+}, Sc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3918,18 +3917,18 @@ var Di = /* @__PURE__ */ s(Ai, [["render", Fi], ["__file", "message.vue"]]), Pi 
   null,
   -1
   /* HOISTED */
-), Oi = [
-  Ti
+), qc = [
+  Sc
 ];
-function Gi(t, a, _, r, l, i) {
-  return o(), n("svg", Ri, Oi);
+function Fc(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", bc, qc);
 }
-var Ui = /* @__PURE__ */ s(Pi, [["render", Gi], ["__file", "mic.vue"]]), Wi = {
+var Dc = /* @__PURE__ */ _(Ac, [["render", Fc], ["__file", "mic.vue"]]), Pc = {
   name: "Microphone"
-}, Ii = {
+}, Rc = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ei = /* @__PURE__ */ e(
+}, Tc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3938,18 +3937,18 @@ var Ui = /* @__PURE__ */ s(Pi, [["render", Gi], ["__file", "mic.vue"]]), Wi = {
   null,
   -1
   /* HOISTED */
-), Ni = [
-  Ei
+), Oc = [
+  Tc
 ];
-function Zi(t, a, _, r, l, i) {
-  return o(), n("svg", Ii, Ni);
+function Gc(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Rc, Oc);
 }
-var Ki = /* @__PURE__ */ s(Wi, [["render", Zi], ["__file", "microphone.vue"]]), Qi = {
+var Uc = /* @__PURE__ */ _(Pc, [["render", Gc], ["__file", "microphone.vue"]]), Wc = {
   name: "MilkTea"
-}, ji = {
+}, Ic = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ji = /* @__PURE__ */ e(
+}, Zc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3958,18 +3957,18 @@ var Ki = /* @__PURE__ */ s(Wi, [["render", Zi], ["__file", "microphone.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Xi = [
-  Ji
+), Kc = [
+  Zc
 ];
-function Yi(t, a, _, r, l, i) {
-  return o(), n("svg", ji, Xi);
+function Qc(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ic, Kc);
 }
-var eu = /* @__PURE__ */ s(Qi, [["render", Yi], ["__file", "milk-tea.vue"]]), tu = {
+var jc = /* @__PURE__ */ _(Wc, [["render", Qc], ["__file", "milk-tea.vue"]]), Jc = {
   name: "Minus"
-}, _u = {
+}, Xc = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, au = /* @__PURE__ */ e(
+}, Yc = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3978,18 +3977,18 @@ var eu = /* @__PURE__ */ s(Qi, [["render", Yi], ["__file", "milk-tea.vue"]]), tu
   null,
   -1
   /* HOISTED */
-), ru = [
-  au
+), es = [
+  Yc
 ];
-function lu(t, a, _, r, l, i) {
-  return o(), n("svg", _u, ru);
+function ts(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Xc, es);
 }
-var ou = /* @__PURE__ */ s(tu, [["render", lu], ["__file", "minus.vue"]]), nu = {
+var as = /* @__PURE__ */ _(Jc, [["render", ts], ["__file", "minus.vue"]]), ls = {
   name: "Money"
-}, su = {
+}, rs = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, iu = /* @__PURE__ */ e(
+}, _s = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -3998,7 +3997,7 @@ var ou = /* @__PURE__ */ s(tu, [["render", lu], ["__file", "minus.vue"]]), nu = 
   null,
   -1
   /* HOISTED */
-), uu = /* @__PURE__ */ e(
+), os = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4007,7 +4006,7 @@ var ou = /* @__PURE__ */ s(tu, [["render", lu], ["__file", "minus.vue"]]), nu = 
   null,
   -1
   /* HOISTED */
-), vu = /* @__PURE__ */ e(
+), ns = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4016,20 +4015,20 @@ var ou = /* @__PURE__ */ s(tu, [["render", lu], ["__file", "minus.vue"]]), nu = 
   null,
   -1
   /* HOISTED */
-), du = [
-  iu,
-  uu,
-  vu
+), us = [
+  _s,
+  os,
+  ns
 ];
-function cu(t, a, _, r, l, i) {
-  return o(), n("svg", su, du);
+function cs(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", rs, us);
 }
-var hu = /* @__PURE__ */ s(nu, [["render", cu], ["__file", "money.vue"]]), pu = {
+var ss = /* @__PURE__ */ _(ls, [["render", cs], ["__file", "money.vue"]]), ds = {
   name: "Monitor"
-}, fu = {
+}, is = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, wu = /* @__PURE__ */ e(
+}, vs = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4038,18 +4037,18 @@ var hu = /* @__PURE__ */ s(nu, [["render", cu], ["__file", "money.vue"]]), pu = 
   null,
   -1
   /* HOISTED */
-), mu = [
-  wu
+), hs = [
+  vs
 ];
-function gu(t, a, _, r, l, i) {
-  return o(), n("svg", fu, mu);
+function ps(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", is, hs);
 }
-var $u = /* @__PURE__ */ s(pu, [["render", gu], ["__file", "monitor.vue"]]), zu = {
+var fs = /* @__PURE__ */ _(ds, [["render", ps], ["__file", "monitor.vue"]]), ms = {
   name: "MoonNight"
-}, xu = {
+}, Vs = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Hu = /* @__PURE__ */ e(
+}, ws = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4058,7 +4057,7 @@ var $u = /* @__PURE__ */ s(pu, [["render", gu], ["__file", "monitor.vue"]]), zu 
   null,
   -1
   /* HOISTED */
-), Mu = /* @__PURE__ */ e(
+), gs = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4067,19 +4066,19 @@ var $u = /* @__PURE__ */ s(pu, [["render", gu], ["__file", "monitor.vue"]]), zu 
   null,
   -1
   /* HOISTED */
-), Cu = [
-  Hu,
-  Mu
+), $s = [
+  ws,
+  gs
 ];
-function Vu(t, a, _, r, l, i) {
-  return o(), n("svg", xu, Cu);
+function zs(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Vs, $s);
 }
-var yu = /* @__PURE__ */ s(zu, [["render", Vu], ["__file", "moon-night.vue"]]), Bu = {
+var Bs = /* @__PURE__ */ _(ms, [["render", zs], ["__file", "moon-night.vue"]]), xs = {
   name: "Moon"
-}, Lu = {
+}, ks = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Au = /* @__PURE__ */ e(
+}, Es = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4088,18 +4087,18 @@ var yu = /* @__PURE__ */ s(zu, [["render", Vu], ["__file", "moon-night.vue"]]), 
   null,
   -1
   /* HOISTED */
-), bu = [
-  Au
+), Hs = [
+  Es
 ];
-function ku(t, a, _, r, l, i) {
-  return o(), n("svg", Lu, bu);
+function Ms(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ks, Hs);
 }
-var Su = /* @__PURE__ */ s(Bu, [["render", ku], ["__file", "moon.vue"]]), qu = {
+var Cs = /* @__PURE__ */ _(xs, [["render", Ms], ["__file", "moon.vue"]]), Ns = {
   name: "MoreFilled"
-}, Fu = {
+}, ys = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Du = /* @__PURE__ */ e(
+}, Ls = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4108,18 +4107,18 @@ var Su = /* @__PURE__ */ s(Bu, [["render", ku], ["__file", "moon.vue"]]), qu = {
   null,
   -1
   /* HOISTED */
-), Pu = [
-  Du
+), As = [
+  Ls
 ];
-function Ru(t, a, _, r, l, i) {
-  return o(), n("svg", Fu, Pu);
+function bs(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ys, As);
 }
-var Tu = /* @__PURE__ */ s(qu, [["render", Ru], ["__file", "more-filled.vue"]]), Ou = {
+var Ss = /* @__PURE__ */ _(Ns, [["render", bs], ["__file", "more-filled.vue"]]), qs = {
   name: "More"
-}, Gu = {
+}, Fs = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Uu = /* @__PURE__ */ e(
+}, Ds = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4128,18 +4127,18 @@ var Tu = /* @__PURE__ */ s(qu, [["render", Ru], ["__file", "more-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), Wu = [
-  Uu
+), Ps = [
+  Ds
 ];
-function Iu(t, a, _, r, l, i) {
-  return o(), n("svg", Gu, Wu);
+function Rs(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Fs, Ps);
 }
-var Eu = /* @__PURE__ */ s(Ou, [["render", Iu], ["__file", "more.vue"]]), Nu = {
+var Ts = /* @__PURE__ */ _(qs, [["render", Rs], ["__file", "more.vue"]]), Os = {
   name: "MostlyCloudy"
-}, Zu = {
+}, Gs = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ku = /* @__PURE__ */ e(
+}, Us = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4148,18 +4147,18 @@ var Eu = /* @__PURE__ */ s(Ou, [["render", Iu], ["__file", "more.vue"]]), Nu = {
   null,
   -1
   /* HOISTED */
-), Qu = [
-  Ku
+), Ws = [
+  Us
 ];
-function ju(t, a, _, r, l, i) {
-  return o(), n("svg", Zu, Qu);
+function Is(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Gs, Ws);
 }
-var Ju = /* @__PURE__ */ s(Nu, [["render", ju], ["__file", "mostly-cloudy.vue"]]), Xu = {
+var Zs = /* @__PURE__ */ _(Os, [["render", Is], ["__file", "mostly-cloudy.vue"]]), Ks = {
   name: "Mouse"
-}, Yu = {
+}, Qs = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ev = /* @__PURE__ */ e(
+}, js = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4168,7 +4167,7 @@ var Ju = /* @__PURE__ */ s(Nu, [["render", ju], ["__file", "mostly-cloudy.vue"]]
   null,
   -1
   /* HOISTED */
-), tv = /* @__PURE__ */ e(
+), Js = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4177,19 +4176,19 @@ var Ju = /* @__PURE__ */ s(Nu, [["render", ju], ["__file", "mostly-cloudy.vue"]]
   null,
   -1
   /* HOISTED */
-), _v = [
-  ev,
-  tv
+), Xs = [
+  js,
+  Js
 ];
-function av(t, a, _, r, l, i) {
-  return o(), n("svg", Yu, _v);
+function Ys(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Qs, Xs);
 }
-var rv = /* @__PURE__ */ s(Xu, [["render", av], ["__file", "mouse.vue"]]), lv = {
+var ed = /* @__PURE__ */ _(Ks, [["render", Ys], ["__file", "mouse.vue"]]), td = {
   name: "Mug"
-}, ov = {
+}, ad = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, nv = /* @__PURE__ */ e(
+}, ld = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4198,18 +4197,18 @@ var rv = /* @__PURE__ */ s(Xu, [["render", av], ["__file", "mouse.vue"]]), lv = 
   null,
   -1
   /* HOISTED */
-), sv = [
-  nv
+), rd = [
+  ld
 ];
-function iv(t, a, _, r, l, i) {
-  return o(), n("svg", ov, sv);
+function _d(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ad, rd);
 }
-var uv = /* @__PURE__ */ s(lv, [["render", iv], ["__file", "mug.vue"]]), vv = {
+var od = /* @__PURE__ */ _(td, [["render", _d], ["__file", "mug.vue"]]), nd = {
   name: "MuteNotification"
-}, dv = {
+}, ud = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, cv = /* @__PURE__ */ e(
+}, cd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4218,7 +4217,7 @@ var uv = /* @__PURE__ */ s(lv, [["render", iv], ["__file", "mug.vue"]]), vv = {
   null,
   -1
   /* HOISTED */
-), hv = /* @__PURE__ */ e(
+), sd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4227,19 +4226,19 @@ var uv = /* @__PURE__ */ s(lv, [["render", iv], ["__file", "mug.vue"]]), vv = {
   null,
   -1
   /* HOISTED */
-), pv = [
-  cv,
-  hv
+), dd = [
+  cd,
+  sd
 ];
-function fv(t, a, _, r, l, i) {
-  return o(), n("svg", dv, pv);
+function id(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ud, dd);
 }
-var wv = /* @__PURE__ */ s(vv, [["render", fv], ["__file", "mute-notification.vue"]]), mv = {
+var vd = /* @__PURE__ */ _(nd, [["render", id], ["__file", "mute-notification.vue"]]), hd = {
   name: "Mute"
-}, gv = {
+}, pd = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, $v = /* @__PURE__ */ e(
+}, fd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4248,7 +4247,7 @@ var wv = /* @__PURE__ */ s(vv, [["render", fv], ["__file", "mute-notification.vu
   null,
   -1
   /* HOISTED */
-), zv = /* @__PURE__ */ e(
+), md = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4257,19 +4256,19 @@ var wv = /* @__PURE__ */ s(vv, [["render", fv], ["__file", "mute-notification.vu
   null,
   -1
   /* HOISTED */
-), xv = [
-  $v,
-  zv
+), Vd = [
+  fd,
+  md
 ];
-function Hv(t, a, _, r, l, i) {
-  return o(), n("svg", gv, xv);
+function wd(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", pd, Vd);
 }
-var Mv = /* @__PURE__ */ s(mv, [["render", Hv], ["__file", "mute.vue"]]), Cv = {
+var gd = /* @__PURE__ */ _(hd, [["render", wd], ["__file", "mute.vue"]]), $d = {
   name: "NoSmoking"
-}, Vv = {
+}, zd = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, yv = /* @__PURE__ */ e(
+}, Bd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4278,18 +4277,18 @@ var Mv = /* @__PURE__ */ s(mv, [["render", Hv], ["__file", "mute.vue"]]), Cv = {
   null,
   -1
   /* HOISTED */
-), Bv = [
-  yv
+), xd = [
+  Bd
 ];
-function Lv(t, a, _, r, l, i) {
-  return o(), n("svg", Vv, Bv);
+function kd(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", zd, xd);
 }
-var Av = /* @__PURE__ */ s(Cv, [["render", Lv], ["__file", "no-smoking.vue"]]), bv = {
+var Ed = /* @__PURE__ */ _($d, [["render", kd], ["__file", "no-smoking.vue"]]), Hd = {
   name: "Notebook"
-}, kv = {
+}, Md = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Sv = /* @__PURE__ */ e(
+}, Cd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4298,7 +4297,7 @@ var Av = /* @__PURE__ */ s(Cv, [["render", Lv], ["__file", "no-smoking.vue"]]), 
   null,
   -1
   /* HOISTED */
-), qv = /* @__PURE__ */ e(
+), Nd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4307,19 +4306,19 @@ var Av = /* @__PURE__ */ s(Cv, [["render", Lv], ["__file", "no-smoking.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Fv = [
-  Sv,
-  qv
+), yd = [
+  Cd,
+  Nd
 ];
-function Dv(t, a, _, r, l, i) {
-  return o(), n("svg", kv, Fv);
+function Ld(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Md, yd);
 }
-var Pv = /* @__PURE__ */ s(bv, [["render", Dv], ["__file", "notebook.vue"]]), Rv = {
+var Ad = /* @__PURE__ */ _(Hd, [["render", Ld], ["__file", "notebook.vue"]]), bd = {
   name: "Notification"
-}, Tv = {
+}, Sd = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ov = /* @__PURE__ */ e(
+}, qd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4328,7 +4327,7 @@ var Pv = /* @__PURE__ */ s(bv, [["render", Dv], ["__file", "notebook.vue"]]), Rv
   null,
   -1
   /* HOISTED */
-), Gv = /* @__PURE__ */ e(
+), Fd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4337,19 +4336,19 @@ var Pv = /* @__PURE__ */ s(bv, [["render", Dv], ["__file", "notebook.vue"]]), Rv
   null,
   -1
   /* HOISTED */
-), Uv = [
-  Ov,
-  Gv
+), Dd = [
+  qd,
+  Fd
 ];
-function Wv(t, a, _, r, l, i) {
-  return o(), n("svg", Tv, Uv);
+function Pd(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Sd, Dd);
 }
-var Iv = /* @__PURE__ */ s(Rv, [["render", Wv], ["__file", "notification.vue"]]), Ev = {
+var Rd = /* @__PURE__ */ _(bd, [["render", Pd], ["__file", "notification.vue"]]), Td = {
   name: "Odometer"
-}, Nv = {
+}, Od = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Zv = /* @__PURE__ */ e(
+}, Gd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4358,7 +4357,7 @@ var Iv = /* @__PURE__ */ s(Rv, [["render", Wv], ["__file", "notification.vue"]])
   null,
   -1
   /* HOISTED */
-), Kv = /* @__PURE__ */ e(
+), Ud = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4367,7 +4366,7 @@ var Iv = /* @__PURE__ */ s(Rv, [["render", Wv], ["__file", "notification.vue"]])
   null,
   -1
   /* HOISTED */
-), Qv = /* @__PURE__ */ e(
+), Wd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4376,20 +4375,20 @@ var Iv = /* @__PURE__ */ s(Rv, [["render", Wv], ["__file", "notification.vue"]])
   null,
   -1
   /* HOISTED */
-), jv = [
-  Zv,
-  Kv,
-  Qv
+), Id = [
+  Gd,
+  Ud,
+  Wd
 ];
-function Jv(t, a, _, r, l, i) {
-  return o(), n("svg", Nv, jv);
+function Zd(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Od, Id);
 }
-var Xv = /* @__PURE__ */ s(Ev, [["render", Jv], ["__file", "odometer.vue"]]), Yv = {
+var Kd = /* @__PURE__ */ _(Td, [["render", Zd], ["__file", "odometer.vue"]]), Qd = {
   name: "OfficeBuilding"
-}, ed = {
+}, jd = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, td = /* @__PURE__ */ e(
+}, Jd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4398,7 +4397,7 @@ var Xv = /* @__PURE__ */ s(Ev, [["render", Jv], ["__file", "odometer.vue"]]), Yv
   null,
   -1
   /* HOISTED */
-), _d = /* @__PURE__ */ e(
+), Xd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4407,7 +4406,7 @@ var Xv = /* @__PURE__ */ s(Ev, [["render", Jv], ["__file", "odometer.vue"]]), Yv
   null,
   -1
   /* HOISTED */
-), ad = /* @__PURE__ */ e(
+), Yd = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4416,20 +4415,20 @@ var Xv = /* @__PURE__ */ s(Ev, [["render", Jv], ["__file", "odometer.vue"]]), Yv
   null,
   -1
   /* HOISTED */
-), rd = [
-  td,
-  _d,
-  ad
+), ei = [
+  Jd,
+  Xd,
+  Yd
 ];
-function ld(t, a, _, r, l, i) {
-  return o(), n("svg", ed, rd);
+function ti(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", jd, ei);
 }
-var od = /* @__PURE__ */ s(Yv, [["render", ld], ["__file", "office-building.vue"]]), nd = {
+var ai = /* @__PURE__ */ _(Qd, [["render", ti], ["__file", "office-building.vue"]]), li = {
   name: "Open"
-}, sd = {
+}, ri = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, id = /* @__PURE__ */ e(
+}, _i = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4438,7 +4437,7 @@ var od = /* @__PURE__ */ s(Yv, [["render", ld], ["__file", "office-building.vue"
   null,
   -1
   /* HOISTED */
-), ud = /* @__PURE__ */ e(
+), oi = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4447,19 +4446,19 @@ var od = /* @__PURE__ */ s(Yv, [["render", ld], ["__file", "office-building.vue"
   null,
   -1
   /* HOISTED */
-), vd = [
-  id,
-  ud
+), ni = [
+  _i,
+  oi
 ];
-function dd(t, a, _, r, l, i) {
-  return o(), n("svg", sd, vd);
+function ui(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ri, ni);
 }
-var cd = /* @__PURE__ */ s(nd, [["render", dd], ["__file", "open.vue"]]), hd = {
+var ci = /* @__PURE__ */ _(li, [["render", ui], ["__file", "open.vue"]]), si = {
   name: "Operation"
-}, pd = {
+}, di = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, fd = /* @__PURE__ */ e(
+}, ii = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4468,18 +4467,18 @@ var cd = /* @__PURE__ */ s(nd, [["render", dd], ["__file", "open.vue"]]), hd = {
   null,
   -1
   /* HOISTED */
-), wd = [
-  fd
+), vi = [
+  ii
 ];
-function md(t, a, _, r, l, i) {
-  return o(), n("svg", pd, wd);
+function hi(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", di, vi);
 }
-var gd = /* @__PURE__ */ s(hd, [["render", md], ["__file", "operation.vue"]]), $d = {
+var pi = /* @__PURE__ */ _(si, [["render", hi], ["__file", "operation.vue"]]), fi = {
   name: "Opportunity"
-}, zd = {
+}, mi = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, xd = /* @__PURE__ */ e(
+}, Vi = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4488,18 +4487,18 @@ var gd = /* @__PURE__ */ s(hd, [["render", md], ["__file", "operation.vue"]]), $
   null,
   -1
   /* HOISTED */
-), Hd = [
-  xd
+), wi = [
+  Vi
 ];
-function Md(t, a, _, r, l, i) {
-  return o(), n("svg", zd, Hd);
+function gi(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", mi, wi);
 }
-var Cd = /* @__PURE__ */ s($d, [["render", Md], ["__file", "opportunity.vue"]]), Vd = {
+var $i = /* @__PURE__ */ _(fi, [["render", gi], ["__file", "opportunity.vue"]]), zi = {
   name: "Orange"
-}, yd = {
+}, Bi = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Bd = /* @__PURE__ */ e(
+}, xi = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4508,18 +4507,18 @@ var Cd = /* @__PURE__ */ s($d, [["render", Md], ["__file", "opportunity.vue"]]),
   null,
   -1
   /* HOISTED */
-), Ld = [
-  Bd
+), ki = [
+  xi
 ];
-function Ad(t, a, _, r, l, i) {
-  return o(), n("svg", yd, Ld);
+function Ei(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Bi, ki);
 }
-var bd = /* @__PURE__ */ s(Vd, [["render", Ad], ["__file", "orange.vue"]]), kd = {
+var Hi = /* @__PURE__ */ _(zi, [["render", Ei], ["__file", "orange.vue"]]), Mi = {
   name: "Paperclip"
-}, Sd = {
+}, Ci = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, qd = /* @__PURE__ */ e(
+}, Ni = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4528,18 +4527,18 @@ var bd = /* @__PURE__ */ s(Vd, [["render", Ad], ["__file", "orange.vue"]]), kd =
   null,
   -1
   /* HOISTED */
-), Fd = [
-  qd
+), yi = [
+  Ni
 ];
-function Dd(t, a, _, r, l, i) {
-  return o(), n("svg", Sd, Fd);
+function Li(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ci, yi);
 }
-var Pd = /* @__PURE__ */ s(kd, [["render", Dd], ["__file", "paperclip.vue"]]), Rd = {
+var Ai = /* @__PURE__ */ _(Mi, [["render", Li], ["__file", "paperclip.vue"]]), bi = {
   name: "PartlyCloudy"
-}, Td = {
+}, Si = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Od = /* @__PURE__ */ e(
+}, qi = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4548,7 +4547,7 @@ var Pd = /* @__PURE__ */ s(kd, [["render", Dd], ["__file", "paperclip.vue"]]), R
   null,
   -1
   /* HOISTED */
-), Gd = /* @__PURE__ */ e(
+), Fi = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4557,19 +4556,19 @@ var Pd = /* @__PURE__ */ s(kd, [["render", Dd], ["__file", "paperclip.vue"]]), R
   null,
   -1
   /* HOISTED */
-), Ud = [
-  Od,
-  Gd
+), Di = [
+  qi,
+  Fi
 ];
-function Wd(t, a, _, r, l, i) {
-  return o(), n("svg", Td, Ud);
+function Pi(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Si, Di);
 }
-var Id = /* @__PURE__ */ s(Rd, [["render", Wd], ["__file", "partly-cloudy.vue"]]), Ed = {
+var Ri = /* @__PURE__ */ _(bi, [["render", Pi], ["__file", "partly-cloudy.vue"]]), Ti = {
   name: "Pear"
-}, Nd = {
+}, Oi = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Zd = /* @__PURE__ */ e(
+}, Gi = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4578,18 +4577,18 @@ var Id = /* @__PURE__ */ s(Rd, [["render", Wd], ["__file", "partly-cloudy.vue"]]
   null,
   -1
   /* HOISTED */
-), Kd = [
-  Zd
+), Ui = [
+  Gi
 ];
-function Qd(t, a, _, r, l, i) {
-  return o(), n("svg", Nd, Kd);
+function Wi(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Oi, Ui);
 }
-var jd = /* @__PURE__ */ s(Ed, [["render", Qd], ["__file", "pear.vue"]]), Jd = {
+var Ii = /* @__PURE__ */ _(Ti, [["render", Wi], ["__file", "pear.vue"]]), Zi = {
   name: "PhoneFilled"
-}, Xd = {
+}, Ki = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Yd = /* @__PURE__ */ e(
+}, Qi = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4598,18 +4597,18 @@ var jd = /* @__PURE__ */ s(Ed, [["render", Qd], ["__file", "pear.vue"]]), Jd = {
   null,
   -1
   /* HOISTED */
-), e7 = [
-  Yd
+), ji = [
+  Qi
 ];
-function t7(t, a, _, r, l, i) {
-  return o(), n("svg", Xd, e7);
+function Ji(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ki, ji);
 }
-var _7 = /* @__PURE__ */ s(Jd, [["render", t7], ["__file", "phone-filled.vue"]]), a7 = {
+var Xi = /* @__PURE__ */ _(Zi, [["render", Ji], ["__file", "phone-filled.vue"]]), Yi = {
   name: "Phone"
-}, r7 = {
+}, ev = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, l7 = /* @__PURE__ */ e(
+}, tv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4618,18 +4617,18 @@ var _7 = /* @__PURE__ */ s(Jd, [["render", t7], ["__file", "phone-filled.vue"]])
   null,
   -1
   /* HOISTED */
-), o7 = [
-  l7
+), av = [
+  tv
 ];
-function n7(t, a, _, r, l, i) {
-  return o(), n("svg", r7, o7);
+function lv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ev, av);
 }
-var s7 = /* @__PURE__ */ s(a7, [["render", n7], ["__file", "phone.vue"]]), i7 = {
+var rv = /* @__PURE__ */ _(Yi, [["render", lv], ["__file", "phone.vue"]]), _v = {
   name: "PictureFilled"
-}, u7 = {
+}, ov = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, v7 = /* @__PURE__ */ e(
+}, nv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4638,18 +4637,18 @@ var s7 = /* @__PURE__ */ s(a7, [["render", n7], ["__file", "phone.vue"]]), i7 = 
   null,
   -1
   /* HOISTED */
-), d7 = [
-  v7
+), uv = [
+  nv
 ];
-function c7(t, a, _, r, l, i) {
-  return o(), n("svg", u7, d7);
+function cv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ov, uv);
 }
-var h7 = /* @__PURE__ */ s(i7, [["render", c7], ["__file", "picture-filled.vue"]]), p7 = {
+var sv = /* @__PURE__ */ _(_v, [["render", cv], ["__file", "picture-filled.vue"]]), dv = {
   name: "PictureRounded"
-}, f7 = {
+}, iv = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, w7 = /* @__PURE__ */ e(
+}, vv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4658,7 +4657,7 @@ var h7 = /* @__PURE__ */ s(i7, [["render", c7], ["__file", "picture-filled.vue"]
   null,
   -1
   /* HOISTED */
-), m7 = /* @__PURE__ */ e(
+), hv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4667,19 +4666,19 @@ var h7 = /* @__PURE__ */ s(i7, [["render", c7], ["__file", "picture-filled.vue"]
   null,
   -1
   /* HOISTED */
-), g7 = [
-  w7,
-  m7
+), pv = [
+  vv,
+  hv
 ];
-function $7(t, a, _, r, l, i) {
-  return o(), n("svg", f7, g7);
+function fv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", iv, pv);
 }
-var z7 = /* @__PURE__ */ s(p7, [["render", $7], ["__file", "picture-rounded.vue"]]), x7 = {
+var mv = /* @__PURE__ */ _(dv, [["render", fv], ["__file", "picture-rounded.vue"]]), Vv = {
   name: "Picture"
-}, H7 = {
+}, wv = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, M7 = /* @__PURE__ */ e(
+}, gv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4688,7 +4687,7 @@ var z7 = /* @__PURE__ */ s(p7, [["render", $7], ["__file", "picture-rounded.vue"
   null,
   -1
   /* HOISTED */
-), C7 = /* @__PURE__ */ e(
+), $v = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4697,19 +4696,19 @@ var z7 = /* @__PURE__ */ s(p7, [["render", $7], ["__file", "picture-rounded.vue"
   null,
   -1
   /* HOISTED */
-), V7 = [
-  M7,
-  C7
+), zv = [
+  gv,
+  $v
 ];
-function y7(t, a, _, r, l, i) {
-  return o(), n("svg", H7, V7);
+function Bv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", wv, zv);
 }
-var B7 = /* @__PURE__ */ s(x7, [["render", y7], ["__file", "picture.vue"]]), L7 = {
+var xv = /* @__PURE__ */ _(Vv, [["render", Bv], ["__file", "picture.vue"]]), kv = {
   name: "PieChart"
-}, A7 = {
+}, Ev = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, b7 = /* @__PURE__ */ e(
+}, Hv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4718,7 +4717,7 @@ var B7 = /* @__PURE__ */ s(x7, [["render", y7], ["__file", "picture.vue"]]), L7 
   null,
   -1
   /* HOISTED */
-), k7 = /* @__PURE__ */ e(
+), Mv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4727,19 +4726,19 @@ var B7 = /* @__PURE__ */ s(x7, [["render", y7], ["__file", "picture.vue"]]), L7 
   null,
   -1
   /* HOISTED */
-), S7 = [
-  b7,
-  k7
+), Cv = [
+  Hv,
+  Mv
 ];
-function q7(t, a, _, r, l, i) {
-  return o(), n("svg", A7, S7);
+function Nv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Ev, Cv);
 }
-var F7 = /* @__PURE__ */ s(L7, [["render", q7], ["__file", "pie-chart.vue"]]), D7 = {
+var yv = /* @__PURE__ */ _(kv, [["render", Nv], ["__file", "pie-chart.vue"]]), Lv = {
   name: "Place"
-}, P7 = {
+}, Av = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, R7 = /* @__PURE__ */ e(
+}, bv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4748,7 +4747,7 @@ var F7 = /* @__PURE__ */ s(L7, [["render", q7], ["__file", "pie-chart.vue"]]), D
   null,
   -1
   /* HOISTED */
-), T7 = /* @__PURE__ */ e(
+), Sv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4757,7 +4756,7 @@ var F7 = /* @__PURE__ */ s(L7, [["render", q7], ["__file", "pie-chart.vue"]]), D
   null,
   -1
   /* HOISTED */
-), O7 = /* @__PURE__ */ e(
+), qv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4766,20 +4765,20 @@ var F7 = /* @__PURE__ */ s(L7, [["render", q7], ["__file", "pie-chart.vue"]]), D
   null,
   -1
   /* HOISTED */
-), G7 = [
-  R7,
-  T7,
-  O7
+), Fv = [
+  bv,
+  Sv,
+  qv
 ];
-function U7(t, a, _, r, l, i) {
-  return o(), n("svg", P7, G7);
+function Dv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Av, Fv);
 }
-var W7 = /* @__PURE__ */ s(D7, [["render", U7], ["__file", "place.vue"]]), I7 = {
+var Pv = /* @__PURE__ */ _(Lv, [["render", Dv], ["__file", "place.vue"]]), Rv = {
   name: "Platform"
-}, E7 = {
+}, Tv = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, N7 = /* @__PURE__ */ e(
+}, Ov = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4788,18 +4787,18 @@ var W7 = /* @__PURE__ */ s(D7, [["render", U7], ["__file", "place.vue"]]), I7 = 
   null,
   -1
   /* HOISTED */
-), Z7 = [
-  N7
+), Gv = [
+  Ov
 ];
-function K7(t, a, _, r, l, i) {
-  return o(), n("svg", E7, Z7);
+function Uv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Tv, Gv);
 }
-var Q7 = /* @__PURE__ */ s(I7, [["render", K7], ["__file", "platform.vue"]]), j7 = {
+var Wv = /* @__PURE__ */ _(Rv, [["render", Uv], ["__file", "platform.vue"]]), Iv = {
   name: "Plus"
-}, J7 = {
+}, Zv = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, X7 = /* @__PURE__ */ e(
+}, Kv = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4808,18 +4807,18 @@ var Q7 = /* @__PURE__ */ s(I7, [["render", K7], ["__file", "platform.vue"]]), j7
   null,
   -1
   /* HOISTED */
-), Y7 = [
-  X7
+), Qv = [
+  Kv
 ];
-function ec(t, a, _, r, l, i) {
-  return o(), n("svg", J7, Y7);
+function jv(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Zv, Qv);
 }
-var tc = /* @__PURE__ */ s(j7, [["render", ec], ["__file", "plus.vue"]]), _c = {
+var Jv = /* @__PURE__ */ _(Iv, [["render", jv], ["__file", "plus.vue"]]), Xv = {
   name: "Pointer"
-}, ac = {
+}, Yv = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, rc = /* @__PURE__ */ e(
+}, e7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4828,18 +4827,18 @@ var tc = /* @__PURE__ */ s(j7, [["render", ec], ["__file", "plus.vue"]]), _c = {
   null,
   -1
   /* HOISTED */
-), lc = [
-  rc
+), t7 = [
+  e7
 ];
-function oc(t, a, _, r, l, i) {
-  return o(), n("svg", ac, lc);
+function a7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Yv, t7);
 }
-var nc = /* @__PURE__ */ s(_c, [["render", oc], ["__file", "pointer.vue"]]), sc = {
+var l7 = /* @__PURE__ */ _(Xv, [["render", a7], ["__file", "pointer.vue"]]), r7 = {
   name: "Position"
-}, ic = {
+}, _7 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, uc = /* @__PURE__ */ e(
+}, o7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4848,18 +4847,18 @@ var nc = /* @__PURE__ */ s(_c, [["render", oc], ["__file", "pointer.vue"]]), sc 
   null,
   -1
   /* HOISTED */
-), vc = [
-  uc
+), n7 = [
+  o7
 ];
-function dc(t, a, _, r, l, i) {
-  return o(), n("svg", ic, vc);
+function u7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", _7, n7);
 }
-var cc = /* @__PURE__ */ s(sc, [["render", dc], ["__file", "position.vue"]]), hc = {
+var c7 = /* @__PURE__ */ _(r7, [["render", u7], ["__file", "position.vue"]]), s7 = {
   name: "Postcard"
-}, pc = {
+}, d7 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, fc = /* @__PURE__ */ e(
+}, i7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4868,7 +4867,7 @@ var cc = /* @__PURE__ */ s(sc, [["render", dc], ["__file", "position.vue"]]), hc
   null,
   -1
   /* HOISTED */
-), wc = /* @__PURE__ */ e(
+), v7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4877,19 +4876,19 @@ var cc = /* @__PURE__ */ s(sc, [["render", dc], ["__file", "position.vue"]]), hc
   null,
   -1
   /* HOISTED */
-), mc = [
-  fc,
-  wc
+), h7 = [
+  i7,
+  v7
 ];
-function gc(t, a, _, r, l, i) {
-  return o(), n("svg", pc, mc);
+function p7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", d7, h7);
 }
-var $c = /* @__PURE__ */ s(hc, [["render", gc], ["__file", "postcard.vue"]]), zc = {
+var f7 = /* @__PURE__ */ _(s7, [["render", p7], ["__file", "postcard.vue"]]), m7 = {
   name: "Pouring"
-}, xc = {
+}, V7 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Hc = /* @__PURE__ */ e(
+}, w7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4898,18 +4897,18 @@ var $c = /* @__PURE__ */ s(hc, [["render", gc], ["__file", "postcard.vue"]]), zc
   null,
   -1
   /* HOISTED */
-), Mc = [
-  Hc
+), g7 = [
+  w7
 ];
-function Cc(t, a, _, r, l, i) {
-  return o(), n("svg", xc, Mc);
+function $7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", V7, g7);
 }
-var Vc = /* @__PURE__ */ s(zc, [["render", Cc], ["__file", "pouring.vue"]]), yc = {
+var z7 = /* @__PURE__ */ _(m7, [["render", $7], ["__file", "pouring.vue"]]), B7 = {
   name: "Present"
-}, Bc = {
+}, x7 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Lc = /* @__PURE__ */ e(
+}, k7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4918,7 +4917,7 @@ var Vc = /* @__PURE__ */ s(zc, [["render", Cc], ["__file", "pouring.vue"]]), yc 
   null,
   -1
   /* HOISTED */
-), Ac = /* @__PURE__ */ e(
+), E7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4927,7 +4926,7 @@ var Vc = /* @__PURE__ */ s(zc, [["render", Cc], ["__file", "pouring.vue"]]), yc 
   null,
   -1
   /* HOISTED */
-), bc = /* @__PURE__ */ e(
+), H7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4936,7 +4935,7 @@ var Vc = /* @__PURE__ */ s(zc, [["render", Cc], ["__file", "pouring.vue"]]), yc 
   null,
   -1
   /* HOISTED */
-), kc = /* @__PURE__ */ e(
+), M7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4945,21 +4944,21 @@ var Vc = /* @__PURE__ */ s(zc, [["render", Cc], ["__file", "pouring.vue"]]), yc 
   null,
   -1
   /* HOISTED */
-), Sc = [
-  Lc,
-  Ac,
-  bc,
-  kc
+), C7 = [
+  k7,
+  E7,
+  H7,
+  M7
 ];
-function qc(t, a, _, r, l, i) {
-  return o(), n("svg", Bc, Sc);
+function N7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", x7, C7);
 }
-var Fc = /* @__PURE__ */ s(yc, [["render", qc], ["__file", "present.vue"]]), Dc = {
+var y7 = /* @__PURE__ */ _(B7, [["render", N7], ["__file", "present.vue"]]), L7 = {
   name: "PriceTag"
-}, Pc = {
+}, A7 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Rc = /* @__PURE__ */ e(
+}, b7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4968,7 +4967,7 @@ var Fc = /* @__PURE__ */ s(yc, [["render", qc], ["__file", "present.vue"]]), Dc 
   null,
   -1
   /* HOISTED */
-), Tc = /* @__PURE__ */ e(
+), S7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4977,19 +4976,19 @@ var Fc = /* @__PURE__ */ s(yc, [["render", qc], ["__file", "present.vue"]]), Dc 
   null,
   -1
   /* HOISTED */
-), Oc = [
-  Rc,
-  Tc
+), q7 = [
+  b7,
+  S7
 ];
-function Gc(t, a, _, r, l, i) {
-  return o(), n("svg", Pc, Oc);
+function F7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", A7, q7);
 }
-var Uc = /* @__PURE__ */ s(Dc, [["render", Gc], ["__file", "price-tag.vue"]]), Wc = {
+var D7 = /* @__PURE__ */ _(L7, [["render", F7], ["__file", "price-tag.vue"]]), P7 = {
   name: "Printer"
-}, Ic = {
+}, R7 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ec = /* @__PURE__ */ e(
+}, T7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -4998,18 +4997,18 @@ var Uc = /* @__PURE__ */ s(Dc, [["render", Gc], ["__file", "price-tag.vue"]]), W
   null,
   -1
   /* HOISTED */
-), Nc = [
-  Ec
+), O7 = [
+  T7
 ];
-function Zc(t, a, _, r, l, i) {
-  return o(), n("svg", Ic, Nc);
+function G7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", R7, O7);
 }
-var Kc = /* @__PURE__ */ s(Wc, [["render", Zc], ["__file", "printer.vue"]]), Qc = {
+var U7 = /* @__PURE__ */ _(P7, [["render", G7], ["__file", "printer.vue"]]), W7 = {
   name: "Promotion"
-}, jc = {
+}, I7 = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Jc = /* @__PURE__ */ e(
+}, Z7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5018,20 +5017,20 @@ var Kc = /* @__PURE__ */ s(Wc, [["render", Zc], ["__file", "printer.vue"]]), Qc 
   null,
   -1
   /* HOISTED */
-), Xc = [
-  Jc
+), K7 = [
+  Z7
 ];
-function Yc(t, a, _, r, l, i) {
-  return o(), n("svg", jc, Xc);
+function Q7(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", I7, K7);
 }
-var eh = /* @__PURE__ */ s(Qc, [["render", Yc], ["__file", "promotion.vue"]]), th = {
+var j7 = /* @__PURE__ */ _(W7, [["render", Q7], ["__file", "promotion.vue"]]), J7 = {
   name: "QuartzWatch"
-}, _h = {
+}, X7 = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, ah = /* @__PURE__ */ e(
+}, Y7 = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5040,7 +5039,7 @@ var eh = /* @__PURE__ */ s(Qc, [["render", Yc], ["__file", "promotion.vue"]]), t
   null,
   -1
   /* HOISTED */
-), rh = /* @__PURE__ */ e(
+), eh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5049,7 +5048,7 @@ var eh = /* @__PURE__ */ s(Qc, [["render", Yc], ["__file", "promotion.vue"]]), t
   null,
   -1
   /* HOISTED */
-), lh = /* @__PURE__ */ e(
+), th = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5058,20 +5057,20 @@ var eh = /* @__PURE__ */ s(Qc, [["render", Yc], ["__file", "promotion.vue"]]), t
   null,
   -1
   /* HOISTED */
-), oh = [
-  ah,
-  rh,
-  lh
+), ah = [
+  Y7,
+  eh,
+  th
 ];
-function nh(t, a, _, r, l, i) {
-  return o(), n("svg", _h, oh);
+function lh(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", X7, ah);
 }
-var sh = /* @__PURE__ */ s(th, [["render", nh], ["__file", "quartz-watch.vue"]]), ih = {
+var rh = /* @__PURE__ */ _(J7, [["render", lh], ["__file", "quartz-watch.vue"]]), _h = {
   name: "QuestionFilled"
-}, uh = {
+}, oh = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, vh = /* @__PURE__ */ e(
+}, nh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5080,18 +5079,18 @@ var sh = /* @__PURE__ */ s(th, [["render", nh], ["__file", "quartz-watch.vue"]])
   null,
   -1
   /* HOISTED */
-), dh = [
-  vh
+), uh = [
+  nh
 ];
-function ch(t, a, _, r, l, i) {
-  return o(), n("svg", uh, dh);
+function ch(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", oh, uh);
 }
-var hh = /* @__PURE__ */ s(ih, [["render", ch], ["__file", "question-filled.vue"]]), ph = {
+var sh = /* @__PURE__ */ _(_h, [["render", ch], ["__file", "question-filled.vue"]]), dh = {
   name: "Rank"
-}, fh = {
+}, ih = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, wh = /* @__PURE__ */ e(
+}, vh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5100,18 +5099,18 @@ var hh = /* @__PURE__ */ s(ih, [["render", ch], ["__file", "question-filled.vue"
   null,
   -1
   /* HOISTED */
-), mh = [
-  wh
+), hh = [
+  vh
 ];
-function gh(t, a, _, r, l, i) {
-  return o(), n("svg", fh, mh);
+function ph(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ih, hh);
 }
-var $h = /* @__PURE__ */ s(ph, [["render", gh], ["__file", "rank.vue"]]), zh = {
+var fh = /* @__PURE__ */ _(dh, [["render", ph], ["__file", "rank.vue"]]), mh = {
   name: "ReadingLamp"
-}, xh = {
+}, Vh = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Hh = /* @__PURE__ */ e(
+}, wh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5120,7 +5119,7 @@ var $h = /* @__PURE__ */ s(ph, [["render", gh], ["__file", "rank.vue"]]), zh = {
   null,
   -1
   /* HOISTED */
-), Mh = /* @__PURE__ */ e(
+), gh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5129,19 +5128,19 @@ var $h = /* @__PURE__ */ s(ph, [["render", gh], ["__file", "rank.vue"]]), zh = {
   null,
   -1
   /* HOISTED */
-), Ch = [
-  Hh,
-  Mh
+), $h = [
+  wh,
+  gh
 ];
-function Vh(t, a, _, r, l, i) {
-  return o(), n("svg", xh, Ch);
+function zh(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Vh, $h);
 }
-var yh = /* @__PURE__ */ s(zh, [["render", Vh], ["__file", "reading-lamp.vue"]]), Bh = {
+var Bh = /* @__PURE__ */ _(mh, [["render", zh], ["__file", "reading-lamp.vue"]]), xh = {
   name: "Reading"
-}, Lh = {
+}, kh = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ah = /* @__PURE__ */ e(
+}, Eh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5150,7 +5149,7 @@ var yh = /* @__PURE__ */ s(zh, [["render", Vh], ["__file", "reading-lamp.vue"]])
   null,
   -1
   /* HOISTED */
-), bh = /* @__PURE__ */ e(
+), Hh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5159,19 +5158,19 @@ var yh = /* @__PURE__ */ s(zh, [["render", Vh], ["__file", "reading-lamp.vue"]])
   null,
   -1
   /* HOISTED */
-), kh = [
-  Ah,
-  bh
+), Mh = [
+  Eh,
+  Hh
 ];
-function Sh(t, a, _, r, l, i) {
-  return o(), n("svg", Lh, kh);
+function Ch(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", kh, Mh);
 }
-var qh = /* @__PURE__ */ s(Bh, [["render", Sh], ["__file", "reading.vue"]]), Fh = {
+var Nh = /* @__PURE__ */ _(xh, [["render", Ch], ["__file", "reading.vue"]]), yh = {
   name: "RefreshLeft"
-}, Dh = {
+}, Lh = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ph = /* @__PURE__ */ e(
+}, Ah = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5180,18 +5179,18 @@ var qh = /* @__PURE__ */ s(Bh, [["render", Sh], ["__file", "reading.vue"]]), Fh 
   null,
   -1
   /* HOISTED */
-), Rh = [
-  Ph
+), bh = [
+  Ah
 ];
-function Th(t, a, _, r, l, i) {
-  return o(), n("svg", Dh, Rh);
+function Sh(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Lh, bh);
 }
-var Oh = /* @__PURE__ */ s(Fh, [["render", Th], ["__file", "refresh-left.vue"]]), Gh = {
+var qh = /* @__PURE__ */ _(yh, [["render", Sh], ["__file", "refresh-left.vue"]]), Fh = {
   name: "RefreshRight"
-}, Uh = {
+}, Dh = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Wh = /* @__PURE__ */ e(
+}, Ph = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5200,18 +5199,18 @@ var Oh = /* @__PURE__ */ s(Fh, [["render", Th], ["__file", "refresh-left.vue"]])
   null,
   -1
   /* HOISTED */
-), Ih = [
-  Wh
+), Rh = [
+  Ph
 ];
-function Eh(t, a, _, r, l, i) {
-  return o(), n("svg", Uh, Ih);
+function Th(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Dh, Rh);
 }
-var Nh = /* @__PURE__ */ s(Gh, [["render", Eh], ["__file", "refresh-right.vue"]]), Zh = {
+var Oh = /* @__PURE__ */ _(Fh, [["render", Th], ["__file", "refresh-right.vue"]]), Gh = {
   name: "Refresh"
-}, Kh = {
+}, Uh = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Qh = /* @__PURE__ */ e(
+}, Wh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5220,18 +5219,18 @@ var Nh = /* @__PURE__ */ s(Gh, [["render", Eh], ["__file", "refresh-right.vue"]]
   null,
   -1
   /* HOISTED */
-), jh = [
-  Qh
+), Ih = [
+  Wh
 ];
-function Jh(t, a, _, r, l, i) {
-  return o(), n("svg", Kh, jh);
+function Zh(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Uh, Ih);
 }
-var Xh = /* @__PURE__ */ s(Zh, [["render", Jh], ["__file", "refresh.vue"]]), Yh = {
+var Kh = /* @__PURE__ */ _(Gh, [["render", Zh], ["__file", "refresh.vue"]]), Qh = {
   name: "Refrigerator"
-}, ep = {
+}, jh = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, tp = /* @__PURE__ */ e(
+}, Jh = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5240,18 +5239,18 @@ var Xh = /* @__PURE__ */ s(Zh, [["render", Jh], ["__file", "refresh.vue"]]), Yh 
   null,
   -1
   /* HOISTED */
-), _p = [
-  tp
+), Xh = [
+  Jh
 ];
-function ap(t, a, _, r, l, i) {
-  return o(), n("svg", ep, _p);
+function Yh(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", jh, Xh);
 }
-var rp = /* @__PURE__ */ s(Yh, [["render", ap], ["__file", "refrigerator.vue"]]), lp = {
+var ep = /* @__PURE__ */ _(Qh, [["render", Yh], ["__file", "refrigerator.vue"]]), tp = {
   name: "RemoveFilled"
-}, op = {
+}, ap = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, np = /* @__PURE__ */ e(
+}, lp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5260,18 +5259,18 @@ var rp = /* @__PURE__ */ s(Yh, [["render", ap], ["__file", "refrigerator.vue"]])
   null,
   -1
   /* HOISTED */
-), sp = [
-  np
+), rp = [
+  lp
 ];
-function ip(t, a, _, r, l, i) {
-  return o(), n("svg", op, sp);
+function _p(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ap, rp);
 }
-var up = /* @__PURE__ */ s(lp, [["render", ip], ["__file", "remove-filled.vue"]]), vp = {
+var op = /* @__PURE__ */ _(tp, [["render", _p], ["__file", "remove-filled.vue"]]), np = {
   name: "Remove"
-}, dp = {
+}, up = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, cp = /* @__PURE__ */ e(
+}, cp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5280,7 +5279,7 @@ var up = /* @__PURE__ */ s(lp, [["render", ip], ["__file", "remove-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), hp = /* @__PURE__ */ e(
+), sp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5289,19 +5288,19 @@ var up = /* @__PURE__ */ s(lp, [["render", ip], ["__file", "remove-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), pp = [
+), dp = [
   cp,
-  hp
+  sp
 ];
-function fp(t, a, _, r, l, i) {
-  return o(), n("svg", dp, pp);
+function ip(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", up, dp);
 }
-var wp = /* @__PURE__ */ s(vp, [["render", fp], ["__file", "remove.vue"]]), mp = {
+var vp = /* @__PURE__ */ _(np, [["render", ip], ["__file", "remove.vue"]]), hp = {
   name: "Right"
-}, gp = {
+}, pp = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, $p = /* @__PURE__ */ e(
+}, fp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5310,18 +5309,18 @@ var wp = /* @__PURE__ */ s(vp, [["render", fp], ["__file", "remove.vue"]]), mp =
   null,
   -1
   /* HOISTED */
-), zp = [
-  $p
+), mp = [
+  fp
 ];
-function xp(t, a, _, r, l, i) {
-  return o(), n("svg", gp, zp);
+function Vp(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", pp, mp);
 }
-var Hp = /* @__PURE__ */ s(mp, [["render", xp], ["__file", "right.vue"]]), Mp = {
+var wp = /* @__PURE__ */ _(hp, [["render", Vp], ["__file", "right.vue"]]), gp = {
   name: "ScaleToOriginal"
-}, Cp = {
+}, $p = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Vp = /* @__PURE__ */ e(
+}, zp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5330,18 +5329,18 @@ var Hp = /* @__PURE__ */ s(mp, [["render", xp], ["__file", "right.vue"]]), Mp = 
   null,
   -1
   /* HOISTED */
-), yp = [
-  Vp
+), Bp = [
+  zp
 ];
-function Bp(t, a, _, r, l, i) {
-  return o(), n("svg", Cp, yp);
+function xp(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", $p, Bp);
 }
-var Lp = /* @__PURE__ */ s(Mp, [["render", Bp], ["__file", "scale-to-original.vue"]]), Ap = {
+var kp = /* @__PURE__ */ _(gp, [["render", xp], ["__file", "scale-to-original.vue"]]), Ep = {
   name: "School"
-}, bp = {
+}, Hp = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, kp = /* @__PURE__ */ e(
+}, Mp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5350,7 +5349,7 @@ var Lp = /* @__PURE__ */ s(Mp, [["render", Bp], ["__file", "scale-to-original.vu
   null,
   -1
   /* HOISTED */
-), Sp = /* @__PURE__ */ e(
+), Cp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5359,7 +5358,7 @@ var Lp = /* @__PURE__ */ s(Mp, [["render", Bp], ["__file", "scale-to-original.vu
   null,
   -1
   /* HOISTED */
-), qp = /* @__PURE__ */ e(
+), Np = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5368,20 +5367,20 @@ var Lp = /* @__PURE__ */ s(Mp, [["render", Bp], ["__file", "scale-to-original.vu
   null,
   -1
   /* HOISTED */
-), Fp = [
-  kp,
-  Sp,
-  qp
+), yp = [
+  Mp,
+  Cp,
+  Np
 ];
-function Dp(t, a, _, r, l, i) {
-  return o(), n("svg", bp, Fp);
+function Lp(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Hp, yp);
 }
-var Pp = /* @__PURE__ */ s(Ap, [["render", Dp], ["__file", "school.vue"]]), Rp = {
+var Ap = /* @__PURE__ */ _(Ep, [["render", Lp], ["__file", "school.vue"]]), bp = {
   name: "Scissor"
-}, Tp = {
+}, Sp = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Op = /* @__PURE__ */ e(
+}, qp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5390,18 +5389,18 @@ var Pp = /* @__PURE__ */ s(Ap, [["render", Dp], ["__file", "school.vue"]]), Rp =
   null,
   -1
   /* HOISTED */
-), Gp = [
-  Op
+), Fp = [
+  qp
 ];
-function Up(t, a, _, r, l, i) {
-  return o(), n("svg", Tp, Gp);
+function Dp(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Sp, Fp);
 }
-var Wp = /* @__PURE__ */ s(Rp, [["render", Up], ["__file", "scissor.vue"]]), Ip = {
+var Pp = /* @__PURE__ */ _(bp, [["render", Dp], ["__file", "scissor.vue"]]), Rp = {
   name: "Search"
-}, Ep = {
+}, Tp = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Np = /* @__PURE__ */ e(
+}, Op = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5410,18 +5409,18 @@ var Wp = /* @__PURE__ */ s(Rp, [["render", Up], ["__file", "scissor.vue"]]), Ip 
   null,
   -1
   /* HOISTED */
-), Zp = [
-  Np
+), Gp = [
+  Op
 ];
-function Kp(t, a, _, r, l, i) {
-  return o(), n("svg", Ep, Zp);
+function Up(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Tp, Gp);
 }
-var Qp = /* @__PURE__ */ s(Ip, [["render", Kp], ["__file", "search.vue"]]), jp = {
+var Wp = /* @__PURE__ */ _(Rp, [["render", Up], ["__file", "search.vue"]]), Ip = {
   name: "Select"
-}, Jp = {
+}, Zp = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Xp = /* @__PURE__ */ e(
+}, Kp = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5430,18 +5429,18 @@ var Qp = /* @__PURE__ */ s(Ip, [["render", Kp], ["__file", "search.vue"]]), jp =
   null,
   -1
   /* HOISTED */
-), Yp = [
-  Xp
+), Qp = [
+  Kp
 ];
-function ef(t, a, _, r, l, i) {
-  return o(), n("svg", Jp, Yp);
+function jp(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Zp, Qp);
 }
-var tf = /* @__PURE__ */ s(jp, [["render", ef], ["__file", "select.vue"]]), _f = {
+var Jp = /* @__PURE__ */ _(Ip, [["render", jp], ["__file", "select.vue"]]), Xp = {
   name: "Sell"
-}, af = {
+}, Yp = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, rf = /* @__PURE__ */ e(
+}, ef = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5450,18 +5449,18 @@ var tf = /* @__PURE__ */ s(jp, [["render", ef], ["__file", "select.vue"]]), _f =
   null,
   -1
   /* HOISTED */
-), lf = [
-  rf
+), tf = [
+  ef
 ];
-function of(t, a, _, r, l, i) {
-  return o(), n("svg", af, lf);
+function af(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Yp, tf);
 }
-var nf = /* @__PURE__ */ s(_f, [["render", of], ["__file", "sell.vue"]]), sf = {
+var lf = /* @__PURE__ */ _(Xp, [["render", af], ["__file", "sell.vue"]]), rf = {
   name: "SemiSelect"
-}, uf = {
+}, _f = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, vf = /* @__PURE__ */ e(
+}, of = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5470,18 +5469,18 @@ var nf = /* @__PURE__ */ s(_f, [["render", of], ["__file", "sell.vue"]]), sf = {
   null,
   -1
   /* HOISTED */
-), df = [
-  vf
+), nf = [
+  of
 ];
-function cf(t, a, _, r, l, i) {
-  return o(), n("svg", uf, df);
+function uf(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", _f, nf);
 }
-var hf = /* @__PURE__ */ s(sf, [["render", cf], ["__file", "semi-select.vue"]]), pf = {
+var cf = /* @__PURE__ */ _(rf, [["render", uf], ["__file", "semi-select.vue"]]), sf = {
   name: "Service"
-}, ff = {
+}, df = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, wf = /* @__PURE__ */ e(
+}, vf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5490,18 +5489,18 @@ var hf = /* @__PURE__ */ s(sf, [["render", cf], ["__file", "semi-select.vue"]]),
   null,
   -1
   /* HOISTED */
-), mf = [
-  wf
+), hf = [
+  vf
 ];
-function gf(t, a, _, r, l, i) {
-  return o(), n("svg", ff, mf);
+function pf(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", df, hf);
 }
-var $f = /* @__PURE__ */ s(pf, [["render", gf], ["__file", "service.vue"]]), zf = {
+var ff = /* @__PURE__ */ _(sf, [["render", pf], ["__file", "service.vue"]]), mf = {
   name: "SetUp"
-}, xf = {
+}, Vf = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Hf = /* @__PURE__ */ e(
+}, wf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5510,7 +5509,7 @@ var $f = /* @__PURE__ */ s(pf, [["render", gf], ["__file", "service.vue"]]), zf 
   null,
   -1
   /* HOISTED */
-), Mf = /* @__PURE__ */ e(
+), gf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5519,7 +5518,7 @@ var $f = /* @__PURE__ */ s(pf, [["render", gf], ["__file", "service.vue"]]), zf 
   null,
   -1
   /* HOISTED */
-), Cf = /* @__PURE__ */ e(
+), $f = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5528,7 +5527,7 @@ var $f = /* @__PURE__ */ s(pf, [["render", gf], ["__file", "service.vue"]]), zf 
   null,
   -1
   /* HOISTED */
-), Vf = /* @__PURE__ */ e(
+), zf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5537,21 +5536,21 @@ var $f = /* @__PURE__ */ s(pf, [["render", gf], ["__file", "service.vue"]]), zf 
   null,
   -1
   /* HOISTED */
-), yf = [
-  Hf,
-  Mf,
-  Cf,
-  Vf
+), Bf = [
+  wf,
+  gf,
+  $f,
+  zf
 ];
-function Bf(t, a, _, r, l, i) {
-  return o(), n("svg", xf, yf);
+function xf(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Vf, Bf);
 }
-var Lf = /* @__PURE__ */ s(zf, [["render", Bf], ["__file", "set-up.vue"]]), Af = {
+var kf = /* @__PURE__ */ _(mf, [["render", xf], ["__file", "set-up.vue"]]), Ef = {
   name: "Setting"
-}, bf = {
+}, Hf = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, kf = /* @__PURE__ */ e(
+}, Mf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5560,18 +5559,18 @@ var Lf = /* @__PURE__ */ s(zf, [["render", Bf], ["__file", "set-up.vue"]]), Af =
   null,
   -1
   /* HOISTED */
-), Sf = [
-  kf
+), Cf = [
+  Mf
 ];
-function qf(t, a, _, r, l, i) {
-  return o(), n("svg", bf, Sf);
+function Nf(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Hf, Cf);
 }
-var Ff = /* @__PURE__ */ s(Af, [["render", qf], ["__file", "setting.vue"]]), Df = {
+var yf = /* @__PURE__ */ _(Ef, [["render", Nf], ["__file", "setting.vue"]]), Lf = {
   name: "Share"
-}, Pf = {
+}, Af = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Rf = /* @__PURE__ */ e(
+}, bf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5580,18 +5579,18 @@ var Ff = /* @__PURE__ */ s(Af, [["render", qf], ["__file", "setting.vue"]]), Df 
   null,
   -1
   /* HOISTED */
-), Tf = [
-  Rf
+), Sf = [
+  bf
 ];
-function Of(t, a, _, r, l, i) {
-  return o(), n("svg", Pf, Tf);
+function qf(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Af, Sf);
 }
-var Gf = /* @__PURE__ */ s(Df, [["render", Of], ["__file", "share.vue"]]), Uf = {
+var Ff = /* @__PURE__ */ _(Lf, [["render", qf], ["__file", "share.vue"]]), Df = {
   name: "Ship"
-}, Wf = {
+}, Pf = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, If = /* @__PURE__ */ e(
+}, Rf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5600,18 +5599,18 @@ var Gf = /* @__PURE__ */ s(Df, [["render", Of], ["__file", "share.vue"]]), Uf = 
   null,
   -1
   /* HOISTED */
-), Ef = [
-  If
+), Tf = [
+  Rf
 ];
-function Nf(t, a, _, r, l, i) {
-  return o(), n("svg", Wf, Ef);
+function Of(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Pf, Tf);
 }
-var Zf = /* @__PURE__ */ s(Uf, [["render", Nf], ["__file", "ship.vue"]]), Kf = {
+var Gf = /* @__PURE__ */ _(Df, [["render", Of], ["__file", "ship.vue"]]), Uf = {
   name: "Shop"
-}, Qf = {
+}, Wf = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, jf = /* @__PURE__ */ e(
+}, If = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5620,18 +5619,18 @@ var Zf = /* @__PURE__ */ s(Uf, [["render", Nf], ["__file", "ship.vue"]]), Kf = {
   null,
   -1
   /* HOISTED */
-), Jf = [
-  jf
+), Zf = [
+  If
 ];
-function Xf(t, a, _, r, l, i) {
-  return o(), n("svg", Qf, Jf);
+function Kf(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Wf, Zf);
 }
-var Yf = /* @__PURE__ */ s(Kf, [["render", Xf], ["__file", "shop.vue"]]), ew = {
+var Qf = /* @__PURE__ */ _(Uf, [["render", Kf], ["__file", "shop.vue"]]), jf = {
   name: "ShoppingBag"
-}, tw = {
+}, Jf = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, _w = /* @__PURE__ */ e(
+}, Xf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5640,7 +5639,7 @@ var Yf = /* @__PURE__ */ s(Kf, [["render", Xf], ["__file", "shop.vue"]]), ew = {
   null,
   -1
   /* HOISTED */
-), aw = /* @__PURE__ */ e(
+), Yf = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5649,19 +5648,19 @@ var Yf = /* @__PURE__ */ s(Kf, [["render", Xf], ["__file", "shop.vue"]]), ew = {
   null,
   -1
   /* HOISTED */
-), rw = [
-  _w,
-  aw
+), em = [
+  Xf,
+  Yf
 ];
-function lw(t, a, _, r, l, i) {
-  return o(), n("svg", tw, rw);
+function tm(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Jf, em);
 }
-var ow = /* @__PURE__ */ s(ew, [["render", lw], ["__file", "shopping-bag.vue"]]), nw = {
+var am = /* @__PURE__ */ _(jf, [["render", tm], ["__file", "shopping-bag.vue"]]), lm = {
   name: "ShoppingCartFull"
-}, sw = {
+}, rm = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, iw = /* @__PURE__ */ e(
+}, _m = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5670,7 +5669,7 @@ var ow = /* @__PURE__ */ s(ew, [["render", lw], ["__file", "shopping-bag.vue"]])
   null,
   -1
   /* HOISTED */
-), uw = /* @__PURE__ */ e(
+), om = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5679,19 +5678,19 @@ var ow = /* @__PURE__ */ s(ew, [["render", lw], ["__file", "shopping-bag.vue"]])
   null,
   -1
   /* HOISTED */
-), vw = [
-  iw,
-  uw
+), nm = [
+  _m,
+  om
 ];
-function dw(t, a, _, r, l, i) {
-  return o(), n("svg", sw, vw);
+function um(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", rm, nm);
 }
-var cw = /* @__PURE__ */ s(nw, [["render", dw], ["__file", "shopping-cart-full.vue"]]), hw = {
+var cm = /* @__PURE__ */ _(lm, [["render", um], ["__file", "shopping-cart-full.vue"]]), sm = {
   name: "ShoppingCart"
-}, pw = {
+}, dm = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, fw = /* @__PURE__ */ e(
+}, im = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5700,20 +5699,20 @@ var cw = /* @__PURE__ */ s(nw, [["render", dw], ["__file", "shopping-cart-full.v
   null,
   -1
   /* HOISTED */
-), ww = [
-  fw
+), vm = [
+  im
 ];
-function mw(t, a, _, r, l, i) {
-  return o(), n("svg", pw, ww);
+function hm(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", dm, vm);
 }
-var gw = /* @__PURE__ */ s(hw, [["render", mw], ["__file", "shopping-cart.vue"]]), $w = {
+var pm = /* @__PURE__ */ _(sm, [["render", hm], ["__file", "shopping-cart.vue"]]), fm = {
   name: "ShoppingTrolley"
-}, zw = {
+}, mm = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, xw = /* @__PURE__ */ e(
+}, Vm = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5722,18 +5721,18 @@ var gw = /* @__PURE__ */ s(hw, [["render", mw], ["__file", "shopping-cart.vue"]]
   null,
   -1
   /* HOISTED */
-), Hw = [
-  xw
+), wm = [
+  Vm
 ];
-function Mw(t, a, _, r, l, i) {
-  return o(), n("svg", zw, Hw);
+function gm(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", mm, wm);
 }
-var Cw = /* @__PURE__ */ s($w, [["render", Mw], ["__file", "shopping-trolley.vue"]]), Vw = {
+var $m = /* @__PURE__ */ _(fm, [["render", gm], ["__file", "shopping-trolley.vue"]]), zm = {
   name: "Smoking"
-}, yw = {
+}, Bm = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Bw = /* @__PURE__ */ e(
+}, xm = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5742,7 +5741,7 @@ var Cw = /* @__PURE__ */ s($w, [["render", Mw], ["__file", "shopping-trolley.vue
   null,
   -1
   /* HOISTED */
-), Lw = /* @__PURE__ */ e(
+), km = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5751,19 +5750,19 @@ var Cw = /* @__PURE__ */ s($w, [["render", Mw], ["__file", "shopping-trolley.vue
   null,
   -1
   /* HOISTED */
-), Aw = [
-  Bw,
-  Lw
+), Em = [
+  xm,
+  km
 ];
-function bw(t, a, _, r, l, i) {
-  return o(), n("svg", yw, Aw);
+function Hm(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Bm, Em);
 }
-var kw = /* @__PURE__ */ s(Vw, [["render", bw], ["__file", "smoking.vue"]]), Sw = {
+var Mm = /* @__PURE__ */ _(zm, [["render", Hm], ["__file", "smoking.vue"]]), Cm = {
   name: "Soccer"
-}, qw = {
+}, Nm = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Fw = /* @__PURE__ */ e(
+}, ym = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5772,18 +5771,18 @@ var kw = /* @__PURE__ */ s(Vw, [["render", bw], ["__file", "smoking.vue"]]), Sw 
   null,
   -1
   /* HOISTED */
-), Dw = [
-  Fw
+), Lm = [
+  ym
 ];
-function Pw(t, a, _, r, l, i) {
-  return o(), n("svg", qw, Dw);
+function Am(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Nm, Lm);
 }
-var Rw = /* @__PURE__ */ s(Sw, [["render", Pw], ["__file", "soccer.vue"]]), Tw = {
+var bm = /* @__PURE__ */ _(Cm, [["render", Am], ["__file", "soccer.vue"]]), Sm = {
   name: "SoldOut"
-}, Ow = {
+}, qm = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Gw = /* @__PURE__ */ e(
+}, Fm = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5792,18 +5791,18 @@ var Rw = /* @__PURE__ */ s(Sw, [["render", Pw], ["__file", "soccer.vue"]]), Tw =
   null,
   -1
   /* HOISTED */
-), Uw = [
-  Gw
+), Dm = [
+  Fm
 ];
-function Ww(t, a, _, r, l, i) {
-  return o(), n("svg", Ow, Uw);
+function Pm(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", qm, Dm);
 }
-var Iw = /* @__PURE__ */ s(Tw, [["render", Ww], ["__file", "sold-out.vue"]]), Ew = {
+var Rm = /* @__PURE__ */ _(Sm, [["render", Pm], ["__file", "sold-out.vue"]]), Tm = {
   name: "SortDown"
-}, Nw = {
+}, Om = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Zw = /* @__PURE__ */ e(
+}, Gm = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5812,18 +5811,18 @@ var Iw = /* @__PURE__ */ s(Tw, [["render", Ww], ["__file", "sold-out.vue"]]), Ew
   null,
   -1
   /* HOISTED */
-), Kw = [
-  Zw
+), Um = [
+  Gm
 ];
-function Qw(t, a, _, r, l, i) {
-  return o(), n("svg", Nw, Kw);
+function Wm(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Om, Um);
 }
-var jw = /* @__PURE__ */ s(Ew, [["render", Qw], ["__file", "sort-down.vue"]]), Jw = {
+var Im = /* @__PURE__ */ _(Tm, [["render", Wm], ["__file", "sort-down.vue"]]), Zm = {
   name: "SortUp"
-}, Xw = {
+}, Km = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Yw = /* @__PURE__ */ e(
+}, Qm = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5832,18 +5831,18 @@ var jw = /* @__PURE__ */ s(Ew, [["render", Qw], ["__file", "sort-down.vue"]]), J
   null,
   -1
   /* HOISTED */
-), em = [
-  Yw
+), jm = [
+  Qm
 ];
-function tm(t, a, _, r, l, i) {
-  return o(), n("svg", Xw, em);
+function Jm(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Km, jm);
 }
-var _m = /* @__PURE__ */ s(Jw, [["render", tm], ["__file", "sort-up.vue"]]), am = {
+var Xm = /* @__PURE__ */ _(Zm, [["render", Jm], ["__file", "sort-up.vue"]]), Ym = {
   name: "Sort"
-}, rm = {
+}, eV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, lm = /* @__PURE__ */ e(
+}, tV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5852,18 +5851,18 @@ var _m = /* @__PURE__ */ s(Jw, [["render", tm], ["__file", "sort-up.vue"]]), am 
   null,
   -1
   /* HOISTED */
-), om = [
-  lm
+), aV = [
+  tV
 ];
-function nm(t, a, _, r, l, i) {
-  return o(), n("svg", rm, om);
+function lV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", eV, aV);
 }
-var sm = /* @__PURE__ */ s(am, [["render", nm], ["__file", "sort.vue"]]), im = {
+var rV = /* @__PURE__ */ _(Ym, [["render", lV], ["__file", "sort.vue"]]), _V = {
   name: "Stamp"
-}, um = {
+}, oV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, vm = /* @__PURE__ */ e(
+}, nV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5872,18 +5871,18 @@ var sm = /* @__PURE__ */ s(am, [["render", nm], ["__file", "sort.vue"]]), im = {
   null,
   -1
   /* HOISTED */
-), dm = [
-  vm
+), uV = [
+  nV
 ];
-function cm(t, a, _, r, l, i) {
-  return o(), n("svg", um, dm);
+function cV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", oV, uV);
 }
-var hm = /* @__PURE__ */ s(im, [["render", cm], ["__file", "stamp.vue"]]), pm = {
+var sV = /* @__PURE__ */ _(_V, [["render", cV], ["__file", "stamp.vue"]]), dV = {
   name: "StarFilled"
-}, fm = {
+}, iV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, wm = /* @__PURE__ */ e(
+}, vV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5892,18 +5891,18 @@ var hm = /* @__PURE__ */ s(im, [["render", cm], ["__file", "stamp.vue"]]), pm = 
   null,
   -1
   /* HOISTED */
-), mm = [
-  wm
+), hV = [
+  vV
 ];
-function gm(t, a, _, r, l, i) {
-  return o(), n("svg", fm, mm);
+function pV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", iV, hV);
 }
-var $m = /* @__PURE__ */ s(pm, [["render", gm], ["__file", "star-filled.vue"]]), zm = {
+var fV = /* @__PURE__ */ _(dV, [["render", pV], ["__file", "star-filled.vue"]]), mV = {
   name: "Star"
-}, xm = {
+}, VV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Hm = /* @__PURE__ */ e(
+}, wV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5912,18 +5911,18 @@ var $m = /* @__PURE__ */ s(pm, [["render", gm], ["__file", "star-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), Mm = [
-  Hm
+), gV = [
+  wV
 ];
-function Cm(t, a, _, r, l, i) {
-  return o(), n("svg", xm, Mm);
+function $V(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", VV, gV);
 }
-var Vm = /* @__PURE__ */ s(zm, [["render", Cm], ["__file", "star.vue"]]), ym = {
+var zV = /* @__PURE__ */ _(mV, [["render", $V], ["__file", "star.vue"]]), BV = {
   name: "Stopwatch"
-}, Bm = {
+}, xV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Lm = /* @__PURE__ */ e(
+}, kV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5932,7 +5931,7 @@ var Vm = /* @__PURE__ */ s(zm, [["render", Cm], ["__file", "star.vue"]]), ym = {
   null,
   -1
   /* HOISTED */
-), Am = /* @__PURE__ */ e(
+), EV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5941,19 +5940,19 @@ var Vm = /* @__PURE__ */ s(zm, [["render", Cm], ["__file", "star.vue"]]), ym = {
   null,
   -1
   /* HOISTED */
-), bm = [
-  Lm,
-  Am
+), HV = [
+  kV,
+  EV
 ];
-function km(t, a, _, r, l, i) {
-  return o(), n("svg", Bm, bm);
+function MV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", xV, HV);
 }
-var Sm = /* @__PURE__ */ s(ym, [["render", km], ["__file", "stopwatch.vue"]]), qm = {
+var CV = /* @__PURE__ */ _(BV, [["render", MV], ["__file", "stopwatch.vue"]]), NV = {
   name: "SuccessFilled"
-}, Fm = {
+}, yV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Dm = /* @__PURE__ */ e(
+}, LV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5962,18 +5961,18 @@ var Sm = /* @__PURE__ */ s(ym, [["render", km], ["__file", "stopwatch.vue"]]), q
   null,
   -1
   /* HOISTED */
-), Pm = [
-  Dm
+), AV = [
+  LV
 ];
-function Rm(t, a, _, r, l, i) {
-  return o(), n("svg", Fm, Pm);
+function bV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", yV, AV);
 }
-var Tm = /* @__PURE__ */ s(qm, [["render", Rm], ["__file", "success-filled.vue"]]), Om = {
+var SV = /* @__PURE__ */ _(NV, [["render", bV], ["__file", "success-filled.vue"]]), qV = {
   name: "Sugar"
-}, Gm = {
+}, FV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Um = /* @__PURE__ */ e(
+}, DV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -5982,20 +5981,20 @@ var Tm = /* @__PURE__ */ s(qm, [["render", Rm], ["__file", "success-filled.vue"]
   null,
   -1
   /* HOISTED */
-), Wm = [
-  Um
+), PV = [
+  DV
 ];
-function Im(t, a, _, r, l, i) {
-  return o(), n("svg", Gm, Wm);
+function RV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", FV, PV);
 }
-var Em = /* @__PURE__ */ s(Om, [["render", Im], ["__file", "sugar.vue"]]), Nm = {
+var TV = /* @__PURE__ */ _(qV, [["render", RV], ["__file", "sugar.vue"]]), OV = {
   name: "SuitcaseLine"
-}, Zm = {
+}, GV = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, Km = /* @__PURE__ */ e(
+}, UV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6004,18 +6003,18 @@ var Em = /* @__PURE__ */ s(Om, [["render", Im], ["__file", "sugar.vue"]]), Nm = 
   null,
   -1
   /* HOISTED */
-), Qm = [
-  Km
+), WV = [
+  UV
 ];
-function jm(t, a, _, r, l, i) {
-  return o(), n("svg", Zm, Qm);
+function IV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", GV, WV);
 }
-var Jm = /* @__PURE__ */ s(Nm, [["render", jm], ["__file", "suitcase-line.vue"]]), Xm = {
+var ZV = /* @__PURE__ */ _(OV, [["render", IV], ["__file", "suitcase-line.vue"]]), KV = {
   name: "Suitcase"
-}, Ym = {
+}, QV = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, eg = /* @__PURE__ */ e(
+}, jV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6024,7 +6023,7 @@ var Jm = /* @__PURE__ */ s(Nm, [["render", jm], ["__file", "suitcase-line.vue"]]
   null,
   -1
   /* HOISTED */
-), tg = /* @__PURE__ */ e(
+), JV = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6033,19 +6032,19 @@ var Jm = /* @__PURE__ */ s(Nm, [["render", jm], ["__file", "suitcase-line.vue"]]
   null,
   -1
   /* HOISTED */
-), _g = [
-  eg,
-  tg
+), XV = [
+  jV,
+  JV
 ];
-function ag(t, a, _, r, l, i) {
-  return o(), n("svg", Ym, _g);
+function YV(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", QV, XV);
 }
-var rg = /* @__PURE__ */ s(Xm, [["render", ag], ["__file", "suitcase.vue"]]), lg = {
+var ew = /* @__PURE__ */ _(KV, [["render", YV], ["__file", "suitcase.vue"]]), tw = {
   name: "Sunny"
-}, og = {
+}, aw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ng = /* @__PURE__ */ e(
+}, lw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6054,18 +6053,18 @@ var rg = /* @__PURE__ */ s(Xm, [["render", ag], ["__file", "suitcase.vue"]]), lg
   null,
   -1
   /* HOISTED */
-), sg = [
-  ng
+), rw = [
+  lw
 ];
-function ig(t, a, _, r, l, i) {
-  return o(), n("svg", og, sg);
+function _w(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", aw, rw);
 }
-var ug = /* @__PURE__ */ s(lg, [["render", ig], ["__file", "sunny.vue"]]), vg = {
+var ow = /* @__PURE__ */ _(tw, [["render", _w], ["__file", "sunny.vue"]]), nw = {
   name: "Sunrise"
-}, dg = {
+}, uw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, cg = /* @__PURE__ */ e(
+}, cw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6074,18 +6073,18 @@ var ug = /* @__PURE__ */ s(lg, [["render", ig], ["__file", "sunny.vue"]]), vg = 
   null,
   -1
   /* HOISTED */
-), hg = [
-  cg
+), sw = [
+  cw
 ];
-function pg(t, a, _, r, l, i) {
-  return o(), n("svg", dg, hg);
+function dw(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", uw, sw);
 }
-var fg = /* @__PURE__ */ s(vg, [["render", pg], ["__file", "sunrise.vue"]]), wg = {
+var iw = /* @__PURE__ */ _(nw, [["render", dw], ["__file", "sunrise.vue"]]), vw = {
   name: "Sunset"
-}, mg = {
+}, hw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, gg = /* @__PURE__ */ e(
+}, pw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6094,18 +6093,18 @@ var fg = /* @__PURE__ */ s(vg, [["render", pg], ["__file", "sunrise.vue"]]), wg 
   null,
   -1
   /* HOISTED */
-), $g = [
-  gg
+), fw = [
+  pw
 ];
-function zg(t, a, _, r, l, i) {
-  return o(), n("svg", mg, $g);
+function mw(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", hw, fw);
 }
-var xg = /* @__PURE__ */ s(wg, [["render", zg], ["__file", "sunset.vue"]]), Hg = {
+var Vw = /* @__PURE__ */ _(vw, [["render", mw], ["__file", "sunset.vue"]]), ww = {
   name: "SwitchButton"
-}, Mg = {
+}, gw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Cg = /* @__PURE__ */ e(
+}, $w = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6114,7 +6113,7 @@ var xg = /* @__PURE__ */ s(wg, [["render", zg], ["__file", "sunset.vue"]]), Hg =
   null,
   -1
   /* HOISTED */
-), Vg = /* @__PURE__ */ e(
+), zw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6123,21 +6122,21 @@ var xg = /* @__PURE__ */ s(wg, [["render", zg], ["__file", "sunset.vue"]]), Hg =
   null,
   -1
   /* HOISTED */
-), yg = [
-  Cg,
-  Vg
+), Bw = [
+  $w,
+  zw
 ];
-function Bg(t, a, _, r, l, i) {
-  return o(), n("svg", Mg, yg);
+function xw(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", gw, Bw);
 }
-var Lg = /* @__PURE__ */ s(Hg, [["render", Bg], ["__file", "switch-button.vue"]]), Ag = {
+var kw = /* @__PURE__ */ _(ww, [["render", xw], ["__file", "switch-button.vue"]]), Ew = {
   name: "SwitchFilled"
-}, bg = {
+}, Hw = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, kg = /* @__PURE__ */ e(
+}, Mw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6146,7 +6145,7 @@ var Lg = /* @__PURE__ */ s(Hg, [["render", Bg], ["__file", "switch-button.vue"]]
   null,
   -1
   /* HOISTED */
-), Sg = /* @__PURE__ */ e(
+), Cw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6155,19 +6154,19 @@ var Lg = /* @__PURE__ */ s(Hg, [["render", Bg], ["__file", "switch-button.vue"]]
   null,
   -1
   /* HOISTED */
-), qg = [
-  kg,
-  Sg
+), Nw = [
+  Mw,
+  Cw
 ];
-function Fg(t, a, _, r, l, i) {
-  return o(), n("svg", bg, qg);
+function yw(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Hw, Nw);
 }
-var Dg = /* @__PURE__ */ s(Ag, [["render", Fg], ["__file", "switch-filled.vue"]]), Pg = {
+var Lw = /* @__PURE__ */ _(Ew, [["render", yw], ["__file", "switch-filled.vue"]]), Aw = {
   name: "Switch"
-}, Rg = {
+}, bw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Tg = /* @__PURE__ */ e(
+}, Sw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6176,18 +6175,18 @@ var Dg = /* @__PURE__ */ s(Ag, [["render", Fg], ["__file", "switch-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), Og = [
-  Tg
+), qw = [
+  Sw
 ];
-function Gg(t, a, _, r, l, i) {
-  return o(), n("svg", Rg, Og);
+function Fw(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", bw, qw);
 }
-var Ug = /* @__PURE__ */ s(Pg, [["render", Gg], ["__file", "switch.vue"]]), Wg = {
+var Dw = /* @__PURE__ */ _(Aw, [["render", Fw], ["__file", "switch.vue"]]), Pw = {
   name: "TakeawayBox"
-}, Ig = {
+}, Rw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Eg = /* @__PURE__ */ e(
+}, Tw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6196,18 +6195,18 @@ var Ug = /* @__PURE__ */ s(Pg, [["render", Gg], ["__file", "switch.vue"]]), Wg =
   null,
   -1
   /* HOISTED */
-), Ng = [
-  Eg
+), Ow = [
+  Tw
 ];
-function Zg(t, a, _, r, l, i) {
-  return o(), n("svg", Ig, Ng);
+function Gw(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Rw, Ow);
 }
-var Kg = /* @__PURE__ */ s(Wg, [["render", Zg], ["__file", "takeaway-box.vue"]]), Qg = {
+var Uw = /* @__PURE__ */ _(Pw, [["render", Gw], ["__file", "takeaway-box.vue"]]), Ww = {
   name: "Ticket"
-}, jg = {
+}, Iw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Jg = /* @__PURE__ */ e(
+}, Zw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6216,18 +6215,18 @@ var Kg = /* @__PURE__ */ s(Wg, [["render", Zg], ["__file", "takeaway-box.vue"]])
   null,
   -1
   /* HOISTED */
-), Xg = [
-  Jg
+), Kw = [
+  Zw
 ];
-function Yg(t, a, _, r, l, i) {
-  return o(), n("svg", jg, Xg);
+function Qw(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Iw, Kw);
 }
-var e$ = /* @__PURE__ */ s(Qg, [["render", Yg], ["__file", "ticket.vue"]]), t$ = {
+var jw = /* @__PURE__ */ _(Ww, [["render", Qw], ["__file", "ticket.vue"]]), Jw = {
   name: "Tickets"
-}, _$ = {
+}, Xw = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, a$ = /* @__PURE__ */ e(
+}, Yw = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6236,18 +6235,18 @@ var e$ = /* @__PURE__ */ s(Qg, [["render", Yg], ["__file", "ticket.vue"]]), t$ =
   null,
   -1
   /* HOISTED */
-), r$ = [
-  a$
+), eg = [
+  Yw
 ];
-function l$(t, a, _, r, l, i) {
-  return o(), n("svg", _$, r$);
+function tg(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Xw, eg);
 }
-var o$ = /* @__PURE__ */ s(t$, [["render", l$], ["__file", "tickets.vue"]]), n$ = {
+var ag = /* @__PURE__ */ _(Jw, [["render", tg], ["__file", "tickets.vue"]]), lg = {
   name: "Timer"
-}, s$ = {
+}, rg = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, i$ = /* @__PURE__ */ e(
+}, _g = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6256,7 +6255,7 @@ var o$ = /* @__PURE__ */ s(t$, [["render", l$], ["__file", "tickets.vue"]]), n$ 
   null,
   -1
   /* HOISTED */
-), u$ = /* @__PURE__ */ e(
+), og = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6265,7 +6264,7 @@ var o$ = /* @__PURE__ */ s(t$, [["render", l$], ["__file", "tickets.vue"]]), n$ 
   null,
   -1
   /* HOISTED */
-), v$ = /* @__PURE__ */ e(
+), ng = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6274,20 +6273,20 @@ var o$ = /* @__PURE__ */ s(t$, [["render", l$], ["__file", "tickets.vue"]]), n$ 
   null,
   -1
   /* HOISTED */
-), d$ = [
-  i$,
-  u$,
-  v$
+), ug = [
+  _g,
+  og,
+  ng
 ];
-function c$(t, a, _, r, l, i) {
-  return o(), n("svg", s$, d$);
+function cg(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", rg, ug);
 }
-var h$ = /* @__PURE__ */ s(n$, [["render", c$], ["__file", "timer.vue"]]), p$ = {
+var sg = /* @__PURE__ */ _(lg, [["render", cg], ["__file", "timer.vue"]]), dg = {
   name: "ToiletPaper"
-}, f$ = {
+}, ig = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, w$ = /* @__PURE__ */ e(
+}, vg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6296,7 +6295,7 @@ var h$ = /* @__PURE__ */ s(n$, [["render", c$], ["__file", "timer.vue"]]), p$ = 
   null,
   -1
   /* HOISTED */
-), m$ = /* @__PURE__ */ e(
+), hg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6305,19 +6304,19 @@ var h$ = /* @__PURE__ */ s(n$, [["render", c$], ["__file", "timer.vue"]]), p$ = 
   null,
   -1
   /* HOISTED */
-), g$ = [
-  w$,
-  m$
+), pg = [
+  vg,
+  hg
 ];
-function $$(t, a, _, r, l, i) {
-  return o(), n("svg", f$, g$);
+function fg(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", ig, pg);
 }
-var z$ = /* @__PURE__ */ s(p$, [["render", $$], ["__file", "toilet-paper.vue"]]), x$ = {
+var mg = /* @__PURE__ */ _(dg, [["render", fg], ["__file", "toilet-paper.vue"]]), Vg = {
   name: "Tools"
-}, H$ = {
+}, wg = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, M$ = /* @__PURE__ */ e(
+}, gg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6326,18 +6325,18 @@ var z$ = /* @__PURE__ */ s(p$, [["render", $$], ["__file", "toilet-paper.vue"]])
   null,
   -1
   /* HOISTED */
-), C$ = [
-  M$
+), $g = [
+  gg
 ];
-function V$(t, a, _, r, l, i) {
-  return o(), n("svg", H$, C$);
+function zg(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", wg, $g);
 }
-var y$ = /* @__PURE__ */ s(x$, [["render", V$], ["__file", "tools.vue"]]), B$ = {
+var Bg = /* @__PURE__ */ _(Vg, [["render", zg], ["__file", "tools.vue"]]), xg = {
   name: "TopLeft"
-}, L$ = {
+}, kg = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, A$ = /* @__PURE__ */ e(
+}, Eg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6346,7 +6345,7 @@ var y$ = /* @__PURE__ */ s(x$, [["render", V$], ["__file", "tools.vue"]]), B$ = 
   null,
   -1
   /* HOISTED */
-), b$ = /* @__PURE__ */ e(
+), Hg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6355,19 +6354,19 @@ var y$ = /* @__PURE__ */ s(x$, [["render", V$], ["__file", "tools.vue"]]), B$ = 
   null,
   -1
   /* HOISTED */
-), k$ = [
-  A$,
-  b$
+), Mg = [
+  Eg,
+  Hg
 ];
-function S$(t, a, _, r, l, i) {
-  return o(), n("svg", L$, k$);
+function Cg(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", kg, Mg);
 }
-var q$ = /* @__PURE__ */ s(B$, [["render", S$], ["__file", "top-left.vue"]]), F$ = {
+var Ng = /* @__PURE__ */ _(xg, [["render", Cg], ["__file", "top-left.vue"]]), yg = {
   name: "TopRight"
-}, D$ = {
+}, Lg = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, P$ = /* @__PURE__ */ e(
+}, Ag = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6376,7 +6375,7 @@ var q$ = /* @__PURE__ */ s(B$, [["render", S$], ["__file", "top-left.vue"]]), F$
   null,
   -1
   /* HOISTED */
-), R$ = /* @__PURE__ */ e(
+), bg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6385,19 +6384,19 @@ var q$ = /* @__PURE__ */ s(B$, [["render", S$], ["__file", "top-left.vue"]]), F$
   null,
   -1
   /* HOISTED */
-), T$ = [
-  P$,
-  R$
+), Sg = [
+  Ag,
+  bg
 ];
-function O$(t, a, _, r, l, i) {
-  return o(), n("svg", D$, T$);
+function qg(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Lg, Sg);
 }
-var G$ = /* @__PURE__ */ s(F$, [["render", O$], ["__file", "top-right.vue"]]), U$ = {
+var Fg = /* @__PURE__ */ _(yg, [["render", qg], ["__file", "top-right.vue"]]), Dg = {
   name: "Top"
-}, W$ = {
+}, Pg = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, I$ = /* @__PURE__ */ e(
+}, Rg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6406,18 +6405,18 @@ var G$ = /* @__PURE__ */ s(F$, [["render", O$], ["__file", "top-right.vue"]]), U
   null,
   -1
   /* HOISTED */
-), E$ = [
-  I$
+), Tg = [
+  Rg
 ];
-function N$(t, a, _, r, l, i) {
-  return o(), n("svg", W$, E$);
+function Og(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Pg, Tg);
 }
-var Z$ = /* @__PURE__ */ s(U$, [["render", N$], ["__file", "top.vue"]]), K$ = {
+var Gg = /* @__PURE__ */ _(Dg, [["render", Og], ["__file", "top.vue"]]), Ug = {
   name: "TrendCharts"
-}, Q$ = {
+}, Wg = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, j$ = /* @__PURE__ */ e(
+}, Ig = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6426,20 +6425,20 @@ var Z$ = /* @__PURE__ */ s(U$, [["render", N$], ["__file", "top.vue"]]), K$ = {
   null,
   -1
   /* HOISTED */
-), J$ = [
-  j$
+), Zg = [
+  Ig
 ];
-function X$(t, a, _, r, l, i) {
-  return o(), n("svg", Q$, J$);
+function Kg(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Wg, Zg);
 }
-var Y$ = /* @__PURE__ */ s(K$, [["render", X$], ["__file", "trend-charts.vue"]]), ez = {
+var Qg = /* @__PURE__ */ _(Ug, [["render", Kg], ["__file", "trend-charts.vue"]]), jg = {
   name: "TrophyBase"
-}, tz = {
+}, Jg = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, _z = /* @__PURE__ */ e(
+}, Xg = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6448,18 +6447,18 @@ var Y$ = /* @__PURE__ */ s(K$, [["render", X$], ["__file", "trend-charts.vue"]])
   null,
   -1
   /* HOISTED */
-), az = [
-  _z
+), Yg = [
+  Xg
 ];
-function rz(t, a, _, r, l, i) {
-  return o(), n("svg", tz, az);
+function e$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Jg, Yg);
 }
-var lz = /* @__PURE__ */ s(ez, [["render", rz], ["__file", "trophy-base.vue"]]), oz = {
+var t$ = /* @__PURE__ */ _(jg, [["render", e$], ["__file", "trophy-base.vue"]]), a$ = {
   name: "Trophy"
-}, nz = {
+}, l$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, sz = /* @__PURE__ */ e(
+}, r$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6468,18 +6467,18 @@ var lz = /* @__PURE__ */ s(ez, [["render", rz], ["__file", "trophy-base.vue"]]),
   null,
   -1
   /* HOISTED */
-), iz = [
-  sz
+), _$ = [
+  r$
 ];
-function uz(t, a, _, r, l, i) {
-  return o(), n("svg", nz, iz);
+function o$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", l$, _$);
 }
-var vz = /* @__PURE__ */ s(oz, [["render", uz], ["__file", "trophy.vue"]]), dz = {
+var n$ = /* @__PURE__ */ _(a$, [["render", o$], ["__file", "trophy.vue"]]), u$ = {
   name: "TurnOff"
-}, cz = {
+}, c$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, hz = /* @__PURE__ */ e(
+}, s$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6488,7 +6487,7 @@ var vz = /* @__PURE__ */ s(oz, [["render", uz], ["__file", "trophy.vue"]]), dz =
   null,
   -1
   /* HOISTED */
-), pz = /* @__PURE__ */ e(
+), d$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6497,19 +6496,19 @@ var vz = /* @__PURE__ */ s(oz, [["render", uz], ["__file", "trophy.vue"]]), dz =
   null,
   -1
   /* HOISTED */
-), fz = [
-  hz,
-  pz
+), i$ = [
+  s$,
+  d$
 ];
-function wz(t, a, _, r, l, i) {
-  return o(), n("svg", cz, fz);
+function v$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", c$, i$);
 }
-var mz = /* @__PURE__ */ s(dz, [["render", wz], ["__file", "turn-off.vue"]]), gz = {
+var h$ = /* @__PURE__ */ _(u$, [["render", v$], ["__file", "turn-off.vue"]]), p$ = {
   name: "Umbrella"
-}, $z = {
+}, f$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, zz = /* @__PURE__ */ e(
+}, m$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6518,18 +6517,18 @@ var mz = /* @__PURE__ */ s(dz, [["render", wz], ["__file", "turn-off.vue"]]), gz
   null,
   -1
   /* HOISTED */
-), xz = [
-  zz
+), V$ = [
+  m$
 ];
-function Hz(t, a, _, r, l, i) {
-  return o(), n("svg", $z, xz);
+function w$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", f$, V$);
 }
-var Mz = /* @__PURE__ */ s(gz, [["render", Hz], ["__file", "umbrella.vue"]]), Cz = {
+var g$ = /* @__PURE__ */ _(p$, [["render", w$], ["__file", "umbrella.vue"]]), $$ = {
   name: "Unlock"
-}, Vz = {
+}, z$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, yz = /* @__PURE__ */ e(
+}, B$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6538,7 +6537,7 @@ var Mz = /* @__PURE__ */ s(gz, [["render", Hz], ["__file", "umbrella.vue"]]), Cz
   null,
   -1
   /* HOISTED */
-), Bz = /* @__PURE__ */ e(
+), x$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6547,19 +6546,19 @@ var Mz = /* @__PURE__ */ s(gz, [["render", Hz], ["__file", "umbrella.vue"]]), Cz
   null,
   -1
   /* HOISTED */
-), Lz = [
-  yz,
-  Bz
+), k$ = [
+  B$,
+  x$
 ];
-function Az(t, a, _, r, l, i) {
-  return o(), n("svg", Vz, Lz);
+function E$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", z$, k$);
 }
-var bz = /* @__PURE__ */ s(Cz, [["render", Az], ["__file", "unlock.vue"]]), kz = {
+var H$ = /* @__PURE__ */ _($$, [["render", E$], ["__file", "unlock.vue"]]), M$ = {
   name: "UploadFilled"
-}, Sz = {
+}, C$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, qz = /* @__PURE__ */ e(
+}, N$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6568,18 +6567,18 @@ var bz = /* @__PURE__ */ s(Cz, [["render", Az], ["__file", "unlock.vue"]]), kz =
   null,
   -1
   /* HOISTED */
-), Fz = [
-  qz
+), y$ = [
+  N$
 ];
-function Dz(t, a, _, r, l, i) {
-  return o(), n("svg", Sz, Fz);
+function L$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", C$, y$);
 }
-var Pz = /* @__PURE__ */ s(kz, [["render", Dz], ["__file", "upload-filled.vue"]]), Rz = {
+var A$ = /* @__PURE__ */ _(M$, [["render", L$], ["__file", "upload-filled.vue"]]), b$ = {
   name: "Upload"
-}, Tz = {
+}, S$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Oz = /* @__PURE__ */ e(
+}, q$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6588,18 +6587,18 @@ var Pz = /* @__PURE__ */ s(kz, [["render", Dz], ["__file", "upload-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), Gz = [
-  Oz
+), F$ = [
+  q$
 ];
-function Uz(t, a, _, r, l, i) {
-  return o(), n("svg", Tz, Gz);
+function D$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", S$, F$);
 }
-var Wz = /* @__PURE__ */ s(Rz, [["render", Uz], ["__file", "upload.vue"]]), Iz = {
+var P$ = /* @__PURE__ */ _(b$, [["render", D$], ["__file", "upload.vue"]]), R$ = {
   name: "UserFilled"
-}, Ez = {
+}, T$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Nz = /* @__PURE__ */ e(
+}, O$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6608,18 +6607,18 @@ var Wz = /* @__PURE__ */ s(Rz, [["render", Uz], ["__file", "upload.vue"]]), Iz =
   null,
   -1
   /* HOISTED */
-), Zz = [
-  Nz
+), G$ = [
+  O$
 ];
-function Kz(t, a, _, r, l, i) {
-  return o(), n("svg", Ez, Zz);
+function U$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", T$, G$);
 }
-var Qz = /* @__PURE__ */ s(Iz, [["render", Kz], ["__file", "user-filled.vue"]]), jz = {
+var W$ = /* @__PURE__ */ _(R$, [["render", U$], ["__file", "user-filled.vue"]]), I$ = {
   name: "User"
-}, Jz = {
+}, Z$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Xz = /* @__PURE__ */ e(
+}, K$ = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6628,18 +6627,18 @@ var Qz = /* @__PURE__ */ s(Iz, [["render", Kz], ["__file", "user-filled.vue"]]),
   null,
   -1
   /* HOISTED */
-), Yz = [
-  Xz
+), Q$ = [
+  K$
 ];
-function ex(t, a, _, r, l, i) {
-  return o(), n("svg", Jz, Yz);
+function j$(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Z$, Q$);
 }
-var tx = /* @__PURE__ */ s(jz, [["render", ex], ["__file", "user.vue"]]), _x = {
+var J$ = /* @__PURE__ */ _(I$, [["render", j$], ["__file", "user.vue"]]), X$ = {
   name: "Van"
-}, ax = {
+}, Y$ = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, rx = /* @__PURE__ */ e(
+}, ez = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6648,18 +6647,18 @@ var tx = /* @__PURE__ */ s(jz, [["render", ex], ["__file", "user.vue"]]), _x = {
   null,
   -1
   /* HOISTED */
-), lx = [
-  rx
+), tz = [
+  ez
 ];
-function ox(t, a, _, r, l, i) {
-  return o(), n("svg", ax, lx);
+function az(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Y$, tz);
 }
-var nx = /* @__PURE__ */ s(_x, [["render", ox], ["__file", "van.vue"]]), sx = {
+var lz = /* @__PURE__ */ _(X$, [["render", az], ["__file", "van.vue"]]), rz = {
   name: "VideoCameraFilled"
-}, ix = {
+}, _z = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, ux = /* @__PURE__ */ e(
+}, oz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6668,18 +6667,18 @@ var nx = /* @__PURE__ */ s(_x, [["render", ox], ["__file", "van.vue"]]), sx = {
   null,
   -1
   /* HOISTED */
-), vx = [
-  ux
+), nz = [
+  oz
 ];
-function dx(t, a, _, r, l, i) {
-  return o(), n("svg", ix, vx);
+function uz(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", _z, nz);
 }
-var cx = /* @__PURE__ */ s(sx, [["render", dx], ["__file", "video-camera-filled.vue"]]), hx = {
+var cz = /* @__PURE__ */ _(rz, [["render", uz], ["__file", "video-camera-filled.vue"]]), sz = {
   name: "VideoCamera"
-}, px = {
+}, dz = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, fx = /* @__PURE__ */ e(
+}, iz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6688,18 +6687,18 @@ var cx = /* @__PURE__ */ s(sx, [["render", dx], ["__file", "video-camera-filled.
   null,
   -1
   /* HOISTED */
-), wx = [
-  fx
+), vz = [
+  iz
 ];
-function mx(t, a, _, r, l, i) {
-  return o(), n("svg", px, wx);
+function hz(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", dz, vz);
 }
-var gx = /* @__PURE__ */ s(hx, [["render", mx], ["__file", "video-camera.vue"]]), $x = {
+var pz = /* @__PURE__ */ _(sz, [["render", hz], ["__file", "video-camera.vue"]]), fz = {
   name: "VideoPause"
-}, zx = {
+}, mz = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, xx = /* @__PURE__ */ e(
+}, Vz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6708,18 +6707,18 @@ var gx = /* @__PURE__ */ s(hx, [["render", mx], ["__file", "video-camera.vue"]])
   null,
   -1
   /* HOISTED */
-), Hx = [
-  xx
+), wz = [
+  Vz
 ];
-function Mx(t, a, _, r, l, i) {
-  return o(), n("svg", zx, Hx);
+function gz(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", mz, wz);
 }
-var Cx = /* @__PURE__ */ s($x, [["render", Mx], ["__file", "video-pause.vue"]]), Vx = {
+var $z = /* @__PURE__ */ _(fz, [["render", gz], ["__file", "video-pause.vue"]]), zz = {
   name: "VideoPlay"
-}, yx = {
+}, Bz = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Bx = /* @__PURE__ */ e(
+}, xz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6728,18 +6727,18 @@ var Cx = /* @__PURE__ */ s($x, [["render", Mx], ["__file", "video-pause.vue"]]),
   null,
   -1
   /* HOISTED */
-), Lx = [
-  Bx
+), kz = [
+  xz
 ];
-function Ax(t, a, _, r, l, i) {
-  return o(), n("svg", yx, Lx);
+function Ez(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Bz, kz);
 }
-var bx = /* @__PURE__ */ s(Vx, [["render", Ax], ["__file", "video-play.vue"]]), kx = {
+var Hz = /* @__PURE__ */ _(zz, [["render", Ez], ["__file", "video-play.vue"]]), Mz = {
   name: "View"
-}, Sx = {
+}, Cz = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, qx = /* @__PURE__ */ e(
+}, Nz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6748,18 +6747,18 @@ var bx = /* @__PURE__ */ s(Vx, [["render", Ax], ["__file", "video-play.vue"]]), 
   null,
   -1
   /* HOISTED */
-), Fx = [
-  qx
+), yz = [
+  Nz
 ];
-function Dx(t, a, _, r, l, i) {
-  return o(), n("svg", Sx, Fx);
+function Lz(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Cz, yz);
 }
-var Px = /* @__PURE__ */ s(kx, [["render", Dx], ["__file", "view.vue"]]), Rx = {
+var Az = /* @__PURE__ */ _(Mz, [["render", Lz], ["__file", "view.vue"]]), bz = {
   name: "WalletFilled"
-}, Tx = {
+}, Sz = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ox = /* @__PURE__ */ e(
+}, qz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6768,18 +6767,18 @@ var Px = /* @__PURE__ */ s(kx, [["render", Dx], ["__file", "view.vue"]]), Rx = {
   null,
   -1
   /* HOISTED */
-), Gx = [
-  Ox
+), Fz = [
+  qz
 ];
-function Ux(t, a, _, r, l, i) {
-  return o(), n("svg", Tx, Gx);
+function Dz(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Sz, Fz);
 }
-var Wx = /* @__PURE__ */ s(Rx, [["render", Ux], ["__file", "wallet-filled.vue"]]), Ix = {
+var Pz = /* @__PURE__ */ _(bz, [["render", Dz], ["__file", "wallet-filled.vue"]]), Rz = {
   name: "Wallet"
-}, Ex = {
+}, Tz = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Nx = /* @__PURE__ */ e(
+}, Oz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6788,7 +6787,7 @@ var Wx = /* @__PURE__ */ s(Rx, [["render", Ux], ["__file", "wallet-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), Zx = /* @__PURE__ */ e(
+), Gz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6797,7 +6796,7 @@ var Wx = /* @__PURE__ */ s(Rx, [["render", Ux], ["__file", "wallet-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), Kx = /* @__PURE__ */ e(
+), Uz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6806,22 +6805,22 @@ var Wx = /* @__PURE__ */ s(Rx, [["render", Ux], ["__file", "wallet-filled.vue"]]
   null,
   -1
   /* HOISTED */
-), Qx = [
-  Nx,
-  Zx,
-  Kx
+), Wz = [
+  Oz,
+  Gz,
+  Uz
 ];
-function jx(t, a, _, r, l, i) {
-  return o(), n("svg", Ex, Qx);
+function Iz(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Tz, Wz);
 }
-var Jx = /* @__PURE__ */ s(Ix, [["render", jx], ["__file", "wallet.vue"]]), Xx = {
+var Zz = /* @__PURE__ */ _(Rz, [["render", Iz], ["__file", "wallet.vue"]]), Kz = {
   name: "WarnTriangleFilled"
-}, Yx = {
+}, Qz = {
   xmlns: "http://www.w3.org/2000/svg",
   "xml:space": "preserve",
   style: { "enable-background": "new 0 0 1024 1024" },
   viewBox: "0 0 1024 1024"
-}, eH = /* @__PURE__ */ e(
+}, jz = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6830,18 +6829,18 @@ var Jx = /* @__PURE__ */ s(Ix, [["render", jx], ["__file", "wallet.vue"]]), Xx =
   null,
   -1
   /* HOISTED */
-), tH = [
-  eH
+), Jz = [
+  jz
 ];
-function _H(t, a, _, r, l, i) {
-  return o(), n("svg", Yx, tH);
+function Xz(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", Qz, Jz);
 }
-var aH = /* @__PURE__ */ s(Xx, [["render", _H], ["__file", "warn-triangle-filled.vue"]]), rH = {
+var Yz = /* @__PURE__ */ _(Kz, [["render", Xz], ["__file", "warn-triangle-filled.vue"]]), eB = {
   name: "WarningFilled"
-}, lH = {
+}, tB = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, oH = /* @__PURE__ */ e(
+}, aB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6850,18 +6849,18 @@ var aH = /* @__PURE__ */ s(Xx, [["render", _H], ["__file", "warn-triangle-filled
   null,
   -1
   /* HOISTED */
-), nH = [
-  oH
+), lB = [
+  aB
 ];
-function sH(t, a, _, r, l, i) {
-  return o(), n("svg", lH, nH);
+function rB(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", tB, lB);
 }
-var iH = /* @__PURE__ */ s(rH, [["render", sH], ["__file", "warning-filled.vue"]]), uH = {
+var _B = /* @__PURE__ */ _(eB, [["render", rB], ["__file", "warning-filled.vue"]]), oB = {
   name: "Warning"
-}, vH = {
+}, nB = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, dH = /* @__PURE__ */ e(
+}, uB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6870,18 +6869,18 @@ var iH = /* @__PURE__ */ s(rH, [["render", sH], ["__file", "warning-filled.vue"]
   null,
   -1
   /* HOISTED */
-), cH = [
-  dH
+), cB = [
+  uB
 ];
-function hH(t, a, _, r, l, i) {
-  return o(), n("svg", vH, cH);
+function sB(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", nB, cB);
 }
-var pH = /* @__PURE__ */ s(uH, [["render", hH], ["__file", "warning.vue"]]), fH = {
+var dB = /* @__PURE__ */ _(oB, [["render", sB], ["__file", "warning.vue"]]), iB = {
   name: "Watch"
-}, wH = {
+}, vB = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, mH = /* @__PURE__ */ e(
+}, hB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6890,7 +6889,7 @@ var pH = /* @__PURE__ */ s(uH, [["render", hH], ["__file", "warning.vue"]]), fH 
   null,
   -1
   /* HOISTED */
-), gH = /* @__PURE__ */ e(
+), pB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6899,7 +6898,7 @@ var pH = /* @__PURE__ */ s(uH, [["render", hH], ["__file", "warning.vue"]]), fH 
   null,
   -1
   /* HOISTED */
-), $H = /* @__PURE__ */ e(
+), fB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6908,20 +6907,20 @@ var pH = /* @__PURE__ */ s(uH, [["render", hH], ["__file", "warning.vue"]]), fH 
   null,
   -1
   /* HOISTED */
-), zH = [
-  mH,
-  gH,
-  $H
+), mB = [
+  hB,
+  pB,
+  fB
 ];
-function xH(t, a, _, r, l, i) {
-  return o(), n("svg", wH, zH);
+function VB(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", vB, mB);
 }
-var HH = /* @__PURE__ */ s(fH, [["render", xH], ["__file", "watch.vue"]]), MH = {
+var wB = /* @__PURE__ */ _(iB, [["render", VB], ["__file", "watch.vue"]]), gB = {
   name: "Watermelon"
-}, CH = {
+}, $B = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, VH = /* @__PURE__ */ e(
+}, zB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6930,18 +6929,18 @@ var HH = /* @__PURE__ */ s(fH, [["render", xH], ["__file", "watch.vue"]]), MH = 
   null,
   -1
   /* HOISTED */
-), yH = [
-  VH
+), BB = [
+  zB
 ];
-function BH(t, a, _, r, l, i) {
-  return o(), n("svg", CH, yH);
+function xB(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", $B, BB);
 }
-var LH = /* @__PURE__ */ s(MH, [["render", BH], ["__file", "watermelon.vue"]]), AH = {
+var kB = /* @__PURE__ */ _(gB, [["render", xB], ["__file", "watermelon.vue"]]), EB = {
   name: "WindPower"
-}, bH = {
+}, HB = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, kH = /* @__PURE__ */ e(
+}, MB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6950,18 +6949,18 @@ var LH = /* @__PURE__ */ s(MH, [["render", BH], ["__file", "watermelon.vue"]]), 
   null,
   -1
   /* HOISTED */
-), SH = [
-  kH
+), CB = [
+  MB
 ];
-function qH(t, a, _, r, l, i) {
-  return o(), n("svg", bH, SH);
+function NB(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", HB, CB);
 }
-var FH = /* @__PURE__ */ s(AH, [["render", qH], ["__file", "wind-power.vue"]]), DH = {
+var yB = /* @__PURE__ */ _(EB, [["render", NB], ["__file", "wind-power.vue"]]), LB = {
   name: "ZoomIn"
-}, PH = {
+}, AB = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, RH = /* @__PURE__ */ e(
+}, bB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6970,18 +6969,18 @@ var FH = /* @__PURE__ */ s(AH, [["render", qH], ["__file", "wind-power.vue"]]), 
   null,
   -1
   /* HOISTED */
-), TH = [
-  RH
+), SB = [
+  bB
 ];
-function OH(t, a, _, r, l, i) {
-  return o(), n("svg", PH, TH);
+function qB(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", AB, SB);
 }
-var GH = /* @__PURE__ */ s(DH, [["render", OH], ["__file", "zoom-in.vue"]]), UH = {
+var FB = /* @__PURE__ */ _(LB, [["render", qB], ["__file", "zoom-in.vue"]]), DB = {
   name: "ZoomOut"
-}, WH = {
+}, PB = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, IH = /* @__PURE__ */ e(
+}, RB = /* @__PURE__ */ Vue.createElementVNode(
   "path",
   {
     fill: "currentColor",
@@ -6990,309 +6989,309 @@ var GH = /* @__PURE__ */ s(DH, [["render", OH], ["__file", "zoom-in.vue"]]), UH 
   null,
   -1
   /* HOISTED */
-), EH = [
-  IH
+), TB = [
+  RB
 ];
-function NH(t, a, _, r, l, i) {
-  return o(), n("svg", WH, EH);
+function OB(e, a, t, l, r, o) {
+  return Vue.openBlock(), Vue.createElementBlock("svg", PB, TB);
 }
-var ZH = /* @__PURE__ */ s(UH, [["render", NH], ["__file", "zoom-out.vue"]]);
-const QH = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var GB = /* @__PURE__ */ _(DB, [["render", OB], ["__file", "zoom-out.vue"]]);
+const UB = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  AddLocation: m,
-  Aim: C,
-  AlarmClock: k,
-  Apple: R,
-  ArrowDown: j,
-  ArrowDownBold: I,
-  ArrowLeft: s2,
-  ArrowLeftBold: _2,
-  ArrowRight: $2,
-  ArrowRightBold: h2,
-  ArrowUp: k2,
-  ArrowUpBold: V2,
-  Avatar: R2,
-  Back: E2,
-  Baseball: X2,
-  Basketball: r0,
-  Bell: m0,
-  BellFilled: u0,
-  Bicycle: M0,
-  Bottom: I0,
-  BottomLeft: b0,
-  BottomRight: R0,
-  Bowl: j0,
-  Box: r1,
-  Briefcase: u1,
-  Brush: x1,
-  BrushFilled: f1,
-  Burger: B1,
-  Calendar: q1,
-  Camera: N1,
-  CameraFilled: O1,
-  CaretBottom: X1,
-  CaretLeft: r4,
-  CaretRight: u4,
-  CaretTop: f4,
-  Cellphone: x4,
-  ChatDotRound: L4,
-  ChatDotSquare: D4,
-  ChatLineRound: W4,
-  ChatLineSquare: j4,
-  ChatRound: _6,
-  ChatSquare: s6,
-  Check: h6,
-  Checked: $6,
-  Cherry: V6,
-  Chicken: k6,
-  ChromeFilled: O6,
-  CircleCheck: Y6,
-  CircleCheckFilled: N6,
-  CircleClose: d3,
-  CircleCloseFilled: l3,
-  CirclePlus: V3,
-  CirclePlusFilled: m3,
-  Clock: q3,
-  Close: N3,
-  CloseBold: O3,
-  Cloudy: X3,
-  Coffee: ue,
-  CoffeeCup: re,
-  Coin: me,
-  ColdDrink: Me,
-  Collection: Pe,
-  CollectionTag: Ae,
-  Comment: We,
-  Compass: je,
-  Connection: a8,
-  Coordinate: u8,
-  CopyDocument: w8,
-  Cpu: M8,
-  CreditCard: b8,
-  Crop: R8,
-  DArrowLeft: I8,
-  DArrowRight: j8,
-  DCaret: _t,
-  DataAnalysis: st,
-  DataBoard: ft,
-  DataLine: xt,
-  Delete: Ut,
-  DeleteFilled: Bt,
-  DeleteLocation: Dt,
-  Dessert: Kt,
-  Discount: t_,
-  Dish: c_,
-  DishDot: n_,
-  Document: Q_,
-  DocumentAdd: g_,
-  DocumentChecked: C_,
-  DocumentCopy: b_,
-  DocumentDelete: P_,
-  DocumentRemove: W_,
-  Download: ta,
-  Drizzling: na,
-  Edit: $a,
-  EditPen: ca,
-  Eleme: ka,
-  ElemeFilled: Va,
-  ElementPlus: Ra,
-  Expand: Ia,
-  Failed: ja,
-  Female: rr,
-  Files: ur,
-  Film: wr,
-  Filter: Hr,
-  Finished: Lr,
-  FirstAidKit: Dr,
-  Flag: Ur,
-  Fold: Kr,
-  Folder: A5,
-  FolderAdd: e5,
-  FolderChecked: o5,
-  FolderDelete: d5,
-  FolderOpened: m5,
-  FolderRemove: M5,
-  Food: D5,
-  Football: W5,
-  ForkSpoon: Q5,
-  Fries: tl,
-  FullScreen: nl,
-  Goblet: bl,
-  GobletFull: cl,
-  GobletSquare: Cl,
-  GobletSquareFull: gl,
-  GoldMedal: Rl,
-  Goods: jl,
-  GoodsFilled: Il,
-  Grape: _o,
-  Grid: so,
-  Guide: fo,
-  Handbag: xo,
-  Headset: Bo,
-  Help: Oo,
-  HelpFilled: qo,
-  Hide: Zo,
-  Histogram: Yo,
-  HomeFilled: l9,
-  HotWater: v9,
-  House: w9,
-  IceCream: F9,
-  IceCreamRound: H9,
-  IceCreamSquare: L9,
-  IceDrink: G9,
-  IceTea: Z9,
-  InfoFilled: Y9,
-  Iphone: ln,
-  Key: dn,
-  KnifeFork: mn,
-  Lightning: Cn,
-  Link: bn,
-  List: Pn,
-  Loading: Wn,
-  Location: us,
-  LocationFilled: Qn,
-  LocationInformation: as,
-  Lock: ws,
-  Lollipop: Hs,
-  MagicStick: Ls,
-  Magnet: Fs,
-  Male: Ws,
-  Management: Qs,
-  MapLocation: _i,
-  Medal: ii,
-  Memo: wi,
-  Menu: Hi,
-  Message: Di,
-  MessageBox: Li,
-  Mic: Ui,
-  Microphone: Ki,
-  MilkTea: eu,
-  Minus: ou,
-  Money: hu,
-  Monitor: $u,
-  Moon: Su,
-  MoonNight: yu,
-  More: Eu,
-  MoreFilled: Tu,
-  MostlyCloudy: Ju,
-  Mouse: rv,
-  Mug: uv,
-  Mute: Mv,
-  MuteNotification: wv,
-  NoSmoking: Av,
-  Notebook: Pv,
-  Notification: Iv,
-  Odometer: Xv,
-  OfficeBuilding: od,
-  Open: cd,
-  Operation: gd,
-  Opportunity: Cd,
-  Orange: bd,
-  Paperclip: Pd,
-  PartlyCloudy: Id,
-  Pear: jd,
-  Phone: s7,
-  PhoneFilled: _7,
-  Picture: B7,
-  PictureFilled: h7,
-  PictureRounded: z7,
-  PieChart: F7,
-  Place: W7,
-  Platform: Q7,
-  Plus: tc,
-  Pointer: nc,
-  Position: cc,
-  Postcard: $c,
-  Pouring: Vc,
-  Present: Fc,
-  PriceTag: Uc,
-  Printer: Kc,
-  Promotion: eh,
-  QuartzWatch: sh,
-  QuestionFilled: hh,
-  Rank: $h,
-  Reading: qh,
-  ReadingLamp: yh,
-  Refresh: Xh,
-  RefreshLeft: Oh,
-  RefreshRight: Nh,
-  Refrigerator: rp,
-  Remove: wp,
-  RemoveFilled: up,
-  Right: Hp,
-  ScaleToOriginal: Lp,
-  School: Pp,
-  Scissor: Wp,
-  Search: Qp,
-  Select: tf,
-  Sell: nf,
-  SemiSelect: hf,
-  Service: $f,
-  SetUp: Lf,
-  Setting: Ff,
-  Share: Gf,
-  Ship: Zf,
-  Shop: Yf,
-  ShoppingBag: ow,
-  ShoppingCart: gw,
-  ShoppingCartFull: cw,
-  ShoppingTrolley: Cw,
-  Smoking: kw,
-  Soccer: Rw,
-  SoldOut: Iw,
-  Sort: sm,
-  SortDown: jw,
-  SortUp: _m,
-  Stamp: hm,
-  Star: Vm,
-  StarFilled: $m,
-  Stopwatch: Sm,
-  SuccessFilled: Tm,
-  Sugar: Em,
-  Suitcase: rg,
-  SuitcaseLine: Jm,
-  Sunny: ug,
-  Sunrise: fg,
-  Sunset: xg,
-  Switch: Ug,
-  SwitchButton: Lg,
-  SwitchFilled: Dg,
-  TakeawayBox: Kg,
-  Ticket: e$,
-  Tickets: o$,
-  Timer: h$,
-  ToiletPaper: z$,
-  Tools: y$,
-  Top: Z$,
-  TopLeft: q$,
-  TopRight: G$,
-  TrendCharts: Y$,
-  Trophy: vz,
-  TrophyBase: lz,
-  TurnOff: mz,
-  Umbrella: Mz,
-  Unlock: bz,
-  Upload: Wz,
-  UploadFilled: Pz,
-  User: tx,
-  UserFilled: Qz,
-  Van: nx,
-  VideoCamera: gx,
-  VideoCameraFilled: cx,
-  VideoPause: Cx,
-  VideoPlay: bx,
-  View: Px,
-  Wallet: Jx,
-  WalletFilled: Wx,
-  WarnTriangleFilled: aH,
-  Warning: pH,
-  WarningFilled: iH,
-  Watch: HH,
-  Watermelon: LH,
-  WindPower: FH,
-  ZoomIn: GH,
-  ZoomOut: ZH
+  AddLocation: h,
+  Aim: $,
+  AlarmClock: M,
+  Apple: b,
+  ArrowDown: I,
+  ArrowDownBold: R,
+  ArrowLeft: r2,
+  ArrowLeftBold: X,
+  ArrowRight: f2,
+  ArrowRightBold: s2,
+  ArrowUp: M2,
+  ArrowUpBold: z2,
+  Avatar: b2,
+  Back: T2,
+  Baseball: K2,
+  Basketball: ee,
+  Bell: he,
+  BellFilled: oe,
+  Bicycle: ge,
+  Bottom: Re,
+  BottomLeft: He,
+  BottomRight: be,
+  Bowl: Ie,
+  Box: e0,
+  Briefcase: o0,
+  Brush: V0,
+  BrushFilled: i0,
+  Burger: x0,
+  Calendar: N0,
+  Camera: O0,
+  CameraFilled: q0,
+  CaretBottom: K0,
+  CaretLeft: e1,
+  CaretRight: o1,
+  CaretTop: i1,
+  Cellphone: V1,
+  ChatDotRound: k1,
+  ChatDotSquare: L1,
+  ChatLineRound: P1,
+  ChatLineSquare: I1,
+  ChatRound: X1,
+  ChatSquare: r4,
+  Check: s4,
+  Checked: f4,
+  Cherry: z4,
+  Chicken: M4,
+  ChromeFilled: q4,
+  CircleCheck: Q4,
+  CircleCheckFilled: O4,
+  CircleClose: u6,
+  CircleCloseFilled: t6,
+  CirclePlus: z6,
+  CirclePlusFilled: h6,
+  Clock: N6,
+  Close: O6,
+  CloseBold: q6,
+  Cloudy: K6,
+  Coffee: o3,
+  CoffeeCup: e3,
+  Coin: h3,
+  ColdDrink: g3,
+  Collection: A3,
+  CollectionTag: E3,
+  Comment: P3,
+  Compass: I3,
+  Connection: Y3,
+  Coordinate: ot,
+  CopyDocument: vt,
+  Cpu: gt,
+  CreditCard: Ht,
+  Crop: bt,
+  DArrowLeft: Rt,
+  DArrowRight: It,
+  DCaret: Xt,
+  DataAnalysis: r8,
+  DataBoard: i8,
+  DataLine: V8,
+  Delete: D8,
+  DeleteFilled: x8,
+  DeleteLocation: L8,
+  Dessert: U8,
+  Discount: J8,
+  Dish: ca,
+  DishDot: la,
+  Document: Wa,
+  DocumentAdd: pa,
+  DocumentChecked: $a,
+  DocumentCopy: Ha,
+  DocumentDelete: Aa,
+  DocumentRemove: Pa,
+  Download: Ja,
+  Drizzling: ll,
+  Edit: fl,
+  EditPen: cl,
+  Eleme: Ml,
+  ElemeFilled: zl,
+  ElementPlus: bl,
+  Expand: Rl,
+  Failed: Il,
+  Female: er,
+  Files: or,
+  Film: vr,
+  Filter: wr,
+  Finished: kr,
+  FirstAidKit: Lr,
+  Flag: Dr,
+  Fold: Ur,
+  Folder: E_,
+  FolderAdd: jr,
+  FolderChecked: a_,
+  FolderDelete: u_,
+  FolderOpened: h_,
+  FolderRemove: g_,
+  Food: L_,
+  Football: P_,
+  ForkSpoon: W_,
+  Fries: J_,
+  FullScreen: lo,
+  Goblet: Mo,
+  GobletFull: co,
+  GobletSquare: zo,
+  GobletSquareFull: fo,
+  GoldMedal: So,
+  Goods: Zo,
+  GoodsFilled: To,
+  Grape: Yo,
+  Grid: _n,
+  Guide: vn,
+  Handbag: wn,
+  Headset: kn,
+  Help: Fn,
+  HelpFilled: yn,
+  Hide: Un,
+  Histogram: jn,
+  HomeFilled: a5,
+  HotWater: u5,
+  House: h5,
+  IceCream: L5,
+  IceCreamRound: g5,
+  IceCreamSquare: E5,
+  IceDrink: D5,
+  IceTea: U5,
+  InfoFilled: j5,
+  Iphone: a9,
+  Key: u9,
+  KnifeFork: h9,
+  Lightning: $9,
+  Link: H9,
+  List: A9,
+  Loading: P9,
+  Location: ou,
+  LocationFilled: W9,
+  LocationInformation: Y9,
+  Lock: vu,
+  Lollipop: wu,
+  MagicStick: ku,
+  Magnet: yu,
+  Male: Pu,
+  Management: Wu,
+  MapLocation: Xu,
+  Medal: _c,
+  Memo: vc,
+  Menu: wc,
+  Message: Lc,
+  MessageBox: kc,
+  Mic: Dc,
+  Microphone: Uc,
+  MilkTea: jc,
+  Minus: as,
+  Money: ss,
+  Monitor: fs,
+  Moon: Cs,
+  MoonNight: Bs,
+  More: Ts,
+  MoreFilled: Ss,
+  MostlyCloudy: Zs,
+  Mouse: ed,
+  Mug: od,
+  Mute: gd,
+  MuteNotification: vd,
+  NoSmoking: Ed,
+  Notebook: Ad,
+  Notification: Rd,
+  Odometer: Kd,
+  OfficeBuilding: ai,
+  Open: ci,
+  Operation: pi,
+  Opportunity: $i,
+  Orange: Hi,
+  Paperclip: Ai,
+  PartlyCloudy: Ri,
+  Pear: Ii,
+  Phone: rv,
+  PhoneFilled: Xi,
+  Picture: xv,
+  PictureFilled: sv,
+  PictureRounded: mv,
+  PieChart: yv,
+  Place: Pv,
+  Platform: Wv,
+  Plus: Jv,
+  Pointer: l7,
+  Position: c7,
+  Postcard: f7,
+  Pouring: z7,
+  Present: y7,
+  PriceTag: D7,
+  Printer: U7,
+  Promotion: j7,
+  QuartzWatch: rh,
+  QuestionFilled: sh,
+  Rank: fh,
+  Reading: Nh,
+  ReadingLamp: Bh,
+  Refresh: Kh,
+  RefreshLeft: qh,
+  RefreshRight: Oh,
+  Refrigerator: ep,
+  Remove: vp,
+  RemoveFilled: op,
+  Right: wp,
+  ScaleToOriginal: kp,
+  School: Ap,
+  Scissor: Pp,
+  Search: Wp,
+  Select: Jp,
+  Sell: lf,
+  SemiSelect: cf,
+  Service: ff,
+  SetUp: kf,
+  Setting: yf,
+  Share: Ff,
+  Ship: Gf,
+  Shop: Qf,
+  ShoppingBag: am,
+  ShoppingCart: pm,
+  ShoppingCartFull: cm,
+  ShoppingTrolley: $m,
+  Smoking: Mm,
+  Soccer: bm,
+  SoldOut: Rm,
+  Sort: rV,
+  SortDown: Im,
+  SortUp: Xm,
+  Stamp: sV,
+  Star: zV,
+  StarFilled: fV,
+  Stopwatch: CV,
+  SuccessFilled: SV,
+  Sugar: TV,
+  Suitcase: ew,
+  SuitcaseLine: ZV,
+  Sunny: ow,
+  Sunrise: iw,
+  Sunset: Vw,
+  Switch: Dw,
+  SwitchButton: kw,
+  SwitchFilled: Lw,
+  TakeawayBox: Uw,
+  Ticket: jw,
+  Tickets: ag,
+  Timer: sg,
+  ToiletPaper: mg,
+  Tools: Bg,
+  Top: Gg,
+  TopLeft: Ng,
+  TopRight: Fg,
+  TrendCharts: Qg,
+  Trophy: n$,
+  TrophyBase: t$,
+  TurnOff: h$,
+  Umbrella: g$,
+  Unlock: H$,
+  Upload: P$,
+  UploadFilled: A$,
+  User: J$,
+  UserFilled: W$,
+  Van: lz,
+  VideoCamera: pz,
+  VideoCameraFilled: cz,
+  VideoPause: $z,
+  VideoPlay: Hz,
+  View: Az,
+  Wallet: Zz,
+  WalletFilled: Pz,
+  WarnTriangleFilled: Yz,
+  Warning: dB,
+  WarningFilled: _B,
+  Watch: wB,
+  Watermelon: kB,
+  WindPower: yB,
+  ZoomIn: FB,
+  ZoomOut: GB
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  QH as E
+  UB as E
 };

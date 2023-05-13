@@ -38,9 +38,9 @@ export default defineConfig(({ command, mode }) => {
         plugins: [
           commonjs(),
           externalGlobals({
-            'Vue': 'vue',
-            'ElementPlus': 'element-plus',
-            'Vant': 'vant',
+            'vue': 'Vue',
+            'element-plus': 'ElementPlus',
+            'vant': 'vant',
             'axios': 'axios',
           })
         ],
