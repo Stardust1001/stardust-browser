@@ -1,3 +1,3 @@
-import StardustUI from './es/stardust-ui.js'
+import StardustUI from './dist/stardust-ui.js'
 
 export default StardustUI

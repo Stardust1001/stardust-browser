@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+const { reactive } = Vue
 import { areaList } from '@vant/area-data'
 
 const table = reactive({

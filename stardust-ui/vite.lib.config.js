@@ -21,7 +21,7 @@ export default defineConfig(({ command, mode }) => {
     ],
     runtimeCompiler: true,
     build: {
-      outDir: 'es',
+      outDir: '../dist',
       lib: {
         entry: './packages/index.js',
         name: 'StardustUI',

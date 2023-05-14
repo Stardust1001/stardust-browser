@@ -3,8 +3,8 @@ import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import Vant from 'vant'
 
-// import StardustUI from '../packages/index.js'
-// import '../packages/index.scss'
+import StardustUI from '../packages/index.js'
+import '../packages/index.scss'
 
 import App from '@/App.vue'
 
@@ -19,8 +19,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 app.use(Vant)
-app.use(StardustUI.default)
-window.app = app
+app.use(StardustUI)
 
 app.mount('#app')
 
