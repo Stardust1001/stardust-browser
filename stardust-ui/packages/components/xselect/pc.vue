@@ -1,5 +1,5 @@
 <script>
-import utils from '../../utils.js'
+import utils from '../../utils/index.js'
 import { remoteSearch, calcMainLabel, calcRemarkLabel } from './util.js'
 
 export default {

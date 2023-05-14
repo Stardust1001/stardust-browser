@@ -1,11 +1,8 @@
-import { areaList } from '@vant/area-data'
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-
+import utils from './utils/index.js'
 import './index.scss'
 
 const { h } = Vue
-
-const resolveComponent = (vm, name) => vm.$.appContext.components[name]
+const { resolveComponent } = utils.funcs
 
 const modules = import.meta.globEager('./components/*/*.vue')
 
@@ -60,10 +57,6 @@ const components = (() => {
 })()
 
 const install = (app, options) => {
-  // 把 element-plus 的 icons-vue 也注册了
-  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component)
-  }
   for (let key in components) {
     app.component(key, components[key])
   }
@@ -71,8 +64,8 @@ const install = (app, options) => {
 
 const StardustUI = {
   ...components,
-  install,
-  areaList
+  ...utils,
+  install
 }
 
 export default StardustUI

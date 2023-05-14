@@ -1,15 +1,16 @@
 <script>
-import { areaList } from '@vant/area-data'
+const areaList = {}
 
 const areas = {
-  provinces: Object.entries(areaList.province_list).map(ele => ({ value: ele[0], text: ele[1] })),
-  cities: Object.entries(areaList.city_list).map(ele => ({ value: ele[0], text: ele[1] })),
-  counties: Object.entries(areaList.county_list).map(ele => ({ value: ele[0], text: ele[1] }))
+  provinces: [],
+  cities: [],
+  counties: []
 }
 
 export default {
   name: 'XDistrictSelect',
   props: {
+    areaList: Object,
     modelValue: String,
     level: {
       type: String,
@@ -37,6 +38,10 @@ export default {
     }
   },
   watch: {
+    areaList: {
+      handler: 'initAreas',
+      immediate: true
+    },
     province (newVal) {
       if (!this.county) {
         this.update()
@@ -71,6 +76,13 @@ export default {
     }
   },
   methods: {
+    initAreas () {
+      Object.assign(areaList, this.areaList)
+      areas.provinces = Object.entries(areaList.province_list).map(ele => ({ value: ele[0], text: ele[1] }))
+      areas.cities = Object.entries(areaList.city_list).map(ele => ({ value: ele[0], text: ele[1] }))
+      areas.counties = Object.entries(areaList.county_list).map(ele => ({ value: ele[0], text: ele[1] }))
+      this.provinces = Object.freeze(areas.provinces)
+    },
     async init () {
       this.inited = false
       const [province, city, county] = this.modelValue.split('/')
@@ -118,27 +130,27 @@ export default {
 </script>
 
 <template>
-  <XRow class="x-district-select" :gutter="10">
-    <XCol :span="span">
+  <x-row class="x-district-select" :gutter="10">
+    <x-col :span="span">
       <x-select
         v-model="province"
         :options="provinces"
         placeholder="省份"
       />
-    </XCol>
-    <XCol v-if="number > 1" :span="span">
+    </x-col>
+    <x-col v-if="number > 1" :span="span">
       <x-select
         v-model="city"
         :options="cities"
         placeholder="城市"
       />
-    </XCol>
-    <XCol v-if="number > 2" :span="span">
+    </x-col>
+    <x-col v-if="number > 2" :span="span">
       <x-select
         v-model="county"
         :options="counties"
         placeholder="县区"
       />
-    </XCol>
-   </XRow>
+    </x-col>
+   </x-row>
 </template>

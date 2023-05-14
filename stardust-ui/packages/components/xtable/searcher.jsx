@@ -1,7 +1,7 @@
+import { funcs } from '../../utils/index.js'
 
 const { h } = Vue
-
-const resolveComponent = (vm, name) => vm.$.appContext.components[name]
+const { resolveComponent } = funcs
 
 export const OPS = {
   eq: { text: '等于', value: 'eq' },

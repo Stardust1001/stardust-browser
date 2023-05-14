@@ -35,7 +35,7 @@ export default defineConfig(({ command, mode }) => {
         plugins: [
           commonjs(),
           externalGlobals({
-            'Vue': 'vue',
+            'vue': 'Vue',
             'axios': 'axios',
           })
         ],

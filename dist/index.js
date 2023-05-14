@@ -17,12 +17,12 @@ var StardustBrowser = (() => {
   };
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // node_modules/@stardust-js/browser/index.js
-  var browser_exports = {};
-  __export(browser_exports, {
+  // index.js
+  var stardust_browser_exports = {};
+  __export(stardust_browser_exports, {
     clipboard: () => clipboard_default,
     dbsdk: () => dbsdk_default2,
-    default: () => browser_default,
+    default: () => stardust_browser_default,
     excel: () => excel_default,
     file: () => file_default,
     fullscreen: () => fullscreen_default,
@@ -30,7 +30,7 @@ var StardustBrowser = (() => {
     storage: () => storage_default
   });
 
-  // node_modules/@stardust-js/browser/dbsdk/api/common.js
+  // dbsdk/api/common.js
   var createCommon = (req = request) => {
     const uploadFile = (data) => {
       return req({
@@ -69,7 +69,7 @@ var StardustBrowser = (() => {
   };
   var common_default = createCommon;
 
-  // node_modules/@stardust-js/browser/dbsdk/api/dbsdk.js
+  // dbsdk/api/dbsdk.js
   var createDbsdk = (rest = restful) => {
     class Database {
       constructor(database2) {
@@ -115,7 +115,7 @@ var StardustBrowser = (() => {
   };
   var dbsdk_default = createDbsdk;
 
-  // node_modules/@stardust-js/browser/dbsdk/validates.js
+  // dbsdk/validates.js
   var validateModel = (model) => {
     if (!model) {
       throw "model \u9519\u8BEF";
@@ -172,7 +172,7 @@ var StardustBrowser = (() => {
     validateFunc
   };
 
-  // node_modules/@stardust-js/browser/dbsdk/api/restful.js
+  // dbsdk/api/restful.js
   var createRestful = (req = request) => {
     return {
       get(model, id) {
@@ -233,20 +233,20 @@ var StardustBrowser = (() => {
   };
   var restful_default = createRestful;
 
-  // node_modules/@stardust-js/browser/dbsdk/api/index.js
+  // dbsdk/api/index.js
   var api_default = {
     createCommon: common_default,
     createDbsdk: dbsdk_default,
     createRestful: restful_default
   };
 
-  // node_modules/@stardust-js/browser/dbsdk/index.js
+  // dbsdk/index.js
   var dbsdk_default2 = {
     api: api_default,
     validates: validates_default
   };
 
-  // node_modules/@stardust-js/browser/clipboard.js
+  // clipboard.js
   var writeText = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -273,7 +273,7 @@ var StardustBrowser = (() => {
     getText
   };
 
-  // node_modules/@stardust-js/browser/Export2Excel.js
+  // Export2Excel.js
   var Export2Excel_exports = {};
   __export(Export2Excel_exports, {
     export_json_to_excel: () => export_json_to_excel,
@@ -472,7 +472,7 @@ var StardustBrowser = (() => {
     }), `${filename}.${bookType}`);
   }
 
-  // node_modules/@stardust-js/browser/excel.js
+  // excel.js
   var exportTable2Excel = (id) => {
     export_table_to_excel(id);
   };
@@ -494,7 +494,7 @@ var StardustBrowser = (() => {
     export2Csv
   };
 
-  // node_modules/@stardust-js/browser/file.js
+  // file.js
   var preview = (type, url) => {
     const baseSuffixes = ["png", "jpg", "jpeg", "gif", "txt"];
     const officeSuffixes = ["doc", "docx", "ppt", "pptx"];
@@ -550,7 +550,7 @@ var StardustBrowser = (() => {
     toType
   };
 
-  // node_modules/@stardust-js/browser/fullscreen.js
+  // fullscreen.js
   var isOpened = () => {
     return !!(document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
   };
@@ -573,7 +573,7 @@ var StardustBrowser = (() => {
     exit
   };
 
-  // node_modules/@stardust-js/browser/funcs.js
+  // funcs.js
   var isWindows = /(windows|win32)/i.test(navigator.platform);
   var calcPixel = (text) => {
     if (typeof text === "number")
@@ -604,7 +604,7 @@ var StardustBrowser = (() => {
     img2Base64
   };
 
-  // node_modules/@stardust-js/browser/storage.js
+  // storage.js
   var Storage = class {
     constructor(storage) {
       this.storage = storage;
@@ -649,8 +649,8 @@ var StardustBrowser = (() => {
     session
   };
 
-  // node_modules/@stardust-js/browser/index.js
-  var browser_default = {
+  // index.js
+  var stardust_browser_default = {
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     excel: excel_default,
@@ -659,5 +659,5 @@ var StardustBrowser = (() => {
     funcs: funcs_default,
     storage: storage_default
   };
-  return __toCommonJS(browser_exports);
+  return __toCommonJS(stardust_browser_exports);
 })();

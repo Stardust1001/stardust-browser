@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
+import { areaList } from '@vant/area-data'
 
 const table = reactive({
   list: [
@@ -14,6 +15,7 @@ const table = reactive({
 })
 
 const form = reactive({
+  district: '',
   form: {},
   formItems: [
     { label: '姓名', prop: 'name' },
@@ -38,7 +40,14 @@ const controller = {
 <template>
   <div style="padding: 10px;">
     <el-button type="warning">haha</el-button>
+    <x-row :gutter="20">
+      <x-col :span="8">1</x-col>
+      <x-col :span="8">2</x-col>
+      <x-col :span="8">3</x-col>
+    </x-row>
     <br>
+    <br>
+    <x-district-select v-model="form.district" :area-list="areaList" />
     <br>
     <pc-x-table
       :table="table"

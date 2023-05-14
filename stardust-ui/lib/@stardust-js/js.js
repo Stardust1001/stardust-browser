@@ -17,18 +17,18 @@ var StardustJs = (() => {
   };
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // node_modules/@stardust-js/js/index.js
-  var js_exports = {};
-  __export(js_exports, {
+  // index.js
+  var stardust_js_exports = {};
+  __export(stardust_js_exports, {
     dates: () => dates_default,
-    default: () => js_default,
+    default: () => stardust_js_default,
     funcs: () => funcs_default,
     highdict: () => highdict_default,
     validates: () => validates_default,
     websocket: () => websocket_default
   });
 
-  // node_modules/@stardust-js/js/dates.js
+  // dates.js
   var $Date = class extends Date {
     static parse(text, fmat) {
       return new $Date(parse(text, fmat));
@@ -143,7 +143,7 @@ var StardustJs = (() => {
     convertIsoDates
   };
 
-  // node_modules/@stardust-js/js/funcs.js
+  // funcs.js
   var sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   var deepCopy = (obj) => {
     if (obj === null || obj instanceof Date || typeof obj !== "object") {
@@ -160,7 +160,7 @@ var StardustJs = (() => {
     deepCopy
   };
 
-  // node_modules/@stardust-js/js/highdict.js
+  // highdict.js
   var split = (path) => {
     return path.split(/(\.|\[\d+\])/).filter((leaf) => leaf && leaf !== ".").map((leaf) => {
       if (leaf[0] === "[") {
@@ -224,7 +224,7 @@ var StardustJs = (() => {
     mapField
   };
 
-  // node_modules/@stardust-js/js/validates.js
+  // validates.js
   var phone = (text) => {
     return /^1\d{10}$/.test(text);
   };
@@ -4428,7 +4428,7 @@ var StardustJs = (() => {
     constants: constants_1
   };
 
-  // node_modules/@stardust-js/js/websocket.js
+  // websocket.js
   var gzip2 = (data) => {
     return pako.gzip(JSON.stringify(data), { to: "string" });
   };
@@ -4501,15 +4501,15 @@ var StardustJs = (() => {
     gzipClient
   };
 
-  // node_modules/@stardust-js/js/index.js
-  var js_default = {
+  // index.js
+  var stardust_js_default = {
     dates: dates_default,
     funcs: funcs_default,
     highdict: highdict_default,
     validates: validates_default,
     websocket: websocket_default
   };
-  return __toCommonJS(js_exports);
+  return __toCommonJS(stardust_js_exports);
 })();
 /*! Bundled license information:
 

@@ -1,6 +1,8 @@
 
 const { toRaw } = Vue
 
+export const resolveComponent = (vm, name) => vm.$.appContext.components[name]
+
 export const formatOptions = (options, vm) => {
   const opts = options.__v_isRef ? options.value : toRaw(options)
   let items = opts
@@ -17,5 +19,6 @@ export const formatOptions = (options, vm) => {
 }
 
 export default {
+  resolveComponent,
   formatOptions
 }

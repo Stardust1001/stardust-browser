@@ -1,7 +1,7 @@
+import { funcs } from '../../utils/index.js'
 
 const { h } = Vue
-
-const resolveComponent = (vm, name) => vm.$.appContext.components[name]
+const { resolveComponent } = funcs
 
 const compRender = (vm) => {
   const { $props, $attrs, attrs, $emit } = vm

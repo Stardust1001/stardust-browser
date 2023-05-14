@@ -1,5 +1,5 @@
 <script>
-import utils from '../../utils.js'
+import utils from '../../utils/index.js'
 
 export default {
   name: 'MobileXCheckboxs',
