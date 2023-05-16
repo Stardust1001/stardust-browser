@@ -651,6 +651,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
+    version: "1.0.17",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     excel: excel_default,
