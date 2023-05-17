@@ -23,6 +23,6 @@ const export2Csv = options => {
 
 export default {
   exportTable2Excel,
-  Export2Excel,
+  export2Excel,
   export2Csv
 }

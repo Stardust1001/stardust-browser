@@ -274,11 +274,6 @@ var StardustBrowser = (() => {
   };
 
   // Export2Excel.js
-  var Export2Excel_exports = {};
-  __export(Export2Excel_exports, {
-    export_json_to_excel: () => export_json_to_excel,
-    export_table_to_excel: () => export_table_to_excel
-  });
   function generateArray(table) {
     var out = [];
     var rows = table.querySelectorAll("tr");
@@ -476,6 +471,9 @@ var StardustBrowser = (() => {
   var exportTable2Excel = (id) => {
     export_table_to_excel(id);
   };
+  var export2Excel = (options) => {
+    export_json_to_excel(options);
+  };
   var export2Csv = (options) => {
     const { header, data, filename = "table" } = options;
     const csv = window.Papa.unparse({
@@ -490,7 +488,7 @@ var StardustBrowser = (() => {
   };
   var excel_default = {
     exportTable2Excel,
-    Export2Excel: Export2Excel_exports,
+    export2Excel,
     export2Csv
   };
 
@@ -651,7 +649,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.17",
+    version: "1.0.18",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     excel: excel_default,
