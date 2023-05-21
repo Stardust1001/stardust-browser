@@ -4,6 +4,7 @@ import excel from './excel.js'
 import file from './file.js'
 import fullscreen from './fullscreen.js'
 import funcs from './funcs.js'
+import selector from './selector.js'
 import storage from './storage.js'
 
 export {
@@ -13,16 +14,18 @@ export {
   file,
   fullscreen,
   funcs,
+  selector,
   storage
 }
 
 export default {
-  version: '1.0.18',
+  version: '1.0.19',
   dbsdk,
   clipboard,
   excel,
   file,
   fullscreen,
   funcs,
+  selector,
   storage
 }

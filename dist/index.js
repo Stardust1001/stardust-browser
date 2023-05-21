@@ -27,6 +27,7 @@ var StardustBrowser = (() => {
     file: () => file_default,
     fullscreen: () => fullscreen_default,
     funcs: () => funcs_default,
+    selector: () => selector_default,
     storage: () => storage_default
   });
 
@@ -573,6 +574,7 @@ var StardustBrowser = (() => {
 
   // funcs.js
   var isWindows = /(windows|win32)/i.test(navigator.platform);
+  var isXPath = (selector) => /^(\/\/|\.\.)/.test(selector.trim());
   var calcPixel = (text) => {
     if (typeof text === "number")
       return text;
@@ -598,8 +600,60 @@ var StardustBrowser = (() => {
   };
   var funcs_default = {
     isWindows,
+    isXPath,
     calcPixel,
     img2Base64
+  };
+
+  // selector.js
+  var xfind = (selector, root, all = false) => {
+    const iterator = document.evaluate(selector, root || document);
+    if (!all)
+      return iterator.iterateNext();
+    const nodes = [];
+    let n;
+    while (n = iterator.iterateNext()) {
+      nodes.push(n);
+    }
+    return nodes;
+  };
+  var qs = Element.prototype.querySelector;
+  var qsa = Element.prototype.querySelectorAll;
+  var sdqs = ShadowRoot.prototype.querySelector;
+  var sdqsa = ShadowRoot.prototype.querySelectorAll;
+  Element.prototype.$one = function(selector) {
+    const root = this.shadowRoot || this;
+    const finder = this.shadowRoot ? sdqs : qs;
+    const [first, ...others] = selector.split(" >> ");
+    let node = isXPath(first) ? xfind(first, root) : finder.call(root, first);
+    if (others.length) {
+      node = node.$one(others.join(" >> "));
+    }
+    return node;
+  };
+  Element.prototype.$all = function(selector) {
+    const root = this.shadowRoot || this;
+    const finder = this.shadowRoot ? sdqsa : qsa;
+    return [...finder.call(root, selector)];
+  };
+  Element.prototype._text = function(value) {
+    if (value) {
+      this.textContent = value;
+    } else {
+      return this.textContent.trim();
+    }
+  };
+  window.$one = document.$one = function(selector) {
+    return Element.prototype.$one.call(document.documentElement, selector);
+  };
+  window.$all = document.$all = function(selector) {
+    return Element.prototype.$all.call(document.documentElement, selector);
+  };
+  var $one2 = window.$one;
+  var $all = window.$all;
+  var selector_default = {
+    $one: $one2,
+    $all
   };
 
   // storage.js
@@ -649,13 +703,14 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.18",
+    version: "1.0.19",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     excel: excel_default,
     file: file_default,
     fullscreen: fullscreen_default,
     funcs: funcs_default,
+    selector: selector_default,
     storage: storage_default
   };
   return __toCommonJS(stardust_browser_exports);

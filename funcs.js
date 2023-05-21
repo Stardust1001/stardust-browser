@@ -1,6 +1,8 @@
 
 export const isWindows = /(windows|win32)/i.test(navigator.platform)
 
+export const isXPath = selector => /^(\/\/|\.\.)/.test(selector.trim())
+
 export const calcPixel = text => {
   if (typeof text === 'number') return text
   text = text.toLowerCase()
@@ -27,6 +29,7 @@ export const img2Base64 = selector => {
 
 export default {
   isWindows,
+  isXPath,
   calcPixel,
   img2Base64
 }
