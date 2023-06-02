@@ -598,11 +598,30 @@ var StardustBrowser = (() => {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     return canvas.toDataURL();
   };
+  var _nodes = {};
+  var _resize = () => {
+    setTimeout(() => {
+      const zoom = 1 / parseFloat(document.documentElement.style.zoom);
+      for (let node of _nodes) {
+        node.style.zoom = zoom;
+      }
+    }, 0);
+  };
+  window.addEventListener("resize", _resize);
+  var unzoom = (node) => {
+    if (!(node instanceof HTMLElement)) {
+      node = node.value;
+    }
+    const id = crypto.randomUUID();
+    _nodes[id] = node;
+    return () => delete _nodes[id];
+  };
   var funcs_default = {
     isWindows,
     isXPath,
     calcPixel,
-    img2Base64
+    img2Base64,
+    unzoom
   };
 
   // selector.js
@@ -703,7 +722,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.19",
+    version: "1.0.21",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     excel: excel_default,

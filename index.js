@@ -19,7 +19,7 @@ export {
 }
 
 export default {
-  version: '1.0.20',
+  version: '1.0.21',
   dbsdk,
   clipboard,
   excel,
