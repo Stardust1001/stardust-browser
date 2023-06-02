@@ -27,9 +27,29 @@ export const img2Base64 = selector => {
   return canvas.toDataURL()
 }
 
+const _nodes = {}
+const _resize = () => {
+  setTimeout(() => {
+    const zoom = 1 / parseFloat(document.documentElement.style.zoom)
+    for (let node of _nodes) {
+      node.style.zoom = zoom
+    }
+  }, 0)
+}
+window.addEventListener('resize', _resize)
+export const unzoom = node => {
+  if (!(node instanceof HTMLElement)) {
+    node = node.value
+  }
+  const id = crypto.randomUUID()
+  _nodes[id] = node
+  return () => delete _nodes[id]
+}
+
 export default {
   isWindows,
   isXPath,
   calcPixel,
-  img2Base64
+  img2Base64,
+  unzoom
 }
