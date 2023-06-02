@@ -28,19 +28,20 @@ export const img2Base64 = selector => {
 }
 
 const _nodes = {}
+let _zoom = 1
 const _resize = () => {
+  _zoom = 1 / parseFloat(document.documentElement.style.zoom)
   setTimeout(() => {
-    const zoom = 1 / parseFloat(document.documentElement.style.zoom)
-    for (let node of _nodes) {
-      node.style.zoom = zoom
-    }
+    Object.values(_nodes).forEach(n => n.style.zoom = _zoom)
   }, 0)
 }
+_resize()
 window.addEventListener('resize', _resize)
 export const unzoom = node => {
   if (!(node instanceof HTMLElement)) {
     node = node.value
   }
+  node.style.zoom = _zoom
   const id = crypto.randomUUID()
   _nodes[id] = node
   return () => delete _nodes[id]

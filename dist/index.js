@@ -599,19 +599,20 @@ var StardustBrowser = (() => {
     return canvas.toDataURL();
   };
   var _nodes = {};
+  var _zoom = 1;
   var _resize = () => {
+    _zoom = 1 / parseFloat(document.documentElement.style.zoom);
     setTimeout(() => {
-      const zoom = 1 / parseFloat(document.documentElement.style.zoom);
-      for (let node of _nodes) {
-        node.style.zoom = zoom;
-      }
+      Object.values(_nodes).forEach((n) => n.style.zoom = _zoom);
     }, 0);
   };
+  _resize();
   window.addEventListener("resize", _resize);
   var unzoom = (node) => {
     if (!(node instanceof HTMLElement)) {
       node = node.value;
     }
+    node.style.zoom = _zoom;
     const id = crypto.randomUUID();
     _nodes[id] = node;
     return () => delete _nodes[id];
@@ -722,7 +723,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.21",
+    version: "1.0.22",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     excel: excel_default,
