@@ -50,7 +50,7 @@ export const createDbsdk = (rest = restful) => {
       data.operations.forEach(ele => {
         ele.model = ele.model || this.model
       })
-      return rest.func(data)
+      return rest.batch(data)
     }
   }
 

@@ -113,7 +113,7 @@ var StardustBrowser = (() => {
         data.operations.forEach((ele) => {
           ele.model = ele.model || this.model;
         });
-        return rest.func(data);
+        return rest.batch(data);
       }
     }
     return {
@@ -753,7 +753,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.24",
+    version: "1.0.25",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
