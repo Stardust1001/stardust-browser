@@ -45,6 +45,13 @@ export const createDbsdk = (rest = restful) => {
     func (data) {
       return rest.func(this.model, data)
     }
+
+    batch (data) {
+      data.operations.forEach(ele => {
+        ele.model = ele.model || this.model
+      })
+      return rest.func(data)
+    }
   }
 
   return {

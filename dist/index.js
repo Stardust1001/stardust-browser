@@ -109,6 +109,12 @@ var StardustBrowser = (() => {
       func(data) {
         return rest.func(this.model, data);
       }
+      batch(data) {
+        data.operations.forEach((ele) => {
+          ele.model = ele.model || this.model;
+        });
+        return rest.func(data);
+      }
     }
     return {
       Database,
@@ -747,7 +753,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.23",
+    version: "1.0.24",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
