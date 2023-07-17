@@ -631,6 +631,8 @@ var StardustBrowser = (() => {
   var _nodes = {};
   var _zoom = 1;
   var _resize = () => {
+    if (!document.documentElement)
+      return;
     _zoom = 1 / parseFloat(document.documentElement.style.zoom);
     setTimeout(() => {
       Object.values(_nodes).forEach((n) => n.style.zoom = _zoom);
@@ -753,7 +755,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.26",
+    version: "1.0.27",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

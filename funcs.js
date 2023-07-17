@@ -30,6 +30,7 @@ export const img2Base64 = selector => {
 const _nodes = {}
 let _zoom = 1
 const _resize = () => {
+  if (!document.documentElement) return
   _zoom = 1 / parseFloat(document.documentElement.style.zoom)
   setTimeout(() => {
     Object.values(_nodes).forEach(n => n.style.zoom = _zoom)
