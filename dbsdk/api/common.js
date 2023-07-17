@@ -1,24 +1,24 @@
 
 export const createCommon = (req = request) => {
-  const uploadFile = (data) => {
+  const uploadFiles = (data) => {
     return req({
-      url: '/common/upload_file',
+      url: '/common/upload_files',
       method: 'post',
       data
     })
   }
 
-  const getSetting = async (params) => {
+  const getSettings = async (params) => {
     return req({
-      url: '/common/get_setting',
+      url: '/common/get_settings',
       method: 'get',
       params
     })
   }
 
-  const updateSetting = async (data) => {
+  const updateSettings = async (data) => {
     return req({
-      url: '/common/update_setting',
+      url: '/common/update_settings',
       method: 'post',
       data
     })
@@ -32,9 +32,9 @@ export const createCommon = (req = request) => {
   }
 
   return {
-    uploadFile,
-    getSetting,
-    updateSetting,
+    uploadFiles,
+    getSettings,
+    updateSettings,
     callSql
   }
 }
