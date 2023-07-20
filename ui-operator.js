@@ -278,9 +278,9 @@ export class UIOperator {
       ...options
     }
     while (true) {
-      if (func(this)) {
-        break
-      }
+      try {
+        if (func(this)) break
+      } catch {}
       await this.sleep(options.interval)
     }
   }

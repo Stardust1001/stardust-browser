@@ -1010,8 +1010,10 @@ var StardustBrowser = (() => {
         ...options
       };
       while (true) {
-        if (func(this)) {
-          break;
+        try {
+          if (func(this))
+            break;
+        } catch {
         }
         await this.sleep(options.interval);
       }
@@ -1043,7 +1045,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.31",
+    version: "1.0.32",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
