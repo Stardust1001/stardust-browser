@@ -295,6 +295,10 @@ export class UIOperator {
     }
   }
 
+  async func (func) {
+    await func(this)
+  }
+
   async pick (func, name) {
     this.data[name] = await func(this)
     return this.data[name]

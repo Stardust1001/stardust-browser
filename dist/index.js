@@ -1025,6 +1025,9 @@ var StardustBrowser = (() => {
         await this[command](...props);
       }
     }
+    async func(func) {
+      await func(this);
+    }
     async pick(func, name) {
       this.data[name] = await func(this);
       return this.data[name];
@@ -1040,7 +1043,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.30",
+    version: "1.0.31",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
