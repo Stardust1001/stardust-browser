@@ -7,6 +7,7 @@ import fullscreen from './fullscreen.js'
 import funcs from './funcs.js'
 import selector from './selector.js'
 import storage from './storage.js'
+import UIOperator from './ui-operator.js'
 
 export {
   dbsdk,
@@ -17,11 +18,12 @@ export {
   fullscreen,
   funcs,
   selector,
-  storage
+  storage,
+  UIOperator
 }
 
 export default {
-  version: '1.0.27',
+  version: '1.0.28',
   dbsdk,
   clipboard,
   cookies,
@@ -30,5 +32,6 @@ export default {
   fullscreen,
   funcs,
   selector,
-  storage
+  storage,
+  UIOperator
 }
