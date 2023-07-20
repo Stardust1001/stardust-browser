@@ -199,6 +199,34 @@ export class UIOperator {
     }
   }
 
+  async prompt (node, options) {
+    options = {
+      placeholder: '请输入验证码',
+      ...options
+    }
+    node = await this.waitForSelector(node)
+    const text = window.prompt(options.placeholder)
+    await this.fill(node, text, options)
+  }
+
+  async fillOcr (node, imgSelector, options) {
+    options = {
+      ...options
+    }
+    node = await this.waitForSelector(node, options)
+    const { ocrCaptchaUrl } = options
+    if (ocrCaptchaUrl) {
+      const base64 = StardustBrowser.funcs.img2Base64(imgSelector)
+      const data = await fetch(ocrCaptchaUrl, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ file: base64 })
+      }).then(res => res.json())
+      return this.fill(node, data.text, options)
+    }
+    return this.prompt(node, options)
+  }
+
   async change (node, options) {
     node = await this.waitForSelector(node, options)
     node.dispatchEvent(new Event('change', {
@@ -268,15 +296,6 @@ export class UIOperator {
 }
       
 window.operator = new UIOperator({ slow: 10, interval: 10 })
-
-// setTimeout(() => {
-//   operator.exec([
-//     ['click', '//div[contains(text(),"新建流程")]'],
-//     ['fill', 'input[placeholder="请输入流程名称（或关键词）"]', '域名'],
-//     ['custom', 'input[placeholder="请输入流程名称（或关键词）"]', 'input'],
-//     ['click', '.el-dialog__footer button']
-//   ])
-// }, 3000)
 
 UIOperator.EventGenerator = EventGenerator
 

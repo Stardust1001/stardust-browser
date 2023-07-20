@@ -937,6 +937,32 @@ var StardustBrowser = (() => {
         node.value += key;
       }
     }
+    async prompt(node, options) {
+      options = {
+        placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
+        ...options
+      };
+      node = await this.waitForSelector(node);
+      const text = window.prompt(options.placeholder);
+      await this.fill(node, text, options);
+    }
+    async fillOcr(node, imgSelector, options) {
+      options = {
+        ...options
+      };
+      node = await this.waitForSelector(node, options);
+      const { ocrCaptchaUrl } = options;
+      if (ocrCaptchaUrl) {
+        const base64 = StardustBrowser.funcs.img2Base64(imgSelector);
+        const data = await fetch(ocrCaptchaUrl, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ file: base64 })
+        }).then((res) => res.json());
+        return this.fill(node, data.text, options);
+      }
+      return this.prompt(node, options);
+    }
     async change(node, options) {
       node = await this.waitForSelector(node, options);
       node.dispatchEvent(new Event("change", {
@@ -1005,7 +1031,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.28",
+    version: "1.0.29",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
