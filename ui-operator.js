@@ -148,6 +148,7 @@ export class UIOperator {
       ...config
     }
     this.generator = new EventGenerator()
+    this.data = {}
   }
 
   sleep (ms) {
@@ -292,6 +293,16 @@ export class UIOperator {
       const [command, ...props] = operations[i]
       await this[command](...props)
     }
+  }
+
+  async pick (func, name) {
+    this.data[name] = await func(this)
+    return this.data[name]
+  }
+
+  async dynamic (func) {
+    const operations = await func(this)
+    await this.exec(operations)
   }
 }
       

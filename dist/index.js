@@ -895,6 +895,7 @@ var StardustBrowser = (() => {
         ...config
       };
       this.generator = new EventGenerator();
+      this.data = {};
     }
     sleep(ms) {
       return StardustJs.funcs.sleep(ms);
@@ -1024,6 +1025,14 @@ var StardustBrowser = (() => {
         await this[command](...props);
       }
     }
+    async pick(func, name) {
+      this.data[name] = await func(this);
+      return this.data[name];
+    }
+    async dynamic(func) {
+      const operations = await func(this);
+      await this.exec(operations);
+    }
   };
   window.operator = new UIOperator({ slow: 10, interval: 10 });
   UIOperator.EventGenerator = EventGenerator;
@@ -1031,7 +1040,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.29",
+    version: "1.0.30",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
