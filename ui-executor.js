@@ -433,7 +433,7 @@ export class UIExecutor {
       if (typeof operations === 'function') {
         operations = await operations(this, ...props)
       }
-      await this.execute(operations, options)
+      await this.execute(operations, ...props)
     }
   }
 
@@ -443,15 +443,18 @@ export class UIExecutor {
       if (typeof operations === 'function') {
         operations = await operations(this, ...props)
       }
-      await this.execute(operations, options)
+      await this.execute(operations, ...props)
     }
   }
 
   async else (operations, ...props) {
-    if (typeof operations === 'function') {
-      operations = await operations(this, ...props)
+    if (this._isInIf) {
+      if (typeof operations === 'function') {
+        operations = await operations(this, ...props)
+      }
+      await this.execute(operations, ...props)
     }
-    await this.execute(operations, options)
+    this._isInIf = false
   }
 
   async switch (value, cases, ...props) {
