@@ -418,8 +418,8 @@ var StardustBrowser = (() => {
       view[i] = s.charCodeAt(i) & 255;
     return buf;
   }
-  function export_table_to_excel(selector) {
-    var theTable = typeof selector === "string" ? document.querySelector(selector) : selector;
+  function export_table_to_excel(selector2) {
+    var theTable = typeof selector2 === "string" ? document.querySelector(selector2) : selector2;
     var oo = generateArray(theTable);
     var ranges = oo[1];
     var data = oo[0];
@@ -503,11 +503,11 @@ var StardustBrowser = (() => {
   var exportTable2Excel = (id) => {
     export_table_to_excel(id);
   };
-  var export2Excel = (options) => {
-    export_json_to_excel(options);
+  var export2Excel = (options2) => {
+    export_json_to_excel(options2);
   };
-  var export2Csv = (options) => {
-    const { header, data, filename = "table" } = options;
+  var export2Csv = (options2) => {
+    const { header, data, filename = "table" } = options2;
     const csv = window.Papa.unparse({
       data,
       fields: header
@@ -605,7 +605,7 @@ var StardustBrowser = (() => {
 
   // funcs.js
   var isWindows = /(windows|win32)/i.test(navigator.platform);
-  var isXPath = (selector) => /^(\/\/|\.\.)/.test(selector.trim());
+  var isXPath = (selector2) => /^(\/\/|\.\.)/.test(selector2.trim());
   var calcPixel = (text) => {
     if (typeof text === "number")
       return text;
@@ -620,8 +620,8 @@ var StardustBrowser = (() => {
     }
     return Math.floor(number);
   };
-  var img2Base64 = (selector) => {
-    const img = typeof selector === "string" ? $one(selector) : selector;
+  var img2Base64 = (selector2) => {
+    const img = typeof selector2 === "string" ? $one(selector2) : selector2;
     const canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
@@ -659,8 +659,8 @@ var StardustBrowser = (() => {
   };
 
   // selector.js
-  var xfind = (selector, root, all = false) => {
-    const iterator = document.evaluate(selector, root || document);
+  var xfind = (selector2, root, all = false) => {
+    const iterator = document.evaluate(selector2, root || document);
     if (!all)
       return iterator.iterateNext();
     const nodes = [];
@@ -674,20 +674,29 @@ var StardustBrowser = (() => {
   var qsa = Element.prototype.querySelectorAll;
   var sdqs = ShadowRoot.prototype.querySelector;
   var sdqsa = ShadowRoot.prototype.querySelectorAll;
-  Element.prototype.$one = function(selector) {
+  Element.prototype.$one = function(selector2) {
     const root = this.shadowRoot || this;
     const finder = this.shadowRoot ? sdqs : qs;
-    const [first, ...others] = selector.split(" >> ");
+    const [first, ...others] = selector2.split(" >> ");
     let node = isXPath(first) ? xfind(first, root) : finder.call(root, first);
     if (others.length) {
       node = node.$one(others.join(" >> "));
     }
     return node;
   };
-  Element.prototype.$all = function(selector) {
+  Element.prototype.$all = function(selector2) {
     const root = this.shadowRoot || this;
     const finder = this.shadowRoot ? sdqsa : qsa;
-    return [...finder.call(root, selector)];
+    return [...finder.call(root, selector2)];
+  };
+  Element.prototype.$parent = function(level = 1) {
+    let parent = this;
+    while (level--) {
+      parent = parent.parentNode;
+      if (!parent)
+        return parent;
+    }
+    return parent;
   };
   Element.prototype._text = function(value) {
     if (value) {
@@ -696,17 +705,17 @@ var StardustBrowser = (() => {
       return this.textContent.trim();
     }
   };
-  window.$one = document.$one = function(selector) {
-    return Element.prototype.$one.call(document.documentElement, selector);
+  window.$one = document.$one = function(selector2) {
+    return Element.prototype.$one.call(document.documentElement, selector2);
   };
-  window.$all = document.$all = function(selector) {
-    return Element.prototype.$all.call(document.documentElement, selector);
+  window.$all = document.$all = function(selector2) {
+    return Element.prototype.$all.call(document.documentElement, selector2);
   };
   var $one2 = window.$one;
-  var $all = window.$all;
+  var $all2 = window.$all;
   var selector_default = {
     $one: $one2,
-    $all
+    $all: $all2
   };
 
   // storage.js
@@ -765,8 +774,8 @@ var StardustBrowser = (() => {
         ...config?.base
       };
     }
-    keyboard(name, options) {
-      let { key, code } = options;
+    keyboard(name, options2) {
+      let { key, code } = options2;
       if (key && !code) {
         code = key.charCodeAt(0);
       }
@@ -784,10 +793,10 @@ var StardustBrowser = (() => {
         metaKey: false,
         repeat: false,
         isComposing: false,
-        ...options
+        ...options2
       });
     }
-    mouse(name, options, target) {
+    mouse(name, options2, target) {
       const rect = target?.getBoundingClientRect() || {
         x: 0,
         y: 0,
@@ -796,7 +805,7 @@ var StardustBrowser = (() => {
       };
       const cx = rect.x + rect.width / 2;
       const cy = rect.y + rect.height / 2;
-      return new MouseEvent("click", {
+      return new MouseEvent(name, {
         ...this.base,
         screenX: cx,
         screenY: cy,
@@ -819,42 +828,42 @@ var StardustBrowser = (() => {
         pageX: cx,
         pageY: cy,
         which: null,
-        ...options
+        ...options2
       });
     }
-    wheel(options) {
+    wheel(options2) {
       return new WheelEvent({
         ...this.base,
         deltaX: 0,
         deltaY: 0,
         deltaZ: 0,
         deltaMode: 0,
-        ...options
+        ...options2
       });
     }
-    focus(options) {
+    focus(options2) {
       return new FocusEvent({
         ...this.base,
         relatedTarget: null,
-        ...options
+        ...options2
       });
     }
-    input(text, options) {
+    input(text, options2) {
       return new InputEvent({
         ...this.base,
         data: text,
         isComposing: false,
-        ...options
+        ...options2
       });
     }
-    composition(text, options) {
+    composition(text, options2) {
       return new CompositionEvent({
         ...this.base,
         data: text,
-        ...options
+        ...options2
       });
     }
-    touch(name, options, target) {
+    touch(name, options2, target) {
       const rect = target?.getBoundingClientRect() || {
         x: 0,
         y: 0,
@@ -883,7 +892,7 @@ var StardustBrowser = (() => {
         changedTouches: [point],
         targetTouches: [point],
         touches: [point],
-        ...options
+        ...options2
       });
     }
   };
@@ -896,118 +905,54 @@ var StardustBrowser = (() => {
       };
       this.generator = new EventGenerator();
       this.data = {};
+      this._isInIf = false;
     }
-    sleep(ms) {
-      return StardustJs.funcs.sleep(ms);
-    }
-    async keyboard(node, name, options) {
-      node = await this.waitForSelector(node, options);
-      node.dispatchEvent(this.generator.keyboard(name, options));
-    }
-    async mouse(node, name, options) {
-      node = await this.waitForSelector(node, options);
-      node.dispatchEvent(this.generator.mouse(name, options, node));
-    }
-    keydown(node, key, options) {
-      this.keyboard(node, "keydown", { key, ...options });
-    }
-    keyup(node, key, options) {
-      this.keyboard(node, "keyup", { key, ...options });
-    }
-    async focus(node, options) {
-      node = await this.waitForSelector(node, options);
-      node.focus();
-      node.dispatchEvent(this.generator.focus());
-    }
-    async clear(node, options) {
-      node = await this.waitForSelector(node, options);
-      node.value = "";
-    }
-    async fill(node, text, options) {
-      options = {
-        interval: this.config.interval,
-        ...options
-      };
-      node = await this.waitForSelector(node, options);
-      this.focus(node);
-      this.clear(node);
-      for (let key of text) {
-        await this.sleep(options.interval);
-        this.keydown(node, key);
-        this.keyup(node, key);
-        node.value += key;
-      }
-    }
-    async prompt(node, options) {
-      options = {
-        placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
-        ...options
-      };
-      node = await this.waitForSelector(node);
-      const text = window.prompt(options.placeholder);
-      await this.fill(node, text, options);
-    }
-    async fillOcr(node, imgSelector, options) {
-      options = {
-        ...options
-      };
-      node = await this.waitForSelector(node, options);
-      const { ocrCaptchaUrl } = options;
-      if (ocrCaptchaUrl) {
-        const base64 = StardustBrowser.funcs.img2Base64(imgSelector);
-        const data = await fetch(ocrCaptchaUrl, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ file: base64 })
-        }).then((res) => res.json());
-        return this.fill(node, data.text, options);
-      }
-      return this.prompt(node, options);
-    }
-    async change(node, options) {
-      node = await this.waitForSelector(node, options);
-      node.dispatchEvent(new Event("change", {
-        view: window,
-        bubbles: true,
-        cancelable: true,
-        ...options
-      }));
-    }
-    async click(node, options) {
-      node = await this.waitForSelector(node, options);
-      node.dispatchEvent(this.generator.mouse("click", options, node));
-    }
-    custom(node, name, options) {
-      node = typeof node === "string" ? $one(node) : node;
-      node.dispatchEvent(new Event(name, {
-        bubbles: true,
-        cancelable: true,
-        view: window,
-        ...options
-      }));
-    }
-    async waitForSelector(selector, options) {
-      options = {
+    async waitFor(selector2, options2) {
+      options2 = {
         visible: true,
         interval: this.config.interval,
-        ...options
+        ...options2
       };
       let node;
       while (true) {
-        node = typeof selector === "string" ? $one(selector) : selector;
+        node = typeof selector2 === "string" ? $one(selector2) : selector2;
         if (node) {
-          if (!options.visible || node.getBoundingClientRect().width) {
+          if (!options2.visible || node.getBoundingClientRect().width) {
             break;
           }
         }
-        await this.sleep(options.interval);
+        await this.sleep(options2.interval);
       }
       return node;
     }
-    async waitForFunction(func, options) {
-      options = {
+    waitOr(selectors, options2) {
+      return Promise.any(selectors.map((s) => this.waitFor(selector, options2)));
+    }
+    async waitForURL(url, options2) {
+      options2 = {
         interval: this.config.interval,
-        ...options
+        ...options2
+      };
+      while (true) {
+        if (typeof url === "string") {
+          if (location.href.includes(url))
+            return true;
+        } else if (typeof url === "function") {
+          if (url(location.href))
+            return true;
+        } else if (url instanceof RegExp) {
+          if (url.test(location.href))
+            return true;
+        } else {
+          throw "\u4E0D\u652F\u6301\u7684 url \u7C7B\u578B";
+        }
+        await this.sleep(options2.interval);
+      }
+    }
+    async waitForFunction(func, options2) {
+      options2 = {
+        interval: this.config.interval,
+        ...options2
       };
       while (true) {
         try {
@@ -1015,10 +960,455 @@ var StardustBrowser = (() => {
             break;
         } catch {
         }
-        await this.sleep(options.interval);
+        await this.sleep(options2.interval);
       }
     }
-    async exec(operations, options) {
+    async waitForNext(title = "\u4E0B\u4E00\u6B65", options2) {
+      const button = document.createElement("div");
+      document.querySelector(options2.root || "body").appendChild(button);
+      button.style.cssText += `
+      z-index: 9999;
+      width: 300px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: #409eff;
+      color: white;
+      cursor: pointer;
+      margin: 2px;
+    `;
+      if (!options2.root) {
+        button.style.cssText += `
+        position: fixed;
+        left: 5px;
+        bottom: 5px;
+      `;
+      }
+      button.style.cssText += `
+      ${options2.style}
+    `;
+      button.onmouseover = () => {
+        button.style.opacity = 0.8;
+      };
+      button.onmouseout = () => {
+        button.style.opacity = 1;
+      };
+      button.textContent = title;
+      return new Promise((resolve) => {
+        button.onclick = () => {
+          button.remove();
+          resolve();
+        };
+      });
+    }
+    sleep(ms) {
+      return StardustJs.funcs.sleep(ms);
+    }
+    async blur(node, options2) {
+      node = await this.waitFor(node, options2);
+      node.blur();
+    }
+    async box(node, options2) {
+      node = await this.waitFor(node, options2);
+      return node.getBoundingClientRect();
+    }
+    async clear(node, options2) {
+      node = await this.waitFor(node, options2);
+      node.value = "";
+    }
+    async click(node, options2) {
+      node = await this.waitFor(node, options2);
+      node.dispatchEvent(this.generator.mouse("click", options2, node));
+    }
+    async dblclick(node, options2) {
+      node = await this.waitFor(node, options2);
+      node.dispatchEvent(this.generator.mouse("click", options2, node));
+      await this.sleep(options2.timeGap || 20);
+      node.dispatchEvent(this.generator.mouse("click", options2, node));
+    }
+    async keyboard(node, name, options2) {
+      node = await this.waitFor(node, options2);
+      node.dispatchEvent(this.generator.keyboard(name, options2));
+    }
+    async eval(func, args = {}) {
+      if (typeof func === "function") {
+        return func(this, args);
+      }
+      return window.eval(func);
+    }
+    async evalOn(node, func, options2) {
+      node = await this.waitFor(node, options2);
+      if (typeof func === "function") {
+        return func(node);
+      }
+      return window.eval(func);
+    }
+    async evalOnAll(node, func, options2) {
+      await this.waitFor(node, options2);
+      const nodes = await $all(node);
+      if (typeof func === "function") {
+        return func(nodes);
+      }
+      return window.eval(func);
+    }
+    async set(node, attr, value, bySetter = false, options2) {
+      if (typeof value === "function") {
+        value = await this.eval(value, options2);
+      }
+      node = await this.waitFor(node, options2);
+      if (bySetter) {
+        node.setAttribute(attr, value);
+      } else {
+        node[attr] = value;
+      }
+    }
+    async fill(node, text, options2) {
+      options2 = {
+        interval: this.config.interval,
+        ...options2
+      };
+      node = await this.waitFor(node, options2);
+      this.focus(node);
+      this.clear(node);
+      for (let key of text) {
+        await this.sleep(options2.interval);
+        this.keydown(node, key);
+        this.keyup(node, key);
+        node.value += key;
+      }
+    }
+    async focus(node, options2) {
+      node = await this.waitFor(node, options2);
+      node.focus();
+      node.dispatchEvent(this.generator.focus());
+    }
+    async hover(node, options2) {
+      node = await this.waitFor(node, options2);
+      node.dispatchEvent(this.generator.mouse("move", options2, node));
+    }
+    async press(node, keys, options2) {
+      options2 = {
+        interval: this.config.interval,
+        ...options2
+      };
+      keys = Array.isArray(keys) ? keys : [keys];
+      node = await this.waitFor(node, options2);
+      for (let key of keys) {
+        this.keydown(node, key, options2);
+        await this.sleep(options2.interval);
+        this.keyup(node, key, options2);
+        await this.sleep(options2.interval);
+      }
+    }
+    async select(node, value, options2) {
+      node = await this.waitFor(node, options2);
+      node.value = value;
+      this.change(node, options2);
+    }
+    async check(node, value, options2) {
+      node = await this.waitFor(node, options2);
+      node.checked = value;
+      this.change(node, options2);
+    }
+    async jump(func, options2) {
+      const url = await this.eval(func, options2);
+      location.href = url;
+    }
+    async mouse(node, name, options2) {
+      node = await this.waitFor(node, options2);
+      node.dispatchEvent(this.generator.mouse(name, options2, node));
+    }
+    async keyboard(method, node, keys, options2) {
+      options2 = {
+        interval: this.config.interval,
+        ...options2
+      };
+      node = await this.waitFor(node, options2);
+      for (let key of keys) {
+        this["key" + method](node, key, options2);
+        await this.sleep(options2.interval);
+      }
+    }
+    enter(node, options2) {
+      this.press(node, "Enter", options2);
+    }
+    async view(node, options2) {
+      node = await this.waitFor(node, options2);
+      node.scrollIntoViewIfNeeded();
+    }
+    async attr(node, name, options2) {
+      node = await this.waitFor(node, options2);
+      return node.getAttribute(name, options2);
+    }
+    async call(node, method, options2) {
+      node = await this.waitFor(node, options2);
+      return node[method](options2);
+    }
+    async html(node, options2) {
+      node = await this.waitFor(node, options2);
+      return node.innerHTML;
+    }
+    async text(node, options2) {
+      node = await this.waitFor(node, options2);
+      return node.innerText;
+    }
+    async content(node, options2) {
+      node = await this.waitFor(node, options2);
+      return node.textContent;
+    }
+    async if(func, operations, ...props) {
+      this._isInIf = true;
+      const ok = await this.eval(func, ...props);
+      if (ok) {
+        if (typeof operations === "function") {
+          operations = await operations(this, ...props);
+        }
+        await this.exec(operations, options);
+      }
+    }
+    async elseIf(func, operations, ...props) {
+      const ok = await this.eval(func, ...props);
+      if (ok) {
+        if (typeof operations === "function") {
+          operations = await operations(this, ...props);
+        }
+        await this.exec(operations, options);
+      }
+    }
+    async else(operations, ...props) {
+      if (typeof operations === "function") {
+        operations = await operations(this, ...props);
+      }
+      await this.exec(operations, options);
+    }
+    async switch(value, cases, ...props) {
+      if (typeof value === "function") {
+        value = await value(this, ...props);
+      }
+      for (let [caseValue, operations] of cases) {
+        if (typeof caseValue === "function") {
+          caseValue = await caseValue(this, ...props);
+        }
+        caseValue = Array.isArray(caseValue) ? caseValue : [caseValue];
+        if (caseValue.includes(value)) {
+          await this.exec(operations, ...props);
+          return;
+        }
+      }
+      const last = cases[cases.length - 1];
+      if (last[0] === "default") {
+        await this.exec(last[1], ...props);
+      }
+    }
+    async promiseAll(operations) {
+      if (typeof operations === "function") {
+        operations = await operations(this);
+      }
+      return Promise.all(operations.map((ele) => {
+        return this[ele[0]](...ele.slice(1)).catch((err) => {
+          console.error(err);
+        });
+      }));
+    }
+    async promiseRace(operations) {
+      if (typeof operations === "function") {
+        operations = await operations(this);
+      }
+      return Promise.race(operations.map((ele) => {
+        return this[ele[0]](...ele.slice(1)).catch((err) => {
+          console.error(err);
+        });
+      }));
+    }
+    async promiseAny(operations) {
+      if (typeof operations === "function") {
+        operations = await operations(this);
+      }
+      return Promise.any(operations.map((ele) => {
+        return this[ele[0]](...ele.slice(1)).catch((err) => {
+          console.error(err);
+        });
+      }));
+    }
+    async for(func, operations, ...props) {
+      let items = func;
+      if (typeof func === "function") {
+        items = await func(this, ...props);
+      }
+      if (typeof items === "number") {
+        items = Array.from({ length: items }).map((_, i) => i);
+      }
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        let ops = operations;
+        if (typeof operations === "function") {
+          ops = await operations(this, item, i, ...props);
+        }
+        await this.exec(ops, [item, i], ...props);
+      }
+    }
+    async while(func, operations, options2) {
+      while (true) {
+        const ok = await this.eval(func, options2);
+        if (!ok)
+          break;
+        await this.exec(operations);
+      }
+    }
+    async dynamic(func) {
+      const operations = await this.eval(func);
+      await this.exec(operations);
+    }
+    func(func, ...props) {
+      return this.eval(func, ...props);
+    }
+    async prompt(node, options2) {
+      options2 = {
+        placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
+        ...options2
+      };
+      node = await this.waitFor(node, options2);
+      const value = window.prompt(options2.placeholder);
+      this.fill(node, value, options2);
+    }
+    async keydown(node, key, options2) {
+      node = await this.waitFor(node, options2);
+      this.keyboard(node, "keydown", { key, ...options2 });
+    }
+    async keyup(node, key, options2) {
+      node = await this.waitFor(node, options2);
+      this.keyboard(node, "keyup", { key, ...options2 });
+    }
+    async prompt(node, options2) {
+      options2 = {
+        placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
+        ...options2
+      };
+      node = await this.waitFor(node);
+      const text = window.prompt(options2.placeholder);
+      await this.fill(node, text, options2);
+    }
+    async fillOcr(node, imgSelector, options2) {
+      options2 = {
+        ...options2
+      };
+      node = await this.waitFor(node, options2);
+      const { ocrCaptchaUrl } = options2;
+      if (ocrCaptchaUrl) {
+        const base64 = StardustBrowser.funcs.img2Base64(imgSelector);
+        const data = await fetch(ocrCaptchaUrl, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ file: base64 })
+        }).then((res) => res.json());
+        return this.fill(node, data.text, options2);
+      }
+      return this.prompt(node, options2);
+    }
+    async save(data, saveTo, key, options2) {
+      if (typeof data === "function") {
+        data = await data(this);
+      }
+      if (typeof saveTo === "object") {
+        StardustJs.highdict.set(saveTo, key, data);
+        return saveTo;
+      }
+      throw "\u4E0D\u652F\u6301\u7684 saveTo \u7C7B\u578B";
+    }
+    async pick(func, name) {
+      this.data[name] = await this.eval(func);
+      return this.data[name];
+    }
+    async pickList(optionsOrFunc, ...props) {
+      let list = [];
+      if (typeof optionsOrFunc === "object") {
+        const { each, saveTo } = optionsOrFunc;
+        const fields = optionsOrFunc.fields.map((ele) => {
+          if (typeof ele === "object") {
+            return ele;
+          }
+          const [prop, selector2, type] = ele.split("::");
+          return { prop, selector: selector2, type };
+        });
+        list = $all(each).map((n) => {
+          const item = {};
+          fields.forEach((field) => {
+            const value = n.$one(field.selector)?._text();
+            item[field.prop] = field.type === "number" ? parseFloat(value) : value;
+          });
+          return item;
+        });
+      } else {
+        list = await this.eval(optionsOrFunc);
+      }
+      if (props.length) {
+        return this.save(list, ...props);
+      }
+      return list;
+    }
+    title(title, options2) {
+      options2 = {
+        resetable: false,
+        ...options2
+      };
+      document.title = title;
+      if (!options2.resetable) {
+        Object.defineProperty(document, "title", {
+          get: () => title,
+          set: () => true
+        });
+      }
+    }
+    async comment(message, options2, ...props) {
+      if (typeof message === "function") {
+        message = await message(this, ...props);
+      }
+      console.log(message);
+    }
+    async fetch(urlOrList, options2, transformer, ...props) {
+      if (typeof urlOrList === "function") {
+        urlOrList = await urlOrList(this);
+      }
+      const isArray = Array.isArray(urlOrList);
+      urlOrList = isArray ? urlOrList : [[urlOrList, options2]];
+      const list = await Promise.all(urlOrList.map(async (ele, index) => {
+        const url = ele[0];
+        const op = { ...options2, ...ele[1] };
+        const { type = "json" } = op;
+        let data = await fetch(url, op).then((res) => res[type]());
+        transformer = op.transformer || transformer;
+        if (transformer) {
+          data = await transformer(data, ele, index);
+        }
+        return data;
+      }));
+      const result = isArray ? list : list[0];
+      if (props.length) {
+        return this.save(result, ...props);
+      }
+      return result;
+    }
+    async assert(func, message) {
+      const ok = await this.eval(func);
+      if (ok) {
+        return this.comment("\u65AD\u8A00\u5931\u8D25: " + message);
+      }
+      return funcs.sleep(Number.MAX_SAFE_INTEGER);
+    }
+    async change(node, options2) {
+      node = await this.waitFor(node, options2);
+      this.custom(node, "change", options2);
+    }
+    custom(node, name, options2) {
+      node = typeof node === "string" ? $one(node) : node;
+      node.dispatchEvent(new Event(name, {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+        ...options2
+      }));
+    }
+    async exec(operations, options2) {
       for (let i = 0, len = operations.length; i < len; i++) {
         if (this.config.slow && i) {
           await this.sleep(this.config.slow);
@@ -1027,17 +1417,6 @@ var StardustBrowser = (() => {
         await this[command](...props);
       }
     }
-    async func(func) {
-      await func(this);
-    }
-    async pick(func, name) {
-      this.data[name] = await func(this);
-      return this.data[name];
-    }
-    async dynamic(func) {
-      const operations = await func(this);
-      await this.exec(operations);
-    }
   };
   window.operator = new UIOperator({ slow: 10, interval: 10 });
   UIOperator.EventGenerator = EventGenerator;
@@ -1045,7 +1424,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.32",
+    version: "1.0.33",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

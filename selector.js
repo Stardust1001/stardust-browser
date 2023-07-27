@@ -31,6 +31,14 @@ Element.prototype.$all = function (selector) {
   const finder = this.shadowRoot ? sdqsa : qsa
   return [...finder.call(root, selector)]
 }
+Element.prototype.$parent = function (level = 1) {
+  let parent = this
+  while (level --) {
+    parent = parent.parentNode
+    if (!parent) return parent
+  }
+  return parent
+}
 Element.prototype._text = function (value) {
   if (value) {
     this.textContent = value
