@@ -140,7 +140,7 @@ export class EventGenerator {
   }
 }
 
-export class UIOperator {
+export class UIExecutor {
   constructor (config) {
     this.config = {
       interval: 20,
@@ -433,7 +433,7 @@ export class UIOperator {
       if (typeof operations === 'function') {
         operations = await operations(this, ...props)
       }
-      await this.exec(operations, options)
+      await this.execute(operations, options)
     }
   }
 
@@ -443,7 +443,7 @@ export class UIOperator {
       if (typeof operations === 'function') {
         operations = await operations(this, ...props)
       }
-      await this.exec(operations, options)
+      await this.execute(operations, options)
     }
   }
 
@@ -451,7 +451,7 @@ export class UIOperator {
     if (typeof operations === 'function') {
       operations = await operations(this, ...props)
     }
-    await this.exec(operations, options)
+    await this.execute(operations, options)
   }
 
   async switch (value, cases, ...props) {
@@ -464,13 +464,13 @@ export class UIOperator {
       }
       caseValue = Array.isArray(caseValue) ? caseValue : [caseValue]
       if (caseValue.includes(value)) {
-        await this.exec(operations, ...props)
+        await this.execute(operations, ...props)
         return
       }
     }
     const last = cases[cases.length - 1]
     if (last[0] === 'default') {
-      await this.exec(last[1], ...props)
+      await this.execute(last[1], ...props)
     }
   }
 
@@ -521,7 +521,7 @@ export class UIOperator {
       if (typeof operations === 'function') {
         ops = await operations(this, item, i, ...props)
       }
-      await this.exec(ops, [item, i], ...props)
+      await this.execute(ops, [item, i], ...props)
     }
   }
 
@@ -529,13 +529,13 @@ export class UIOperator {
     while (true) {
       const ok = await this.eval(func, options)
       if (!ok) break
-      await this.exec(operations)
+      await this.execute(operations)
     }
   }
 
   async dynamic (func) {
     const operations = await this.eval(func)
-    await this.exec(operations)
+    await this.execute(operations)
   }
 
   func (func, ...props) {
@@ -702,7 +702,7 @@ export class UIOperator {
     }))
   }
 
-  async exec (operations, options) {
+  async execute (operations, options) {
     for (let i = 0, len = operations.length; i < len; i++) {
       if (this.config.slow && i) {
         await this.sleep(this.config.slow)
@@ -712,9 +712,7 @@ export class UIOperator {
     }
   }
 }
-      
-window.operator = new UIOperator({ slow: 10, interval: 10 })
 
-UIOperator.EventGenerator = EventGenerator
+UIExecutor.EventGenerator = EventGenerator
 
-export default UIOperator
+export default UIExecutor

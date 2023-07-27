@@ -20,7 +20,7 @@ var StardustBrowser = (() => {
   // index.js
   var stardust_browser_exports = {};
   __export(stardust_browser_exports, {
-    UIOperator: () => ui_operator_default,
+    UIExecutor: () => ui_executor_default,
     clipboard: () => clipboard_default,
     cookies: () => cookies_default,
     dbsdk: () => dbsdk_default2,
@@ -763,7 +763,7 @@ var StardustBrowser = (() => {
     session
   };
 
-  // ui-operator.js
+  // ui-executor.js
   var EventGenerator = class {
     constructor(config) {
       this.config = config;
@@ -896,7 +896,7 @@ var StardustBrowser = (() => {
       });
     }
   };
-  var UIOperator = class {
+  var UIExecutor = class {
     constructor(config) {
       this.config = {
         interval: 20,
@@ -1163,7 +1163,7 @@ var StardustBrowser = (() => {
         if (typeof operations === "function") {
           operations = await operations(this, ...props);
         }
-        await this.exec(operations, options);
+        await this.execute(operations, options);
       }
     }
     async elseIf(func, operations, ...props) {
@@ -1172,14 +1172,14 @@ var StardustBrowser = (() => {
         if (typeof operations === "function") {
           operations = await operations(this, ...props);
         }
-        await this.exec(operations, options);
+        await this.execute(operations, options);
       }
     }
     async else(operations, ...props) {
       if (typeof operations === "function") {
         operations = await operations(this, ...props);
       }
-      await this.exec(operations, options);
+      await this.execute(operations, options);
     }
     async switch(value, cases, ...props) {
       if (typeof value === "function") {
@@ -1191,13 +1191,13 @@ var StardustBrowser = (() => {
         }
         caseValue = Array.isArray(caseValue) ? caseValue : [caseValue];
         if (caseValue.includes(value)) {
-          await this.exec(operations, ...props);
+          await this.execute(operations, ...props);
           return;
         }
       }
       const last = cases[cases.length - 1];
       if (last[0] === "default") {
-        await this.exec(last[1], ...props);
+        await this.execute(last[1], ...props);
       }
     }
     async promiseAll(operations) {
@@ -1244,7 +1244,7 @@ var StardustBrowser = (() => {
         if (typeof operations === "function") {
           ops = await operations(this, item, i, ...props);
         }
-        await this.exec(ops, [item, i], ...props);
+        await this.execute(ops, [item, i], ...props);
       }
     }
     async while(func, operations, options2) {
@@ -1252,12 +1252,12 @@ var StardustBrowser = (() => {
         const ok = await this.eval(func, options2);
         if (!ok)
           break;
-        await this.exec(operations);
+        await this.execute(operations);
       }
     }
     async dynamic(func) {
       const operations = await this.eval(func);
-      await this.exec(operations);
+      await this.execute(operations);
     }
     func(func, ...props) {
       return this.eval(func, ...props);
@@ -1408,7 +1408,7 @@ var StardustBrowser = (() => {
         ...options2
       }));
     }
-    async exec(operations, options2) {
+    async execute(operations, options2) {
       for (let i = 0, len = operations.length; i < len; i++) {
         if (this.config.slow && i) {
           await this.sleep(this.config.slow);
@@ -1418,13 +1418,12 @@ var StardustBrowser = (() => {
       }
     }
   };
-  window.operator = new UIOperator({ slow: 10, interval: 10 });
-  UIOperator.EventGenerator = EventGenerator;
-  var ui_operator_default = UIOperator;
+  UIExecutor.EventGenerator = EventGenerator;
+  var ui_executor_default = UIExecutor;
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.33",
+    version: "1.0.34",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
@@ -1434,7 +1433,7 @@ var StardustBrowser = (() => {
     funcs: funcs_default,
     selector: selector_default,
     storage: storage_default,
-    UIOperator: ui_operator_default
+    UIExecutor: ui_executor_default
   };
   return __toCommonJS(stardust_browser_exports);
 })();
