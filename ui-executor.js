@@ -11,7 +11,7 @@ export class EventGenerator {
     }
   }
 
-  keyboard (name, options) {
+  keyboard (name, options = {}) {
     let { key, code } = options
     if (key && !code) {
       code = key.charCodeAt(0)
@@ -70,7 +70,7 @@ export class EventGenerator {
     })
   }
 
-  wheel (options) {
+  wheel (options = {}) {
     return new WheelEvent({
       ...this.base,
       deltaX: 0,
@@ -81,7 +81,7 @@ export class EventGenerator {
     })
   }
 
-  focus (options) {
+  focus (options = {}) {
     return new FocusEvent({
       ...this.base,
       relatedTarget: null,
@@ -89,7 +89,7 @@ export class EventGenerator {
     })
   }
 
-  input (text, options) {
+  input (text, options = {}) {
     return new InputEvent({
       ...this.base,
       data: text,
@@ -98,7 +98,7 @@ export class EventGenerator {
     })
   }
 
-  composition (text, options) {
+  composition (text, options = {}) {
     return new CompositionEvent({
       ...this.base,
       data: text,
@@ -153,7 +153,7 @@ export class UIExecutor {
     this._isInIf = false
   }
 
-  async waitFor (selector, options) {
+  async waitFor (selector, options = {}) {
     options = {
       visible: true,
       interval: this.config.interval,
@@ -172,11 +172,11 @@ export class UIExecutor {
     return node
   }
 
-  waitOr (selectors, options) {
+  waitOr (selectors, options = {}) {
     return Promise.any(selectors.map(s => this.waitFor(selector, options)))
   }
 
-  async waitForURL (url, options) {
+  async waitForURL (url, options = {}) {
     options = {
       interval: this.config.interval,
       ...options
@@ -195,7 +195,7 @@ export class UIExecutor {
     }
   }
 
-  async waitForFunction (func, options) {
+  async waitForFunction (func, options = {}) {
     options = {
       interval: this.config.interval,
       ...options
@@ -208,7 +208,7 @@ export class UIExecutor {
     }
   }
 
-  async waitForNext (title = '下一步', options) {
+  async waitForNext (title = '下一步', options = {}) {
     const button = document.createElement('div')
     document.querySelector(options.root || 'body').appendChild(button)
     button.style.cssText += `
@@ -248,34 +248,38 @@ export class UIExecutor {
     return StardustJs.funcs.sleep(ms)
   }
 
-  async blur (node, options) {
+  async blur (node, options = {}) {
     node = await this.waitFor(node, options)
     node.blur()
   }
 
-  async box (node, options) {
+  async box (node, options = {}) {
     node = await this.waitFor(node, options)
     return node.getBoundingClientRect()
   }
 
-  async clear (node, options) {
+  async clear (node, options = {}) {
     node = await this.waitFor(node, options)
     node.value = ''
   }
 
-  async click (node, options) {
+  async click (node, options = {}) {
     node = await this.waitFor(node, options)
     node.dispatchEvent(this.generator.mouse('click', options, node))
   }
 
-  async dblclick (node, options) {
+  async dblclick (node, options = {}) {
+    options = {
+      clickInterval: this.config.interval,
+      ...options
+    }
     node = await this.waitFor(node, options)
     node.dispatchEvent(this.generator.mouse('click', options, node))
-    await this.sleep(options.timeGap || 20)
+    await this.sleep(options.clickInterval)
     node.dispatchEvent(this.generator.mouse('click', options, node))
   }
 
-  async keyboard (node, name, options) {
+  async keyboard (node, name, options = {}) {
     node = await this.waitFor(node, options)
     node.dispatchEvent(this.generator.keyboard(name, options))
   }
@@ -287,7 +291,7 @@ export class UIExecutor {
     return window.eval(func)
   }
 
-  async evalOn (node, func, options) {
+  async evalOn (node, func, options = {}) {
     node = await this.waitFor(node, options)
     if (typeof func === 'function') {
       return func(node)
@@ -295,7 +299,7 @@ export class UIExecutor {
     return window.eval(func)
   }
 
-  async evalOnAll (node, func, options) {
+  async evalOnAll (node, func, options = {}) {
     await this.waitFor(node, options)
     const nodes = await $all(node)
     if (typeof func === 'function') {
@@ -304,7 +308,7 @@ export class UIExecutor {
     return window.eval(func)
   }
 
-  async set (node, attr, value, bySetter = false, options) {
+  async set (node, attr, value, bySetter = false, options = {}) {
     if (typeof value === 'function') {
       value = await this.eval(value, options)
     }
@@ -316,7 +320,7 @@ export class UIExecutor {
     }
   }
 
-  async fill (node, text, options) {
+  async fill (node, text, options = {}) {
     options = {
       interval: this.config.interval,
       ...options
@@ -332,55 +336,56 @@ export class UIExecutor {
     }
   }
 
-  async focus (node, options) {
+  async focus (node, options = {}) {
     node = await this.waitFor(node, options)
     node.focus()
     node.dispatchEvent(this.generator.focus())
   }
 
-  async hover (node, options) {
+  async hover (node, options = {}) {
     node = await this.waitFor(node, options)
     node.dispatchEvent(this.generator.mouse('move', options, node))
   }
 
-  async press (node, keys, options) {
+  async press (node, keys, options = {}) {
     options = {
       interval: this.config.interval,
+      downUpInterval: this.config.interval,
       ...options
     }
     keys = Array.isArray(keys) ? keys : [keys]
     node = await this.waitFor(node, options)
     for (let key of keys) {
       this.keydown(node, key, options)
-      await this.sleep(options.interval)
+      await this.sleep(options.downUpInterval)
       this.keyup(node, key, options)
       await this.sleep(options.interval)
     }
   }
 
-  async select (node, value, options) {
+  async select (node, value, options = {}) {
     node = await this.waitFor(node, options)
     node.value = value
     this.change(node, options)
   }
 
-  async check (node, value, options) {
+  async check (node, value, options = {}) {
     node = await this.waitFor(node, options)
     node.checked = value
     this.change(node, options)
   }
 
-  async jump (func, options) {
+  async jump (func, options = {}) {
     const url = await this.eval(func, options)
     location.href = url
   }
 
-  async mouse (node, name, options) {
+  async mouse (node, name, options = {}) {
     node = await this.waitFor(node, options)
     node.dispatchEvent(this.generator.mouse(name, options, node))
   }
 
-  async keyboard (method, node, keys, options) {
+  async keyboard (method, node, keys, options = {}) {
     options = {
       interval: this.config.interval,
       ...options
@@ -392,36 +397,36 @@ export class UIExecutor {
     }
   }
 
-  enter (node, options) {
+  enter (node, options = {}) {
     this.press(node, 'Enter', options)
   }
 
-  async view (node, options) {
+  async view (node, options = {}) {
     node = await this.waitFor(node, options)
     node.scrollIntoViewIfNeeded()
   }
 
-  async attr (node, name, options) {
+  async attr (node, name, options = {}) {
     node = await this.waitFor(node, options)
     return node.getAttribute(name, options)
   }
 
-  async call (node, method, options) {
+  async call (node, method, options = {}) {
     node = await this.waitFor(node, options)
     return node[method](options)
   }
 
-  async html (node, options) {
+  async html (node, options = {}) {
     node = await this.waitFor(node, options)
     return node.innerHTML
   }
 
-  async text (node, options) {
+  async text (node, options = {}) {
     node = await this.waitFor(node, options)
     return node.innerText
   }
 
-  async content (node, options) {
+  async content (node, options = {}) {
     node = await this.waitFor(node, options)
     return node.textContent
   }
@@ -528,7 +533,7 @@ export class UIExecutor {
     }
   }
 
-  async while (func, operations, options) {
+  async while (func, operations, options = {}) {
     while (true) {
       const ok = await this.eval(func, options)
       if (!ok) break
@@ -545,7 +550,7 @@ export class UIExecutor {
     return this.eval(func, ...props)
   }
 
-  async prompt (node, options) {
+  async prompt (node, options = {}) {
     options = {
       placeholder: '请输入验证码',
       ...options
@@ -555,17 +560,17 @@ export class UIExecutor {
     this.fill(node, value, options)
   }
 
-  async keydown (node, key, options) {
+  async keydown (node, key, options = {}) {
     node = await this.waitFor(node, options)
     this.keyboard(node, 'keydown', { key, ...options })
   }
 
-  async keyup (node, key, options) {
+  async keyup (node, key, options = {}) {
     node = await this.waitFor(node, options)
     this.keyboard(node, 'keyup', { key, ...options })
   }
 
-  async prompt (node, options) {
+  async prompt (node, options = {}) {
     options = {
       placeholder: '请输入验证码',
       ...options
@@ -575,7 +580,7 @@ export class UIExecutor {
     await this.fill(node, text, options)
   }
 
-  async fillOcr (node, imgSelector, options) {
+  async fillOcr (node, imgSelector, options = {}) {
     options = {
       ...options
     }
@@ -593,7 +598,7 @@ export class UIExecutor {
     return this.prompt(node, options)
   }
 
-  async save (data, saveTo, key, options) {
+  async save (data, saveTo, key, options = {}) {
     if (typeof data === 'function') {
       data = await data(this)
     }
@@ -637,7 +642,7 @@ export class UIExecutor {
     return list
   }
 
-  title (title, options) {
+  title (title, options = {}) {
     options = {
       resetable: false,
       ...options
@@ -690,12 +695,12 @@ export class UIExecutor {
     return funcs.sleep(Number.MAX_SAFE_INTEGER)
   }
 
-  async change (node, options) {
+  async change (node, options = {}) {
     node = await this.waitFor(node, options)
     this.custom(node, 'change', options)
   }
 
-  custom (node, name, options) {
+  custom (node, name, options = {}) {
     node = typeof node === 'string' ? $one(node) : node
     node.dispatchEvent(new Event(name, {
       bubbles: true,
@@ -705,7 +710,7 @@ export class UIExecutor {
     }))
   }
 
-  async execute (operations, options) {
+  async execute (operations, options = {}) {
     for (let i = 0, len = operations.length; i < len; i++) {
       if (this.config.slow && i) {
         await this.sleep(this.config.slow)

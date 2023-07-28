@@ -774,7 +774,7 @@ var StardustBrowser = (() => {
         ...config?.base
       };
     }
-    keyboard(name, options) {
+    keyboard(name, options = {}) {
       let { key, code } = options;
       if (key && !code) {
         code = key.charCodeAt(0);
@@ -831,7 +831,7 @@ var StardustBrowser = (() => {
         ...options
       });
     }
-    wheel(options) {
+    wheel(options = {}) {
       return new WheelEvent({
         ...this.base,
         deltaX: 0,
@@ -841,14 +841,14 @@ var StardustBrowser = (() => {
         ...options
       });
     }
-    focus(options) {
+    focus(options = {}) {
       return new FocusEvent({
         ...this.base,
         relatedTarget: null,
         ...options
       });
     }
-    input(text, options) {
+    input(text, options = {}) {
       return new InputEvent({
         ...this.base,
         data: text,
@@ -856,7 +856,7 @@ var StardustBrowser = (() => {
         ...options
       });
     }
-    composition(text, options) {
+    composition(text, options = {}) {
       return new CompositionEvent({
         ...this.base,
         data: text,
@@ -907,7 +907,7 @@ var StardustBrowser = (() => {
       this.data = {};
       this._isInIf = false;
     }
-    async waitFor(selector2, options) {
+    async waitFor(selector2, options = {}) {
       options = {
         visible: true,
         interval: this.config.interval,
@@ -925,10 +925,10 @@ var StardustBrowser = (() => {
       }
       return node;
     }
-    waitOr(selectors, options) {
+    waitOr(selectors, options = {}) {
       return Promise.any(selectors.map((s) => this.waitFor(selector, options)));
     }
-    async waitForURL(url, options) {
+    async waitForURL(url, options = {}) {
       options = {
         interval: this.config.interval,
         ...options
@@ -949,7 +949,7 @@ var StardustBrowser = (() => {
         await this.sleep(options.interval);
       }
     }
-    async waitForFunction(func, options) {
+    async waitForFunction(func, options = {}) {
       options = {
         interval: this.config.interval,
         ...options
@@ -963,7 +963,7 @@ var StardustBrowser = (() => {
         await this.sleep(options.interval);
       }
     }
-    async waitForNext(title = "\u4E0B\u4E00\u6B65", options) {
+    async waitForNext(title = "\u4E0B\u4E00\u6B65", options = {}) {
       const button = document.createElement("div");
       document.querySelector(options.root || "body").appendChild(button);
       button.style.cssText += `
@@ -1004,29 +1004,33 @@ var StardustBrowser = (() => {
     sleep(ms) {
       return StardustJs.funcs.sleep(ms);
     }
-    async blur(node, options) {
+    async blur(node, options = {}) {
       node = await this.waitFor(node, options);
       node.blur();
     }
-    async box(node, options) {
+    async box(node, options = {}) {
       node = await this.waitFor(node, options);
       return node.getBoundingClientRect();
     }
-    async clear(node, options) {
+    async clear(node, options = {}) {
       node = await this.waitFor(node, options);
       node.value = "";
     }
-    async click(node, options) {
+    async click(node, options = {}) {
       node = await this.waitFor(node, options);
       node.dispatchEvent(this.generator.mouse("click", options, node));
     }
-    async dblclick(node, options) {
+    async dblclick(node, options = {}) {
+      options = {
+        clickInterval: this.config.interval,
+        ...options
+      };
       node = await this.waitFor(node, options);
       node.dispatchEvent(this.generator.mouse("click", options, node));
-      await this.sleep(options.timeGap || 20);
+      await this.sleep(options.clickInterval);
       node.dispatchEvent(this.generator.mouse("click", options, node));
     }
-    async keyboard(node, name, options) {
+    async keyboard(node, name, options = {}) {
       node = await this.waitFor(node, options);
       node.dispatchEvent(this.generator.keyboard(name, options));
     }
@@ -1036,14 +1040,14 @@ var StardustBrowser = (() => {
       }
       return window.eval(func);
     }
-    async evalOn(node, func, options) {
+    async evalOn(node, func, options = {}) {
       node = await this.waitFor(node, options);
       if (typeof func === "function") {
         return func(node);
       }
       return window.eval(func);
     }
-    async evalOnAll(node, func, options) {
+    async evalOnAll(node, func, options = {}) {
       await this.waitFor(node, options);
       const nodes = await $all(node);
       if (typeof func === "function") {
@@ -1051,7 +1055,7 @@ var StardustBrowser = (() => {
       }
       return window.eval(func);
     }
-    async set(node, attr, value, bySetter = false, options) {
+    async set(node, attr, value, bySetter = false, options = {}) {
       if (typeof value === "function") {
         value = await this.eval(value, options);
       }
@@ -1062,7 +1066,7 @@ var StardustBrowser = (() => {
         node[attr] = value;
       }
     }
-    async fill(node, text, options) {
+    async fill(node, text, options = {}) {
       options = {
         interval: this.config.interval,
         ...options
@@ -1077,48 +1081,49 @@ var StardustBrowser = (() => {
         node.value += key;
       }
     }
-    async focus(node, options) {
+    async focus(node, options = {}) {
       node = await this.waitFor(node, options);
       node.focus();
       node.dispatchEvent(this.generator.focus());
     }
-    async hover(node, options) {
+    async hover(node, options = {}) {
       node = await this.waitFor(node, options);
       node.dispatchEvent(this.generator.mouse("move", options, node));
     }
-    async press(node, keys, options) {
+    async press(node, keys, options = {}) {
       options = {
         interval: this.config.interval,
+        downUpInterval: this.config.interval,
         ...options
       };
       keys = Array.isArray(keys) ? keys : [keys];
       node = await this.waitFor(node, options);
       for (let key of keys) {
         this.keydown(node, key, options);
-        await this.sleep(options.interval);
+        await this.sleep(options.downUpInterval);
         this.keyup(node, key, options);
         await this.sleep(options.interval);
       }
     }
-    async select(node, value, options) {
+    async select(node, value, options = {}) {
       node = await this.waitFor(node, options);
       node.value = value;
       this.change(node, options);
     }
-    async check(node, value, options) {
+    async check(node, value, options = {}) {
       node = await this.waitFor(node, options);
       node.checked = value;
       this.change(node, options);
     }
-    async jump(func, options) {
+    async jump(func, options = {}) {
       const url = await this.eval(func, options);
       location.href = url;
     }
-    async mouse(node, name, options) {
+    async mouse(node, name, options = {}) {
       node = await this.waitFor(node, options);
       node.dispatchEvent(this.generator.mouse(name, options, node));
     }
-    async keyboard(method, node, keys, options) {
+    async keyboard(method, node, keys, options = {}) {
       options = {
         interval: this.config.interval,
         ...options
@@ -1129,30 +1134,30 @@ var StardustBrowser = (() => {
         await this.sleep(options.interval);
       }
     }
-    enter(node, options) {
+    enter(node, options = {}) {
       this.press(node, "Enter", options);
     }
-    async view(node, options) {
+    async view(node, options = {}) {
       node = await this.waitFor(node, options);
       node.scrollIntoViewIfNeeded();
     }
-    async attr(node, name, options) {
+    async attr(node, name, options = {}) {
       node = await this.waitFor(node, options);
       return node.getAttribute(name, options);
     }
-    async call(node, method, options) {
+    async call(node, method, options = {}) {
       node = await this.waitFor(node, options);
       return node[method](options);
     }
-    async html(node, options) {
+    async html(node, options = {}) {
       node = await this.waitFor(node, options);
       return node.innerHTML;
     }
-    async text(node, options) {
+    async text(node, options = {}) {
       node = await this.waitFor(node, options);
       return node.innerText;
     }
-    async content(node, options) {
+    async content(node, options = {}) {
       node = await this.waitFor(node, options);
       return node.textContent;
     }
@@ -1250,7 +1255,7 @@ var StardustBrowser = (() => {
         await this.execute(ops, [item, i], ...props);
       }
     }
-    async while(func, operations, options) {
+    async while(func, operations, options = {}) {
       while (true) {
         const ok = await this.eval(func, options);
         if (!ok)
@@ -1265,7 +1270,7 @@ var StardustBrowser = (() => {
     func(func, ...props) {
       return this.eval(func, ...props);
     }
-    async prompt(node, options) {
+    async prompt(node, options = {}) {
       options = {
         placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
         ...options
@@ -1274,15 +1279,15 @@ var StardustBrowser = (() => {
       const value = window.prompt(options.placeholder);
       this.fill(node, value, options);
     }
-    async keydown(node, key, options) {
+    async keydown(node, key, options = {}) {
       node = await this.waitFor(node, options);
       this.keyboard(node, "keydown", { key, ...options });
     }
-    async keyup(node, key, options) {
+    async keyup(node, key, options = {}) {
       node = await this.waitFor(node, options);
       this.keyboard(node, "keyup", { key, ...options });
     }
-    async prompt(node, options) {
+    async prompt(node, options = {}) {
       options = {
         placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
         ...options
@@ -1291,7 +1296,7 @@ var StardustBrowser = (() => {
       const text = window.prompt(options.placeholder);
       await this.fill(node, text, options);
     }
-    async fillOcr(node, imgSelector, options) {
+    async fillOcr(node, imgSelector, options = {}) {
       options = {
         ...options
       };
@@ -1308,7 +1313,7 @@ var StardustBrowser = (() => {
       }
       return this.prompt(node, options);
     }
-    async save(data, saveTo, key, options) {
+    async save(data, saveTo, key, options = {}) {
       if (typeof data === "function") {
         data = await data(this);
       }
@@ -1349,7 +1354,7 @@ var StardustBrowser = (() => {
       }
       return list;
     }
-    title(title, options) {
+    title(title, options = {}) {
       options = {
         resetable: false,
         ...options
@@ -1398,11 +1403,11 @@ var StardustBrowser = (() => {
       }
       return funcs.sleep(Number.MAX_SAFE_INTEGER);
     }
-    async change(node, options) {
+    async change(node, options = {}) {
       node = await this.waitFor(node, options);
       this.custom(node, "change", options);
     }
-    custom(node, name, options) {
+    custom(node, name, options = {}) {
       node = typeof node === "string" ? $one(node) : node;
       node.dispatchEvent(new Event(name, {
         bubbles: true,
@@ -1411,7 +1416,7 @@ var StardustBrowser = (() => {
         ...options
       }));
     }
-    async execute(operations, options) {
+    async execute(operations, options = {}) {
       for (let i = 0, len = operations.length; i < len; i++) {
         if (this.config.slow && i) {
           await this.sleep(this.config.slow);
@@ -1426,7 +1431,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.35",
+    version: "1.0.36",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
