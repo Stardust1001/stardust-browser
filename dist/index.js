@@ -1069,13 +1069,14 @@ var StardustBrowser = (() => {
     async fill(node, text, options = {}) {
       options = {
         interval: this.config.interval,
+        fillInterval: 10,
         ...options
       };
       node = await this.waitFor(node, options);
       this.focus(node);
       this.clear(node);
       for (let key of text) {
-        await this.sleep(options.interval);
+        await this.sleep(options.fillInterval);
         this.keydown(node, key);
         this.keyup(node, key);
         node.value += key;
@@ -1431,7 +1432,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.36",
+    version: "1.0.37",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

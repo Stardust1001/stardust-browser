@@ -323,13 +323,14 @@ export class UIExecutor {
   async fill (node, text, options = {}) {
     options = {
       interval: this.config.interval,
+      fillInterval: 10,
       ...options
     }
     node = await this.waitFor(node, options)
     this.focus(node)
     this.clear(node)
     for (let key of text) {
-      await this.sleep(options.interval)
+      await this.sleep(options.fillInterval)
       this.keydown(node, key)
       this.keyup(node, key)
       node.value += key
