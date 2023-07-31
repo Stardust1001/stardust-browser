@@ -1068,7 +1068,6 @@ var StardustBrowser = (() => {
     }
     async fill(node, text, options = {}) {
       options = {
-        interval: this.config.interval,
         fillInterval: 10,
         ...options
       };
@@ -1093,17 +1092,16 @@ var StardustBrowser = (() => {
     }
     async press(node, keys, options = {}) {
       options = {
-        interval: this.config.interval,
-        downUpInterval: this.config.interval,
+        pressInterval: this.config.interval,
         ...options
       };
       keys = Array.isArray(keys) ? keys : [keys];
       node = await this.waitFor(node, options);
       for (let key of keys) {
         this.keydown(node, key, options);
-        await this.sleep(options.downUpInterval);
+        await this.sleep(options.pressInterval);
         this.keyup(node, key, options);
-        await this.sleep(options.interval);
+        await this.sleep(options.pressInterval);
       }
     }
     async select(node, value, options = {}) {
@@ -1126,13 +1124,13 @@ var StardustBrowser = (() => {
     }
     async keyboard(method, node, keys, options = {}) {
       options = {
-        interval: this.config.interval,
+        keyboardInterval: this.config.interval,
         ...options
       };
       node = await this.waitFor(node, options);
       for (let key of keys) {
         this["key" + method](node, key, options);
-        await this.sleep(options.interval);
+        await this.sleep(options.keyboardInterval);
       }
     }
     enter(node, options = {}) {
@@ -1432,7 +1430,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.37",
+    version: "1.0.38",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

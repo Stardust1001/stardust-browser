@@ -322,7 +322,6 @@ export class UIExecutor {
 
   async fill (node, text, options = {}) {
     options = {
-      interval: this.config.interval,
       fillInterval: 10,
       ...options
     }
@@ -350,17 +349,16 @@ export class UIExecutor {
 
   async press (node, keys, options = {}) {
     options = {
-      interval: this.config.interval,
-      downUpInterval: this.config.interval,
+      pressInterval: this.config.interval,
       ...options
     }
     keys = Array.isArray(keys) ? keys : [keys]
     node = await this.waitFor(node, options)
     for (let key of keys) {
       this.keydown(node, key, options)
-      await this.sleep(options.downUpInterval)
+      await this.sleep(options.pressInterval)
       this.keyup(node, key, options)
-      await this.sleep(options.interval)
+      await this.sleep(options.pressInterval)
     }
   }
 
@@ -388,13 +386,13 @@ export class UIExecutor {
 
   async keyboard (method, node, keys, options = {}) {
     options = {
-      interval: this.config.interval,
+      keyboardInterval: this.config.interval,
       ...options
     }
     node = await this.waitFor(node, options)
     for (let key of keys) {
       this['key' + method](node, key, options)
-      await this.sleep(options.interval)
+      await this.sleep(options.keyboardInterval)
     }
   }
 
