@@ -1255,11 +1255,16 @@ var StardustBrowser = (() => {
       }
     }
     async while(func, operations, options = {}) {
+      let i = 0;
       while (true) {
         const ok = await this.eval(func, options);
         if (!ok)
           break;
-        await this.execute(operations);
+        let ops = operations;
+        if (typeof operations === "function") {
+          ops = await operations(this, i++);
+        }
+        await this.execute(ops);
       }
     }
     async dynamic(func) {
@@ -1430,7 +1435,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.38",
+    version: "1.0.39",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

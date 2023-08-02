@@ -533,10 +533,15 @@ export class UIExecutor {
   }
 
   async while (func, operations, options = {}) {
+    let i = 0
     while (true) {
       const ok = await this.eval(func, options)
       if (!ok) break
-      await this.execute(operations)
+      let ops = operations
+      if (typeof operations === 'function') {
+        ops = await operations(this, i++)
+      }
+      await this.execute(ops)
     }
   }
 
