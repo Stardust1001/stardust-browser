@@ -1,8 +1,7 @@
 
-export const writeText = async text => {
+export const writeText = text => {
   try {
-    await navigator.clipboard.writeText(text)
-    return
+    return navigator.clipboard.writeText(text)
   } catch {}
   const input = document.createElement('input')
   input.value = text
@@ -13,9 +12,9 @@ export const writeText = async text => {
   input.remove()
 }
 
-export const getText = async () => {
+export const readText = () => {
   try {
-    return await navigator.clipboard.readText()
+    return navigator.clipboard.readText()
   } catch {
     return null
   }
@@ -23,5 +22,5 @@ export const getText = async () => {
 
 export default {
   writeText,
-  getText
+  readText
 }
