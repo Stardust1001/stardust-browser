@@ -46,6 +46,9 @@ Element.prototype._text = function (value) {
     return this.textContent.trim()
   }
 }
+Element.prototype._rect = function () {
+  return this.getBoundingClientRect()
+}
 
 window.$one = document.$one = function (selector) {
   return Element.prototype.$one.call(document.documentElement, selector)

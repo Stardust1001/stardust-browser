@@ -705,6 +705,9 @@ var StardustBrowser = (() => {
       return this.textContent.trim();
     }
   };
+  Element.prototype._rect = function() {
+    return this.getBoundingClientRect();
+  };
   window.$one = document.$one = function(selector2) {
     return Element.prototype.$one.call(document.documentElement, selector2);
   };
@@ -1435,7 +1438,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.39",
+    version: "1.0.40",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
