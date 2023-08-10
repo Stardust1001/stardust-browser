@@ -256,10 +256,9 @@ var StardustBrowser = (() => {
   };
 
   // clipboard.js
-  var writeText = async (text) => {
+  var writeText = (text) => {
     try {
-      await navigator.clipboard.writeText(text);
-      return;
+      return navigator.clipboard.writeText(text);
     } catch {
     }
     const input = document.createElement("input");
@@ -270,16 +269,16 @@ var StardustBrowser = (() => {
     document.execCommand("copy");
     input.remove();
   };
-  var getText = async () => {
+  var readText = () => {
     try {
-      return await navigator.clipboard.readText();
+      return navigator.clipboard.readText();
     } catch {
       return null;
     }
   };
   var clipboard_default = {
     writeText,
-    getText
+    readText
   };
 
   // cookies.js
