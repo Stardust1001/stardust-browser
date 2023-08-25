@@ -543,10 +543,14 @@ var StardustBrowser = (() => {
       throw `\u6682\u4E0D\u652F\u6301\u9884\u89C8\u8BE5\u683C\u5F0F\uFF08${type}\uFF09\u6587\u4EF6`;
     }
   };
-  var select = async (accept, multiple = false) => {
+  var select = async (accept, multiple = false, dir = false) => {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = accept;
+    if (dir) {
+      multiple = true;
+      input.webkitdirectory = true;
+    }
     input.multiple = multiple;
     return new Promise((resolve) => {
       input.onchange = () => {
@@ -1437,7 +1441,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.41",
+    version: "1.0.43",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

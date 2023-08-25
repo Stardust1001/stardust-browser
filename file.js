@@ -22,10 +22,14 @@ export const preview = (type, url) => {
   }
 }
 
-export const select = async (accept, multiple = false) => {
+export const select = async (accept, multiple = false, dir = false) => {
   const input = document.createElement('input')
   input.type = 'file'
   input.accept = accept
+  if (dir) {
+    multiple = true
+    input.webkitdirectory = true
+  }
   input.multiple = multiple
   return new Promise(resolve => {
     input.onchange = () => {
