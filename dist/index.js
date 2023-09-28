@@ -1077,7 +1077,7 @@ var StardustBrowser = (() => {
       }
       node.style.cssText += options.style;
       const titleNode = node.querySelector("#webot-ui-report-title");
-      titleNode.textContent = title;
+      titleNode.innerHTML = title;
       titleNode.style.cssText += options.titleStyle;
       const percentNode = node.querySelector("#webot-ui-report-progress");
       if (typeof percent === "number") {
@@ -1522,7 +1522,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.44",
+    version: "1.0.45",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

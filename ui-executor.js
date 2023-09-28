@@ -316,7 +316,7 @@ export class UIExecutor {
     }
     node.style.cssText += options.style
     const titleNode = node.querySelector('#webot-ui-report-title')
-    titleNode.textContent = title
+    titleNode.innerHTML = title
     titleNode.style.cssText += options.titleStyle
     const percentNode = node.querySelector('#webot-ui-report-progress')
     if (typeof percent === 'number') {
