@@ -279,13 +279,14 @@ export class UIExecutor {
         height: 30px;
         line-height: 30px;
         text-align: center;
-        background-color: yellow;
+        background-color: #ff5722;
         color: white;
         font-size: 15px;
         cursor: pointer;
         margin: 2px;
         padding: 0 10px;
-        pointer-events: none;
+        border-radius: 20px;
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
       `
       node.onmouseover = () => {
         node.style.opacity = 0
@@ -301,16 +302,13 @@ export class UIExecutor {
         width: 250px;
         margin-right: 10px;
         appearance: none;
-        background-color: orange;
+        background-color: #cddc39;
         height: 10px;
         border-radius: 10px;
       `
       node.appendChild(percentNode)
       const titleNode = document.createElement('span')
       titleNode.id = 'webot-ui-report-title'
-      titleNode.style.cssText += `
-        color: #303333;
-      `
       node.appendChild(titleNode)
       document.body.appendChild(node)
     }
