@@ -1037,17 +1037,17 @@ var StardustBrowser = (() => {
         align-items: center;
         justify-content: center;
         width: auto;
-        height: 30px;
-        line-height: 30px;
+        height: 36px;
+        line-height: 36px;
         text-align: center;
-        background-color: #ff5722;
+        background-color: #ffeb3b;
         color: white;
         font-size: 15px;
         cursor: pointer;
         margin: 2px;
-        padding: 0 10px;
-        border-radius: 20px;
-        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+        padding: 0 15px;
+        border-radius: 6px;
+        box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.2);
       `;
         node.onmouseover = () => {
           node.style.opacity = 0;
@@ -1055,21 +1055,36 @@ var StardustBrowser = (() => {
         node.onmouseout = () => {
           node.style.opacity = 1;
         };
-        const percentNode2 = document.createElement("input");
+        const percentNode2 = document.createElement("div");
         percentNode2.id = "webot-ui-report-progress";
-        percentNode2.type = "range";
         percentNode2.style.cssText += `
         display: none;
         width: 250px;
         margin-right: 10px;
-        appearance: none;
-        background-color: #cddc39;
+        background-color: #e3b326;
         height: 10px;
         border-radius: 10px;
+        position: relative;
+        overflow: hidden;
       `;
+        const barNode = document.createElement("div");
+        barNode.style.cssText += `
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 10px;
+        background-color: #ff5722;
+        width: 0;
+      `;
+        barNode.id = "webot-ui-report-progress-bar";
+        percentNode2.appendChild(barNode);
         node.appendChild(percentNode2);
         const titleNode2 = document.createElement("span");
         titleNode2.id = "webot-ui-report-title";
+        titleNode2.style.cssText += `
+        color: darkred;
+        font-weight: 600;
+      `;
         node.appendChild(titleNode2);
         document.body.appendChild(node);
       }
@@ -1079,9 +1094,11 @@ var StardustBrowser = (() => {
       titleNode.style.cssText += options.titleStyle;
       const percentNode = node.querySelector("#webot-ui-report-progress");
       if (typeof percent === "number") {
-        percentNode.value = percent;
         percentNode.style.display = "block";
         percentNode.style.cssText += options.progressStyle;
+        const barNode = percentNode.querySelector("#webot-ui-report-progress-bar");
+        barNode.style.cssText += options.barStyle;
+        barNode.style.width = percent + "%";
       } else {
         percentNode.style.display = "none";
       }
@@ -1520,7 +1537,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.46",
+    version: "1.0.49",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
