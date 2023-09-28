@@ -970,29 +970,42 @@ var StardustBrowser = (() => {
       }
     }
     async waitForNext(title = "\u4E0B\u4E00\u6B65", options = {}) {
+      const mask = document.createElement("div");
+      mask.style.cssText += `
+      position: fixed;
+      z-index: 999998;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+    ` + options.maskStyle;
+      document.body.appendChild(mask);
       const button = document.createElement("div");
-      document.querySelector(options.root || "body").appendChild(button);
+      const root = options.root || "";
+      document.querySelector(root || "body").appendChild(button);
       button.style.cssText += `
-      z-index: 9999;
-      width: 300px;
+      z-index: 999999;
+      width: auto;
       height: 30px;
       line-height: 30px;
       text-align: center;
-      background-color: #409eff;
+      background-color: #ff0040;
       color: white;
+      font-size: 15px;
       cursor: pointer;
       margin: 2px;
+      padding: 0 10px;
     `;
-      if (!options.root) {
+      if (!root) {
         button.style.cssText += `
         position: fixed;
-        left: 5px;
+        right: 5px;
         bottom: 5px;
       `;
       }
-      button.style.cssText += `
-      ${options.style}
-    `;
+      buttons.style.cssText = options.style;
       button.onmouseover = () => {
         button.style.opacity = 0.8;
       };
@@ -1003,9 +1016,77 @@ var StardustBrowser = (() => {
       return new Promise((resolve) => {
         button.onclick = () => {
           button.remove();
+          mask.remove();
           resolve();
         };
       });
+    }
+    report(title, percent, options = {}, done = false) {
+      let node = document.querySelector("#webot-ui-report-container");
+      if (done)
+        return node?.remove();
+      if (!node) {
+        node = document.createElement("div");
+        node.id = "webot-ui-report-container";
+        node.style.cssText += `
+        position: fixed;
+        z-index: 999999;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background-color: yellow;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        margin: 2px;
+        padding: 0 10px;
+        pointer-events: none;
+      `;
+        node.onmouseover = () => {
+          node.style.opacity = 0;
+        };
+        node.onmouseout = () => {
+          node.style.opacity = 1;
+        };
+        const percentNode2 = document.createElement("input");
+        percentNode2.id = "webot-ui-report-progress";
+        percentNode2.type = "range";
+        percentNode2.style.cssText += `
+        display: none;
+        width: 250px;
+        margin-right: 10px;
+        appearance: none;
+        background-color: orange;
+        height: 10px;
+        border-radius: 10px;
+      `;
+        node.appendChild(percentNode2);
+        const titleNode2 = document.createElement("span");
+        titleNode2.id = "webot-ui-report-title";
+        titleNode2.style.cssText += `
+        color: #303333;
+      `;
+        node.appendChild(titleNode2);
+        document.body.appendChild(node);
+      }
+      node.style.cssText += options.style;
+      const titleNode = node.querySelector("#webot-ui-report-title");
+      titleNode.textContent = title;
+      titleNode.style.cssText += options.titleStyle;
+      const percentNode = node.querySelector("#webot-ui-report-progress");
+      if (typeof percent === "number") {
+        percentNode.value = percent;
+        percentNode.style.display = "block";
+        percentNode.style.cssText += options.progressStyle;
+      } else {
+        percentNode.style.display = "none";
+      }
     }
     sleep(ms) {
       return StardustJs.funcs.sleep(ms);
@@ -1441,7 +1522,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.43",
+    version: "1.0.44",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
