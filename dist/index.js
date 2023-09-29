@@ -982,7 +982,7 @@ var StardustBrowser = (() => {
     async waitForNext(title = "\u4E0B\u4E00\u6B65", options = {}) {
       const mask = document.createElement("div");
       mask.id = "webot-mask";
-      mask.style.cssText += this._maskStyle + options.maskStyle;
+      mask.style.cssText += this._maskStyle + (options.maskStyle || "");
       document.body.appendChild(mask);
       const button = document.createElement("div");
       const root = options.root || "";
@@ -1010,7 +1010,7 @@ var StardustBrowser = (() => {
         bottom: 5px;
       `;
       }
-      buttons.style.cssText = options.style;
+      button.style.cssText += options.style || "";
       button.onmouseover = () => {
         button.style.opacity = 0.8;
       };
@@ -1094,13 +1094,13 @@ var StardustBrowser = (() => {
       node.style.cssText += options.style;
       const titleNode = node.querySelector("#webot-ui-report-title");
       titleNode.innerHTML = title;
-      titleNode.style.cssText += options.titleStyle;
+      titleNode.style.cssText += options.titleStyle || "";
       const percentNode = node.querySelector("#webot-ui-report-progress");
       if (typeof percent === "number") {
         percentNode.style.display = "block";
-        percentNode.style.cssText += options.progressStyle;
+        percentNode.style.cssText += options.progressStyle || "";
         const barNode = percentNode.querySelector("#webot-ui-report-progress-bar");
-        barNode.style.cssText += options.barStyle;
+        barNode.style.cssText += options.barStyle || "";
         barNode.style.width = percent + "%";
       } else {
         percentNode.style.display = "none";
