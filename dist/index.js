@@ -903,7 +903,7 @@ var StardustBrowser = (() => {
     }
   };
   var UIExecutor = class {
-    constructor(config) {
+    constructor(config = {}) {
       this.config = {
         interval: 20,
         slow: 0,
@@ -1542,7 +1542,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.52",
+    version: "1.0.53",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

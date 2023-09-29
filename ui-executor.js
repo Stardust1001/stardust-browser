@@ -141,7 +141,7 @@ export class EventGenerator {
 }
 
 export class UIExecutor {
-  constructor (config) {
+  constructor (config = {}) {
     this.config = {
       interval: 20,
       slow: 0,
