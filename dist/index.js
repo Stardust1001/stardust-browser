@@ -912,6 +912,16 @@ var StardustBrowser = (() => {
       this.generator = new EventGenerator();
       this.data = {};
       this._isInIf = false;
+      this._maskStyle = `
+      position: fixed;
+      z-index: 999998;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+    ` + (config.maskStyle || "");
     }
     async waitFor(selector2, options = {}) {
       options = {
@@ -971,16 +981,8 @@ var StardustBrowser = (() => {
     }
     async waitForNext(title = "\u4E0B\u4E00\u6B65", options = {}) {
       const mask = document.createElement("div");
-      mask.style.cssText += `
-      position: fixed;
-      z-index: 999998;
-      width: 100vw;
-      height: 100vh;
-      left: 0;
-      top: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      pointer-events: none;
-    ` + options.maskStyle;
+      mask.id = "webot-mask";
+      mask.style.cssText += this._maskStyle + options.maskStyle;
       document.body.appendChild(mask);
       const button = document.createElement("div");
       const root = options.root || "";
@@ -997,6 +999,9 @@ var StardustBrowser = (() => {
       cursor: pointer;
       margin: 2px;
       padding: 0 10px;
+      box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.2);
+      pointer-events: auto;
+      border-radius: 6px;
     `;
       if (!root) {
         button.style.cssText += `
@@ -1021,10 +1026,8 @@ var StardustBrowser = (() => {
         };
       });
     }
-    report(title, percent, options = {}, done = false) {
+    report(title, percent, options = {}, isDone = false) {
       let node = document.querySelector("#webot-ui-report-container");
-      if (done)
-        return node?.remove();
       if (!node) {
         node = document.createElement("div");
         node.id = "webot-ui-report-container";
@@ -1102,6 +1105,8 @@ var StardustBrowser = (() => {
       } else {
         percentNode.style.display = "none";
       }
+      if (isDone)
+        node.remove();
     }
     sleep(ms) {
       return StardustJs.funcs.sleep(ms);
@@ -1537,7 +1542,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.49",
+    version: "1.0.50",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

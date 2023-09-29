@@ -151,6 +151,16 @@ export class UIExecutor {
     this.data = {}
 
     this._isInIf = false
+    this._maskStyle = `
+      position: fixed;
+      z-index: 999998;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+    ` + (config.maskStyle || '')
   }
 
   async waitFor (selector, options = {}) {
@@ -210,16 +220,8 @@ export class UIExecutor {
 
   async waitForNext (title = '下一步', options = {}) {
     const mask = document.createElement('div')
-    mask.style.cssText += `
-      position: fixed;
-      z-index: 999998;
-      width: 100vw;
-      height: 100vh;
-      left: 0;
-      top: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      pointer-events: none;
-    ` + options.maskStyle
+    mask.id = 'webot-mask'
+    mask.style.cssText += this._maskStyle + options.maskStyle
     document.body.appendChild(mask)
     const button = document.createElement('div')
     const root = options.root || ''
@@ -236,6 +238,9 @@ export class UIExecutor {
       cursor: pointer;
       margin: 2px;
       padding: 0 10px;
+      box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.2);
+      pointer-events: auto;
+      border-radius: 6px;
     `
     if (!root) {
       button.style.cssText += `
@@ -261,9 +266,8 @@ export class UIExecutor {
     })
   }
 
-  report (title, percent, options = {}, done = false) {
+  report (title, percent, options = {}, isDone = false) {
     let node = document.querySelector('#webot-ui-report-container')
-    if (done) return node?.remove()
     if (!node) {
       node = document.createElement('div')
       node.id = 'webot-ui-report-container'
@@ -341,6 +345,7 @@ export class UIExecutor {
     } else {
       percentNode.style.display = 'none'
     }
+    if (isDone) node.remove()
   }
 
   sleep (ms) {
