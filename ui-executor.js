@@ -776,7 +776,7 @@ export class UIExecutor {
     }
     const isDone = () => {
       if (options.isDone) return options.isDone()
-      return $one(options.active) === $one(options.last)
+      return $one(selectors.active) === $one(selectors.last)
     }
     const isFirst = () => {
       if (options.isFirst) return options.isFirst()
@@ -792,7 +792,7 @@ export class UIExecutor {
     }
     const waitLoading = async () => {
       if (options.waitLoading) return options.waitLoading()
-      await this.waitFor(selector.loading)
+      await this.waitFor(selectors.loading)
       await this.waitForFunction(() => !$one(selectors.loading)?.rect()?.width)
     }
     const getHeader = () => {

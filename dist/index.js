@@ -1492,7 +1492,7 @@ var StardustBrowser = (() => {
       const isDone = () => {
         if (options.isDone)
           return options.isDone();
-        return $one(options.active) === $one(options.last);
+        return $one(selectors.active) === $one(selectors.last);
       };
       const isFirst = () => {
         if (options.isFirst)
@@ -1512,7 +1512,7 @@ var StardustBrowser = (() => {
       const waitLoading = async () => {
         if (options.waitLoading)
           return options.waitLoading();
-        await this.waitFor(selector.loading);
+        await this.waitFor(selectors.loading);
         await this.waitForFunction(() => !$one(selectors.loading)?.rect()?.width);
       };
       const getHeader = () => {
@@ -1621,7 +1621,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.57",
+    version: "1.0.58",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
