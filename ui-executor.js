@@ -797,7 +797,7 @@ export class UIExecutor {
     }
     const getHeader = () => {
       if (options.getHeader) return options.getHeader()
-      return $one(options.headerTr).$all('td')
+      return $one(selectors.headerTr).$all('td')
       const headerTr = $one(selectors.headerTr)
       return headerTr.$all(selectors.headerTh).map(th => th._text())
     }

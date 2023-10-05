@@ -1518,7 +1518,7 @@ var StardustBrowser = (() => {
       const getHeader = () => {
         if (options.getHeader)
           return options.getHeader();
-        return $one(options.headerTr).$all("td");
+        return $one(selectors.headerTr).$all("td");
         const headerTr = $one(selectors.headerTr);
         return headerTr.$all(selectors.headerTh).map((th) => th._text());
       };
@@ -1621,7 +1621,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.56",
+    version: "1.0.57",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
