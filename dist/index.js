@@ -1518,7 +1518,6 @@ var StardustBrowser = (() => {
       const getHeader = () => {
         if (options.getHeader)
           return options.getHeader();
-        return $one(selectors.headerTr).$all("td");
         const headerTr = $one(selectors.headerTr);
         return headerTr.$all(selectors.headerTh).map((th) => th._text());
       };
@@ -1531,17 +1530,12 @@ var StardustBrowser = (() => {
       const header = getHeader();
       const data = [];
       while (true) {
-        console.log("0000000", data);
         data.push(...getRows());
         if (isDone())
           break;
-        console.log("1111111");
         await setNext();
-        console.log("222222");
         await waitLoading();
       }
-      console.log("333333333333333");
-      console.log(header, data);
       StardustBrowser.excel.export2Excel({
         header,
         data,
@@ -1626,7 +1620,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.62",
+    version: "1.0.63",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
