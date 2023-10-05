@@ -807,6 +807,10 @@ export class UIExecutor {
     }
     const header = getHeader()
     const data = []
+    if (!isFirst()) {
+      await setFirst()
+      await waitLoading()
+    }
     while (true) {
       data.push(...getRows())
       if (isDone()) break

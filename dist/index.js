@@ -1529,6 +1529,10 @@ var StardustBrowser = (() => {
       };
       const header = getHeader();
       const data = [];
+      if (!isFirst()) {
+        await setFirst();
+        await waitLoading();
+      }
       while (true) {
         data.push(...getRows());
         if (isDone())
@@ -1620,7 +1624,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.63",
+    version: "1.0.65",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
