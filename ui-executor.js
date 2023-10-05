@@ -764,6 +764,9 @@ export class UIExecutor {
         first: '.el-pager .number',
         last: '.el-pager .number:last-child',
         next: '.pagination-wrapper .btn-next',
+        size: '.el-pagination__sizes .el-select input',
+        sizer: '.el-pagination__sizes .el-select',
+        pageSize: '//span[contains(text(),"100条/页")]',
         loading: '.el-loading-mask',
         headerTr: '.el-table__header-wrapper thead tr',
         bodyTrs: '.el-table__fixed .el-table__fixed-body-wrapper table tbody tr',
@@ -790,6 +793,15 @@ export class UIExecutor {
     const setNext = async () => {
       if (options.setNext) return options.setNext()
       await this.click($one(selectors.next))
+    }
+    const getSize = async () => {
+      if (options.getSize) return options.getSize()
+      return parseInt($one(selectors.size).value)
+    }
+    const setSize = async () => {
+      if (options.setSize) return options.setSize()
+      await this.click(selectors.sizer)
+      await this.click(selectors.pageSize)
     }
     const waitLoading = async () => {
       if (options.waitLoading) return options.waitLoading()
@@ -819,6 +831,10 @@ export class UIExecutor {
     }
     if (!isFirst()) {
       await setFirst()
+      await waitLoading()
+    }
+    if (getRows().length && getRows().length !== getSize()) {
+      await setSize()
       await waitLoading()
     }
     while (true) {

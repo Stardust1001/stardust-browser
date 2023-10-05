@@ -1479,6 +1479,9 @@ var StardustBrowser = (() => {
           first: ".el-pager .number",
           last: ".el-pager .number:last-child",
           next: ".pagination-wrapper .btn-next",
+          size: ".el-pagination__sizes .el-select input",
+          sizer: ".el-pagination__sizes .el-select",
+          pageSize: '//span[contains(text(),"100\u6761/\u9875")]',
           loading: ".el-loading-mask",
           headerTr: ".el-table__header-wrapper thead tr",
           bodyTrs: ".el-table__fixed .el-table__fixed-body-wrapper table tbody tr",
@@ -1509,6 +1512,17 @@ var StardustBrowser = (() => {
         if (options.setNext)
           return options.setNext();
         await this.click($one(selectors.next));
+      };
+      const getSize = async () => {
+        if (options.getSize)
+          return options.getSize();
+        return parseInt($one(selectors.size).value);
+      };
+      const setSize = async () => {
+        if (options.setSize)
+          return options.setSize();
+        await this.click(selectors.sizer);
+        await this.click(selectors.pageSize);
       };
       const waitLoading = async () => {
         if (options.waitLoading)
@@ -1542,6 +1556,10 @@ var StardustBrowser = (() => {
       }
       if (!isFirst()) {
         await setFirst();
+        await waitLoading();
+      }
+      if (getRows().length && getRows().length !== getSize()) {
+        await setSize();
         await waitLoading();
       }
       while (true) {
@@ -1645,7 +1663,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.67",
+    version: "1.0.68",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
