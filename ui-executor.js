@@ -809,9 +809,12 @@ export class UIExecutor {
     const header = getHeader()
     const data = []
     while (true) {
+      console.log('0000000', data)
       data.push(...getRows())
       if (isDone()) break
+      console.log('1111111')
       await setNext()
+      console.log('222222')
       await waitLoading()
     }
     StardustBrowser.excel.export2Excel({

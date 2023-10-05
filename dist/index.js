@@ -1531,10 +1531,13 @@ var StardustBrowser = (() => {
       const header = getHeader();
       const data = [];
       while (true) {
+        console.log("0000000", data);
         data.push(...getRows());
         if (isDone())
           break;
+        console.log("1111111");
         await setNext();
+        console.log("222222");
         await waitLoading();
       }
       StardustBrowser.excel.export2Excel({
@@ -1621,7 +1624,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.58",
+    version: "1.0.59",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
