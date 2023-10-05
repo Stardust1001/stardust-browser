@@ -1441,7 +1441,7 @@ var StardustBrowser = (() => {
     async pickList(optionsOrFunc, ...props) {
       let list = [];
       if (typeof optionsOrFunc === "object") {
-        const { each, saveTo } = optionsOrFunc;
+        const { each: each2, saveTo } = optionsOrFunc;
         const fields = optionsOrFunc.fields.map((ele) => {
           if (typeof ele === "object") {
             return ele;
@@ -1449,7 +1449,7 @@ var StardustBrowser = (() => {
           const [prop, selector2, type] = ele.split("::");
           return { prop, selector: selector2, type };
         });
-        list = $all(each).map((n) => {
+        list = $all(each2).map((n) => {
           const item = {};
           fields.forEach((field) => {
             const value = n.$one(field.selector)?._text();
@@ -1540,6 +1540,8 @@ var StardustBrowser = (() => {
         console.log("222222");
         await waitLoading();
       }
+      console.log("333333333333333");
+      console.log(each, data);
       StardustBrowser.excel.export2Excel({
         header,
         data,
@@ -1624,7 +1626,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.60",
+    version: "1.0.61",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
