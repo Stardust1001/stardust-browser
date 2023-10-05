@@ -750,6 +750,78 @@ export class UIExecutor {
     return list
   }
 
+  async exportTable (options = {}) {
+    options = {
+      isElementUI: false,
+      ...options,
+    }
+    let selectors = {}
+    if (options.isElementUI) {
+      selectors = {
+        root: '',
+        active: '.el-pager .active',
+        first: '.el-pager .number',
+        last: '.el-pager .number:last-child',
+        next: '.pagination-wrapper .btn-next',
+        loading: '.el-loading-mask',
+        headerTr: '.el-table__header-wrapper thead tr',
+        bodyTrs: '.el-table__fixed .el-table__fixed-body-wrapper table tbody tr',
+        headerTh: 'th',
+        bodyTd: 'td'
+      }
+    }
+    selectors = {
+      ...selectors,
+      ...options.selectors
+    }
+    const isDone = () => {
+      if (options.isDone) return options.isDone()
+      return $one(options.active) === $one(options.last)
+    }
+    const isFirst = () => {
+      if (options.isFirst) return options.isFirst()
+      return $one(selectors.first) === $one(selectors.active)
+    }
+    const setFirst = async () => {
+      if (options.setFirst) return options.setFirst()
+      await this.click($one(selectors.first))
+    }
+    const setNext = async () => {
+      if (options.setNext) return options.setNext()
+      await this.click($one(selectors.next))
+    }
+    const waitLoading = async () => {
+      if (options.waitLoading) return options.waitLoading()
+      await this.waitFor(selector.loading)
+      await this.waitForFunction(() => !$one(selectors.loading)?.rect()?.width)
+    }
+    const getHeader = () => {
+      if (options.getHeader) return options.getHeader()
+      return $one(options.headerTr).$all('td')
+      const headerTr = $one(options.headerTr)
+      return headerTr.$all(options.headerTh).map(th => th._text())
+    }
+    const getRows = () => {
+      if (options.getRows) return options.getRows()
+      const bodyTrs = $all(options.bodyTrs)
+      return bodyTrs.map(tr => tr.$all(options.bodyTd).map(td => td._text()))
+    }
+    const header = getHeader()
+    const data = []
+    while (true) {
+      data.push(...getRows())
+      if (isDone()) break
+      await setNext()
+      await waitLoading()
+    }
+    StardustBrowser.excel.export2Excel({
+      header,
+      data,
+      filename: options.filename || '导出'
+    })
+    return { header, data }
+  }
+
   title (title, options = {}) {
     options = {
       resetable: false,
