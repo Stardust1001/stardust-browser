@@ -1531,7 +1531,7 @@ var StardustBrowser = (() => {
       const getPageCount = () => {
         if (options.getPageCount)
           return options.getPageCount();
-        return ($one(selectors.pageCount)?._text() || 1) * 1;
+        return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1;
       };
       const header = getHeader();
       const data = [];
@@ -1645,7 +1645,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.66",
+    version: "1.0.67",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

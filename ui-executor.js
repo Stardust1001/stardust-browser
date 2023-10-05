@@ -808,7 +808,7 @@ export class UIExecutor {
     }
     const getPageCount = () => {
       if (options.getPageCount) return options.getPageCount()
-      return ($one(selectors.pageCount)?._text() || 1) * 1
+      return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
     const header = getHeader()
     const data = []
