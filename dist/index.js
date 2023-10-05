@@ -1516,12 +1516,13 @@ var StardustBrowser = (() => {
       const getSize = async () => {
         if (options.getSize)
           return options.getSize();
-        return parseInt($one(selectors.size).value);
+        const node = $one(selectors.size);
+        return parseInt(node.value || node._text());
       };
       const setSize = async () => {
         if (options.setSize)
           return options.setSize();
-        await this.click(selectors.sizer);
+        selectors.sizer && await this.click(selectors.sizer);
         await this.click(selectors.pageSize);
       };
       const waitLoading = async () => {
@@ -1663,7 +1664,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.69",
+    version: "1.0.70",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

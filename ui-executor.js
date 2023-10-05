@@ -796,11 +796,12 @@ export class UIExecutor {
     }
     const getSize = async () => {
       if (options.getSize) return options.getSize()
-      return parseInt($one(selectors.size).value)
+      const node = $one(selectors.size)
+      return parseInt(node.value || node._text())
     }
     const setSize = async () => {
       if (options.setSize) return options.setSize()
-      await this.click(selectors.sizer)
+      selectors.sizer && await this.click(selectors.sizer)
       await this.click(selectors.pageSize)
     }
     const waitLoading = async () => {
@@ -822,7 +823,7 @@ export class UIExecutor {
       if (options.getPageCount) return options.getPageCount()
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
-    if (getRows().length && getRows().length !== getSize()) {
+    if (getRows().length && (getRows().length !== getSize())) {
       await setSize()
       await waitLoading()
     }
