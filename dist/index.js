@@ -1513,7 +1513,7 @@ var StardustBrowser = (() => {
         if (options.waitLoading)
           return options.waitLoading();
         await this.waitFor(selectors.loading);
-        await this.waitForFunction(() => !$one(selectors.loading)?.rect()?.width);
+        await this.waitForFunction(() => !$one(selectors.loading)?._rect()?.width);
       };
       const getHeader = () => {
         if (options.getHeader)
@@ -1624,7 +1624,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.59",
+    version: "1.0.60",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

@@ -793,7 +793,7 @@ export class UIExecutor {
     const waitLoading = async () => {
       if (options.waitLoading) return options.waitLoading()
       await this.waitFor(selectors.loading)
-      await this.waitForFunction(() => !$one(selectors.loading)?.rect()?.width)
+      await this.waitForFunction(() => !$one(selectors.loading)?._rect()?.width)
     }
     const getHeader = () => {
       if (options.getHeader) return options.getHeader()
