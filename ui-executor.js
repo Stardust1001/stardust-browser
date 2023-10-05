@@ -822,6 +822,10 @@ export class UIExecutor {
       if (options.getPageCount) return options.getPageCount()
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
+    if (getRows().length && getRows().length !== getSize()) {
+      await setSize()
+      await waitLoading()
+    }
     const header = getHeader()
     const data = []
     let pageCount = 0
@@ -831,10 +835,6 @@ export class UIExecutor {
     }
     if (!isFirst()) {
       await setFirst()
-      await waitLoading()
-    }
-    if (getRows().length && getRows().length !== getSize()) {
-      await setSize()
       await waitLoading()
     }
     while (true) {

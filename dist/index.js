@@ -1547,6 +1547,10 @@ var StardustBrowser = (() => {
           return options.getPageCount();
         return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1;
       };
+      if (getRows().length && getRows().length !== getSize()) {
+        await setSize();
+        await waitLoading();
+      }
       const header = getHeader();
       const data = [];
       let pageCount = 0;
@@ -1556,10 +1560,6 @@ var StardustBrowser = (() => {
       }
       if (!isFirst()) {
         await setFirst();
-        await waitLoading();
-      }
-      if (getRows().length && getRows().length !== getSize()) {
-        await setSize();
         await waitLoading();
       }
       while (true) {
@@ -1663,7 +1663,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.68",
+    version: "1.0.69",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
