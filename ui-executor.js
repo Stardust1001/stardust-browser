@@ -818,7 +818,7 @@ export class UIExecutor {
       await waitLoading()
     }
     console.log('333333333333333')
-    console.log(each, data)
+    console.log(header, data)
     StardustBrowser.excel.export2Excel({
       header,
       data,
