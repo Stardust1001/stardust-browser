@@ -798,13 +798,13 @@ export class UIExecutor {
     const getHeader = () => {
       if (options.getHeader) return options.getHeader()
       return $one(options.headerTr).$all('td')
-      const headerTr = $one(options.headerTr)
-      return headerTr.$all(options.headerTh).map(th => th._text())
+      const headerTr = $one(selectors.headerTr)
+      return headerTr.$all(selectors.headerTh).map(th => th._text())
     }
     const getRows = () => {
       if (options.getRows) return options.getRows()
-      const bodyTrs = $all(options.bodyTrs)
-      return bodyTrs.map(tr => tr.$all(options.bodyTd).map(td => td._text()))
+      const bodyTrs = $all(selectors.bodyTrs)
+      return bodyTrs.map(tr => tr.$all(selectors.bodyTd).map(td => td._text()))
     }
     const header = getHeader()
     const data = []
