@@ -1467,6 +1467,7 @@ var StardustBrowser = (() => {
     }
     async exportTable(options = {}) {
       options = {
+        report: true,
         isElementUI: false,
         ...options
       };
@@ -1527,13 +1528,27 @@ var StardustBrowser = (() => {
         const bodyTrs = $all(selectors.bodyTrs);
         return bodyTrs.map((tr) => tr.$all(selectors.bodyTd).map((td) => td._text()));
       };
+      const getPageCount = () => {
+        if (options.getPageCount)
+          return options.getPageCount();
+        return ($one(selectors.pageCount)?._text() || 1) * 1;
+      };
       const header = getHeader();
       const data = [];
+      let pageCount = 0;
+      let page = 0;
+      if (options.report) {
+        pageCount = getPageCount();
+      }
       if (!isFirst()) {
         await setFirst();
         await waitLoading();
       }
       while (true) {
+        if (options.report) {
+          page++;
+          this.report(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
+        }
         data.push(...getRows());
         if (isDone())
           break;
@@ -1545,6 +1560,12 @@ var StardustBrowser = (() => {
         data,
         filename: options.filename || "\u5BFC\u51FA"
       });
+      if (options.report) {
+        this.report("\u6B63\u5728\u5BFC\u51FA excel ...");
+        this.sleep(1e3).then(() => {
+          this.report("\u5DF2\u5B8C\u6210\u5BFC\u51FA", 100, {}, true);
+        });
+      }
       return { header, data };
     }
     title(title, options = {}) {
@@ -1624,7 +1645,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.65",
+    version: "1.0.66",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

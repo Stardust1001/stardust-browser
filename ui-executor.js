@@ -752,6 +752,7 @@ export class UIExecutor {
 
   async exportTable (options = {}) {
     options = {
+      report: true,
       isElementUI: false,
       ...options,
     }
@@ -805,13 +806,26 @@ export class UIExecutor {
       const bodyTrs = $all(selectors.bodyTrs)
       return bodyTrs.map(tr => tr.$all(selectors.bodyTd).map(td => td._text()))
     }
+    const getPageCount = () => {
+      if (options.getPageCount) return options.getPageCount()
+      return ($one(selectors.pageCount)?._text() || 1) * 1
+    }
     const header = getHeader()
     const data = []
+    let pageCount = 0
+    let page = 0
+    if (options.report) {
+      pageCount = getPageCount()
+    }
     if (!isFirst()) {
       await setFirst()
       await waitLoading()
     }
     while (true) {
+      if (options.report) {
+        page++
+        this.report(`已获取第 ${page} / ${pageCount} 页`, page / pageCount * 100)
+      }
       data.push(...getRows())
       if (isDone()) break
       await setNext()
@@ -822,6 +836,12 @@ export class UIExecutor {
       data,
       filename: options.filename || '导出'
     })
+    if (options.report) {
+      this.report('正在导出 excel ...')
+      this.sleep(1000).then(() => {
+        this.report('已完成导出', 100, {}, true)
+      })
+    }
     return { header, data }
   }
 
