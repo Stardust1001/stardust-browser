@@ -673,27 +673,24 @@ var StardustBrowser = (() => {
     }
     return nodes;
   };
-  var qs = Element.prototype.querySelector;
   var qsa = Element.prototype.querySelectorAll;
-  var sdqs = ShadowRoot.prototype.querySelector;
   var sdqsa = ShadowRoot.prototype.querySelectorAll;
   Element.prototype.$one = function(selector2) {
-    const root = this.shadowRoot || this;
-    const finder = this.shadowRoot ? sdqs : qs;
-    const [first, ...others] = selector2.split(" >> ");
-    let node = isXPath(first) ? xfind(first, root) : finder.call(root, first);
-    if (others.length) {
-      node = node.$one(others.join(" >> "));
-    }
-    return node;
+    return this.$all(selector2)[0];
   };
   Element.prototype.$all = function(selector2) {
     const root = this.shadowRoot || this;
     const finder = this.shadowRoot ? sdqsa : qsa;
-    if (!selector2.includes(" >> ") && isXPath(selector2)) {
-      return xfind(selector2, root, true);
+    let [first, ...others] = selector2.split(" >> ");
+    let nodes = isXPath(first) ? xfind(first, root, true) : finder.call(root, first);
+    while (others.length && /^\d+$/.test(others[0])) {
+      nodes = [nodes[others[0] * 1]];
+      others = others.slice(1);
     }
-    return [...finder.call(root, selector2)];
+    if (others.length) {
+      nodes = nodes.reduce((all, n) => all.concat(n.$all(others.join(" >> "))), []);
+    }
+    return nodes;
   };
   Element.prototype.$parent = function(level = 1) {
     let parent = this;
@@ -1724,7 +1721,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.86",
+    version: "1.0.87",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

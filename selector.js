@@ -12,27 +12,24 @@ export const xfind = (selector, root, all = false) => {
   return nodes
 }
 
-const qs = Element.prototype.querySelector
 const qsa = Element.prototype.querySelectorAll
-const sdqs = ShadowRoot.prototype.querySelector
 const sdqsa = ShadowRoot.prototype.querySelectorAll
 Element.prototype.$one = function (selector) {
-  const root = this.shadowRoot || this
-  const finder = this.shadowRoot ? sdqs : qs
-  const [first, ...others] = selector.split(' >> ')
-  let node = isXPath(first) ? xfind(first, root) : finder.call(root, first)
-  if (others.length) {
-    node = node.$one(others.join(' >> '))
-  }
-  return node
+  return this.$all(selector)[0]
 }
 Element.prototype.$all = function (selector) {
   const root = this.shadowRoot || this
   const finder = this.shadowRoot ? sdqsa : qsa
-  if (!selector.includes(' >> ') && isXPath(selector)) {
-    return xfind(selector, root, true)
+  let [first, ...others] = selector.split(' >> ')
+  let nodes = isXPath(first) ? xfind(first, root, true) : finder.call(root, first)
+  while (others.length && /^\d+$/.test(others[0])) {
+    nodes = [nodes[others[0] * 1]]
+    others = others.slice(1)
   }
-  return [...finder.call(root, selector)]
+  if (others.length) {
+    nodes = nodes.reduce((all, n) => all.concat(n.$all(others.join(' >> '))), [])
+  }
+  return nodes
 }
 Element.prototype.$parent = function (level = 1) {
   let parent = this
