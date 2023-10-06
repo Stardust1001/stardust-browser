@@ -1539,7 +1539,7 @@ var StardustBrowser = (() => {
         if (selectors.sizer) {
           const node = $one(selectors.sizer);
           if (node.nodeName === "SELECT") {
-            await this.select($one(selectors.pageSize).value);
+            await this.select(node, $one(selectors.pageSize).value);
             return;
           } else {
             await this.click(selectors.sizer);
@@ -1704,7 +1704,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.75",
+    version: "1.0.76",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

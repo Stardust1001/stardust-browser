@@ -818,7 +818,7 @@ export class UIExecutor {
       if (selectors.sizer) {
         const node = $one(selectors.sizer)
         if (node.nodeName === 'SELECT') {
-          await this.select($one(selectors.pageSize).value)
+          await this.select(node, $one(selectors.pageSize).value)
           return
         } else {
           await this.click(selectors.sizer)
