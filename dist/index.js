@@ -1526,10 +1526,17 @@ var StardustBrowser = (() => {
           return options.setNext();
         await this.click($one(selectors.next));
       };
-      const getSize = () => {
-        if (options.getSize)
-          return options.getSize();
+      const getCurrentSize = () => {
+        if (options.getCurrentSize)
+          return options.getCurrentSize();
         const node = $one(selectors.size);
+        const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
+        return page2;
+      };
+      const getSettingSize = () => {
+        if (options.getSettingSize)
+          return options.getSettingSize();
+        const node = $one(selectors.pageSize);
         const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
         return page2;
       };
@@ -1570,8 +1577,8 @@ var StardustBrowser = (() => {
           return options.getPageCount();
         return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1;
       };
-      options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getSize() + " \u6761");
-      if (getRows().length) {
+      options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
+      if (getRows().length && getCurrentSize() !== getSettingSize()) {
         options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570");
         await setSize();
         options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
@@ -1704,7 +1711,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.80",
+    version: "1.0.81",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

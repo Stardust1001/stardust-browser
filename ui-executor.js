@@ -807,9 +807,15 @@ export class UIExecutor {
       if (options.setNext) return options.setNext()
       await this.click($one(selectors.next))
     }
-    const getSize = () => {
-      if (options.getSize) return options.getSize()
+    const getCurrentSize = () => {
+      if (options.getCurrentSize) return options.getCurrentSize()
       const node = $one(selectors.size)
+      const page = (node.value || node._text()).toString().match(/\d+/)[0] * 1
+      return page
+    }
+    const getSettingSize = () => {
+      if (options.getSettingSize) return options.getSettingSize()
+      const node = $one(selectors.pageSize)
       const page = (node.value || node._text()).toString().match(/\d+/)[0] * 1
       return page
     }
@@ -845,8 +851,8 @@ export class UIExecutor {
       if (options.getPageCount) return options.getPageCount()
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
-    options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getSize() + ' 条')
-    if (getRows().length) {
+    options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getCurrentSize() + ' 条')
+    if (getRows().length && getCurrentSize() !== getSettingSize()) {
       options.log('设置每页条数')
       await setSize()
       options.log('设置每页条数后等待加载')
