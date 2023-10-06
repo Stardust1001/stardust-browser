@@ -1497,7 +1497,7 @@ var StardustBrowser = (() => {
       const isFirst = () => {
         if (options.isFirst)
           return options.isFirst();
-        const active = selectors.active && $one(selectors.active);
+        const active = $one(selectors.active);
         const first = $one(selectors.first);
         const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
         return active === first || page2 === 1;
@@ -1505,7 +1505,7 @@ var StardustBrowser = (() => {
       const isDone = () => {
         if (options.isDone)
           return options.isDone();
-        const active = selectors.active && $one(selectors.active);
+        const active = $one(selectors.active);
         const last = $one(selectors.last);
         const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
         return active === last || page2 === getSize();
@@ -1607,7 +1607,7 @@ var StardustBrowser = (() => {
           options.log("\u7ED3\u675F\u4E86");
           break;
         }
-        options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875");
+        options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875: " + (page + 1));
         await setNext();
         options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875\u540E\u7B49\u5F85\u52A0\u8F7D");
         await waitLoading();
@@ -1705,7 +1705,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.72",
+    version: "1.0.73",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

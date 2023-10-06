@@ -781,14 +781,14 @@ export class UIExecutor {
     }
     const isFirst = () => {
       if (options.isFirst) return options.isFirst()
-      const active = selectors.active && $one(selectors.active)
+      const active = $one(selectors.active)
       const first = $one(selectors.first)
       const page = (active.value || active._text()).toString().match(/\d+/)[0] * 1
       return active === first || page === 1
     }
     const isDone = () => {
       if (options.isDone) return options.isDone()
-      const active = selectors.active && $one(selectors.active)
+      const active = $one(selectors.active)
       const last = $one(selectors.last)
       const page = (active.value || active._text()).toString().match(/\d+/)[0] * 1
       return active === last || page === getSize()
@@ -882,7 +882,7 @@ export class UIExecutor {
         options.log('结束了')
         break
       }
-      options.log('设置下一页')
+      options.log('设置下一页: ' + (page + 1))
       await setNext()
       options.log('设置下一页后等待加载')
       await waitLoading()
