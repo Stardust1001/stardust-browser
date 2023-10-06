@@ -1497,7 +1497,7 @@ var StardustBrowser = (() => {
       const isFirst = () => {
         if (options.isFirst)
           return options.isFirst();
-        const active = $one(selectors.active);
+        const active = selectors.active && $one(selectors.active);
         const first = $one(selectors.first);
         const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
         return active === first || page2 === 1;
@@ -1505,7 +1505,7 @@ var StardustBrowser = (() => {
       const isDone = () => {
         if (options.isDone)
           return options.isDone();
-        const active = $one(selectors.active);
+        const active = selectors.active && $one(selectors.active);
         const last = $one(selectors.last);
         const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
         return active === last || page2 === getSize();
@@ -1705,7 +1705,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.71",
+    version: "1.0.72",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

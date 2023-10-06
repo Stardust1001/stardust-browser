@@ -781,14 +781,14 @@ export class UIExecutor {
     }
     const isFirst = () => {
       if (options.isFirst) return options.isFirst()
-      const active = $one(selectors.active)
+      const active = selectors.active && $one(selectors.active)
       const first = $one(selectors.first)
       const page = (active.value || active._text()).toString().match(/\d+/)[0] * 1
       return active === first || page === 1
     }
     const isDone = () => {
       if (options.isDone) return options.isDone()
-      const active = $one(selectors.active)
+      const active = selectors.active && $one(selectors.active)
       const last = $one(selectors.last)
       const page = (active.value || active._text()).toString().match(/\d+/)[0] * 1
       return active === last || page === getSize()
