@@ -846,7 +846,7 @@ export class UIExecutor {
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
     options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getSize() + ' 条')
-    if (getRows().length && (getRows().length !== getSize())) {
+    if (getRows().length) {
       options.log('设置每页条数')
       await setSize()
       options.log('设置每页条数后等待加载')

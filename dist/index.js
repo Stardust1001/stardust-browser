@@ -1571,7 +1571,7 @@ var StardustBrowser = (() => {
         return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1;
       };
       options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getSize() + " \u6761");
-      if (getRows().length && getRows().length !== getSize()) {
+      if (getRows().length) {
         options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570");
         await setSize();
         options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
@@ -1704,7 +1704,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.79",
+    version: "1.0.80",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
