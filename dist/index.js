@@ -1603,7 +1603,7 @@ var StardustBrowser = (() => {
         data.push(...getRows());
         options.log("\u5171\u5DF2\u6293\u5230 " + data.length + " \u6761\u6570\u636E");
         if (isDone()) {
-          options.log("\u7ED3\u675F\u4E86");
+          options.log("\u6570\u636E\u6293\u53D6\u5B8C\u6BD5");
           break;
         }
         options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875: " + (page + 1));
@@ -1704,7 +1704,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.77",
+    version: "1.0.78",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

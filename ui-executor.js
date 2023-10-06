@@ -878,7 +878,7 @@ export class UIExecutor {
       data.push(...getRows())
       options.log('共已抓到 ' + data.length + ' 条数据')
       if (isDone()) {
-        options.log('结束了')
+        options.log('数据抓取完毕')
         break
       }
       options.log('设置下一页: ' + (page + 1))
