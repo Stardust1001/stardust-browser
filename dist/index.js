@@ -690,6 +690,9 @@ var StardustBrowser = (() => {
   Element.prototype.$all = function(selector2) {
     const root = this.shadowRoot || this;
     const finder = this.shadowRoot ? sdqsa : qsa;
+    if (!selector2.includes(" >> ") && isXPath(selector2)) {
+      return xfind(selector2, root, true);
+    }
     return [...finder.call(root, selector2)];
   };
   Element.prototype.$parent = function(level = 1) {
@@ -1584,8 +1587,10 @@ var StardustBrowser = (() => {
           return options.getPageCount();
         return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1;
       };
+      options.report && this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
       options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
       if (getRows().length && getCurrentSize() !== getSettingSize()) {
+        options.report && this.report("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
         options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
         await setSize();
         options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
@@ -1599,7 +1604,8 @@ var StardustBrowser = (() => {
       let page = 0;
       if (options.report) {
         pageCount = getPageCount();
-        options.log("\u9875\u6570: " + pageCount);
+        this.report("\u603B\u5171 " + pageCount + " \u9875");
+        options.log("\u603B\u5171 " + pageCount + " \u9875");
       }
       if (!isFirst()) {
         options.log("\u4E0D\u662F\u7B2C\u4E00\u9875\uFF0C\u5E94\u8BBE\u7F6E\u7B2C\u4E00\u9875");
@@ -1718,7 +1724,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.85",
+    version: "1.0.86",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

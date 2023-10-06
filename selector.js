@@ -29,6 +29,9 @@ Element.prototype.$one = function (selector) {
 Element.prototype.$all = function (selector) {
   const root = this.shadowRoot || this
   const finder = this.shadowRoot ? sdqsa : qsa
+  if (!selector.includes(' >> ') && isXPath(selector)) {
+    return xfind(selector, root, true)
+  }
   return [...finder.call(root, selector)]
 }
 Element.prototype.$parent = function (level = 1) {

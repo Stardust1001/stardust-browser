@@ -857,8 +857,10 @@ export class UIExecutor {
       if (options.getPageCount) return options.getPageCount()
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
+    options.report && this.report('准备获取数据...')
     options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getCurrentSize() + ' 条')
     if (getRows().length && getCurrentSize() !== getSettingSize()) {
+      options.report && this.report('设置每页条数: ' + getSettingSize())
       options.log('设置每页条数: ' + getSettingSize())
       await setSize()
       options.log('设置每页条数后等待加载')
@@ -872,7 +874,8 @@ export class UIExecutor {
     let page = 0
     if (options.report) {
       pageCount = getPageCount()
-      options.log('页数: ' + pageCount)
+      this.report('总共 ' + pageCount + ' 页')
+      options.log('总共 ' + pageCount + ' 页')
     }
     if (!isFirst()) {
       options.log('不是第一页，应设置第一页')
