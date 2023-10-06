@@ -682,7 +682,7 @@ var StardustBrowser = (() => {
     const root = this.shadowRoot || this;
     const finder = this.shadowRoot ? sdqsa : qsa;
     let [first, ...others] = selector2.split(" >> ");
-    let nodes = isXPath(first) ? xfind(first, root, true) : finder.call(root, first);
+    let nodes = isXPath(first) ? xfind(first, root, true) : [...finder.call(root, first)];
     while (others.length && /^\d+$/.test(others[0])) {
       nodes = [nodes[others[0] * 1]];
       others = others.slice(1);
@@ -1721,7 +1721,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.87",
+    version: "1.0.88",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
