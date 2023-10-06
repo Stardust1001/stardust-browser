@@ -1704,7 +1704,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.76",
+    version: "1.0.77",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
