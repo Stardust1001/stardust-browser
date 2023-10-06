@@ -754,6 +754,7 @@ export class UIExecutor {
     options = {
       report: true,
       isElementUI: false,
+      log: console.log,
       ...options,
     }
     let selectors = {}
@@ -778,30 +779,52 @@ export class UIExecutor {
       ...selectors,
       ...options.selectors
     }
-    const isDone = () => {
-      if (options.isDone) return options.isDone()
-      return $one(selectors.active) === $one(selectors.last)
-    }
     const isFirst = () => {
       if (options.isFirst) return options.isFirst()
-      return $one(selectors.first) === $one(selectors.active)
+      const active = $one(selectors.active)
+      const first = $one(selectors.first)
+      const page = (active.value || active._text()).toString().match(/\d+/)[0] * 1
+      return active === first || page === 1
+    }
+    const isDone = () => {
+      if (options.isDone) return options.isDone()
+      const active = $one(selectors.active)
+      const last = $one(selectors.last)
+      const page = (active.value || active._text()).toString().match(/\d+/)[0] * 1
+      return active === last || page === getSize()
     }
     const setFirst = async () => {
       if (options.setFirst) return options.setFirst()
-      await this.click($one(selectors.first))
+      const first = $one(selectors.first)
+      if (['INPUT', 'TEXTAREA'].includes(first)) {
+        await this.fill(first, '1')
+        await this.enter(first)
+      } else {
+        await this.click(first)
+      }
     }
     const setNext = async () => {
       if (options.setNext) return options.setNext()
       await this.click($one(selectors.next))
     }
-    const getSize = async () => {
+    const getSize = () => {
       if (options.getSize) return options.getSize()
       const node = $one(selectors.size)
-      return parseInt(node.value || node._text())
+      const page = (node.value || node._text()).toString().match(/\d+/)[0] * 1
+      return page
     }
     const setSize = async () => {
       if (options.setSize) return options.setSize()
-      selectors.sizer && await this.click(selectors.sizer)
+      if (selectors.sizer) {
+        const node = $one(selectors.sizer)
+        if (node.nodeName === 'SELECT') {
+          const option1 = node.$all('option').find(o => o.value.match(/\d+/)[0] * 1 === 1)
+          await this.select(option1.value)
+          return
+        } else {
+          await this.click(selectors.sizer)
+        }
+      }
       await this.click(selectors.pageSize)
     }
     const waitLoading = async () => {
@@ -823,39 +846,58 @@ export class UIExecutor {
       if (options.getPageCount) return options.getPageCount()
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
+    options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getSize() + ' 条')
     if (getRows().length && (getRows().length !== getSize())) {
+      options.log('设置每页条数')
       await setSize()
+      options.log('设置每页条数后等待加载')
       await waitLoading()
     }
+    options.log('获取表头')
     const header = getHeader()
+    options.log('表头: ', header)
     const data = []
     let pageCount = 0
     let page = 0
     if (options.report) {
       pageCount = getPageCount()
+      options.log('页数: ' + pageCount)
     }
     if (!isFirst()) {
+      options.log('不是第一页，应设置第一页')
       await setFirst()
+      options.log('设置第一页后等待加载')
       await waitLoading()
     }
     while (true) {
       if (options.report) {
         page++
+        options.log(`已获取第 ${page} / ${pageCount} 页`, page / pageCount * 100)
         this.report(`已获取第 ${page} / ${pageCount} 页`, page / pageCount * 100)
       }
+      options.log('抓取当前页的数据')
       data.push(...getRows())
-      if (isDone()) break
+      options.log('共已抓到 ' + data.length + ' 条数据')
+      if (isDone()) {
+        options.log('结束了')
+        break
+      }
+      options.log('设置下一页')
       await setNext()
+      options.log('设置下一页后等待加载')
       await waitLoading()
     }
+    options.log('准备导出', header, data)
     StardustBrowser.excel.export2Excel({
       header,
       data,
       filename: options.filename || '导出'
     })
     if (options.report) {
+      options.log('正在导出 excel ...')
       this.report('正在导出 excel ...')
       this.sleep(1000).then(() => {
+        options.log('已完成导出')
         this.report('已完成导出', 100, {}, true)
       })
     }

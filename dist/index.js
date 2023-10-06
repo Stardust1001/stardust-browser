@@ -1469,6 +1469,7 @@ var StardustBrowser = (() => {
       options = {
         report: true,
         isElementUI: false,
+        log: console.log,
         ...options
       };
       let selectors = {};
@@ -1493,36 +1494,58 @@ var StardustBrowser = (() => {
         ...selectors,
         ...options.selectors
       };
-      const isDone = () => {
-        if (options.isDone)
-          return options.isDone();
-        return $one(selectors.active) === $one(selectors.last);
-      };
       const isFirst = () => {
         if (options.isFirst)
           return options.isFirst();
-        return $one(selectors.first) === $one(selectors.active);
+        const active = $one(selectors.active);
+        const first = $one(selectors.first);
+        const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
+        return active === first || page2 === 1;
+      };
+      const isDone = () => {
+        if (options.isDone)
+          return options.isDone();
+        const active = $one(selectors.active);
+        const last = $one(selectors.last);
+        const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
+        return active === last || page2 === getSize();
       };
       const setFirst = async () => {
         if (options.setFirst)
           return options.setFirst();
-        await this.click($one(selectors.first));
+        const first = $one(selectors.first);
+        if (["INPUT", "TEXTAREA"].includes(first)) {
+          await this.fill(first, "1");
+          await this.enter(first);
+        } else {
+          await this.click(first);
+        }
       };
       const setNext = async () => {
         if (options.setNext)
           return options.setNext();
         await this.click($one(selectors.next));
       };
-      const getSize = async () => {
+      const getSize = () => {
         if (options.getSize)
           return options.getSize();
         const node = $one(selectors.size);
-        return parseInt(node.value || node._text());
+        const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
+        return page2;
       };
       const setSize = async () => {
         if (options.setSize)
           return options.setSize();
-        selectors.sizer && await this.click(selectors.sizer);
+        if (selectors.sizer) {
+          const node = $one(selectors.sizer);
+          if (node.nodeName === "SELECT") {
+            const option1 = node.$all("option").find((o) => o.value.match(/\d+/)[0] * 1 === 1);
+            await this.select(option1.value);
+            return;
+          } else {
+            await this.click(selectors.sizer);
+          }
+        }
         await this.click(selectors.pageSize);
       };
       const waitLoading = async () => {
@@ -1548,40 +1571,58 @@ var StardustBrowser = (() => {
           return options.getPageCount();
         return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1;
       };
+      options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getSize() + " \u6761");
       if (getRows().length && getRows().length !== getSize()) {
+        options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570");
         await setSize();
+        options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
         await waitLoading();
       }
+      options.log("\u83B7\u53D6\u8868\u5934");
       const header = getHeader();
+      options.log("\u8868\u5934: ", header);
       const data = [];
       let pageCount = 0;
       let page = 0;
       if (options.report) {
         pageCount = getPageCount();
+        options.log("\u9875\u6570: " + pageCount);
       }
       if (!isFirst()) {
+        options.log("\u4E0D\u662F\u7B2C\u4E00\u9875\uFF0C\u5E94\u8BBE\u7F6E\u7B2C\u4E00\u9875");
         await setFirst();
+        options.log("\u8BBE\u7F6E\u7B2C\u4E00\u9875\u540E\u7B49\u5F85\u52A0\u8F7D");
         await waitLoading();
       }
       while (true) {
         if (options.report) {
           page++;
+          options.log(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
           this.report(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
         }
+        options.log("\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E");
         data.push(...getRows());
-        if (isDone())
+        options.log("\u5171\u5DF2\u6293\u5230 " + data.length + " \u6761\u6570\u636E");
+        if (isDone()) {
+          options.log("\u7ED3\u675F\u4E86");
           break;
+        }
+        options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875");
         await setNext();
+        options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875\u540E\u7B49\u5F85\u52A0\u8F7D");
         await waitLoading();
       }
+      options.log("\u51C6\u5907\u5BFC\u51FA", header, data);
       StardustBrowser.excel.export2Excel({
         header,
         data,
         filename: options.filename || "\u5BFC\u51FA"
       });
       if (options.report) {
+        options.log("\u6B63\u5728\u5BFC\u51FA excel ...");
         this.report("\u6B63\u5728\u5BFC\u51FA excel ...");
         this.sleep(1e3).then(() => {
+          options.log("\u5DF2\u5B8C\u6210\u5BFC\u51FA");
           this.report("\u5DF2\u5B8C\u6210\u5BFC\u51FA", 100, {}, true);
         });
       }
@@ -1664,7 +1705,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.70",
+    version: "1.0.71",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
