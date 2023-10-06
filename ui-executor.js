@@ -818,8 +818,7 @@ export class UIExecutor {
       if (selectors.sizer) {
         const node = $one(selectors.sizer)
         if (node.nodeName === 'SELECT') {
-          const option1 = node.$all('option').find(o => o.value.match(/\d+/)[0] * 1 === 1)
-          await this.select(option1.value)
+          await this.select($one(selectors.pageSize).value)
           return
         } else {
           await this.click(selectors.sizer)
