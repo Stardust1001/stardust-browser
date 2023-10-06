@@ -764,7 +764,7 @@ export class UIExecutor {
         active: '.el-pager .active',
         first: '.el-pager .number',
         last: '.el-pager .number:last-child',
-        next: '.pagination-wrapper .btn-next',
+        next: '.el-pagination .btn-next',
         size: '.el-pagination__sizes .el-select input',
         sizer: '.el-pagination__sizes .el-select',
         pageSize: '//span[contains(text(),"100条/页")]',
@@ -791,7 +791,7 @@ export class UIExecutor {
       const active = $one(selectors.active)
       const last = $one(selectors.last)
       const page = (active.value || active._text()).toString().match(/\d+/)[0] * 1
-      return active === last || page === getSize()
+      return active === last || page === getPageCount()
     }
     const setFirst = async () => {
       if (options.setFirst) return options.setFirst()

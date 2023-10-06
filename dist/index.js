@@ -1479,7 +1479,7 @@ var StardustBrowser = (() => {
           active: ".el-pager .active",
           first: ".el-pager .number",
           last: ".el-pager .number:last-child",
-          next: ".pagination-wrapper .btn-next",
+          next: ".el-pagination .btn-next",
           size: ".el-pagination__sizes .el-select input",
           sizer: ".el-pagination__sizes .el-select",
           pageSize: '//span[contains(text(),"100\u6761/\u9875")]',
@@ -1508,7 +1508,7 @@ var StardustBrowser = (() => {
         const active = $one(selectors.active);
         const last = $one(selectors.last);
         const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
-        return active === last || page2 === getSize();
+        return active === last || page2 === getPageCount();
       };
       const setFirst = async () => {
         if (options.setFirst)
@@ -1704,7 +1704,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.78",
+    version: "1.0.79",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
