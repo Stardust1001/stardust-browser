@@ -883,7 +883,7 @@ export class UIExecutor {
     while (true) {
       if (options.report) {
         page++
-        options.log(`已获取第 ${page} / ${pageCount} 页`, page / pageCount * 100)
+        options.log(`已获取第 ${page} / ${pageCount} 页` + page / pageCount * 100 + '%')
         this.report(`已获取第 ${page} / ${pageCount} 页`, page / pageCount * 100)
       }
       options.log('抓取当前页的数据')

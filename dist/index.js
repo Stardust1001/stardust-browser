@@ -1610,7 +1610,7 @@ var StardustBrowser = (() => {
       while (true) {
         if (options.report) {
           page++;
-          options.log(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
+          options.log(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875` + page / pageCount * 100 + "%");
           this.report(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
         }
         options.log("\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E");
@@ -1718,7 +1718,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.82",
+    version: "1.0.83",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
