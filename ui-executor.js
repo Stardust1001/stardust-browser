@@ -779,6 +779,12 @@ export class UIExecutor {
       ...selectors,
       ...options.selectors
     }
+    if (selectors.root) {
+      for (let key in selectors) {
+        if (key === 'root') continue
+        selectors[key] = selectors.root + ' ' + selectors[key]
+      }
+    }
     const isFirst = () => {
       if (options.isFirst) return options.isFirst()
       const active = $one(selectors.active)
@@ -853,7 +859,7 @@ export class UIExecutor {
     }
     options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getCurrentSize() + ' 条')
     if (getRows().length && getCurrentSize() !== getSettingSize()) {
-      options.log('设置每页条数')
+      options.log('设置每页条数: ' + getSettingSize())
       await setSize()
       options.log('设置每页条数后等待加载')
       await waitLoading()

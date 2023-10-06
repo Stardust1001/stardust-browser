@@ -1494,6 +1494,13 @@ var StardustBrowser = (() => {
         ...selectors,
         ...options.selectors
       };
+      if (selectors.root) {
+        for (let key in selectors) {
+          if (key === "root")
+            continue;
+          selectors[key] = selectors.root + " " + selectors[key];
+        }
+      }
       const isFirst = () => {
         if (options.isFirst)
           return options.isFirst();
@@ -1579,7 +1586,7 @@ var StardustBrowser = (() => {
       };
       options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
       if (getRows().length && getCurrentSize() !== getSettingSize()) {
-        options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570");
+        options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
         await setSize();
         options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
         await waitLoading();
@@ -1711,7 +1718,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.81",
+    version: "1.0.82",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
