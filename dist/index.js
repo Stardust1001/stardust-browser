@@ -1625,6 +1625,9 @@ var StardustBrowser = (() => {
         }
         options.log("\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E");
         data.push(...getRows());
+        if (!data.length) {
+          throw "\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E\uFF0C\u5931\u8D25";
+        }
         options.log("\u5171\u5DF2\u6293\u5230 " + data.length + " \u6761\u6570\u636E");
         if (isDone()) {
           options.log("\u6570\u636E\u6293\u53D6\u5B8C\u6BD5");
@@ -1728,7 +1731,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.91",
+    version: "1.0.92",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

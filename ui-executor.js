@@ -891,6 +891,9 @@ export class UIExecutor {
       }
       options.log('抓取当前页的数据')
       data.push(...getRows())
+      if (!data.length) {
+        throw '抓取当前页的数据，失败'
+      }
       options.log('共已抓到 ' + data.length + ' 条数据')
       if (isDone()) {
         options.log('数据抓取完毕')
