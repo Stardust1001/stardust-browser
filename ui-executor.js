@@ -867,7 +867,7 @@ export class UIExecutor {
       await waitLoading()
     }
     options.log('获取表头')
-    const header = getHeader()
+    let header = getHeader()
     options.log('表头: ', header)
     const data = []
     let pageCount = 0
@@ -905,6 +905,10 @@ export class UIExecutor {
       await waitLoading()
     }
     options.log('准备导出', header, data)
+    if (data.length && header.length > data[0].length) {
+      header = header.slice(0, data[0].length)
+    }
+    options.beforeExport?.({ header, data })
     StardustBrowser.excel.export2Excel({
       header,
       data,

@@ -1601,7 +1601,7 @@ var StardustBrowser = (() => {
         await waitLoading();
       }
       options.log("\u83B7\u53D6\u8868\u5934");
-      const header = getHeader();
+      let header = getHeader();
       options.log("\u8868\u5934: ", header);
       const data = [];
       let pageCount = 0;
@@ -1639,6 +1639,10 @@ var StardustBrowser = (() => {
         await waitLoading();
       }
       options.log("\u51C6\u5907\u5BFC\u51FA", header, data);
+      if (data.length && header.length > data[0].length) {
+        header = header.slice(0, data[0].length);
+      }
+      options.beforeExport?.({ header, data });
       StardustBrowser.excel.export2Excel({
         header,
         data,
@@ -1731,7 +1735,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.92",
+    version: "1.0.93",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
