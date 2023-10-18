@@ -754,7 +754,9 @@ export class UIExecutor {
     options = {
       report: true,
       isElementUI: false,
+      type: 'excel',
       log: console.log,
+      withInput: true,
       ...options,
     }
     let selectors = {}
@@ -851,7 +853,18 @@ export class UIExecutor {
     const getRows = () => {
       if (options.getRows) return options.getRows()
       const bodyTrs = $all(selectors.bodyTrs)
-      return bodyTrs.map(tr => tr.$all(selectors.bodyTd).map(td => td._text()))
+      return bodyTrs.map(tr => tr.$all(selectors.bodyTd).map(td => {
+        let text = td._text()
+        if (options.withInput) {
+          const inputs = [
+            ...td.$all('input').filter(i => i.type !== 'file'),
+            ...td.$all('select'),
+            ...td.$all('textarea')
+          ]
+          text += inputs.map(i => i.value + '').join(',')
+        }
+        return text
+      }))
     }
     const getPageCount = () => {
       if (options.getPageCount) return options.getPageCount()
@@ -909,7 +922,17 @@ export class UIExecutor {
       header = header.slice(0, data[0].length)
     }
     options.beforeExport?.({ header, data })
-    StardustBrowser.excel.export2Excel({
+    let method
+    if (options.type === 'excel') {
+      method = 'export2Excel'
+    } else if (options.type === 'csv') {
+      method = 'export2Csv'
+    } else {
+      const error = '未知的导出模式: ' + options.type
+      options.log(error)
+      throw error
+    }
+    StardustBrowser.excel[method]({
       header,
       data,
       filename: options.filename || '导出'
