@@ -1033,7 +1033,10 @@ var StardustBrowser = (() => {
         };
       });
     }
-    report(title, percent, options = {}, isDone = false) {
+    async report(title, percent, options = {}, isDone = false) {
+      if (typeof title === "function") {
+        title = await title(this);
+      }
       let node = document.querySelector("#webot-ui-report-container");
       if (!node) {
         node = document.createElement("div");
@@ -1758,7 +1761,7 @@ var StardustBrowser = (() => {
 
   // index.js
   var stardust_browser_default = {
-    version: "1.0.94",
+    version: "1.0.95",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

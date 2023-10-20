@@ -266,7 +266,10 @@ export class UIExecutor {
     })
   }
 
-  report (title, percent, options = {}, isDone = false) {
+  async report (title, percent, options = {}, isDone = false) {
+    if (typeof title === 'function') {
+      title = await title(this)
+    }
     let node = document.querySelector('#webot-ui-report-container')
     if (!node) {
       node = document.createElement('div')
