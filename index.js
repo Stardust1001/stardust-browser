@@ -9,6 +9,8 @@ import selector from './selector.js'
 import storage from './storage.js'
 import UIExecutor from './ui-executor.js'
 
+const { local, session } = storage
+
 export {
   dbsdk,
   clipboard,
@@ -19,11 +21,13 @@ export {
   funcs,
   selector,
   storage,
+  local,
+  session,
   UIExecutor
 }
 
 export default {
-  version: '1.0.95',
+  version: '1.0.96',
   dbsdk,
   clipboard,
   cookies,
@@ -33,5 +37,7 @@ export default {
   funcs,
   selector,
   storage,
+  local,
+  session,
   UIExecutor
 }

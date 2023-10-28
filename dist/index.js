@@ -29,7 +29,9 @@ var StardustBrowser = (() => {
     file: () => file_default,
     fullscreen: () => fullscreen_default,
     funcs: () => funcs_default,
+    local: () => local2,
     selector: () => selector_default,
+    session: () => session2,
     storage: () => storage_default
   });
 
@@ -1760,8 +1762,9 @@ var StardustBrowser = (() => {
   var ui_executor_default = UIExecutor;
 
   // index.js
+  var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.95",
+    version: "1.0.96",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
@@ -1771,6 +1774,8 @@ var StardustBrowser = (() => {
     funcs: funcs_default,
     selector: selector_default,
     storage: storage_default,
+    local: local2,
+    session: session2,
     UIExecutor: ui_executor_default
   };
   return __toCommonJS(stardust_browser_exports);
