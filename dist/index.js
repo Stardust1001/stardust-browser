@@ -1514,7 +1514,7 @@ var StardustBrowser = (() => {
   // fetcher.js
   var Fetcher = class {
     constructor(baseUrl = "", headers = {}, options = {}) {
-      this._baseUrl = baseUrl;
+      this._baseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
       this._headers = {
         "content-type": "application/json",
         ...headers
@@ -1522,7 +1522,7 @@ var StardustBrowser = (() => {
       this._options = options;
     }
     baseUrl(baseUrl) {
-      this._baseUrl = baseUrl;
+      this._baseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
     }
     headers(headers = {}, replace = false) {
       if (replace)
@@ -1551,7 +1551,9 @@ var StardustBrowser = (() => {
           others.body = JSON.stringify(others.body);
         }
       }
-      url = new URL(url, this._baseUrl).href;
+      if (url) {
+        url = this._baseUrl + (url.startsWith("/") ? url : "/" + url);
+      }
       if (others.params) {
         others.params = {
           ...StardustJs.funcs.decodeQuery(url),
@@ -1851,7 +1853,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.99",
+    version: "1.0.100",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

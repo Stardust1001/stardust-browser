@@ -29,7 +29,7 @@ export {
 }
 
 export default {
-  version: '1.0.99',
+  version: '1.0.100',
   dbsdk,
   clipboard,
   cookies,

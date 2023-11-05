@@ -2,7 +2,7 @@ import UIExecutor from './ui-executor.js'
 
 export class Fetcher {
   constructor (baseUrl = '', headers = {}, options = {}) {
-    this._baseUrl = baseUrl
+    this._baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
     this._headers = {
       'content-type': 'application/json',
       ...headers
@@ -11,7 +11,7 @@ export class Fetcher {
   }
 
   baseUrl (baseUrl) {
-    this._baseUrl = baseUrl
+    this._baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
   }
 
   headers (headers = {}, replace = false) {
@@ -39,7 +39,9 @@ export class Fetcher {
         others.body = JSON.stringify(others.body)
       }
     }
-    url = new URL(url, this._baseUrl).href
+    if (url) {
+      url = this._baseUrl + (url.startsWith('/') ? url : ('/' + url))
+    }
     if (others.params) {
       others.params = {
         ...StardustJs.funcs.decodeQuery(url),
