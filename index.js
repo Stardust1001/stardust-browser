@@ -2,6 +2,7 @@ import dbsdk from './dbsdk/index.js'
 import clipboard from './clipboard.js'
 import cookies from './cookies.js'
 import excel from './excel.js'
+import Fetcher from './fetcher.js'
 import file from './file.js'
 import fullscreen from './fullscreen.js'
 import funcs from './funcs.js'
@@ -16,6 +17,7 @@ export {
   clipboard,
   cookies,
   excel,
+  Fetcher,
   file,
   fullscreen,
   funcs,
@@ -27,11 +29,12 @@ export {
 }
 
 export default {
-  version: '1.0.96',
+  version: '1.0.97',
   dbsdk,
   clipboard,
   cookies,
   excel,
+  Fetcher,
   file,
   fullscreen,
   funcs,

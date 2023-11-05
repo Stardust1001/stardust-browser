@@ -20,6 +20,7 @@ var StardustBrowser = (() => {
   // index.js
   var stardust_browser_exports = {};
   __export(stardust_browser_exports, {
+    Fetcher: () => fetcher_default,
     UIExecutor: () => ui_executor_default,
     clipboard: () => clipboard_default,
     cookies: () => cookies_default,
@@ -525,259 +526,6 @@ var StardustBrowser = (() => {
     export2Csv
   };
 
-  // file.js
-  var preview = (type, url) => {
-    const baseSuffixes = ["png", "jpg", "jpeg", "gif", "txt"];
-    const officeSuffixes = ["doc", "docx", "ppt", "pptx"];
-    const canViewSuffixes = [...baseSuffixes, ...officeSuffixes, "pdf"];
-    if (canViewSuffixes.includes(type)) {
-      const a = document.createElement("a");
-      a.target = "_blank";
-      if (baseSuffixes.includes(type)) {
-        a.href = url;
-      } else if (type === "pdf") {
-        a.href = `http://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURI(url)}`;
-      } else if (officeSuffixes.includes(type)) {
-        a.href = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURI(url)}`;
-      }
-      a.click();
-    } else {
-      throw `\u6682\u4E0D\u652F\u6301\u9884\u89C8\u8BE5\u683C\u5F0F\uFF08${type}\uFF09\u6587\u4EF6`;
-    }
-  };
-  var select = async (accept, multiple = false, dir = false) => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = accept;
-    if (dir) {
-      multiple = true;
-      input.webkitdirectory = true;
-    }
-    input.multiple = multiple;
-    return new Promise((resolve) => {
-      input.onchange = () => {
-        input.remove();
-        resolve(multiple ? input.files : input.files[0]);
-      };
-      document.body.appendChild(input);
-      input.click();
-    });
-  };
-  var toType = async (file, type = "text") => {
-    const reader = new FileReader();
-    const types = {
-      text: "readAsText",
-      arraybuffer: "readAsArrayBuffer",
-      binarystring: "readAsBinaryString",
-      dataurl: "readAsDataURL"
-    };
-    if (!(type in types)) {
-      return null;
-    }
-    return new Promise((resolve) => {
-      reader.onload = () => resolve(reader.result);
-      reader[types[type]](file);
-    });
-  };
-  var file_default = {
-    preview,
-    select,
-    toType
-  };
-
-  // fullscreen.js
-  var isOpened = () => {
-    return !!(document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
-  };
-  var open = (node) => {
-    if (isOpened())
-      return;
-    const root = document.documentElement;
-    const func = root.requestFullscreen || root.msRequestFullscreen || root.mozRequestFullScreen || root.webkitRequestFullscreen;
-    func.call(node || root);
-  };
-  var exit = () => {
-    if (!isOpened())
-      return;
-    const func = document.exitFullscreen || document.msExitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen;
-    func.call(document);
-  };
-  var fullscreen_default = {
-    isOpened,
-    open,
-    exit
-  };
-
-  // funcs.js
-  var isWindows = /(windows|win32)/i.test(navigator.platform);
-  var isXPath = (selector2) => /^(\/\/|\.\.)/.test(selector2.trim());
-  var calcPixel = (text) => {
-    if (typeof text === "number")
-      return text;
-    text = text.toLowerCase();
-    let number = parseFloat(text);
-    if (text.includes("vw")) {
-      number *= window.innerWidth / 100;
-    } else if (text.includes("vh")) {
-      number *= window.innerHeight / 100;
-    } else if (text.includes("rem")) {
-      number *= parseFloat(getComputedStyle(document.documentElement).fontSize);
-    }
-    return Math.floor(number);
-  };
-  var img2Base64 = (selector2) => {
-    const img = typeof selector2 === "string" ? $one(selector2) : selector2;
-    const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    return canvas.toDataURL();
-  };
-  var _nodes = {};
-  var _zoom = 1;
-  var _resize = () => {
-    if (!document.documentElement)
-      return;
-    _zoom = 1 / parseFloat(document.documentElement.style.zoom);
-    setTimeout(() => {
-      Object.values(_nodes).forEach((n) => n.style.zoom = _zoom);
-    }, 0);
-  };
-  _resize();
-  window.addEventListener("resize", _resize);
-  var unzoom = (node) => {
-    if (!(node instanceof HTMLElement)) {
-      node = node.value;
-    }
-    node.style.zoom = _zoom;
-    const id = crypto.randomUUID();
-    _nodes[id] = node;
-    return () => delete _nodes[id];
-  };
-  var funcs_default = {
-    isWindows,
-    isXPath,
-    calcPixel,
-    img2Base64,
-    unzoom
-  };
-
-  // selector.js
-  var xfind = (selector2, root, all = false) => {
-    const iterator = document.evaluate(selector2, root || document);
-    if (!all)
-      return iterator.iterateNext();
-    const nodes = [];
-    let n;
-    while (n = iterator.iterateNext()) {
-      nodes.push(n);
-    }
-    return nodes;
-  };
-  var qsa = Element.prototype.querySelectorAll;
-  var sdqsa = ShadowRoot.prototype.querySelectorAll;
-  Element.prototype.$one = function(selector2) {
-    return this.$all(selector2)[0];
-  };
-  Element.prototype.$all = function(selector2) {
-    const root = this.shadowRoot || this;
-    const finder = this.shadowRoot ? sdqsa : qsa;
-    let [first, ...others] = selector2.split(" >> ");
-    let nodes = isXPath(first) ? xfind(first, root, true) : [...finder.call(root, first)];
-    while (others.length) {
-      if (/^\d+$/.test(others[0])) {
-        nodes = [nodes[others[0] * 1]];
-        others = others.slice(1);
-      } else if (others[0] === "<visible>") {
-        nodes = nodes.filter((n) => n?._rect()?.width);
-        others = others.slice(1);
-      } else {
-        break;
-      }
-    }
-    if (others.length) {
-      nodes = nodes.reduce((all, n) => all.concat(n.$all(others.join(" >> "))), []);
-    }
-    return nodes;
-  };
-  Element.prototype.$parent = function(level = 1) {
-    let parent = this;
-    while (level--) {
-      parent = parent.parentNode;
-      if (!parent)
-        return parent;
-    }
-    return parent;
-  };
-  Element.prototype._text = function(value) {
-    if (value) {
-      this.textContent = value;
-    } else {
-      return this.textContent.trim();
-    }
-  };
-  Element.prototype._rect = function() {
-    return this.getBoundingClientRect();
-  };
-  window.$one = document.$one = function(selector2) {
-    return Element.prototype.$one.call(document.documentElement, selector2);
-  };
-  window.$all = document.$all = function(selector2) {
-    return Element.prototype.$all.call(document.documentElement, selector2);
-  };
-  var $one2 = window.$one;
-  var $all2 = window.$all;
-  var selector_default = {
-    $one: $one2,
-    $all: $all2
-  };
-
-  // storage.js
-  var Storage = class {
-    constructor(storage) {
-      this.storage = storage;
-    }
-    clear() {
-      this.storage.clear();
-    }
-    keys() {
-      return Object.keys(this.storage);
-    }
-    values() {
-      return Object.values(this.storage);
-    }
-    get(key, defaults) {
-      return this.storage.getItem(key) || defaults;
-    }
-    set(key, value) {
-      this.storage.setItem(key, value);
-    }
-    remove(key) {
-      this.storage.removeItem(key);
-    }
-    getJson(key, defaults, catches = true) {
-      const value = this.get(key);
-      if (value && catches) {
-        try {
-          return JSON.parse(value);
-        } catch {
-        }
-      }
-      return defaults;
-    }
-    setJson(key, value) {
-      this.set(key, JSON.stringify(value));
-    }
-  };
-  var local = new Storage(window.localStorage);
-  var session = new Storage(window.sessionStorage);
-  var storage_default = {
-    Storage,
-    local,
-    session
-  };
-
   // ui-executor.js
   var EventGenerator = class {
     constructor(config) {
@@ -992,6 +740,7 @@ var StardustBrowser = (() => {
       const mask = document.createElement("div");
       mask.id = "webot-mask";
       mask.style.cssText += this._maskStyle + (options.maskStyle || "");
+      await this.waitFor("body");
       document.body.appendChild(mask);
       const button = document.createElement("div");
       const root = options.root || "";
@@ -1101,6 +850,7 @@ var StardustBrowser = (() => {
         font-weight: 600;
       `;
         node.appendChild(titleNode2);
+        await this.waitFor("body");
         document.body.appendChild(node);
       }
       node.style.cssText += options.style;
@@ -1761,14 +1511,352 @@ var StardustBrowser = (() => {
   UIExecutor.EventGenerator = EventGenerator;
   var ui_executor_default = UIExecutor;
 
+  // fetcher.js
+  var Fetcher = class {
+    constructor(baseUrl = "", headers = {}, options = {}) {
+      this._baseUrl = baseUrl;
+      this._headers = {
+        "content-type": "application/json",
+        ...headers
+      };
+      this._options = options;
+    }
+    baseUrl(baseUrl) {
+      this._baseUrl = baseUrl;
+    }
+    headers(headers = {}, replace = false) {
+      if (replace)
+        this._headers = { ...headers };
+      else
+        Object.assign(this._headers, headers);
+    }
+    options(options = {}, replace = false) {
+      if (replace)
+        this._options = { ...options };
+      else
+        Object.assign(this._options, options);
+    }
+    fetch(url, options = {}) {
+      options = { ...this._options, ...options };
+      let {
+        type = "json",
+        method = "GET",
+        headers = {},
+        retries = 0,
+        ...others
+      } = options;
+      headers = { ...this._headers, ...headers };
+      if (headers["content-type"]?.toLowerCase().startsWith("application/json")) {
+        if (others.body && typeof others.body) {
+          others.body = JSON.stringify(others.body);
+        }
+      }
+      url = new URL(url, this._baseUrl).href;
+      if (others.params) {
+        others.params = {
+          ...StardustJs.funcs.decodeQuery(url),
+          ...others.params
+        };
+        const search = StardustJs.funcs.encodeQuery(others.params);
+        url = url.split("?")[0] + "?" + search;
+      }
+      return fetch(url, { ...others, headers, method }).then((res) => res[type]()).catch(() => {
+        if (retries)
+          return this.fetch(url, {
+            ...options,
+            retries: retries - 1
+          });
+      });
+    }
+    async queryAll(size, func, onProgress, options = {}) {
+      const { limit = 10, report = true, title = "" } = options;
+      const executor = report ? new ui_executor_default() : null;
+      let count = 0;
+      const [total, all] = await func(1, size);
+      count = all.length;
+      const percent = (count / total * 100).toFixed(2) * 1;
+      if (report)
+        executor.report(title + " \u6293\u53D6\u5230 " + count + "\u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent + "%", percent);
+      onProgress?.(percent, all);
+      if (total > size) {
+        const results = await StardustJs.promises.schedule(async (i) => {
+          const [_, rows] = await func(i + 2, size);
+          count += rows.length;
+          const percent2 = (count / total * 100).toFixed(2) * 1;
+          if (report)
+            executor.report(title + " \u6293\u53D6\u5230 " + count + " \u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent2 + "%", percent2);
+          onProgress?.(percent2, rows);
+          return rows;
+        }, Math.ceil(total / size) - 1, limit);
+        results.forEach((r) => all.push(...r));
+      }
+      return all;
+    }
+  };
+  var fetcher_default = Fetcher;
+
+  // file.js
+  var preview = (type, url) => {
+    const baseSuffixes = ["png", "jpg", "jpeg", "gif", "txt"];
+    const officeSuffixes = ["doc", "docx", "ppt", "pptx"];
+    const canViewSuffixes = [...baseSuffixes, ...officeSuffixes, "pdf"];
+    if (canViewSuffixes.includes(type)) {
+      const a = document.createElement("a");
+      a.target = "_blank";
+      if (baseSuffixes.includes(type)) {
+        a.href = url;
+      } else if (type === "pdf") {
+        a.href = `http://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURI(url)}`;
+      } else if (officeSuffixes.includes(type)) {
+        a.href = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURI(url)}`;
+      }
+      a.click();
+    } else {
+      throw `\u6682\u4E0D\u652F\u6301\u9884\u89C8\u8BE5\u683C\u5F0F\uFF08${type}\uFF09\u6587\u4EF6`;
+    }
+  };
+  var select = async (accept, multiple = false, dir = false) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = accept;
+    if (dir) {
+      multiple = true;
+      input.webkitdirectory = true;
+    }
+    input.multiple = multiple;
+    return new Promise((resolve) => {
+      input.onchange = () => {
+        input.remove();
+        resolve(multiple ? input.files : input.files[0]);
+      };
+      document.body.appendChild(input);
+      input.click();
+    });
+  };
+  var toType = async (file, type = "text") => {
+    const reader = new FileReader();
+    const types = {
+      text: "readAsText",
+      arraybuffer: "readAsArrayBuffer",
+      binarystring: "readAsBinaryString",
+      dataurl: "readAsDataURL"
+    };
+    if (!(type in types)) {
+      return null;
+    }
+    return new Promise((resolve) => {
+      reader.onload = () => resolve(reader.result);
+      reader[types[type]](file);
+    });
+  };
+  var file_default = {
+    preview,
+    select,
+    toType
+  };
+
+  // fullscreen.js
+  var isOpened = () => {
+    return !!(document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
+  };
+  var open = (node) => {
+    if (isOpened())
+      return;
+    const root = document.documentElement;
+    const func = root.requestFullscreen || root.msRequestFullscreen || root.mozRequestFullScreen || root.webkitRequestFullscreen;
+    func.call(node || root);
+  };
+  var exit = () => {
+    if (!isOpened())
+      return;
+    const func = document.exitFullscreen || document.msExitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen;
+    func.call(document);
+  };
+  var fullscreen_default = {
+    isOpened,
+    open,
+    exit
+  };
+
+  // funcs.js
+  var isWindows = /(windows|win32)/i.test(navigator.platform);
+  var isXPath = (selector2) => /^(\/\/|\.\.)/.test(selector2.trim());
+  var calcPixel = (text) => {
+    if (typeof text === "number")
+      return text;
+    text = text.toLowerCase();
+    let number = parseFloat(text);
+    if (text.includes("vw")) {
+      number *= window.innerWidth / 100;
+    } else if (text.includes("vh")) {
+      number *= window.innerHeight / 100;
+    } else if (text.includes("rem")) {
+      number *= parseFloat(getComputedStyle(document.documentElement).fontSize);
+    }
+    return Math.floor(number);
+  };
+  var img2Base64 = (selector2) => {
+    const img = typeof selector2 === "string" ? $one(selector2) : selector2;
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL();
+  };
+  var _nodes = {};
+  var _zoom = 1;
+  var _resize = () => {
+    if (!document.documentElement)
+      return;
+    _zoom = 1 / parseFloat(document.documentElement.style.zoom);
+    setTimeout(() => {
+      Object.values(_nodes).forEach((n) => n.style.zoom = _zoom);
+    }, 0);
+  };
+  _resize();
+  window.addEventListener("resize", _resize);
+  var unzoom = (node) => {
+    if (!(node instanceof HTMLElement)) {
+      node = node.value;
+    }
+    node.style.zoom = _zoom;
+    const id = crypto.randomUUID();
+    _nodes[id] = node;
+    return () => delete _nodes[id];
+  };
+  var funcs_default = {
+    isWindows,
+    isXPath,
+    calcPixel,
+    img2Base64,
+    unzoom
+  };
+
+  // selector.js
+  var xfind = (selector2, root, all = false) => {
+    const iterator = document.evaluate(selector2, root || document);
+    if (!all)
+      return iterator.iterateNext();
+    const nodes = [];
+    let n;
+    while (n = iterator.iterateNext()) {
+      nodes.push(n);
+    }
+    return nodes;
+  };
+  var qsa = Element.prototype.querySelectorAll;
+  var sdqsa = ShadowRoot.prototype.querySelectorAll;
+  Element.prototype.$one = function(selector2) {
+    return this.$all(selector2)[0];
+  };
+  Element.prototype.$all = function(selector2) {
+    const root = this.shadowRoot || this;
+    const finder = this.shadowRoot ? sdqsa : qsa;
+    let [first, ...others] = selector2.split(" >> ");
+    let nodes = isXPath(first) ? xfind(first, root, true) : [...finder.call(root, first)];
+    while (others.length) {
+      if (/^\d+$/.test(others[0])) {
+        nodes = [nodes[others[0] * 1]];
+        others = others.slice(1);
+      } else if (others[0] === "<visible>") {
+        nodes = nodes.filter((n) => n?._rect()?.width);
+        others = others.slice(1);
+      } else {
+        break;
+      }
+    }
+    if (others.length) {
+      nodes = nodes.reduce((all, n) => all.concat(n.$all(others.join(" >> "))), []);
+    }
+    return nodes;
+  };
+  Element.prototype.$parent = function(level = 1) {
+    let parent = this;
+    while (level--) {
+      parent = parent.parentNode;
+      if (!parent)
+        return parent;
+    }
+    return parent;
+  };
+  Element.prototype._text = function(value) {
+    if (value) {
+      this.textContent = value;
+    } else {
+      return this.textContent.trim();
+    }
+  };
+  Element.prototype._rect = function() {
+    return this.getBoundingClientRect();
+  };
+  window.$one = document.$one = function(selector2) {
+    return Element.prototype.$one.call(document.documentElement, selector2);
+  };
+  window.$all = document.$all = function(selector2) {
+    return Element.prototype.$all.call(document.documentElement, selector2);
+  };
+  var $one2 = window.$one;
+  var $all2 = window.$all;
+  var selector_default = {
+    $one: $one2,
+    $all: $all2
+  };
+
+  // storage.js
+  var Storage = class {
+    constructor(storage) {
+      this.storage = storage;
+    }
+    clear() {
+      this.storage.clear();
+    }
+    keys() {
+      return Object.keys(this.storage);
+    }
+    values() {
+      return Object.values(this.storage);
+    }
+    get(key, defaults) {
+      return this.storage.getItem(key) || defaults;
+    }
+    set(key, value) {
+      this.storage.setItem(key, value);
+    }
+    remove(key) {
+      this.storage.removeItem(key);
+    }
+    getJson(key, defaults, catches = true) {
+      const value = this.get(key);
+      if (value && catches) {
+        try {
+          return JSON.parse(value);
+        } catch {
+        }
+      }
+      return defaults;
+    }
+    setJson(key, value) {
+      this.set(key, JSON.stringify(value));
+    }
+  };
+  var local = new Storage(window.localStorage);
+  var session = new Storage(window.sessionStorage);
+  var storage_default = {
+    Storage,
+    local,
+    session
+  };
+
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.96",
+    version: "1.0.97",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
     excel: excel_default,
+    Fetcher: fetcher_default,
     file: file_default,
     fullscreen: fullscreen_default,
     funcs: funcs_default,

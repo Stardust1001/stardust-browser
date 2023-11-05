@@ -1,6 +1,5 @@
 
 export class EventGenerator {
-
   constructor (config) {
     this.config = config
     this.base = {
@@ -222,6 +221,7 @@ export class UIExecutor {
     const mask = document.createElement('div')
     mask.id = 'webot-mask'
     mask.style.cssText += this._maskStyle + (options.maskStyle || '')
+    await this.waitFor('body')
     document.body.appendChild(mask)
     const button = document.createElement('div')
     const root = options.root || ''
@@ -332,6 +332,7 @@ export class UIExecutor {
         font-weight: 600;
       `
       node.appendChild(titleNode)
+      await this.waitFor('body')
       document.body.appendChild(node)
     }
     node.style.cssText += options.style
