@@ -34,10 +34,25 @@ export class Fetcher {
       ...others
     } = options
     headers = { ...this._headers, ...headers }
-    if (headers['content-type']?.toLowerCase().startsWith('application/json')) {
-      if (others.body && typeof others.body) {
-        others.body = JSON.stringify(others.body)
+    let contentType = headers['content-type'].toLowerCase()
+    if (others.body && typeof others.body === 'object') {
+      if (others.body instanceof URLSearchParams) {
+        contentType = headers['content-type'] = 'application/x-www-form-urlencoded'
+      } else if (others.body instanceof FormData) {
+        contentType = headers['content-type'] = 'application/form-data'
       }
+      if (contentType.includes('application/json')) {
+        others.body = JSON.stringify(others.body)
+      } else if (contentType.includes('application/x-www-form-urlencoded')) {
+        others.body = StardustJs.funcs.encodeQuery(others.body)
+      } else if (contentType.includes('application/form-data')) {
+        if (!(others.body instanceof FormData)) {
+          const form = new FormData()
+          for (let key in others.body) form.append(key, others.body[key])
+          others.body = form
+        }
+      }
+      method = options.method || 'POST'
     }
     if (url) {
       url = this._baseUrl + (url.startsWith('/') ? url : ('/' + url))
