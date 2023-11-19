@@ -152,8 +152,9 @@ export const scanCode = async (options = {}) => {
     position: absolute;
     right: 10px;
     top: 10px;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
+    color: white;
     z-index: 100000000;
   `
   close.onclick = destroy
