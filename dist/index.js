@@ -1807,8 +1807,8 @@ var StardustBrowser = (() => {
   `;
     container.appendChild(video);
     const destroy = () => {
-      video.remove();
       stream.getTracks().forEach((t) => t.stop());
+      container.remove();
     };
     const selectOne = async (results) => {
       return results[0];
@@ -1989,7 +1989,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.102",
+    version: "1.0.103",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

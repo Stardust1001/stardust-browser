@@ -112,8 +112,8 @@ export const scanCode = async (options = {}) => {
   container.appendChild(video)
 
   const destroy = () => {
-    video.remove()
     stream.getTracks().forEach(t => t.stop())
+    container.remove()
   }
 
   const selectOne = async results => {
