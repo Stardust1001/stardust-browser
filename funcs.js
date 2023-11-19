@@ -103,6 +103,7 @@ export const scanCode = async (options = {}) => {
     width: 100%;
     height: 100%;
     z-index: 99999999;
+    background-color: black;
   ` + (cameraStyle || '')
   const video = document.createElement('video')
   video.style.cssText += `

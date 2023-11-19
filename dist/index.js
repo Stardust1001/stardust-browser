@@ -1799,6 +1799,7 @@ var StardustBrowser = (() => {
     width: 100%;
     height: 100%;
     z-index: 99999999;
+    background-color: black;
   ` + (cameraStyle || "");
     const video = document.createElement("video");
     video.style.cssText += `
@@ -1989,7 +1990,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.103",
+    version: "1.0.105",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
