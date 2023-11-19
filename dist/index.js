@@ -1743,12 +1743,132 @@ var StardustBrowser = (() => {
     _nodes[id] = node;
     return () => delete _nodes[id];
   };
+  var scanCode = async (options = {}) => {
+    let {
+      timeGap = 50,
+      multiple = false,
+      details = false,
+      cameraStyle = "",
+      continuous = false,
+      onRecognize,
+      onInit,
+      onDestroy,
+      done,
+      mode = "environment",
+      ...others
+    } = options;
+    const detector = new BarcodeDetector(others);
+    const detect = async (source) => {
+      let result = await detector.detect(source);
+      if (details !== true)
+        result = result.map((r) => r.rawValue);
+      return result;
+    };
+    if (mode === "image") {
+      if (Array.isArray(others.images))
+        return Promise.all(others.images.map(detect));
+      if (others.images)
+        return detect(others.images);
+      let files = await StardustBrowser.file.select("image/*", multiple);
+      files = multiple ? [...files] : [files];
+      const codes = await Promise.all(files.map(async (file) => {
+        const base64 = await StardustBrowser.file.toType(file, "dataurl");
+        const image = new Image();
+        await new Promise((resolve) => {
+          image.onload = resolve;
+          image.src = base64;
+        });
+        return detect(image);
+      }));
+      return multiple ? codes : codes[0];
+    }
+    if (continuous && (!onRecognize || !done))
+      throw "continuous need onRecognize and done";
+    timeGap = Math.max(timeGap, 16);
+    const stream = await navigator.mediaDevices.getUserMedia({
+      ...others,
+      video: {
+        facingMode: mode
+      }
+    });
+    const container = document.createElement("div");
+    container.style.cssText += `
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+  ` + (cameraStyle || "");
+    const video = document.createElement("video");
+    video.style.cssText += `
+    width: 100%;
+    height: 100%;
+  `;
+    container.appendChild(video);
+    const destroy = () => {
+      video.remove();
+      stream.getTracks().forEach((t) => t.stop());
+    };
+    const selectOne = async (results) => {
+      return results[0];
+    };
+    const close = document.createElement("div");
+    close.textContent = "x";
+    close.style.cssText += `
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 100000000;
+  `;
+    close.onclick = destroy;
+    container.appendChild(close);
+    document.body.appendChild(container);
+    video.srcObject = stream;
+    await new Promise((resolve) => {
+      video.onloadedmetadata = () => {
+        video.play();
+        resolve();
+      };
+    });
+    onInit?.({ video, detector });
+    while (true) {
+      let result = await detector.detect(video);
+      if (result.length) {
+        if (!details)
+          result = result.map((r) => r.rawValue);
+        if (continuous) {
+          onRecognize(result);
+          if (done()) {
+            onDestroy?.({ video, detector });
+            destroy();
+            return;
+          }
+        } else {
+          if (!multiple) {
+            if (result.length === 1) {
+              result = result[0];
+            } else {
+              result = await selectOne(result);
+            }
+          }
+          onDestroy?.({ video, detector });
+          destroy();
+          return result;
+        }
+      }
+      await new Promise((resolve) => setTimeout(resolve, timeGap));
+    }
+  };
   var funcs_default = {
     isWindows,
     isXPath,
     calcPixel,
     img2Base64,
-    unzoom
+    unzoom,
+    scanCode
   };
 
   // selector.js
@@ -1869,7 +1989,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.101",
+    version: "1.0.102",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
