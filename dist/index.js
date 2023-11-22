@@ -1,8 +1,37 @@
 var StardustBrowser = (() => {
   var __defProp = Object.defineProperty;
+  var __defProps = Object.defineProperties;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
   var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __propIsEnum = Object.prototype.propertyIsEnumerable;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __spreadValues = (a, b) => {
+    for (var prop in b || (b = {}))
+      if (__hasOwnProp.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    if (__getOwnPropSymbols)
+      for (var prop of __getOwnPropSymbols(b)) {
+        if (__propIsEnum.call(b, prop))
+          __defNormalProp(a, prop, b[prop]);
+      }
+    return a;
+  };
+  var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+  var __objRest = (source, exclude) => {
+    var target = {};
+    for (var prop in source)
+      if (__hasOwnProp.call(source, prop) && exclude.indexOf(prop) < 0)
+        target[prop] = source[prop];
+    if (source != null && __getOwnPropSymbols)
+      for (var prop of __getOwnPropSymbols(source)) {
+        if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
+          target[prop] = source[prop];
+      }
+    return target;
+  };
   var __export = (target, all) => {
     for (var name in all)
       __defProp(target, name, { get: all[name], enumerable: true });
@@ -16,6 +45,26 @@ var StardustBrowser = (() => {
     return to;
   };
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+  var __async = (__this, __arguments, generator) => {
+    return new Promise((resolve, reject) => {
+      var fulfilled = (value) => {
+        try {
+          step(generator.next(value));
+        } catch (e) {
+          reject(e);
+        }
+      };
+      var rejected = (value) => {
+        try {
+          step(generator.throw(value));
+        } catch (e) {
+          reject(e);
+        }
+      };
+      var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+      step((generator = generator.apply(__this, __arguments)).next());
+    });
+  };
 
   // index.js
   var stardust_browser_exports = {};
@@ -45,27 +94,27 @@ var StardustBrowser = (() => {
         data
       });
     };
-    const getSettings = async (params) => {
+    const getSettings = (params) => __async(void 0, null, function* () {
       return req({
         url: "/common/get_settings",
         method: "get",
         params
       });
-    };
-    const updateSettings = async (data) => {
+    });
+    const updateSettings = (data) => __async(void 0, null, function* () {
       return req({
         url: "/common/update_settings",
         method: "post",
         data
       });
-    };
-    const callSql = async (data) => {
+    });
+    const callSql = (data) => __async(void 0, null, function* () {
       return req({
         url: "/common/call_sql",
         method: "post",
         data
       });
-    };
+    });
     return {
       uploadFiles,
       getSettings,
@@ -262,7 +311,7 @@ var StardustBrowser = (() => {
   var writeText = (text) => {
     try {
       return navigator.clipboard.writeText(text);
-    } catch {
+    } catch (e) {
     }
     const input = document.createElement("input");
     input.value = text;
@@ -275,7 +324,7 @@ var StardustBrowser = (() => {
   var readText = () => {
     try {
       return navigator.clipboard.readText();
-    } catch {
+    } catch (e) {
       return null;
     }
   };
@@ -287,7 +336,7 @@ var StardustBrowser = (() => {
   // cookies.js
   var cookies = {
     all() {
-      return document.cookie.split("; ").map((e) => e.split("=")).reduce((dict, [k, v]) => ({ ...dict, [k]: v }));
+      return document.cookie.split("; ").map((e) => e.split("=")).reduce((dict, [k, v]) => __spreadProps(__spreadValues({}, dict), { [k]: v }));
     },
     get(key) {
       return this.all()[key];
@@ -530,12 +579,11 @@ var StardustBrowser = (() => {
   var EventGenerator = class {
     constructor(config) {
       this.config = config;
-      this.base = {
+      this.base = __spreadValues({
         bubbles: true,
         cancelable: true,
-        view: window,
-        ...config?.base
-      };
+        view: window
+      }, config == null ? void 0 : config.base);
     }
     keyboard(name, options = {}) {
       let { key, code } = options;
@@ -545,8 +593,7 @@ var StardustBrowser = (() => {
       if (code && !key) {
         key = String.fromCharCode(code);
       }
-      return new KeyboardEvent(name, {
-        ...this.base,
+      return new KeyboardEvent(name, __spreadValues(__spreadProps(__spreadValues({}, this.base), {
         key,
         code,
         location: 0,
@@ -555,12 +602,11 @@ var StardustBrowser = (() => {
         altKey: false,
         metaKey: false,
         repeat: false,
-        isComposing: false,
-        ...options
-      });
+        isComposing: false
+      }), options));
     }
     mouse(name, options, target) {
-      const rect = target?.getBoundingClientRect() || {
+      const rect = (target == null ? void 0 : target.getBoundingClientRect()) || {
         x: 0,
         y: 0,
         width: 0,
@@ -568,8 +614,7 @@ var StardustBrowser = (() => {
       };
       const cx = rect.x + rect.width / 2;
       const cy = rect.y + rect.height / 2;
-      return new MouseEvent(name, {
-        ...this.base,
+      return new MouseEvent(name, __spreadValues(__spreadProps(__spreadValues({}, this.base), {
         screenX: cx,
         screenY: cy,
         clientX: cx,
@@ -590,44 +635,35 @@ var StardustBrowser = (() => {
         offsetY: rect.height / 2,
         pageX: cx,
         pageY: cy,
-        which: null,
-        ...options
-      });
+        which: null
+      }), options));
     }
     wheel(options = {}) {
-      return new WheelEvent({
-        ...this.base,
+      return new WheelEvent(__spreadValues(__spreadProps(__spreadValues({}, this.base), {
         deltaX: 0,
         deltaY: 0,
         deltaZ: 0,
-        deltaMode: 0,
-        ...options
-      });
+        deltaMode: 0
+      }), options));
     }
     focus(options = {}) {
-      return new FocusEvent({
-        ...this.base,
-        relatedTarget: null,
-        ...options
-      });
+      return new FocusEvent(__spreadValues(__spreadProps(__spreadValues({}, this.base), {
+        relatedTarget: null
+      }), options));
     }
     input(text, options = {}) {
-      return new InputEvent({
-        ...this.base,
+      return new InputEvent(__spreadValues(__spreadProps(__spreadValues({}, this.base), {
         data: text,
-        isComposing: false,
-        ...options
-      });
+        isComposing: false
+      }), options));
     }
     composition(text, options = {}) {
-      return new CompositionEvent({
-        ...this.base,
-        data: text,
-        ...options
-      });
+      return new CompositionEvent(__spreadValues(__spreadProps(__spreadValues({}, this.base), {
+        data: text
+      }), options));
     }
     touch(name, options, target) {
-      const rect = target?.getBoundingClientRect() || {
+      const rect = (target == null ? void 0 : target.getBoundingClientRect()) || {
         x: 0,
         y: 0,
         width: 0,
@@ -649,23 +685,20 @@ var StardustBrowser = (() => {
         rotationAngle: 0,
         force: 0
       });
-      return new TouchEvent({
-        ...this.base,
+      return new TouchEvent(__spreadValues(__spreadProps(__spreadValues({}, this.base), {
         type: name,
         changedTouches: [point],
         targetTouches: [point],
-        touches: [point],
-        ...options
-      });
+        touches: [point]
+      }), options));
     }
   };
   var UIExecutor = class {
     constructor(config = {}) {
-      this.config = {
+      this.config = __spreadValues({
         interval: 20,
-        slow: 0,
-        ...config
-      };
+        slow: 0
+      }, config);
       this.generator = new EventGenerator();
       this.data = {};
       this._isInIf = false;
@@ -680,72 +713,76 @@ var StardustBrowser = (() => {
       pointer-events: none;
     ` + (config.maskStyle || "");
     }
-    async waitFor(selector2, options = {}) {
-      options = {
-        visible: true,
-        interval: this.config.interval,
-        ...options
-      };
-      let node;
-      while (true) {
-        node = typeof selector2 === "string" ? $one(selector2) : selector2;
-        if (node) {
-          if (!options.visible || node.getBoundingClientRect().width) {
-            break;
+    waitFor(_0) {
+      return __async(this, arguments, function* (selector2, options = {}) {
+        options = __spreadValues({
+          visible: true,
+          interval: this.config.interval
+        }, options);
+        let node;
+        while (true) {
+          node = typeof selector2 === "string" ? $one(selector2) : selector2;
+          if (node) {
+            if (!options.visible || node.getBoundingClientRect().width) {
+              break;
+            }
           }
+          yield this.sleep(options.interval);
         }
-        await this.sleep(options.interval);
-      }
-      return node;
+        return node;
+      });
     }
     waitOr(selectors, options = {}) {
       return Promise.any(selectors.map((s) => this.waitFor(selector, options)));
     }
-    async waitForURL(url, options = {}) {
-      options = {
-        interval: this.config.interval,
-        ...options
-      };
-      while (true) {
-        if (typeof url === "string") {
-          if (location.href.includes(url))
-            return true;
-        } else if (typeof url === "function") {
-          if (url(location.href))
-            return true;
-        } else if (url instanceof RegExp) {
-          if (url.test(location.href))
-            return true;
-        } else {
-          throw "\u4E0D\u652F\u6301\u7684 url \u7C7B\u578B";
+    waitForURL(_0) {
+      return __async(this, arguments, function* (url, options = {}) {
+        options = __spreadValues({
+          interval: this.config.interval
+        }, options);
+        while (true) {
+          if (typeof url === "string") {
+            if (location.href.includes(url))
+              return true;
+          } else if (typeof url === "function") {
+            if (url(location.href))
+              return true;
+          } else if (url instanceof RegExp) {
+            if (url.test(location.href))
+              return true;
+          } else {
+            throw "\u4E0D\u652F\u6301\u7684 url \u7C7B\u578B";
+          }
+          yield this.sleep(options.interval);
         }
-        await this.sleep(options.interval);
-      }
+      });
     }
-    async waitForFunction(func, options = {}) {
-      options = {
-        interval: this.config.interval,
-        ...options
-      };
-      while (true) {
-        try {
-          if (func(this))
-            break;
-        } catch {
+    waitForFunction(_0) {
+      return __async(this, arguments, function* (func, options = {}) {
+        options = __spreadValues({
+          interval: this.config.interval
+        }, options);
+        while (true) {
+          try {
+            if (func(this))
+              break;
+          } catch (e) {
+          }
+          yield this.sleep(options.interval);
         }
-        await this.sleep(options.interval);
-      }
+      });
     }
-    async waitForNext(title = "\u4E0B\u4E00\u6B65", options = {}) {
-      const mask = document.createElement("div");
-      mask.id = "webot-mask";
-      mask.style.cssText += this._maskStyle + (options.maskStyle || "");
-      await this.waitFor("body");
-      document.body.appendChild(mask);
-      const button = document.createElement("div");
-      const root = options.root || "";
-      document.querySelector(root || "body").appendChild(button);
-      button.style.cssText += `
+    waitForNext() {
+      return __async(this, arguments, function* (title = "\u4E0B\u4E00\u6B65", options = {}) {
+        const mask = document.createElement("div");
+        mask.id = "webot-mask";
+        mask.style.cssText += this._maskStyle + (options.maskStyle || "");
+        yield this.waitFor("body");
+        document.body.appendChild(mask);
+        const button = document.createElement("div");
+        const root = options.root || "";
+        document.querySelector(root || "body").appendChild(button);
+        button.style.cssText += `
       z-index: 999999;
       width: auto;
       height: 30px;
@@ -761,38 +798,40 @@ var StardustBrowser = (() => {
       pointer-events: auto;
       border-radius: 6px;
     `;
-      if (!root) {
-        button.style.cssText += `
+        if (!root) {
+          button.style.cssText += `
         position: fixed;
         right: 5px;
         bottom: 5px;
       `;
-      }
-      button.style.cssText += options.style || "";
-      button.onmouseover = () => {
-        button.style.opacity = 0.8;
-      };
-      button.onmouseout = () => {
-        button.style.opacity = 1;
-      };
-      button.textContent = title;
-      return new Promise((resolve) => {
-        button.onclick = () => {
-          button.remove();
-          mask.remove();
-          resolve();
+        }
+        button.style.cssText += options.style || "";
+        button.onmouseover = () => {
+          button.style.opacity = 0.8;
         };
+        button.onmouseout = () => {
+          button.style.opacity = 1;
+        };
+        button.textContent = title;
+        return new Promise((resolve) => {
+          button.onclick = () => {
+            button.remove();
+            mask.remove();
+            resolve();
+          };
+        });
       });
     }
-    async report(title, percent, options = {}, isDone = false) {
-      if (typeof title === "function") {
-        title = await title(this);
-      }
-      let node = document.querySelector("#webot-ui-report-container");
-      if (!node) {
-        node = document.createElement("div");
-        node.id = "webot-ui-report-container";
-        node.style.cssText += `
+    report(_0, _1) {
+      return __async(this, arguments, function* (title, percent, options = {}, isDone = false) {
+        if (typeof title === "function") {
+          title = yield title(this);
+        }
+        let node = document.querySelector("#webot-ui-report-container");
+        if (!node) {
+          node = document.createElement("div");
+          node.id = "webot-ui-report-container";
+          node.style.cssText += `
         position: fixed;
         z-index: 999999;
         top: 10px;
@@ -813,15 +852,15 @@ var StardustBrowser = (() => {
         border-radius: 6px;
         box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.2);
       `;
-        node.onmouseover = () => {
-          node.style.opacity = 0;
-        };
-        node.onmouseout = () => {
-          node.style.opacity = 1;
-        };
-        const percentNode2 = document.createElement("div");
-        percentNode2.id = "webot-ui-report-progress";
-        percentNode2.style.cssText += `
+          node.onmouseover = () => {
+            node.style.opacity = 0;
+          };
+          node.onmouseout = () => {
+            node.style.opacity = 1;
+          };
+          const percentNode2 = document.createElement("div");
+          percentNode2.id = "webot-ui-report-progress";
+          percentNode2.style.cssText += `
         display: none;
         width: 250px;
         margin-right: 10px;
@@ -831,8 +870,8 @@ var StardustBrowser = (() => {
         position: relative;
         overflow: hidden;
       `;
-        const barNode = document.createElement("div");
-        barNode.style.cssText += `
+          const barNode = document.createElement("div");
+          barNode.style.cssText += `
         position: absolute;
         left: 0;
         top: 0;
@@ -840,607 +879,689 @@ var StardustBrowser = (() => {
         background-color: #ff5722;
         width: 0;
       `;
-        barNode.id = "webot-ui-report-progress-bar";
-        percentNode2.appendChild(barNode);
-        node.appendChild(percentNode2);
-        const titleNode2 = document.createElement("span");
-        titleNode2.id = "webot-ui-report-title";
-        titleNode2.style.cssText += `
+          barNode.id = "webot-ui-report-progress-bar";
+          percentNode2.appendChild(barNode);
+          node.appendChild(percentNode2);
+          const titleNode2 = document.createElement("span");
+          titleNode2.id = "webot-ui-report-title";
+          titleNode2.style.cssText += `
         color: darkred;
         font-weight: 600;
       `;
-        node.appendChild(titleNode2);
-        await this.waitFor("body");
-        document.body.appendChild(node);
-      }
-      node.style.cssText += options.style;
-      const titleNode = node.querySelector("#webot-ui-report-title");
-      titleNode.innerHTML = title;
-      titleNode.style.cssText += options.titleStyle || "";
-      const percentNode = node.querySelector("#webot-ui-report-progress");
-      if (typeof percent === "number") {
-        percentNode.style.display = "block";
-        percentNode.style.cssText += options.progressStyle || "";
-        const barNode = percentNode.querySelector("#webot-ui-report-progress-bar");
-        barNode.style.cssText += options.barStyle || "";
-        barNode.style.width = percent + "%";
-      } else {
-        percentNode.style.display = "none";
-      }
-      if (isDone)
-        node.remove();
+          node.appendChild(titleNode2);
+          yield this.waitFor("body");
+          document.body.appendChild(node);
+        }
+        node.style.cssText += options.style;
+        const titleNode = node.querySelector("#webot-ui-report-title");
+        titleNode.innerHTML = title;
+        titleNode.style.cssText += options.titleStyle || "";
+        const percentNode = node.querySelector("#webot-ui-report-progress");
+        if (typeof percent === "number") {
+          percentNode.style.display = "block";
+          percentNode.style.cssText += options.progressStyle || "";
+          const barNode = percentNode.querySelector("#webot-ui-report-progress-bar");
+          barNode.style.cssText += options.barStyle || "";
+          barNode.style.width = percent + "%";
+        } else {
+          percentNode.style.display = "none";
+        }
+        if (isDone)
+          node.remove();
+      });
     }
     sleep(ms) {
       return StardustJs.funcs.sleep(ms);
     }
-    async blur(node, options = {}) {
-      node = await this.waitFor(node, options);
-      node.blur();
+    blur(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.blur();
+      });
     }
-    async box(node, options = {}) {
-      node = await this.waitFor(node, options);
-      return node.getBoundingClientRect();
+    box(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        return node.getBoundingClientRect();
+      });
     }
-    async clear(node, options = {}) {
-      node = await this.waitFor(node, options);
-      node.value = "";
+    clear(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.value = "";
+      });
     }
-    async click(node, options = {}) {
-      node = await this.waitFor(node, options);
-      node.dispatchEvent(this.generator.mouse("click", options, node));
+    click(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.dispatchEvent(this.generator.mouse("click", options, node));
+      });
     }
-    async dblclick(node, options = {}) {
-      options = {
-        clickInterval: this.config.interval,
-        ...options
-      };
-      node = await this.waitFor(node, options);
-      node.dispatchEvent(this.generator.mouse("click", options, node));
-      await this.sleep(options.clickInterval);
-      node.dispatchEvent(this.generator.mouse("click", options, node));
+    dblclick(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        options = __spreadValues({
+          clickInterval: this.config.interval
+        }, options);
+        node = yield this.waitFor(node, options);
+        node.dispatchEvent(this.generator.mouse("click", options, node));
+        yield this.sleep(options.clickInterval);
+        node.dispatchEvent(this.generator.mouse("click", options, node));
+      });
     }
-    async keyboard(node, name, options = {}) {
-      node = await this.waitFor(node, options);
-      node.dispatchEvent(this.generator.keyboard(name, options));
+    keyboard(_0, _1) {
+      return __async(this, arguments, function* (node, name, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.dispatchEvent(this.generator.keyboard(name, options));
+      });
     }
-    async eval(func, args = {}) {
-      if (typeof func === "function") {
-        return func(this, args);
-      }
-      return window.eval(func);
+    eval(_0) {
+      return __async(this, arguments, function* (func, args = {}) {
+        if (typeof func === "function") {
+          return func(this, args);
+        }
+        return window.eval(func);
+      });
     }
-    async evalOn(node, func, options = {}) {
-      node = await this.waitFor(node, options);
-      if (typeof func === "function") {
-        return func(node);
-      }
-      return window.eval(func);
+    evalOn(_0, _1) {
+      return __async(this, arguments, function* (node, func, options = {}) {
+        node = yield this.waitFor(node, options);
+        if (typeof func === "function") {
+          return func(node);
+        }
+        return window.eval(func);
+      });
     }
-    async evalOnAll(node, func, options = {}) {
-      await this.waitFor(node, options);
-      const nodes = await $all(node);
-      if (typeof func === "function") {
-        return func(nodes);
-      }
-      return window.eval(func);
+    evalOnAll(_0, _1) {
+      return __async(this, arguments, function* (node, func, options = {}) {
+        yield this.waitFor(node, options);
+        const nodes = yield $all(node);
+        if (typeof func === "function") {
+          return func(nodes);
+        }
+        return window.eval(func);
+      });
     }
-    async set(node, attr, value, bySetter = false, options = {}) {
-      if (typeof value === "function") {
-        value = await this.eval(value, options);
-      }
-      node = await this.waitFor(node, options);
-      if (bySetter) {
-        node.setAttribute(attr, value);
-      } else {
-        node[attr] = value;
-      }
+    set(_0, _1, _2) {
+      return __async(this, arguments, function* (node, attr, value, bySetter = false, options = {}) {
+        if (typeof value === "function") {
+          value = yield this.eval(value, options);
+        }
+        node = yield this.waitFor(node, options);
+        if (bySetter) {
+          node.setAttribute(attr, value);
+        } else {
+          node[attr] = value;
+        }
+      });
     }
-    async fill(node, text, options = {}) {
-      options = {
-        fillInterval: 10,
-        ...options
-      };
-      node = await this.waitFor(node, options);
-      this.focus(node);
-      this.clear(node);
-      for (let key of text) {
-        await this.sleep(options.fillInterval);
-        this.keydown(node, key);
-        this.keyup(node, key);
-        node.value += key;
-      }
+    fill(_0, _1) {
+      return __async(this, arguments, function* (node, text, options = {}) {
+        options = __spreadValues({
+          fillInterval: 10
+        }, options);
+        node = yield this.waitFor(node, options);
+        this.focus(node);
+        this.clear(node);
+        for (let key of text) {
+          yield this.sleep(options.fillInterval);
+          this.keydown(node, key);
+          this.keyup(node, key);
+          node.value += key;
+        }
+      });
     }
-    async focus(node, options = {}) {
-      node = await this.waitFor(node, options);
-      node.focus();
-      node.dispatchEvent(this.generator.focus());
+    focus(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.focus();
+        node.dispatchEvent(this.generator.focus());
+      });
     }
-    async hover(node, options = {}) {
-      node = await this.waitFor(node, options);
-      node.dispatchEvent(this.generator.mouse("move", options, node));
+    hover(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.dispatchEvent(this.generator.mouse("move", options, node));
+      });
     }
-    async press(node, keys, options = {}) {
-      options = {
-        pressInterval: this.config.interval,
-        ...options
-      };
-      keys = Array.isArray(keys) ? keys : [keys];
-      node = await this.waitFor(node, options);
-      for (let key of keys) {
-        this.keydown(node, key, options);
-        await this.sleep(options.pressInterval);
-        this.keyup(node, key, options);
-        await this.sleep(options.pressInterval);
-      }
+    press(_0, _1) {
+      return __async(this, arguments, function* (node, keys, options = {}) {
+        options = __spreadValues({
+          pressInterval: this.config.interval
+        }, options);
+        keys = Array.isArray(keys) ? keys : [keys];
+        node = yield this.waitFor(node, options);
+        for (let key of keys) {
+          this.keydown(node, key, options);
+          yield this.sleep(options.pressInterval);
+          this.keyup(node, key, options);
+          yield this.sleep(options.pressInterval);
+        }
+      });
     }
-    async select(node, value, options = {}) {
-      node = await this.waitFor(node, options);
-      node.value = value;
-      this.change(node, options);
+    select(_0, _1) {
+      return __async(this, arguments, function* (node, value, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.value = value;
+        this.change(node, options);
+      });
     }
-    async check(node, value, options = {}) {
-      node = await this.waitFor(node, options);
-      node.checked = value;
-      this.change(node, options);
+    check(_0, _1) {
+      return __async(this, arguments, function* (node, value, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.checked = value;
+        this.change(node, options);
+      });
     }
-    async jump(func, options = {}) {
-      const url = await this.eval(func, options);
-      location.href = url;
+    jump(_0) {
+      return __async(this, arguments, function* (func, options = {}) {
+        const url = yield this.eval(func, options);
+        location.href = url;
+      });
     }
-    async mouse(node, name, options = {}) {
-      node = await this.waitFor(node, options);
-      node.dispatchEvent(this.generator.mouse(name, options, node));
+    mouse(_0, _1) {
+      return __async(this, arguments, function* (node, name, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.dispatchEvent(this.generator.mouse(name, options, node));
+      });
     }
-    async keyboard(method, node, keys, options = {}) {
-      options = {
-        keyboardInterval: this.config.interval,
-        ...options
-      };
-      node = await this.waitFor(node, options);
-      for (let key of keys) {
-        this["key" + method](node, key, options);
-        await this.sleep(options.keyboardInterval);
-      }
+    keyboard(_0, _1, _2) {
+      return __async(this, arguments, function* (method, node, keys, options = {}) {
+        options = __spreadValues({
+          keyboardInterval: this.config.interval
+        }, options);
+        node = yield this.waitFor(node, options);
+        for (let key of keys) {
+          this["key" + method](node, key, options);
+          yield this.sleep(options.keyboardInterval);
+        }
+      });
     }
     enter(node, options = {}) {
       this.press(node, "Enter", options);
     }
-    async view(node, options = {}) {
-      node = await this.waitFor(node, options);
-      node.scrollIntoViewIfNeeded();
+    view(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        node.scrollIntoViewIfNeeded();
+      });
     }
-    async attr(node, name, options = {}) {
-      node = await this.waitFor(node, options);
-      return node.getAttribute(name, options);
+    attr(_0, _1) {
+      return __async(this, arguments, function* (node, name, options = {}) {
+        node = yield this.waitFor(node, options);
+        return node.getAttribute(name, options);
+      });
     }
-    async call(node, method, options = {}) {
-      node = await this.waitFor(node, options);
-      return node[method](options);
+    call(_0, _1) {
+      return __async(this, arguments, function* (node, method, options = {}) {
+        node = yield this.waitFor(node, options);
+        return node[method](options);
+      });
     }
-    async html(node, options = {}) {
-      node = await this.waitFor(node, options);
-      return node.innerHTML;
+    html(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        return node.innerHTML;
+      });
     }
-    async text(node, options = {}) {
-      node = await this.waitFor(node, options);
-      return node.innerText;
+    text(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        return node.innerText;
+      });
     }
-    async content(node, options = {}) {
-      node = await this.waitFor(node, options);
-      return node.textContent;
+    content(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        return node.textContent;
+      });
     }
-    async if(func, operations, ...props) {
-      this._isInIf = true;
-      const ok = await this.eval(func, ...props);
-      if (ok) {
+    if(func, operations, ...props) {
+      return __async(this, null, function* () {
+        this._isInIf = true;
+        const ok = yield this.eval(func, ...props);
+        if (ok) {
+          if (typeof operations === "function") {
+            operations = yield operations(this, ...props);
+          }
+          yield this.execute(operations, ...props);
+        }
+      });
+    }
+    elseIf(func, operations, ...props) {
+      return __async(this, null, function* () {
+        const ok = yield this.eval(func, ...props);
+        if (ok) {
+          if (typeof operations === "function") {
+            operations = yield operations(this, ...props);
+          }
+          yield this.execute(operations, ...props);
+        }
+      });
+    }
+    else(operations, ...props) {
+      return __async(this, null, function* () {
+        if (this._isInIf) {
+          if (typeof operations === "function") {
+            operations = yield operations(this, ...props);
+          }
+          yield this.execute(operations, ...props);
+        }
+        this._isInIf = false;
+      });
+    }
+    switch(value, cases, ...props) {
+      return __async(this, null, function* () {
+        if (typeof value === "function") {
+          value = yield value(this, ...props);
+        }
+        for (let [caseValue, operations] of cases) {
+          if (typeof caseValue === "function") {
+            caseValue = yield caseValue(this, ...props);
+          }
+          caseValue = Array.isArray(caseValue) ? caseValue : [caseValue];
+          if (caseValue.includes(value)) {
+            yield this.execute(operations, ...props);
+            return;
+          }
+        }
+        const last = cases[cases.length - 1];
+        if (last[0] === "default") {
+          yield this.execute(last[1], ...props);
+        }
+      });
+    }
+    promiseAll(operations) {
+      return __async(this, null, function* () {
         if (typeof operations === "function") {
-          operations = await operations(this, ...props);
+          operations = yield operations(this);
         }
-        await this.execute(operations, ...props);
-      }
+        return Promise.all(operations.map((ele) => {
+          return this[ele[0]](...ele.slice(1)).catch((err) => {
+            console.error(err);
+          });
+        }));
+      });
     }
-    async elseIf(func, operations, ...props) {
-      const ok = await this.eval(func, ...props);
-      if (ok) {
+    promiseRace(operations) {
+      return __async(this, null, function* () {
         if (typeof operations === "function") {
-          operations = await operations(this, ...props);
+          operations = yield operations(this);
         }
-        await this.execute(operations, ...props);
-      }
+        return Promise.race(operations.map((ele) => {
+          return this[ele[0]](...ele.slice(1)).catch((err) => {
+            console.error(err);
+          });
+        }));
+      });
     }
-    async else(operations, ...props) {
-      if (this._isInIf) {
+    promiseAny(operations) {
+      return __async(this, null, function* () {
         if (typeof operations === "function") {
-          operations = await operations(this, ...props);
+          operations = yield operations(this);
         }
-        await this.execute(operations, ...props);
-      }
-      this._isInIf = false;
+        return Promise.any(operations.map((ele) => {
+          return this[ele[0]](...ele.slice(1)).catch((err) => {
+            console.error(err);
+          });
+        }));
+      });
     }
-    async switch(value, cases, ...props) {
-      if (typeof value === "function") {
-        value = await value(this, ...props);
-      }
-      for (let [caseValue, operations] of cases) {
-        if (typeof caseValue === "function") {
-          caseValue = await caseValue(this, ...props);
+    for(func, operations, ...props) {
+      return __async(this, null, function* () {
+        let items = func;
+        if (typeof func === "function") {
+          items = yield func(this, ...props);
         }
-        caseValue = Array.isArray(caseValue) ? caseValue : [caseValue];
-        if (caseValue.includes(value)) {
-          await this.execute(operations, ...props);
-          return;
+        if (typeof items === "number") {
+          items = Array.from({ length: items }).map((_, i) => i);
         }
-      }
-      const last = cases[cases.length - 1];
-      if (last[0] === "default") {
-        await this.execute(last[1], ...props);
-      }
-    }
-    async promiseAll(operations) {
-      if (typeof operations === "function") {
-        operations = await operations(this);
-      }
-      return Promise.all(operations.map((ele) => {
-        return this[ele[0]](...ele.slice(1)).catch((err) => {
-          console.error(err);
-        });
-      }));
-    }
-    async promiseRace(operations) {
-      if (typeof operations === "function") {
-        operations = await operations(this);
-      }
-      return Promise.race(operations.map((ele) => {
-        return this[ele[0]](...ele.slice(1)).catch((err) => {
-          console.error(err);
-        });
-      }));
-    }
-    async promiseAny(operations) {
-      if (typeof operations === "function") {
-        operations = await operations(this);
-      }
-      return Promise.any(operations.map((ele) => {
-        return this[ele[0]](...ele.slice(1)).catch((err) => {
-          console.error(err);
-        });
-      }));
-    }
-    async for(func, operations, ...props) {
-      let items = func;
-      if (typeof func === "function") {
-        items = await func(this, ...props);
-      }
-      if (typeof items === "number") {
-        items = Array.from({ length: items }).map((_, i) => i);
-      }
-      for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        let ops = operations;
-        if (typeof operations === "function") {
-          ops = await operations(this, item, i, ...props);
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          let ops = operations;
+          if (typeof operations === "function") {
+            ops = yield operations(this, item, i, ...props);
+          }
+          yield this.execute(ops, [item, i], ...props);
         }
-        await this.execute(ops, [item, i], ...props);
-      }
+      });
     }
-    async while(func, operations, options = {}) {
-      let i = 0;
-      while (true) {
-        const ok = await this.eval(func, options);
-        if (!ok)
-          break;
-        let ops = operations;
-        if (typeof operations === "function") {
-          ops = await operations(this, i++);
+    while(_0, _1) {
+      return __async(this, arguments, function* (func, operations, options = {}) {
+        let i = 0;
+        while (true) {
+          const ok = yield this.eval(func, options);
+          if (!ok)
+            break;
+          let ops = operations;
+          if (typeof operations === "function") {
+            ops = yield operations(this, i++);
+          }
+          yield this.execute(ops);
         }
-        await this.execute(ops);
-      }
+      });
     }
-    async dynamic(func) {
-      const operations = await this.eval(func);
-      await this.execute(operations);
+    dynamic(func) {
+      return __async(this, null, function* () {
+        const operations = yield this.eval(func);
+        yield this.execute(operations);
+      });
     }
     func(func, ...props) {
       return this.eval(func, ...props);
     }
-    async prompt(node, options = {}) {
-      options = {
-        placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
-        ...options
-      };
-      node = await this.waitFor(node, options);
-      const value = window.prompt(options.placeholder);
-      this.fill(node, value, options);
-    }
-    async keydown(node, key, options = {}) {
-      node = await this.waitFor(node, options);
-      this.keyboard(node, "keydown", { key, ...options });
-    }
-    async keyup(node, key, options = {}) {
-      node = await this.waitFor(node, options);
-      this.keyboard(node, "keyup", { key, ...options });
-    }
-    async prompt(node, options = {}) {
-      options = {
-        placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801",
-        ...options
-      };
-      node = await this.waitFor(node);
-      const text = window.prompt(options.placeholder);
-      await this.fill(node, text, options);
-    }
-    async fillOcr(node, imgSelector, options = {}) {
-      options = {
-        ...options
-      };
-      node = await this.waitFor(node, options);
-      const { ocrCaptchaUrl } = options;
-      if (ocrCaptchaUrl) {
-        const base64 = StardustBrowser.funcs.img2Base64(imgSelector);
-        const data = await fetch(ocrCaptchaUrl, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ file: base64 })
-        }).then((res) => res.json());
-        return this.fill(node, data.text, options);
-      }
-      return this.prompt(node, options);
-    }
-    async save(data, saveTo, key, options = {}) {
-      if (typeof data === "function") {
-        data = await data(this);
-      }
-      if (typeof saveTo === "object") {
-        StardustJs.highdict.set(saveTo, key, data);
-        return saveTo;
-      }
-      throw "\u4E0D\u652F\u6301\u7684 saveTo \u7C7B\u578B";
-    }
-    async pick(func, name) {
-      this.data[name] = await this.eval(func);
-      return this.data[name];
-    }
-    async pickList(optionsOrFunc, ...props) {
-      let list = [];
-      if (typeof optionsOrFunc === "object") {
-        const { each, saveTo } = optionsOrFunc;
-        const fields = optionsOrFunc.fields.map((ele) => {
-          if (typeof ele === "object") {
-            return ele;
-          }
-          const [prop, selector2, type] = ele.split("::");
-          return { prop, selector: selector2, type };
-        });
-        list = $all(each).map((n) => {
-          const item = {};
-          fields.forEach((field) => {
-            const value = n.$one(field.selector)?._text();
-            item[field.prop] = field.type === "number" ? parseFloat(value) : value;
-          });
-          return item;
-        });
-      } else {
-        list = await this.eval(optionsOrFunc);
-      }
-      if (props.length) {
-        return this.save(list, ...props);
-      }
-      return list;
-    }
-    async exportTable(options = {}) {
-      options = {
-        report: true,
-        isElementUI: false,
-        type: "excel",
-        log: console.log,
-        withInput: true,
-        ...options
-      };
-      let selectors = {};
-      if (options.isElementUI) {
-        selectors = {
-          root: "",
-          active: ".el-pager .active",
-          first: ".el-pager .number",
-          last: ".el-pager .number:last-child",
-          next: ".el-pagination .btn-next",
-          size: ".el-pagination__sizes .el-select input",
-          sizer: ".el-pagination__sizes .el-select",
-          pageSize: '//span[contains(text(),"100\u6761/\u9875")]',
-          loading: ".el-loading-mask",
-          headerTr: ".el-table__header-wrapper thead tr",
-          bodyTrs: ".el-table__fixed .el-table__fixed-body-wrapper table tbody tr",
-          headerTh: "th",
-          bodyTd: "td"
-        };
-      }
-      selectors = {
-        ...selectors,
-        ...options.selectors
-      };
-      if (selectors.root) {
-        for (let key in selectors) {
-          if (key === "root")
-            continue;
-          selectors[key] = selectors.root + " " + selectors[key];
-        }
-      }
-      const isFirst = () => {
-        if (options.isFirst)
-          return options.isFirst();
-        const active = $one(selectors.active);
-        const first = $one(selectors.first);
-        const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
-        return active === first || page2 === 1;
-      };
-      const isDone = () => {
-        if (options.isDone)
-          return options.isDone();
-        const active = $one(selectors.active);
-        const last = $one(selectors.last);
-        const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
-        return active === last || page2 === getPageCount();
-      };
-      const setFirst = async () => {
-        if (options.setFirst)
-          return options.setFirst();
-        const first = $one(selectors.first);
-        if (["INPUT", "TEXTAREA"].includes(first)) {
-          await this.fill(first, "1");
-          await this.enter(first);
-        } else {
-          await this.click(first);
-        }
-      };
-      const setNext = async () => {
-        if (options.setNext)
-          return options.setNext();
-        await this.click($one(selectors.next));
-      };
-      const getCurrentSize = () => {
-        if (options.getCurrentSize)
-          return options.getCurrentSize();
-        const node = $one(selectors.size);
-        const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
-        return page2;
-      };
-      const getSettingSize = () => {
-        if (options.getSettingSize)
-          return options.getSettingSize();
-        const node = $one(selectors.pageSize);
-        const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
-        return page2;
-      };
-      const setSize = async () => {
-        if (options.setSize)
-          return options.setSize();
-        if (selectors.sizer) {
-          const node = $one(selectors.sizer);
-          if (node.nodeName === "SELECT") {
-            await this.select(node, $one(selectors.pageSize).value);
-            return;
-          } else {
-            await this.click(selectors.sizer);
-          }
-        }
-        await this.click(selectors.pageSize);
-      };
-      const waitLoading = async () => {
-        if (options.waitLoading)
-          return options.waitLoading();
-        await this.waitFor(selectors.loading);
-        await this.waitForFunction(() => !$one(selectors.loading)?._rect()?.width);
-      };
-      const getHeader = () => {
-        if (options.getHeader)
-          return options.getHeader();
-        const headerTr = $one(selectors.headerTr);
-        return headerTr.$all(selectors.headerTh).map((th) => th._text());
-      };
-      const getRows = () => {
-        if (options.getRows)
-          return options.getRows();
-        const bodyTrs = $all(selectors.bodyTrs);
-        return bodyTrs.map((tr) => tr.$all(selectors.bodyTd).map((td) => {
-          let text = td._text();
-          if (options.withInput) {
-            const inputs = [
-              ...td.$all("input").filter((i) => i.type !== "file"),
-              ...td.$all("select"),
-              ...td.$all("textarea")
-            ];
-            text += inputs.map((i) => i.value + "").join(",");
-          }
-          return text;
-        }));
-      };
-      const getPageCount = () => {
-        if (options.getPageCount)
-          return options.getPageCount();
-        return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1;
-      };
-      options.report && this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
-      options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
-      if (getRows().length && getCurrentSize() !== getSettingSize()) {
-        options.report && this.report("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
-        options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
-        await setSize();
-        options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
-        await waitLoading();
-      }
-      options.log("\u83B7\u53D6\u8868\u5934");
-      let header = getHeader();
-      options.log("\u8868\u5934: ", header);
-      const data = [];
-      let pageCount = 0;
-      let page = 0;
-      if (options.report) {
-        pageCount = getPageCount();
-        this.report("\u603B\u5171 " + pageCount + " \u9875");
-        options.log("\u603B\u5171 " + pageCount + " \u9875");
-      }
-      if (!isFirst()) {
-        options.log("\u4E0D\u662F\u7B2C\u4E00\u9875\uFF0C\u5E94\u8BBE\u7F6E\u7B2C\u4E00\u9875");
-        await setFirst();
-        options.log("\u8BBE\u7F6E\u7B2C\u4E00\u9875\u540E\u7B49\u5F85\u52A0\u8F7D");
-        await waitLoading();
-      }
-      while (true) {
-        if (options.report) {
-          page++;
-          options.log(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875 ` + page / pageCount * 100 + "%");
-          this.report(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
-        }
-        options.log("\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E");
-        data.push(...getRows());
-        if (!data.length) {
-          throw "\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E\uFF0C\u5931\u8D25";
-        }
-        options.log("\u5171\u5DF2\u6293\u5230 " + data.length + " \u6761\u6570\u636E");
-        if (isDone()) {
-          options.log("\u6570\u636E\u6293\u53D6\u5B8C\u6BD5");
-          break;
-        }
-        options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875: " + (page + 1));
-        await setNext();
-        options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875\u540E\u7B49\u5F85\u52A0\u8F7D");
-        await waitLoading();
-      }
-      options.log("\u51C6\u5907\u5BFC\u51FA", header, data);
-      if (data.length && header.length > data[0].length) {
-        header = header.slice(0, data[0].length);
-      }
-      options.beforeExport?.({ header, data });
-      let method;
-      if (options.type === "excel") {
-        method = "export2Excel";
-      } else if (options.type === "csv") {
-        method = "export2Csv";
-      } else {
-        const error = "\u672A\u77E5\u7684\u5BFC\u51FA\u6A21\u5F0F: " + options.type;
-        options.log(error);
-        throw error;
-      }
-      StardustBrowser.excel[method]({
-        header,
-        data,
-        filename: options.filename || "\u5BFC\u51FA"
+    prompt(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        options = __spreadValues({
+          placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801"
+        }, options);
+        node = yield this.waitFor(node, options);
+        const value = window.prompt(options.placeholder);
+        this.fill(node, value, options);
       });
-      if (options.report) {
-        options.log("\u6B63\u5728\u5BFC\u51FA excel ...");
-        this.report("\u6B63\u5728\u5BFC\u51FA excel ...");
-        this.sleep(1e3).then(() => {
-          options.log("\u5DF2\u5B8C\u6210\u5BFC\u51FA");
-          this.report("\u5DF2\u5B8C\u6210\u5BFC\u51FA", 100, {}, true);
+    }
+    keydown(_0, _1) {
+      return __async(this, arguments, function* (node, key, options = {}) {
+        node = yield this.waitFor(node, options);
+        this.keyboard(node, "keydown", __spreadValues({ key }, options));
+      });
+    }
+    keyup(_0, _1) {
+      return __async(this, arguments, function* (node, key, options = {}) {
+        node = yield this.waitFor(node, options);
+        this.keyboard(node, "keyup", __spreadValues({ key }, options));
+      });
+    }
+    prompt(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        options = __spreadValues({
+          placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801"
+        }, options);
+        node = yield this.waitFor(node);
+        const text = window.prompt(options.placeholder);
+        yield this.fill(node, text, options);
+      });
+    }
+    fillOcr(_0, _1) {
+      return __async(this, arguments, function* (node, imgSelector, options = {}) {
+        options = __spreadValues({}, options);
+        node = yield this.waitFor(node, options);
+        const { ocrCaptchaUrl } = options;
+        if (ocrCaptchaUrl) {
+          const base64 = StardustBrowser.funcs.img2Base64(imgSelector);
+          const data = yield fetch(ocrCaptchaUrl, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ file: base64 })
+          }).then((res) => res.json());
+          return this.fill(node, data.text, options);
+        }
+        return this.prompt(node, options);
+      });
+    }
+    save(_0, _1, _2) {
+      return __async(this, arguments, function* (data, saveTo, key, options = {}) {
+        if (typeof data === "function") {
+          data = yield data(this);
+        }
+        if (typeof saveTo === "object") {
+          StardustJs.highdict.set(saveTo, key, data);
+          return saveTo;
+        }
+        throw "\u4E0D\u652F\u6301\u7684 saveTo \u7C7B\u578B";
+      });
+    }
+    pick(func, name) {
+      return __async(this, null, function* () {
+        this.data[name] = yield this.eval(func);
+        return this.data[name];
+      });
+    }
+    pickList(optionsOrFunc, ...props) {
+      return __async(this, null, function* () {
+        let list = [];
+        if (typeof optionsOrFunc === "object") {
+          const { each, saveTo } = optionsOrFunc;
+          const fields = optionsOrFunc.fields.map((ele) => {
+            if (typeof ele === "object") {
+              return ele;
+            }
+            const [prop, selector2, type] = ele.split("::");
+            return { prop, selector: selector2, type };
+          });
+          list = $all(each).map((n) => {
+            const item = {};
+            fields.forEach((field) => {
+              var _a;
+              const value = (_a = n.$one(field.selector)) == null ? void 0 : _a._text();
+              item[field.prop] = field.type === "number" ? parseFloat(value) : value;
+            });
+            return item;
+          });
+        } else {
+          list = yield this.eval(optionsOrFunc);
+        }
+        if (props.length) {
+          return this.save(list, ...props);
+        }
+        return list;
+      });
+    }
+    exportTable() {
+      return __async(this, arguments, function* (options = {}) {
+        var _a;
+        options = __spreadValues({
+          report: true,
+          isElementUI: false,
+          type: "excel",
+          log: console.log,
+          withInput: true
+        }, options);
+        let selectors = {};
+        if (options.isElementUI) {
+          selectors = {
+            root: "",
+            active: ".el-pager .active",
+            first: ".el-pager .number",
+            last: ".el-pager .number:last-child",
+            next: ".el-pagination .btn-next",
+            size: ".el-pagination__sizes .el-select input",
+            sizer: ".el-pagination__sizes .el-select",
+            pageSize: '//span[contains(text(),"100\u6761/\u9875")]',
+            loading: ".el-loading-mask",
+            headerTr: ".el-table__header-wrapper thead tr",
+            bodyTrs: ".el-table__fixed .el-table__fixed-body-wrapper table tbody tr",
+            headerTh: "th",
+            bodyTd: "td"
+          };
+        }
+        selectors = __spreadValues(__spreadValues({}, selectors), options.selectors);
+        if (selectors.root) {
+          for (let key in selectors) {
+            if (key === "root")
+              continue;
+            selectors[key] = selectors.root + " " + selectors[key];
+          }
+        }
+        const isFirst = () => {
+          if (options.isFirst)
+            return options.isFirst();
+          const active = $one(selectors.active);
+          const first = $one(selectors.first);
+          const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
+          return active === first || page2 === 1;
+        };
+        const isDone = () => {
+          if (options.isDone)
+            return options.isDone();
+          const active = $one(selectors.active);
+          const last = $one(selectors.last);
+          const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
+          return active === last || page2 === getPageCount();
+        };
+        const setFirst = () => __async(this, null, function* () {
+          if (options.setFirst)
+            return options.setFirst();
+          const first = $one(selectors.first);
+          if (["INPUT", "TEXTAREA"].includes(first)) {
+            yield this.fill(first, "1");
+            yield this.enter(first);
+          } else {
+            yield this.click(first);
+          }
         });
-      }
-      return { header, data };
+        const setNext = () => __async(this, null, function* () {
+          if (options.setNext)
+            return options.setNext();
+          yield this.click($one(selectors.next));
+        });
+        const getCurrentSize = () => {
+          if (options.getCurrentSize)
+            return options.getCurrentSize();
+          const node = $one(selectors.size);
+          const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
+          return page2;
+        };
+        const getSettingSize = () => {
+          if (options.getSettingSize)
+            return options.getSettingSize();
+          const node = $one(selectors.pageSize);
+          const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
+          return page2;
+        };
+        const setSize = () => __async(this, null, function* () {
+          if (options.setSize)
+            return options.setSize();
+          if (selectors.sizer) {
+            const node = $one(selectors.sizer);
+            if (node.nodeName === "SELECT") {
+              yield this.select(node, $one(selectors.pageSize).value);
+              return;
+            } else {
+              yield this.click(selectors.sizer);
+            }
+          }
+          yield this.click(selectors.pageSize);
+        });
+        const waitLoading = () => __async(this, null, function* () {
+          if (options.waitLoading)
+            return options.waitLoading();
+          yield this.waitFor(selectors.loading);
+          yield this.waitForFunction(() => {
+            var _a2, _b;
+            return !((_b = (_a2 = $one(selectors.loading)) == null ? void 0 : _a2._rect()) == null ? void 0 : _b.width);
+          });
+        });
+        const getHeader = () => {
+          if (options.getHeader)
+            return options.getHeader();
+          const headerTr = $one(selectors.headerTr);
+          return headerTr.$all(selectors.headerTh).map((th) => th._text());
+        };
+        const getRows = () => {
+          if (options.getRows)
+            return options.getRows();
+          const bodyTrs = $all(selectors.bodyTrs);
+          return bodyTrs.map((tr) => tr.$all(selectors.bodyTd).map((td) => {
+            let text = td._text();
+            if (options.withInput) {
+              const inputs = [
+                ...td.$all("input").filter((i) => i.type !== "file"),
+                ...td.$all("select"),
+                ...td.$all("textarea")
+              ];
+              text += inputs.map((i) => i.value + "").join(",");
+            }
+            return text;
+          }));
+        };
+        const getPageCount = () => {
+          var _a2;
+          if (options.getPageCount)
+            return options.getPageCount();
+          return (((_a2 = $one(selectors.pageCount || selectors.last)) == null ? void 0 : _a2._text()) || 1) * 1;
+        };
+        options.report && this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
+        options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
+        if (getRows().length && getCurrentSize() !== getSettingSize()) {
+          options.report && this.report("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
+          options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
+          yield setSize();
+          options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
+          yield waitLoading();
+        }
+        options.log("\u83B7\u53D6\u8868\u5934");
+        let header = getHeader();
+        options.log("\u8868\u5934: ", header);
+        const data = [];
+        let pageCount = 0;
+        let page = 0;
+        if (options.report) {
+          pageCount = getPageCount();
+          this.report("\u603B\u5171 " + pageCount + " \u9875");
+          options.log("\u603B\u5171 " + pageCount + " \u9875");
+        }
+        if (!isFirst()) {
+          options.log("\u4E0D\u662F\u7B2C\u4E00\u9875\uFF0C\u5E94\u8BBE\u7F6E\u7B2C\u4E00\u9875");
+          yield setFirst();
+          options.log("\u8BBE\u7F6E\u7B2C\u4E00\u9875\u540E\u7B49\u5F85\u52A0\u8F7D");
+          yield waitLoading();
+        }
+        while (true) {
+          if (options.report) {
+            page++;
+            options.log(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875 ` + page / pageCount * 100 + "%");
+            this.report(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
+          }
+          options.log("\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E");
+          data.push(...getRows());
+          if (!data.length) {
+            throw "\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E\uFF0C\u5931\u8D25";
+          }
+          options.log("\u5171\u5DF2\u6293\u5230 " + data.length + " \u6761\u6570\u636E");
+          if (isDone()) {
+            options.log("\u6570\u636E\u6293\u53D6\u5B8C\u6BD5");
+            break;
+          }
+          options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875: " + (page + 1));
+          yield setNext();
+          options.log("\u8BBE\u7F6E\u4E0B\u4E00\u9875\u540E\u7B49\u5F85\u52A0\u8F7D");
+          yield waitLoading();
+        }
+        options.log("\u51C6\u5907\u5BFC\u51FA", header, data);
+        if (data.length && header.length > data[0].length) {
+          header = header.slice(0, data[0].length);
+        }
+        (_a = options.beforeExport) == null ? void 0 : _a.call(options, { header, data });
+        let method;
+        if (options.type === "excel") {
+          method = "export2Excel";
+        } else if (options.type === "csv") {
+          method = "export2Csv";
+        } else {
+          const error = "\u672A\u77E5\u7684\u5BFC\u51FA\u6A21\u5F0F: " + options.type;
+          options.log(error);
+          throw error;
+        }
+        StardustBrowser.excel[method]({
+          header,
+          data,
+          filename: options.filename || "\u5BFC\u51FA"
+        });
+        if (options.report) {
+          options.log("\u6B63\u5728\u5BFC\u51FA excel ...");
+          this.report("\u6B63\u5728\u5BFC\u51FA excel ...");
+          this.sleep(1e3).then(() => {
+            options.log("\u5DF2\u5B8C\u6210\u5BFC\u51FA");
+            this.report("\u5DF2\u5B8C\u6210\u5BFC\u51FA", 100, {}, true);
+          });
+        }
+        return { header, data };
+      });
     }
     title(title, options = {}) {
-      options = {
-        resetable: false,
-        ...options
-      };
+      options = __spreadValues({
+        resetable: false
+      }, options);
       document.title = title;
       if (!options.resetable) {
         Object.defineProperty(document, "title", {
@@ -1449,63 +1570,72 @@ var StardustBrowser = (() => {
         });
       }
     }
-    async comment(message, options, ...props) {
-      if (typeof message === "function") {
-        message = await message(this, ...props);
-      }
-      console.log(message);
-    }
-    async fetch(urlOrList, options, transformer, ...props) {
-      if (typeof urlOrList === "function") {
-        urlOrList = await urlOrList(this);
-      }
-      const isArray = Array.isArray(urlOrList);
-      urlOrList = isArray ? urlOrList : [[urlOrList, options]];
-      const list = await Promise.all(urlOrList.map(async (ele, index) => {
-        const url = ele[0];
-        const op = { ...options, ...ele[1] };
-        const { type = "json" } = op;
-        let data = await fetch(url, op).then((res) => res[type]());
-        transformer = op.transformer || transformer;
-        if (transformer) {
-          data = await transformer(data, ele, index);
+    comment(message, options, ...props) {
+      return __async(this, null, function* () {
+        if (typeof message === "function") {
+          message = yield message(this, ...props);
         }
-        return data;
-      }));
-      const result = isArray ? list : list[0];
-      if (props.length) {
-        return this.save(result, ...props);
-      }
-      return result;
+        console.log(message);
+      });
     }
-    async assert(func, message) {
-      const ok = await this.eval(func);
-      if (ok) {
-        return this.comment("\u65AD\u8A00\u5931\u8D25: " + message);
-      }
-      return funcs.sleep(Number.MAX_SAFE_INTEGER);
+    fetch(urlOrList, options, transformer, ...props) {
+      return __async(this, null, function* () {
+        if (typeof urlOrList === "function") {
+          urlOrList = yield urlOrList(this);
+        }
+        const isArray = Array.isArray(urlOrList);
+        urlOrList = isArray ? urlOrList : [[urlOrList, options]];
+        const list = yield Promise.all(urlOrList.map((ele, index) => __async(this, null, function* () {
+          const url = ele[0];
+          const op = __spreadValues(__spreadValues({}, options), ele[1]);
+          const { type = "json" } = op;
+          let data = yield fetch(url, op).then((res) => res[type]());
+          transformer = op.transformer || transformer;
+          if (transformer) {
+            data = yield transformer(data, ele, index);
+          }
+          return data;
+        })));
+        const result = isArray ? list : list[0];
+        if (props.length) {
+          return this.save(result, ...props);
+        }
+        return result;
+      });
     }
-    async change(node, options = {}) {
-      node = await this.waitFor(node, options);
-      this.custom(node, "change", options);
+    assert(func, message) {
+      return __async(this, null, function* () {
+        const ok = yield this.eval(func);
+        if (ok) {
+          return this.comment("\u65AD\u8A00\u5931\u8D25: " + message);
+        }
+        return funcs.sleep(Number.MAX_SAFE_INTEGER);
+      });
+    }
+    change(_0) {
+      return __async(this, arguments, function* (node, options = {}) {
+        node = yield this.waitFor(node, options);
+        this.custom(node, "change", options);
+      });
     }
     custom(node, name, options = {}) {
       node = typeof node === "string" ? $one(node) : node;
-      node.dispatchEvent(new Event(name, {
+      node.dispatchEvent(new Event(name, __spreadValues({
         bubbles: true,
         cancelable: true,
-        view: window,
-        ...options
-      }));
+        view: window
+      }, options)));
     }
-    async execute(operations, options = {}) {
-      for (let i = 0, len = operations.length; i < len; i++) {
-        if (this.config.slow && i) {
-          await this.sleep(this.config.slow);
+    execute(_0) {
+      return __async(this, arguments, function* (operations, options = {}) {
+        for (let i = 0, len = operations.length; i < len; i++) {
+          if (this.config.slow && i) {
+            yield this.sleep(this.config.slow);
+          }
+          const [command, ...props] = operations[i];
+          yield this[command](...props);
         }
-        const [command, ...props] = operations[i];
-        await this[command](...props);
-      }
+      });
     }
   };
   UIExecutor.EventGenerator = EventGenerator;
@@ -1515,10 +1645,9 @@ var StardustBrowser = (() => {
   var Fetcher = class {
     constructor(baseUrl = "", headers = {}, options = {}) {
       this._baseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
-      this._headers = {
-        "content-type": "application/json",
-        ...headers
-      };
+      this._headers = __spreadValues({
+        "content-type": "application/json"
+      }, headers);
       this._options = options;
     }
     baseUrl(baseUrl) {
@@ -1526,26 +1655,30 @@ var StardustBrowser = (() => {
     }
     headers(headers = {}, replace = false) {
       if (replace)
-        this._headers = { ...headers };
+        this._headers = __spreadValues({}, headers);
       else
         Object.assign(this._headers, headers);
     }
     options(options = {}, replace = false) {
       if (replace)
-        this._options = { ...options };
+        this._options = __spreadValues({}, options);
       else
         Object.assign(this._options, options);
     }
     fetch(url, options = {}) {
-      options = { ...this._options, ...options };
-      let {
+      options = __spreadValues(__spreadValues({}, this._options), options);
+      let _a = options, {
         type = "json",
         method = "GET",
         headers = {},
-        retries = 0,
-        ...others
-      } = options;
-      headers = { ...this._headers, ...headers };
+        retries = 0
+      } = _a, others = __objRest(_a, [
+        "type",
+        "method",
+        "headers",
+        "retries"
+      ]);
+      headers = __spreadValues(__spreadValues({}, this._headers), headers);
       let contentType = headers["content-type"].toLowerCase();
       if (others.body && typeof others.body === "object") {
         if (others.body instanceof URLSearchParams) {
@@ -1571,44 +1704,42 @@ var StardustBrowser = (() => {
         url = this._baseUrl + (url.startsWith("/") ? url : "/" + url);
       }
       if (others.params) {
-        others.params = {
-          ...StardustJs.funcs.decodeQuery(url),
-          ...others.params
-        };
+        others.params = __spreadValues(__spreadValues({}, StardustJs.funcs.decodeQuery(url)), others.params);
         const search = StardustJs.funcs.encodeQuery(others.params);
         url = url.split("?")[0] + "?" + search;
       }
-      return fetch(url, { ...others, headers, method }).then((res) => res[type]()).catch(() => {
+      return fetch(url, __spreadProps(__spreadValues({}, others), { headers, method })).then((res) => res[type]()).catch(() => {
         if (retries)
-          return this.fetch(url, {
-            ...options,
+          return this.fetch(url, __spreadProps(__spreadValues({}, options), {
             retries: retries - 1
-          });
+          }));
       });
     }
-    async queryAll(size, func, onProgress, options = {}) {
-      const { limit = 10, report = true, title = "" } = options;
-      const executor = report ? new ui_executor_default() : null;
-      let count = 0;
-      const [total, all] = await func(1, size);
-      count = all.length;
-      const percent = (count / total * 100).toFixed(2) * 1;
-      if (report)
-        executor.report(title + " \u6293\u53D6\u5230 " + count + "\u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent + "%", percent);
-      onProgress?.(percent, all);
-      if (total > size) {
-        const results = await StardustJs.promises.schedule(async (i) => {
-          const [_, rows] = await func(i + 2, size);
-          count += rows.length;
-          const percent2 = (count / total * 100).toFixed(2) * 1;
-          if (report)
-            executor.report(title + " \u6293\u53D6\u5230 " + count + " \u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent2 + "%", percent2);
-          onProgress?.(percent2, rows);
-          return rows;
-        }, Math.ceil(total / size) - 1, limit);
-        results.forEach((r) => all.push(...r));
-      }
-      return all;
+    queryAll(_0, _1, _2) {
+      return __async(this, arguments, function* (size, func, onProgress, options = {}) {
+        const { limit = 10, report = true, title = "" } = options;
+        const executor = report ? new ui_executor_default() : null;
+        let count = 0;
+        const [total, all] = yield func(1, size);
+        count = all.length;
+        const percent = (count / total * 100).toFixed(2) * 1;
+        if (report)
+          executor.report(title + " \u6293\u53D6\u5230 " + count + "\u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent + "%", percent);
+        onProgress == null ? void 0 : onProgress(percent, all);
+        if (total > size) {
+          const results = yield StardustJs.promises.schedule((i) => __async(this, null, function* () {
+            const [_, rows] = yield func(i + 2, size);
+            count += rows.length;
+            const percent2 = (count / total * 100).toFixed(2) * 1;
+            if (report)
+              executor.report(title + " \u6293\u53D6\u5230 " + count + " \u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent2 + "%", percent2);
+            onProgress == null ? void 0 : onProgress(percent2, rows);
+            return rows;
+          }), Math.ceil(total / size) - 1, limit);
+          results.forEach((r) => all.push(...r));
+        }
+        return all;
+      });
     }
   };
   var fetcher_default = Fetcher;
@@ -1633,7 +1764,7 @@ var StardustBrowser = (() => {
       throw `\u6682\u4E0D\u652F\u6301\u9884\u89C8\u8BE5\u683C\u5F0F\uFF08${type}\uFF09\u6587\u4EF6`;
     }
   };
-  var select = async (accept, multiple = false, dir = false) => {
+  var select = (accept, multiple = false, dir = false) => __async(void 0, null, function* () {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = accept;
@@ -1650,8 +1781,8 @@ var StardustBrowser = (() => {
       document.body.appendChild(input);
       input.click();
     });
-  };
-  var toType = async (file, type = "text") => {
+  });
+  var toType = (file, type = "text") => __async(void 0, null, function* () {
     const reader = new FileReader();
     const types = {
       text: "readAsText",
@@ -1666,7 +1797,7 @@ var StardustBrowser = (() => {
       reader.onload = () => resolve(reader.result);
       reader[types[type]](file);
     });
-  };
+  });
   var file_default = {
     preview,
     select,
@@ -1743,8 +1874,8 @@ var StardustBrowser = (() => {
     _nodes[id] = node;
     return () => delete _nodes[id];
   };
-  var scanCode = async (options = {}) => {
-    let {
+  var scanCode = (..._0) => __async(void 0, [..._0], function* (options = {}) {
+    let _a = options, {
       timeGap = 50,
       multiple = false,
       details = false,
@@ -1754,43 +1885,52 @@ var StardustBrowser = (() => {
       onInit,
       onDestroy,
       done,
-      mode = "environment",
-      ...others
-    } = options;
+      mode = "environment"
+    } = _a, others = __objRest(_a, [
+      "timeGap",
+      "multiple",
+      "details",
+      "cameraStyle",
+      "continuous",
+      "onRecognize",
+      "onInit",
+      "onDestroy",
+      "done",
+      "mode"
+    ]);
     const detector = new BarcodeDetector(others);
-    const detect = async (source) => {
-      let result = await detector.detect(source);
+    const detect = (source) => __async(void 0, null, function* () {
+      let result = yield detector.detect(source);
       if (details !== true)
         result = result.map((r) => r.rawValue);
       return result;
-    };
+    });
     if (mode === "image") {
       if (Array.isArray(others.images))
         return Promise.all(others.images.map(detect));
       if (others.images)
         return detect(others.images);
-      let files = await StardustBrowser.file.select("image/*", multiple);
+      let files = yield StardustBrowser.file.select("image/*", multiple);
       files = multiple ? [...files] : [files];
-      const codes = await Promise.all(files.map(async (file) => {
-        const base64 = await StardustBrowser.file.toType(file, "dataurl");
+      const codes = yield Promise.all(files.map((file) => __async(void 0, null, function* () {
+        const base64 = yield StardustBrowser.file.toType(file, "dataurl");
         const image = new Image();
-        await new Promise((resolve) => {
+        yield new Promise((resolve) => {
           image.onload = resolve;
           image.src = base64;
         });
         return detect(image);
-      }));
+      })));
       return multiple ? codes : codes[0];
     }
     if (continuous && (!onRecognize || !done))
       throw "continuous need onRecognize and done";
     timeGap = Math.max(timeGap, 16);
-    const stream = await navigator.mediaDevices.getUserMedia({
-      ...others,
+    const stream = yield navigator.mediaDevices.getUserMedia(__spreadProps(__spreadValues({}, others), {
       video: {
         facingMode: mode
       }
-    });
+    }));
     const container = document.createElement("div");
     container.style.cssText += `
     position: fixed;
@@ -1811,9 +1951,9 @@ var StardustBrowser = (() => {
       stream.getTracks().forEach((t) => t.stop());
       container.remove();
     };
-    const selectOne = async (results) => {
+    const selectOne = (results) => __async(void 0, null, function* () {
       return results[0];
-    };
+    });
     const close = document.createElement("div");
     close.textContent = "x";
     close.style.cssText += `
@@ -1829,22 +1969,22 @@ var StardustBrowser = (() => {
     container.appendChild(close);
     document.body.appendChild(container);
     video.srcObject = stream;
-    await new Promise((resolve) => {
+    yield new Promise((resolve) => {
       video.onloadedmetadata = () => {
         video.play();
         resolve();
       };
     });
-    onInit?.({ video, detector });
+    onInit == null ? void 0 : onInit({ video, detector });
     while (true) {
-      let result = await detector.detect(video);
+      let result = yield detector.detect(video);
       if (result.length) {
         if (!details)
           result = result.map((r) => r.rawValue);
         if (continuous) {
           onRecognize(result);
           if (done()) {
-            onDestroy?.({ video, detector });
+            onDestroy == null ? void 0 : onDestroy({ video, detector });
             destroy();
             return;
           }
@@ -1853,17 +1993,17 @@ var StardustBrowser = (() => {
             if (result.length === 1) {
               result = result[0];
             } else {
-              result = await selectOne(result);
+              result = yield selectOne(result);
             }
           }
-          onDestroy?.({ video, detector });
+          onDestroy == null ? void 0 : onDestroy({ video, detector });
           destroy();
           return result;
         }
       }
-      await new Promise((resolve) => setTimeout(resolve, timeGap));
+      yield new Promise((resolve) => setTimeout(resolve, timeGap));
     }
-  };
+  });
   var funcs_default = {
     isWindows,
     isXPath,
@@ -1900,7 +2040,10 @@ var StardustBrowser = (() => {
         nodes = [nodes[others[0] * 1]];
         others = others.slice(1);
       } else if (others[0] === "<visible>") {
-        nodes = nodes.filter((n) => n?._rect()?.width);
+        nodes = nodes.filter((n) => {
+          var _a;
+          return (_a = n == null ? void 0 : n._rect()) == null ? void 0 : _a.width;
+        });
         others = others.slice(1);
       } else {
         break;
@@ -1971,7 +2114,7 @@ var StardustBrowser = (() => {
       if (value && catches) {
         try {
           return JSON.parse(value);
-        } catch {
+        } catch (e) {
         }
       }
       return defaults;
@@ -1991,7 +2134,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.106",
+    version: "1.0.107",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
