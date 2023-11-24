@@ -1375,6 +1375,8 @@ var StardustBrowser = (() => {
           };
         }
         selectors = __spreadValues(__spreadValues({}, selectors), options.selectors);
+        selectors.headerTh || (selectors.headerTh = "th");
+        selectors.bodyTd || (selectors.bodyTd = "td");
         if (selectors.root) {
           for (let key in selectors) {
             if (key === "root")
@@ -1480,10 +1482,12 @@ var StardustBrowser = (() => {
             return options.getPageCount();
           return (((_a2 = $one(selectors.pageCount || selectors.last)) == null ? void 0 : _a2._text()) || 1) * 1;
         };
-        options.report && this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
+        if (options.report)
+          yield this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
         options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
         if (getRows().length && getCurrentSize() !== getSettingSize()) {
-          options.report && this.report("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
+          if (options.report)
+            yield this.report("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
           options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
           yield setSize();
           options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
@@ -1497,7 +1501,7 @@ var StardustBrowser = (() => {
         let page = 0;
         if (options.report) {
           pageCount = getPageCount();
-          this.report("\u603B\u5171 " + pageCount + " \u9875");
+          yield this.report("\u603B\u5171 " + pageCount + " \u9875");
           options.log("\u603B\u5171 " + pageCount + " \u9875");
         }
         if (!isFirst()) {
@@ -1510,7 +1514,7 @@ var StardustBrowser = (() => {
           if (options.report) {
             page++;
             options.log(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875 ` + page / pageCount * 100 + "%");
-            this.report(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
+            yield this.report(`\u5DF2\u83B7\u53D6\u7B2C ${page} / ${pageCount} \u9875`, page / pageCount * 100);
           }
           options.log("\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E");
           data.push(...getRows());
@@ -1531,29 +1535,43 @@ var StardustBrowser = (() => {
         if (data.length && header.length > data[0].length) {
           header = header.slice(0, data[0].length);
         }
-        (_a = options.beforeExport) == null ? void 0 : _a.call(options, { header, data });
+        if ((_a = options.beforeExport) == null ? void 0 : _a.call(options, { header, data }))
+          return;
         let method;
         if (options.type === "excel") {
           method = "export2Excel";
         } else if (options.type === "csv") {
           method = "export2Csv";
+        } else if (options.type === "table") {
+          document.body.innerHTML = `
+        <table border="1" style="border-collapse: collapse; width: 96%; margin: 20px auto;">
+          <thead>
+            <tr>${header.map((ele) => "<th>" + ele + "</th>").join("")}</tr>
+          </thead>
+          <tbody>
+            ${data.map((row) => "<tr>" + row.map((ele) => "<td>" + ele + "</td>").join("") + "</tr>").join("")}
+          </tbody>
+        </table>
+      `;
         } else {
           const error = "\u672A\u77E5\u7684\u5BFC\u51FA\u6A21\u5F0F: " + options.type;
           options.log(error);
           throw error;
         }
-        StardustBrowser.excel[method]({
-          header,
-          data,
-          filename: options.filename || "\u5BFC\u51FA"
-        });
+        if (options.type !== "table") {
+          StardustBrowser.excel[method]({
+            header,
+            data,
+            filename: options.filename || "\u5BFC\u51FA"
+          });
+        }
         if (options.report) {
           options.log("\u6B63\u5728\u5BFC\u51FA excel ...");
-          this.report("\u6B63\u5728\u5BFC\u51FA excel ...");
-          this.sleep(1e3).then(() => {
+          yield this.report("\u6B63\u5728\u5BFC\u51FA excel ...");
+          this.sleep(1e3).then(() => __async(this, null, function* () {
             options.log("\u5DF2\u5B8C\u6210\u5BFC\u51FA");
-            this.report("\u5DF2\u5B8C\u6210\u5BFC\u51FA", 100, {}, true);
-          });
+            yield this.report("\u5DF2\u5B8C\u6210\u5BFC\u51FA", 100, {}, true);
+          }));
         }
         return { header, data };
       });
@@ -2036,8 +2054,9 @@ var StardustBrowser = (() => {
     let [first, ...others] = selector2.split(" >> ");
     let nodes = isXPath(first) ? xfind(first, root, true) : [...finder.call(root, first)];
     while (others.length) {
-      if (/^\d+$/.test(others[0])) {
-        nodes = [nodes[others[0] * 1]];
+      if (/^-?\d+$/.test(others[0])) {
+        const index = (others[0] * 1 + nodes.length) % nodes.length;
+        nodes = [nodes[index]];
         others = others.slice(1);
       } else if (others[0] === "<visible>") {
         nodes = nodes.filter((n) => {
@@ -2134,7 +2153,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.107",
+    version: "1.0.108",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

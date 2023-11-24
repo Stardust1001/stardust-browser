@@ -785,6 +785,8 @@ export class UIExecutor {
       ...selectors,
       ...options.selectors
     }
+    selectors.headerTh ||= 'th'
+    selectors.bodyTd ||= 'td'
     if (selectors.root) {
       for (let key in selectors) {
         if (key === 'root') continue
@@ -874,10 +876,10 @@ export class UIExecutor {
       if (options.getPageCount) return options.getPageCount()
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
-    options.report && this.report('准备获取数据...')
+    if (options.report) await this.report('准备获取数据...')
     options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getCurrentSize() + ' 条')
     if (getRows().length && getCurrentSize() !== getSettingSize()) {
-      options.report && this.report('设置每页条数: ' + getSettingSize())
+      if (options.report) await this.report('设置每页条数: ' + getSettingSize())
       options.log('设置每页条数: ' + getSettingSize())
       await setSize()
       options.log('设置每页条数后等待加载')
@@ -891,7 +893,7 @@ export class UIExecutor {
     let page = 0
     if (options.report) {
       pageCount = getPageCount()
-      this.report('总共 ' + pageCount + ' 页')
+      await this.report('总共 ' + pageCount + ' 页')
       options.log('总共 ' + pageCount + ' 页')
     }
     if (!isFirst()) {
@@ -904,7 +906,7 @@ export class UIExecutor {
       if (options.report) {
         page++
         options.log(`已获取第 ${page} / ${pageCount} 页 ` + page / pageCount * 100 + '%')
-        this.report(`已获取第 ${page} / ${pageCount} 页`, page / pageCount * 100)
+        await this.report(`已获取第 ${page} / ${pageCount} 页`, page / pageCount * 100)
       }
       options.log('抓取当前页的数据')
       data.push(...getRows())
@@ -925,28 +927,41 @@ export class UIExecutor {
     if (data.length && header.length > data[0].length) {
       header = header.slice(0, data[0].length)
     }
-    options.beforeExport?.({ header, data })
+    if (options.beforeExport?.({ header, data })) return
     let method
     if (options.type === 'excel') {
       method = 'export2Excel'
     } else if (options.type === 'csv') {
       method = 'export2Csv'
+    } else if (options.type === 'table') {
+      document.body.innerHTML = `
+        <table border="1" style="border-collapse: collapse; width: 96%; margin: 20px auto;">
+          <thead>
+            <tr>${header.map(ele => '<th>' + ele + '</th>').join('')}</tr>
+          </thead>
+          <tbody>
+            ${data.map(row => '<tr>' + row.map(ele => '<td>' + ele + '</td>').join('') + '</tr>').join('')}
+          </tbody>
+        </table>
+      `
     } else {
       const error = '未知的导出模式: ' + options.type
       options.log(error)
       throw error
     }
-    StardustBrowser.excel[method]({
-      header,
-      data,
-      filename: options.filename || '导出'
-    })
+    if (options.type !== 'table') {
+      StardustBrowser.excel[method]({
+        header,
+        data,
+        filename: options.filename || '导出'
+      })
+    }
     if (options.report) {
       options.log('正在导出 excel ...')
-      this.report('正在导出 excel ...')
-      this.sleep(1000).then(() => {
+      await this.report('正在导出 excel ...')
+      this.sleep(1000).then(async () => {
         options.log('已完成导出')
-        this.report('已完成导出', 100, {}, true)
+        await this.report('已完成导出', 100, {}, true)
       })
     }
     return { header, data }

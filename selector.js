@@ -23,8 +23,9 @@ Element.prototype.$all = function (selector) {
   let [first, ...others] = selector.split(' >> ')
   let nodes = isXPath(first) ? xfind(first, root, true) : [...finder.call(root, first)]
   while (others.length) {
-    if (/^\d+$/.test(others[0])) {
-      nodes = [nodes[others[0] * 1]]
+    if (/^-?\d+$/.test(others[0])) {
+      const index = (others[0] * 1 + nodes.length) % nodes.length
+      nodes = [nodes[index]]
       others = others.slice(1)
     } else if (others[0] === '<visible>') {
       nodes = nodes.filter(n => n?._rect()?.width)
