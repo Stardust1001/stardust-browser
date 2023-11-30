@@ -36,10 +36,12 @@ export class Fetcher {
     headers = { ...this._headers, ...headers }
     let contentType = headers['content-type'].toLowerCase()
     if (others.body && typeof others.body === 'object') {
-      if (others.body instanceof URLSearchParams) {
-        contentType = headers['content-type'] = 'application/x-www-form-urlencoded'
-      } else if (others.body instanceof FormData) {
-        contentType = headers['content-type'] = 'application/form-data'
+      if (contentType === 'application/json') {
+        if (others.body instanceof URLSearchParams) {
+          contentType = headers['content-type'] = 'application/x-www-form-urlencoded'
+        } else if (others.body instanceof FormData) {
+          contentType = headers['content-type'] = 'application/form-data'
+        }
       }
       if (contentType.includes('application/json')) {
         others.body = JSON.stringify(others.body)
