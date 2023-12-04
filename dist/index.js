@@ -1573,11 +1573,9 @@ var StardustBrowser = (() => {
           throw error;
         }
         if (options.type !== "table") {
-          StardustBrowser.excel[method]({
-            header,
-            data,
-            filename: options.filename || "\u5BFC\u51FA"
-          });
+          let { filename = document.title + "-\u5BFC\u51FA" } = options;
+          filename += "-" + Date.now().toString(16);
+          StardustBrowser.excel[method]({ header, data, filename });
         }
         if (options.report) {
           options.log("\u6B63\u5728\u5BFC\u51FA excel ...");
@@ -2169,7 +2167,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.110",
+    version: "1.0.111",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

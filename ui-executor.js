@@ -950,11 +950,9 @@ export class UIExecutor {
       throw error
     }
     if (options.type !== 'table') {
-      StardustBrowser.excel[method]({
-        header,
-        data,
-        filename: options.filename || '导出'
-      })
+      let { filename = document.title + '-导出' } = options
+      filename += '-' + Date.now().toString(16)
+      StardustBrowser.excel[method]({ header, data, filename })
     }
     if (options.report) {
       options.log('正在导出 excel ...')
