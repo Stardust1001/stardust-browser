@@ -1573,7 +1573,8 @@ var StardustBrowser = (() => {
           throw error;
         }
         if (options.type !== "table") {
-          let { filename = document.title + "-\u5BFC\u51FA" } = options;
+          let { filename } = options;
+          filename || (filename = (document.title ? document.title + "-" : "") + "\u5BFC\u51FA");
           filename += "-" + Date.now().toString(16);
           StardustBrowser.excel[method]({ header, data, filename });
         }
@@ -2167,7 +2168,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.111",
+    version: "1.0.112",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

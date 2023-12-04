@@ -950,7 +950,8 @@ export class UIExecutor {
       throw error
     }
     if (options.type !== 'table') {
-      let { filename = document.title + '-导出' } = options
+      let { filename } = options
+      filename ||= (document.title ? document.title + '-' : '') + '导出'
       filename += '-' + Date.now().toString(16)
       StardustBrowser.excel[method]({ header, data, filename })
     }
