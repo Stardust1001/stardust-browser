@@ -9,7 +9,20 @@ const export2Excel = options => {
 }
 
 const export2Csv = options => {
-  const { header, data, filename = 'table' } = options
+  let { header, data, filename = 'table' } = options
+  const integerReg = /^\d{6,}$/
+  data = data.map(row => {
+    if (!row || typeof row !== 'object') return row
+    if (Array.isArray(row)) {
+      return row.map(value => integerReg.test(value) ? (value + '\t') : value)
+    }
+    for (let key in row) {
+      if (integerReg.test(row[key])) {
+        row[key] += '\t'
+      }
+    }
+    return row
+  })
   const csv = window.Papa.unparse({
     data,
     fields: header
