@@ -910,6 +910,7 @@ export class UIExecutor {
       }
       options.log('抓取当前页的数据')
       data.push(...getRows())
+      options.onData?.(data)
       if (!data.length) {
         throw '抓取当前页的数据，失败'
       }

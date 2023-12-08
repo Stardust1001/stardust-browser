@@ -1362,7 +1362,7 @@ var StardustBrowser = (() => {
     }
     exportTable() {
       return __async(this, arguments, function* (options = {}) {
-        var _a;
+        var _a, _b;
         options = __spreadValues({
           report: true,
           isElementUI: false,
@@ -1463,8 +1463,8 @@ var StardustBrowser = (() => {
             return options.waitLoading();
           yield this.waitFor(selectors.loading);
           yield this.waitForFunction(() => {
-            var _a2, _b;
-            return !((_b = (_a2 = $one(selectors.loading)) == null ? void 0 : _a2._rect()) == null ? void 0 : _b.width);
+            var _a2, _b2;
+            return !((_b2 = (_a2 = $one(selectors.loading)) == null ? void 0 : _a2._rect()) == null ? void 0 : _b2.width);
           });
         });
         const getHeader = () => {
@@ -1532,6 +1532,7 @@ var StardustBrowser = (() => {
           }
           options.log("\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E");
           data.push(...getRows());
+          (_a = options.onData) == null ? void 0 : _a.call(options, data);
           if (!data.length) {
             throw "\u6293\u53D6\u5F53\u524D\u9875\u7684\u6570\u636E\uFF0C\u5931\u8D25";
           }
@@ -1549,7 +1550,7 @@ var StardustBrowser = (() => {
         if (data.length && header.length > data[0].length) {
           header = header.slice(0, data[0].length);
         }
-        if ((_a = options.beforeExport) == null ? void 0 : _a.call(options, { header, data }))
+        if ((_b = options.beforeExport) == null ? void 0 : _b.call(options, { header, data }))
           return;
         let method;
         if (options.type === "excel") {
@@ -2168,7 +2169,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.112",
+    version: "1.0.113",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
