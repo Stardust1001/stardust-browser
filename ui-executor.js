@@ -811,6 +811,7 @@ export class UIExecutor {
     const setFirst = async () => {
       if (options.setFirst) return options.setFirst()
       const first = $one(selectors.first)
+      options.beforeSetFirst?.(page)
       if (['INPUT', 'TEXTAREA'].includes(first)) {
         await this.fill(first, '1')
         await this.enter(first)
@@ -819,6 +820,7 @@ export class UIExecutor {
       }
     }
     const setNext = async () => {
+      options.beforeSetNext?.(page)
       if (options.setNext) return options.setNext()
       await this.click($one(selectors.next))
     }
@@ -835,6 +837,7 @@ export class UIExecutor {
       return page
     }
     const setSize = async () => {
+      options.beforeSetSize?.(page)
       if (options.setSize) return options.setSize()
       if (selectors.sizer) {
         const node = $one(selectors.sizer)

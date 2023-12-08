@@ -1416,9 +1416,11 @@ var StardustBrowser = (() => {
           return active === last || page2 === getPageCount();
         };
         const setFirst = () => __async(this, null, function* () {
+          var _a2;
           if (options.setFirst)
             return options.setFirst();
           const first = $one(selectors.first);
+          (_a2 = options.beforeSetFirst) == null ? void 0 : _a2.call(options, page);
           if (["INPUT", "TEXTAREA"].includes(first)) {
             yield this.fill(first, "1");
             yield this.enter(first);
@@ -1427,6 +1429,8 @@ var StardustBrowser = (() => {
           }
         });
         const setNext = () => __async(this, null, function* () {
+          var _a2;
+          (_a2 = options.beforeSetNext) == null ? void 0 : _a2.call(options, page);
           if (options.setNext)
             return options.setNext();
           yield this.click($one(selectors.next));
@@ -1446,6 +1450,8 @@ var StardustBrowser = (() => {
           return page2;
         };
         const setSize = () => __async(this, null, function* () {
+          var _a2;
+          (_a2 = options.beforeSetSize) == null ? void 0 : _a2.call(options, page);
           if (options.setSize)
             return options.setSize();
           if (selectors.sizer) {
@@ -2170,7 +2176,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.115",
+    version: "1.0.116",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
