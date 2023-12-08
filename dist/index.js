@@ -1368,7 +1368,8 @@ var StardustBrowser = (() => {
           isElementUI: false,
           type: "excel",
           log: console.log,
-          withInput: true
+          withInput: true,
+          page: 0
         }, options);
         let selectors = {};
         if (options.isElementUI) {
@@ -1512,7 +1513,7 @@ var StardustBrowser = (() => {
         options.log("\u8868\u5934: ", header);
         const data = [];
         let pageCount = 0;
-        let page = 0;
+        let page = options.page;
         if (options.report) {
           pageCount = getPageCount();
           yield this.report("\u603B\u5171 " + pageCount + " \u9875");
@@ -2169,7 +2170,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.113",
+    version: "1.0.115",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

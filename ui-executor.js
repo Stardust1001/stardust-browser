@@ -761,6 +761,7 @@ export class UIExecutor {
       type: 'excel',
       log: console.log,
       withInput: true,
+      page: 0,
       ...options,
     }
     let selectors = {}
@@ -890,7 +891,7 @@ export class UIExecutor {
     options.log('表头: ', header)
     const data = []
     let pageCount = 0
-    let page = 0
+    let page = options.page
     if (options.report) {
       pageCount = getPageCount()
       await this.report('总共 ' + pageCount + ' 页')
