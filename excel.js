@@ -8,7 +8,11 @@ const export2Excel = options => {
   Export2Excel.export_json_to_excel(options)
 }
 
-const export2Csv = options => {
+const export2Csv = async options => {
+  await Promise.all([
+    window.DynamicLibs?.use('Papa'),
+    window.DynamicLibs?.use('saveAs')
+  ])
   let { header, data, filename = 'table' } = options
   const integerReg = /^\d{6,}$/
   data = data.map(row => {

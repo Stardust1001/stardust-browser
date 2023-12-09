@@ -470,84 +470,98 @@ var StardustBrowser = (() => {
     return buf;
   }
   function export_table_to_excel(selector2) {
-    var theTable = typeof selector2 === "string" ? document.querySelector(selector2) : selector2;
-    var oo = generateArray(theTable);
-    var ranges = oo[1];
-    var data = oo[0];
-    var ws_name = "SheetJS";
-    var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);
-    ws["!merges"] = ranges;
-    wb.SheetNames.push(ws_name);
-    wb.Sheets[ws_name] = ws;
-    var wbout = XLSX.write(wb, {
-      bookType: "xlsx",
-      bookSST: false,
-      type: "binary"
-    });
-    saveAs(new Blob([s2ab(wbout)], {
-      type: "application/octet-stream"
-    }), "test.xlsx");
-  }
-  function export_json_to_excel({
-    multiHeader = [],
-    header,
-    data,
-    filename,
-    merges = [],
-    autoWidth = true,
-    bookType = "xlsx"
-  } = {}) {
-    filename = filename || "excel-list";
-    data = [...data];
-    data.unshift(header);
-    for (let i = multiHeader.length - 1; i > -1; i--) {
-      data.unshift(multiHeader[i]);
-    }
-    var ws_name = "SheetJS";
-    var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);
-    if (merges.length > 0) {
-      if (!ws["!merges"])
-        ws["!merges"] = [];
-      merges.forEach((item) => {
-        ws["!merges"].push(XLSX.utils.decode_range(item));
+    return __async(this, null, function* () {
+      var _a, _b;
+      yield Promise.all([
+        (_a = window.DynamicLibs) == null ? void 0 : _a.use("XLSX"),
+        (_b = window.DynamicLibs) == null ? void 0 : _b.use("saveAs")
+      ]);
+      var theTable = typeof selector2 === "string" ? document.querySelector(selector2) : selector2;
+      var oo = generateArray(theTable);
+      var ranges = oo[1];
+      var data = oo[0];
+      var ws_name = "SheetJS";
+      var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);
+      ws["!merges"] = ranges;
+      wb.SheetNames.push(ws_name);
+      wb.Sheets[ws_name] = ws;
+      var wbout = XLSX.write(wb, {
+        bookType: "xlsx",
+        bookSST: false,
+        type: "binary"
       });
-    }
-    if (autoWidth) {
-      const colWidth = data.map((row) => row.map((val) => {
-        if (val == null) {
-          return {
-            "wch": 10
-          };
-        } else if (val.toString().charCodeAt(0) > 255) {
-          return {
-            "wch": val.toString().length * 2
-          };
-        } else {
-          return {
-            "wch": val.toString().length
-          };
-        }
-      }));
-      let result = colWidth[0];
-      for (let i = 1; i < colWidth.length; i++) {
-        for (let j = 0; j < colWidth[i].length; j++) {
-          if (result[j]["wch"] < colWidth[i][j]["wch"]) {
-            result[j]["wch"] = colWidth[i][j]["wch"];
+      saveAs(new Blob([s2ab(wbout)], {
+        type: "application/octet-stream"
+      }), "test.xlsx");
+    });
+  }
+  function export_json_to_excel() {
+    return __async(this, arguments, function* ({
+      multiHeader = [],
+      header,
+      data,
+      filename,
+      merges = [],
+      autoWidth = true,
+      bookType = "xlsx"
+    } = {}) {
+      var _a, _b;
+      yield Promise.all([
+        (_a = window.DynamicLibs) == null ? void 0 : _a.use("XLSX"),
+        (_b = window.DynamicLibs) == null ? void 0 : _b.use("saveAs")
+      ]);
+      filename = filename || "excel-list";
+      data = [...data];
+      data.unshift(header);
+      for (let i = multiHeader.length - 1; i > -1; i--) {
+        data.unshift(multiHeader[i]);
+      }
+      var ws_name = "SheetJS";
+      var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);
+      if (merges.length > 0) {
+        if (!ws["!merges"])
+          ws["!merges"] = [];
+        merges.forEach((item) => {
+          ws["!merges"].push(XLSX.utils.decode_range(item));
+        });
+      }
+      if (autoWidth) {
+        const colWidth = data.map((row) => row.map((val) => {
+          if (val == null) {
+            return {
+              "wch": 10
+            };
+          } else if (val.toString().charCodeAt(0) > 255) {
+            return {
+              "wch": val.toString().length * 2
+            };
+          } else {
+            return {
+              "wch": val.toString().length
+            };
+          }
+        }));
+        let result = colWidth[0];
+        for (let i = 1; i < colWidth.length; i++) {
+          for (let j = 0; j < colWidth[i].length; j++) {
+            if (result[j]["wch"] < colWidth[i][j]["wch"]) {
+              result[j]["wch"] = colWidth[i][j]["wch"];
+            }
           }
         }
+        ws["!cols"] = result;
       }
-      ws["!cols"] = result;
-    }
-    wb.SheetNames.push(ws_name);
-    wb.Sheets[ws_name] = ws;
-    var wbout = XLSX.write(wb, {
-      bookType,
-      bookSST: false,
-      type: "binary"
+      wb.SheetNames.push(ws_name);
+      wb.Sheets[ws_name] = ws;
+      var wbout = XLSX.write(wb, {
+        bookType,
+        bookSST: false,
+        type: "binary"
+      });
+      saveAs(new Blob([s2ab(wbout)], {
+        type: "application/octet-stream"
+      }), `${filename}.${bookType}`);
     });
-    saveAs(new Blob([s2ab(wbout)], {
-      type: "application/octet-stream"
-    }), `${filename}.${bookType}`);
   }
 
   // excel.js
@@ -557,7 +571,12 @@ var StardustBrowser = (() => {
   var export2Excel = (options) => {
     export_json_to_excel(options);
   };
-  var export2Csv = (options) => {
+  var export2Csv = (options) => __async(void 0, null, function* () {
+    var _a, _b;
+    yield Promise.all([
+      (_a = window.DynamicLibs) == null ? void 0 : _a.use("Papa"),
+      (_b = window.DynamicLibs) == null ? void 0 : _b.use("saveAs")
+    ]);
     let { header, data, filename = "table" } = options;
     const integerReg = /^\d{6,}$/;
     data = data.map((row) => {
@@ -582,7 +601,7 @@ var StardustBrowser = (() => {
       blob,
       filename.toLowerCase().endsWith(".csv") ? filename : filename + ".csv"
     );
-  };
+  });
   var excel_default = {
     exportTable2Excel,
     export2Excel,
@@ -2176,7 +2195,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.116",
+    version: "1.0.117",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
