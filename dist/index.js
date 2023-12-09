@@ -471,11 +471,8 @@ var StardustBrowser = (() => {
   }
   function export_table_to_excel(selector2) {
     return __async(this, null, function* () {
-      var _a, _b;
-      yield Promise.all([
-        (_a = window.DynamicLibs) == null ? void 0 : _a.use("XLSX"),
-        (_b = window.DynamicLibs) == null ? void 0 : _b.use("saveAs")
-      ]);
+      var _a;
+      yield (_a = window.DynamicLibs) == null ? void 0 : _a.use("XLSX");
       var theTable = typeof selector2 === "string" ? document.querySelector(selector2) : selector2;
       var oo = generateArray(theTable);
       var ranges = oo[1];
@@ -505,11 +502,8 @@ var StardustBrowser = (() => {
       autoWidth = true,
       bookType = "xlsx"
     } = {}) {
-      var _a, _b;
-      yield Promise.all([
-        (_a = window.DynamicLibs) == null ? void 0 : _a.use("XLSX"),
-        (_b = window.DynamicLibs) == null ? void 0 : _b.use("saveAs")
-      ]);
+      var _a;
+      yield (_a = window.DynamicLibs) == null ? void 0 : _a.use("XLSX");
       filename = filename || "excel-list";
       data = [...data];
       data.unshift(header);
@@ -572,11 +566,8 @@ var StardustBrowser = (() => {
     export_json_to_excel(options);
   };
   var export2Csv = (options) => __async(void 0, null, function* () {
-    var _a, _b;
-    yield Promise.all([
-      (_a = window.DynamicLibs) == null ? void 0 : _a.use("Papa"),
-      (_b = window.DynamicLibs) == null ? void 0 : _b.use("saveAs")
-    ]);
+    var _a;
+    yield (_a = window.DynamicLibs) == null ? void 0 : _a.use("Papa");
     let { header, data, filename = "table" } = options;
     const integerReg = /^\d{6,}$/;
     data = data.map((row) => {
@@ -2195,7 +2186,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.117",
+    version: "1.0.118",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

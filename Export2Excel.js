@@ -112,10 +112,7 @@ function s2ab(s) {
 }
 
 export async function export_table_to_excel(selector) {
-  await Promise.all([
-    window.DynamicLibs?.use('XLSX'),
-    window.DynamicLibs?.use('saveAs')
-  ])
+  await window.DynamicLibs?.use('XLSX')
   var theTable = typeof selector === 'string' ? document.querySelector(selector) : selector;
   var oo = generateArray(theTable);
   var ranges = oo[1];
@@ -155,10 +152,7 @@ export async function export_json_to_excel({
   autoWidth = true,
   bookType = 'xlsx'
 } = {}) {
-  await Promise.all([
-    window.DynamicLibs?.use('XLSX'),
-    window.DynamicLibs?.use('saveAs')
-  ])
+  await window.DynamicLibs?.use('XLSX')
   /* original data */
   filename = filename || 'excel-list'
   data = [...data]
