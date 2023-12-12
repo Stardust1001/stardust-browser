@@ -880,6 +880,9 @@ export class UIExecutor {
       if (options.getPageCount) return options.getPageCount()
       return ($one(selectors.pageCount || selectors.last)?._text() || 1) * 1
     }
+    const data = []
+    let pageCount = 0
+    let page = options.page
     if (options.report) await this.report('准备获取数据...')
     options.log('当前页 ' + getRows().length + ' 条数据，每页限制 ' + getCurrentSize() + ' 条')
     if (getRows().length && getCurrentSize() !== getSettingSize()) {
@@ -892,9 +895,6 @@ export class UIExecutor {
     options.log('获取表头')
     let header = getHeader()
     options.log('表头: ', header)
-    const data = []
-    let pageCount = 0
-    let page = options.page
     if (options.report) {
       pageCount = getPageCount()
       await this.report('总共 ' + pageCount + ' 页')

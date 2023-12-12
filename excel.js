@@ -28,7 +28,7 @@ const export2Csv = async options => {
     data,
     fields: header
   })
-  const blob = new Blob([csv], { type: 'application/csv' })
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
   window.saveAs(
     blob,
     filename.toLowerCase().endsWith('.csv') ? filename : (filename + '.csv')

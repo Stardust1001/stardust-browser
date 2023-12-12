@@ -587,7 +587,7 @@ var StardustBrowser = (() => {
       data,
       fields: header
     });
-    const blob = new Blob([csv], { type: "application/csv" });
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
     window.saveAs(
       blob,
       filename.toLowerCase().endsWith(".csv") ? filename : filename + ".csv"
@@ -1513,6 +1513,9 @@ var StardustBrowser = (() => {
             return options.getPageCount();
           return (((_a2 = $one(selectors.pageCount || selectors.last)) == null ? void 0 : _a2._text()) || 1) * 1;
         };
+        const data = [];
+        let pageCount = 0;
+        let page = options.page;
         if (options.report)
           yield this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
         options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
@@ -1527,9 +1530,6 @@ var StardustBrowser = (() => {
         options.log("\u83B7\u53D6\u8868\u5934");
         let header = getHeader();
         options.log("\u8868\u5934: ", header);
-        const data = [];
-        let pageCount = 0;
-        let page = options.page;
         if (options.report) {
           pageCount = getPageCount();
           yield this.report("\u603B\u5171 " + pageCount + " \u9875");
@@ -2191,7 +2191,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.119",
+    version: "1.0.120",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
