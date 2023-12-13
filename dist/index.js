@@ -1485,15 +1485,17 @@ var StardustBrowser = (() => {
           });
         });
         const getHeader = () => {
+          var _a2;
           if (options.getHeader)
             return options.getHeader();
-          const headerTr = $one(selectors.headerTr);
+          const headerTr = ((_a2 = options.getHeaderTr) == null ? void 0 : _a2.call(options)) || $one(selectors.headerTr);
           return headerTr.$all(selectors.headerTh).map((th) => th._text());
         };
         const getRows = () => {
+          var _a2;
           if (options.getRows)
             return options.getRows();
-          const bodyTrs = $all(selectors.bodyTrs);
+          const bodyTrs = ((_a2 = options.getBodyTrs) == null ? void 0 : _a2.call(options)) || $all(selectors.bodyTrs);
           return bodyTrs.map((tr) => tr.$all(selectors.bodyTd).map((td) => {
             let text = td._text();
             if (options.withInput) {
@@ -2191,7 +2193,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.120",
+    version: "1.0.121",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

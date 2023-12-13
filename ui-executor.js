@@ -857,12 +857,12 @@ export class UIExecutor {
     }
     const getHeader = () => {
       if (options.getHeader) return options.getHeader()
-      const headerTr = $one(selectors.headerTr)
+      const headerTr = options.getHeaderTr?.() || $one(selectors.headerTr)
       return headerTr.$all(selectors.headerTh).map(th => th._text())
     }
     const getRows = () => {
       if (options.getRows) return options.getRows()
-      const bodyTrs = $all(selectors.bodyTrs)
+      const bodyTrs = options.getBodyTrs?.() || $all(selectors.bodyTrs)
       return bodyTrs.map(tr => tr.$all(selectors.bodyTd).map(td => {
         let text = td._text()
         if (options.withInput) {
