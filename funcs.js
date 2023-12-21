@@ -7,10 +7,14 @@ export const calcPixel = text => {
   if (typeof text === 'number') return text
   text = text.toLowerCase()
   let number = parseFloat(text)
-  if (text.includes('vw')) {
+  if (text.includes('vw') || text.includes('%')) {
     number *= window.innerWidth / 100
   } else if (text.includes('vh')) {
     number *= window.innerHeight / 100
+  } else if (text.includes('vmax')) {
+    number *= Math.max(window.innerWidth, window.innerHeight) / 100
+  } else if (text.includes('vmin')) {
+    number *= Math.min(window.innerWidth, window.innerHeight) / 100
   } else if (text.includes('rem')) {
     number *= parseFloat(getComputedStyle(document.documentElement).fontSize)
   }

@@ -1895,10 +1895,14 @@ var StardustBrowser = (() => {
       return text;
     text = text.toLowerCase();
     let number = parseFloat(text);
-    if (text.includes("vw")) {
+    if (text.includes("vw") || text.includes("%")) {
       number *= window.innerWidth / 100;
     } else if (text.includes("vh")) {
       number *= window.innerHeight / 100;
+    } else if (text.includes("vmax")) {
+      number *= Math.max(window.innerWidth, window.innerHeight) / 100;
+    } else if (text.includes("vmin")) {
+      number *= Math.min(window.innerWidth, window.innerHeight) / 100;
     } else if (text.includes("rem")) {
       number *= parseFloat(getComputedStyle(document.documentElement).fontSize);
     }
@@ -2229,7 +2233,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.123",
+    version: "1.0.125",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
