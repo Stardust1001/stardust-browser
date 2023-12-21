@@ -27,6 +27,40 @@ export const img2Base64 = selector => {
   return canvas.toDataURL()
 }
 
+export const loadScript = src => {
+  const script = document.createElement('script')
+  script.src = src
+  return new Promise((resolve, reject) => {
+    script.onload = resolve
+    script.onerror = reject
+    document.body.appendChild(script)
+  })
+}
+
+export const loadScripts = srcs => {
+  return Promise.allSettled(srcs.map(loadScript))
+}
+
+export const loadStyle = src => {
+  const isLink = src.startsWith('http')
+  const node = document.createElement(isLink ? 'link' : 'style')
+  if (isLink) {
+    node.rel = 'stylesheet'
+    node.href = src
+  } else {
+    node.innerHTML = src
+  }
+  return new Promise((resolve, reject) => {
+    node.onload = resolve
+    node.onerror = reject
+    document.head.appendChild(node)
+  })
+}
+
+export const loadStyles = srcs => {
+  return Promise.allSettled(srcs.map(loadStyle))
+}
+
 const _nodes = {}
 let _zoom = 1
 const _resize = () => {
@@ -202,6 +236,10 @@ export default {
   isXPath,
   calcPixel,
   img2Base64,
+  loadScript,
+  loadScripts,
+  loadStyle,
+  loadStyles,
   unzoom,
   scanCode
 }

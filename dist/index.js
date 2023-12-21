@@ -1913,6 +1913,36 @@ var StardustBrowser = (() => {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     return canvas.toDataURL();
   };
+  var loadScript = (src) => {
+    const script = document.createElement("script");
+    script.src = src;
+    return new Promise((resolve, reject) => {
+      script.onload = resolve;
+      script.onerror = reject;
+      document.body.appendChild(script);
+    });
+  };
+  var loadScripts = (srcs) => {
+    return Promise.allSettled(srcs.map(loadScript));
+  };
+  var loadStyle = (src) => {
+    const isLink = src.startsWith("http");
+    const node = document.createElement(isLink ? "link" : "style");
+    if (isLink) {
+      node.rel = "stylesheet";
+      node.href = src;
+    } else {
+      node.innerHTML = src;
+    }
+    return new Promise((resolve, reject) => {
+      node.onload = resolve;
+      node.onerror = reject;
+      document.head.appendChild(node);
+    });
+  };
+  var loadStyles = (srcs) => {
+    return Promise.allSettled(srcs.map(loadStyle));
+  };
   var _nodes = {};
   var _zoom = 1;
   var _resize = () => {
@@ -2069,6 +2099,10 @@ var StardustBrowser = (() => {
     isXPath,
     calcPixel,
     img2Base64,
+    loadScript,
+    loadScripts,
+    loadStyle,
+    loadStyles,
     unzoom,
     scanCode
   };
@@ -2195,7 +2229,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.122",
+    version: "1.0.123",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
