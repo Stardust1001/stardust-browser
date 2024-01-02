@@ -19,13 +19,15 @@ export const createRestful = (req = request) => {
       })
     },
 
-    search (model, data) {
+    async search (model, data, key) {
       validates.validateSearch(model, data)
-      return req({
+      const res = await req({
         url: `/restful/search?model=${model}`,
         method: 'post',
         data
       })
+      if (!key) return res
+      return StardustJs.highdict.get(res, key)
     },
 
     update (model, id, data) {

@@ -30,10 +30,8 @@ export const createDbsdk = (rest = restful) => {
       return rest.add(this.model, data)
     }
 
-    async search (data, key) {
-      const res = await rest.search(this.model, data)
-      if (!key) return res
-      return StardustJs.highdict.get(res, key)
+    search (data, key) {
+      return rest.search(this.model, data, key)
     }
 
     update (id, data) {

@@ -151,12 +151,7 @@ var StardustBrowser = (() => {
         return rest.add(this.model, data);
       }
       search(data, key) {
-        return __async(this, null, function* () {
-          const res = yield rest.search(this.model, data);
-          if (!key)
-            return res;
-          return StardustJs.highdict.get(res, key);
-        });
+        return rest.search(this.model, data, key);
       }
       update(id, data) {
         return rest.update(this.model, id, data);
@@ -256,12 +251,17 @@ var StardustBrowser = (() => {
           data
         });
       },
-      search(model, data) {
-        validates_default.validateSearch(model, data);
-        return req({
-          url: `/restful/search?model=${model}`,
-          method: "post",
-          data
+      search(model, data, key) {
+        return __async(this, null, function* () {
+          validates_default.validateSearch(model, data);
+          const res = yield req({
+            url: `/restful/search?model=${model}`,
+            method: "post",
+            data
+          });
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
         });
       },
       update(model, id, data) {
@@ -2238,7 +2238,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.126",
+    version: "1.0.127",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
