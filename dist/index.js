@@ -150,8 +150,13 @@ var StardustBrowser = (() => {
       add(data) {
         return rest.add(this.model, data);
       }
-      search(data) {
-        return rest.search(this.model, data);
+      search(data, key) {
+        return __async(this, null, function* () {
+          const res = yield rest.search(this.model, data);
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
+        });
       }
       update(id, data) {
         return rest.update(this.model, id, data);
@@ -2233,7 +2238,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.125",
+    version: "1.0.126",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
