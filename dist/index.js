@@ -1032,7 +1032,9 @@ var StardustBrowser = (() => {
         this.focus(node);
         this.clear(node);
         for (let key of text) {
-          yield this.sleep(options.fillInterval);
+          if (options.fillInterval > 0) {
+            yield this.sleep(options.fillInterval);
+          }
           this.keydown(node, key);
           this.keyup(node, key);
           node.value += key;
@@ -2238,7 +2240,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.128",
+    version: "1.0.129",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

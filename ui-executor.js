@@ -437,7 +437,9 @@ export class UIExecutor {
     this.focus(node)
     this.clear(node)
     for (let key of text) {
-      await this.sleep(options.fillInterval)
+      if (options.fillInterval > 0) {
+        await this.sleep(options.fillInterval)
+      }
       this.keydown(node, key)
       this.keyup(node, key)
       node.value += key
