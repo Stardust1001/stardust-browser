@@ -142,7 +142,7 @@ export class EventGenerator {
 export class UIExecutor {
   constructor (config = {}) {
     this.config = {
-      interval: 20,
+      interval: 17,
       slow: 0,
       ...config
     }
@@ -430,7 +430,7 @@ export class UIExecutor {
 
   async fill (node, text, options = {}) {
     options = {
-      fillInterval: 10,
+      fillInterval: this.config.interval,
       ...options
     }
     node = await this.waitFor(node, options)

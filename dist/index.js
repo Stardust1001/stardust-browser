@@ -725,7 +725,7 @@ var StardustBrowser = (() => {
   var UIExecutor = class {
     constructor(config = {}) {
       this.config = __spreadValues({
-        interval: 20,
+        interval: 17,
         slow: 0
       }, config);
       this.generator = new EventGenerator();
@@ -1026,7 +1026,7 @@ var StardustBrowser = (() => {
     fill(_0, _1) {
       return __async(this, arguments, function* (node, text, options = {}) {
         options = __spreadValues({
-          fillInterval: 10
+          fillInterval: this.config.interval
         }, options);
         node = yield this.waitFor(node, options);
         this.focus(node);
@@ -2238,7 +2238,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.127",
+    version: "1.0.128",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
