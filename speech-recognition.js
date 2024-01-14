@@ -14,14 +14,14 @@ export class SpeechRecognition {
 	start () {
 		if (this.isStarted) return
 		this.recorder = new RecorderManager(this.config.cdnUrl)
-		this.recorder.onStart = this.onStart
-		this.recorder.onFrameRecorded = this.onFrameRecorded
-		this.recorder.onStop = this.onStop
+		this.recorder.onStart = this.onStart.bind(this)
+		this.recorder.onFrameRecorded = this.onFrameRecorded.bind(this)
+		this.recorder.onStop = this.onStop.bind(this)
 		this.ws = new WebSocket(this.config.wsUrl)
-		this.ws.onopen = this.onWsOpen
-		this.ws.onmessage = this.onWsMessage
-		this.ws.onerror = this.onWsError
-		this.ws.onclose = this.onWsClose
+		this.ws.onopen = this.onWsOpen.bind(this)
+		this.ws.onmessage = this.onWsMessage.bind(this)
+		this.ws.onerror = this.onWsError.bind(this)
+		this.ws.onclose = this.onWsClose.bind(this)
 		this.isStarted = true
 	}
 
