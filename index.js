@@ -7,6 +7,7 @@ import file from './file.js'
 import fullscreen from './fullscreen.js'
 import funcs from './funcs.js'
 import selector from './selector.js'
+import SpeechRecognition from './speech-recognition.js'
 import storage from './storage.js'
 import UIExecutor from './ui-executor.js'
 
@@ -22,6 +23,7 @@ export {
   fullscreen,
   funcs,
   selector,
+  SpeechRecognition,
   storage,
   local,
   session,
@@ -29,7 +31,7 @@ export {
 }
 
 export default {
-  version: '1.0.129',
+  version: '1.0.130',
   dbsdk,
   clipboard,
   cookies,
@@ -39,6 +41,7 @@ export default {
   fullscreen,
   funcs,
   selector,
+  SpeechRecognition,
   storage,
   local,
   session,

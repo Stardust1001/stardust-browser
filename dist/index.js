@@ -70,6 +70,7 @@ var StardustBrowser = (() => {
   var stardust_browser_exports = {};
   __export(stardust_browser_exports, {
     Fetcher: () => fetcher_default,
+    SpeechRecognition: () => speech_recognition_default,
     UIExecutor: () => ui_executor_default,
     clipboard: () => clipboard_default,
     cookies: () => cookies_default,
@@ -1954,6 +1955,9 @@ var StardustBrowser = (() => {
   var loadStyles = (srcs) => {
     return Promise.allSettled(srcs.map(loadStyle));
   };
+  var buffer2Base64 = (buffer) => {
+    return btoa(Array.from(new Uint8Array(buffer)).map((e) => String.fromCharCode(e)).join(""));
+  };
   var _nodes = {};
   var _zoom = 1;
   var _resize = () => {
@@ -2114,6 +2118,7 @@ var StardustBrowser = (() => {
     loadScripts,
     loadStyle,
     loadStyles,
+    buffer2Base64,
     unzoom,
     scanCode
   };
@@ -2192,6 +2197,102 @@ var StardustBrowser = (() => {
     $all: $all2
   };
 
+  // speech-recognition.js
+  var SpeechRecognition = class {
+    constructor(config = {}) {
+      this.config = config;
+      this.recorder = null;
+      this.ws = null;
+      this.isStarted = false;
+      this.text = "";
+      this.tempText = "";
+    }
+    start() {
+      if (this.isStarted)
+        return;
+      this.recorder = new RecorderManager(this.config.cdnUrl);
+      this.recorder.onStart = this.onStart;
+      this.recorder.onFrameRecorded = this.onFrameRecorded;
+      this.recorder.onStop = this.onStop;
+      this.ws = new WebSocket(this.config.wsUrl);
+      this.ws.onopen = this.onWsOpen;
+      this.ws.onmessage = this.onWsMessage;
+      this.ws.onerror = this.onWsError;
+      this.ws.onclose = this.onWsClose;
+      this.isStarted = true;
+    }
+    stop() {
+      this.ws.close();
+      this.recorder.stop();
+      this.isStarted = false;
+    }
+    onWsOpen() {
+      this.recorder.start({
+        sampleRate: 16e3,
+        frameSize: 1280
+      });
+      const params = {
+        common: { app_id: this.config.APPID },
+        business: __spreadValues({
+          language: "zh_cn",
+          domain: "iat",
+          accent: "mandarin",
+          vad_eos: 5e3,
+          dwa: "wpgs"
+        }, this.config.business),
+        data: {
+          status: 0,
+          format: "audio/L16;rate=16000",
+          encoding: "raw"
+        }
+      };
+      this.ws.send(JSON.stringify(params));
+    }
+    onWsMessage(e) {
+      var _a;
+      const result = JSON.parse(e.data);
+      const data = (_a = result.data) == null ? void 0 : _a.result;
+      if (data) {
+        const str = data.ws.map((e2) => e2.cw[0].w).join("");
+        if (data.pgs) {
+          if (data.pgs === "apd")
+            this.text = this.tempText;
+          this.tempText = this.text + str;
+        } else {
+          this.text += str;
+        }
+        this.onMessage(this.tempText || this.text || "");
+      }
+      if (result.code || result.data.status === 2)
+        this.ws.close();
+    }
+    onMessage(text) {
+    }
+    onWsError() {
+      this.recorder.stop();
+    }
+    onWsClose() {
+      this.recorder.stop();
+    }
+    onFrameRecorded({ isLastFrame, frameBuffer }) {
+      if (this.ws.readyState === this.ws.OPEN) {
+        this.ws.send(JSON.stringify({
+          data: {
+            status: isLastFrame ? 2 : 1,
+            format: "audio/L16;rate=16000",
+            encoding: "raw",
+            audio: buffer2Base64(frameBuffer)
+          }
+        }));
+      }
+    }
+    onStart() {
+    }
+    onStop() {
+    }
+  };
+  var speech_recognition_default = SpeechRecognition;
+
   // storage.js
   var Storage = class {
     constructor(storage) {
@@ -2240,7 +2341,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.129",
+    version: "1.0.130",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
@@ -2250,6 +2351,7 @@ var StardustBrowser = (() => {
     fullscreen: fullscreen_default,
     funcs: funcs_default,
     selector: selector_default,
+    SpeechRecognition: speech_recognition_default,
     storage: storage_default,
     local: local2,
     session: session2,

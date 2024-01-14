@@ -65,6 +65,10 @@ export const loadStyles = srcs => {
   return Promise.allSettled(srcs.map(loadStyle))
 }
 
+export const buffer2Base64 = buffer => {
+  return btoa(Array.from(new Uint8Array(buffer)).map(e => String.fromCharCode(e)).join(''))
+}
+
 const _nodes = {}
 let _zoom = 1
 const _resize = () => {
@@ -244,6 +248,7 @@ export default {
   loadScripts,
   loadStyle,
   loadStyles,
+  buffer2Base64,
   unzoom,
   scanCode
 }
