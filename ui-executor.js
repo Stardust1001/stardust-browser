@@ -352,6 +352,88 @@ export class UIExecutor {
     if (isDone) node.remove()
   }
 
+  reportTable ({ data, header, maskStyle, closeStyle, contentStyle, tableStyle, tdStyle }) {
+    const mask = document.createElement('div')
+    mask.id = 'webot-mask'
+    mask.style.cssText += `
+      ${this._maskStyle}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+      pointer-events: all;
+      background-color: white;
+      ${maskStyle}
+    `
+    const close = document.createElement('div')
+    close.style.cssText += `
+      position: absolute;
+      right: calc(6% - 22px);
+      top: calc(6% - 22px);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid orangered;
+      color: orangered;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      ${closeStyle}
+    `
+    close.textContent = 'x'
+    close.onclick = () => mask.remove()
+    const content = document.createElement('div')
+    content.style.cssText += `
+      width: 88%;
+      height: 88%;
+      overflow: auto;
+      background-color: white;
+      ${contentStyle}
+    `
+    const table = document.createElement('table')
+    table.border = '1'
+    table.style.cssText += `
+      border-collapse: collapse;
+      border-color: #999;
+      ${tableStyle}
+    `
+    if (header) {
+      const thead = document.createElement('thead')
+      const tr = document.createElement('tr')
+      header.forEach(key => {
+        const th = document.createElement('th')
+        th.textContent = key
+        tr.appendChild(th)
+      })
+      table.appendChild(thead)
+    }
+    const tbody = document.createElement('tbody')
+    const isArray = Array.isArray(data[0])
+    const keys = header || !isArray && Object.keys(data[0])
+    data.forEach(row => {
+      const tr = document.createElement('tr')
+      const values = isArray ? row : keys.map(k => row[k])
+      values.forEach(v => {
+        const td = document.createElement('td')
+        td.textContent = v
+        td.style.cssText += `
+          padding: 5px 10px;
+          ${tdStyle}
+        `
+        tr.appendChild(td)
+      })
+      tbody.appendChild(tr)
+    })
+    table.appendChild(tbody)
+    content.appendChild(table)
+    mask.appendChild(close)
+    mask.appendChild(content)
+    document.body.appendChild(mask)
+    return mask
+  }
+
   sleep (ms) {
     return StardustJs.funcs.sleep(ms)
   }
