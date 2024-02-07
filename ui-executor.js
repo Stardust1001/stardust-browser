@@ -845,6 +845,7 @@ export class UIExecutor {
       type: 'excel',
       log: console.log,
       withInput: true,
+      withHidden: false,
       page: 0,
       ...options,
     }
@@ -948,6 +949,15 @@ export class UIExecutor {
       if (options.getRows) return options.getRows()
       const bodyTrs = options.getBodyTrs?.() || $all(selectors.bodyTrs)
       return bodyTrs.map(tr => tr.$all(selectors.bodyTd).map(td => {
+        let temp
+        if (!options.withHidden) {
+          temp = td.cloneNode(true)
+          const walker = document.createTreeWalker(td, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null, false)
+          const childs = []
+          let child
+          while (child = walker.nextNode()) childs.push(child)
+          childs.filter(c => c.nodeName !== '#text' && !c._rect?.().width).forEach(c => c.remove())
+        }
         let text = td._text()
         if (options.withInput) {
           const inputs = [
@@ -956,6 +966,9 @@ export class UIExecutor {
             ...td.$all('textarea')
           ]
           text += inputs.map(i => i.value + '').join(',')
+        }
+        if (!options.withHidden) {
+          td.parentNode.replaceChild(temp, td)
         }
         return text
       }))

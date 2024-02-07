@@ -1468,6 +1468,7 @@ var StardustBrowser = (() => {
           type: "excel",
           log: console.log,
           withInput: true,
+          withHidden: false,
           page: 0
         }, options);
         let selectors = {};
@@ -1586,6 +1587,19 @@ var StardustBrowser = (() => {
             return options.getRows();
           const bodyTrs = ((_a2 = options.getBodyTrs) == null ? void 0 : _a2.call(options)) || $all(selectors.bodyTrs);
           return bodyTrs.map((tr) => tr.$all(selectors.bodyTd).map((td) => {
+            let temp;
+            if (!options.withHidden) {
+              temp = td.cloneNode(true);
+              const walker = document.createTreeWalker(td, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null, false);
+              const childs = [];
+              let child;
+              while (child = walker.nextNode())
+                childs.push(child);
+              childs.filter((c) => {
+                var _a3;
+                return c.nodeName !== "#text" && !((_a3 = c._rect) == null ? void 0 : _a3.call(c).width);
+              }).forEach((c) => c.remove());
+            }
             let text = td._text();
             if (options.withInput) {
               const inputs = [
@@ -1594,6 +1608,9 @@ var StardustBrowser = (() => {
                 ...td.$all("textarea")
               ];
               text += inputs.map((i) => i.value + "").join(",");
+            }
+            if (!options.withHidden) {
+              td.parentNode.replaceChild(temp, td);
             }
             return text;
           }));
@@ -2432,7 +2449,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.139",
+    version: "1.0.140",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
