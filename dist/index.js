@@ -2378,9 +2378,19 @@ var StardustBrowser = (() => {
   var Storage = class {
     constructor(storage) {
       this.storage = storage;
+      this.noClearKeys = [];
     }
     clear() {
+      const temp = {};
+      this.noClearKeys.forEach((k) => {
+        temp[k] = this.get(k);
+      });
       this.storage.clear();
+      this.noClearKeys.forEach((k) => {
+        if (temp[k] != null) {
+          this.set(k, temp[k]);
+        }
+      });
     }
     keys() {
       return Object.keys(this.storage);
@@ -2422,7 +2432,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.136",
+    version: "1.0.139",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

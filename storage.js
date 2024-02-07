@@ -2,10 +2,20 @@
 export class Storage {
   constructor (storage) {
     this.storage = storage
+    this.noClearKeys = []
   }
 
   clear () {
+    const temp = {}
+    this.noClearKeys.forEach(k => {
+      temp[k] = this.get(k)
+    })
   	this.storage.clear()
+    this.noClearKeys.forEach(k => {
+      if (temp[k] != null) {
+        this.set(k, temp[k])
+      }
+    })
   }
 
   keys () {
