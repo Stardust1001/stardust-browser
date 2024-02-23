@@ -1964,10 +1964,29 @@ var StardustBrowser = (() => {
       reader[types[type]](file);
     });
   });
+  var dataurl2Img = (dataurl) => __async(void 0, null, function* () {
+    const img = new Image();
+    yield new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = dataurl;
+    });
+    return img;
+  });
+  var zoomImage = (_0, ..._1) => __async(void 0, [_0, ..._1], function* (img, width = window.innerWidth) {
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = img.height / img.width * canvas.width;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return dataurl2Img(canvas.toDataURL());
+  });
   var file_default = {
     preview,
     select,
-    toType
+    toType,
+    dataurl2Img,
+    zoomImage
   };
 
   // fullscreen.js
@@ -2449,7 +2468,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.140",
+    version: "1.0.141",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
