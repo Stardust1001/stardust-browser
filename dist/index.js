@@ -1964,29 +1964,10 @@ var StardustBrowser = (() => {
       reader[types[type]](file);
     });
   });
-  var dataurl2Img = (dataurl) => __async(void 0, null, function* () {
-    const img = new Image();
-    yield new Promise((resolve, reject) => {
-      img.onload = resolve;
-      img.onerror = reject;
-      img.src = dataurl;
-    });
-    return img;
-  });
-  var zoomImage = (_0, ..._1) => __async(void 0, [_0, ..._1], function* (img, width = window.innerWidth) {
-    const canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = img.height / img.width * canvas.width;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    return dataurl2Img(canvas.toDataURL());
-  });
   var file_default = {
     preview,
     select,
-    toType,
-    dataurl2Img,
-    zoomImage
+    toType
   };
 
   // fullscreen.js
@@ -2042,6 +2023,30 @@ var StardustBrowser = (() => {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     return canvas.toDataURL();
   };
+  var base64ToImg = (base64) => __async(void 0, null, function* () {
+    const img = new Image();
+    yield new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = base64;
+    });
+    return img;
+  });
+  var img2Canvas = (img, canvasWidth) => __async(void 0, null, function* () {
+    canvasWidth != null ? canvasWidth : canvasWidth = img.width;
+    const canvas = document.createElement("canvas");
+    canvas.width = canvasWidth;
+    canvas.height = img.height / img.width * canvas.width;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return canvas;
+  });
+  var canvas2Img = (canvas) => {
+    return base64ToImg(canvas.toDataURL());
+  };
+  var zoomImg = (_0, ..._1) => __async(void 0, [_0, ..._1], function* (img, width = window.innerWidth) {
+    return img2Canvas(img, width).then(canvas2Img);
+  });
   var loadScript = (src) => {
     const script = document.createElement("script");
     script.src = src;
@@ -2231,6 +2236,10 @@ var StardustBrowser = (() => {
     isXPath,
     calcPixel,
     img2Base64,
+    base64ToImg,
+    img2Canvas,
+    canvas2Img,
+    zoomImg,
     loadScript,
     loadScripts,
     loadStyle,
@@ -2468,7 +2477,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.141",
+    version: "1.0.150",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

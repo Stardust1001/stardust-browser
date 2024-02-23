@@ -31,6 +31,34 @@ export const img2Base64 = selector => {
   return canvas.toDataURL()
 }
 
+export const base64ToImg = async base64 => {
+  const img = new Image()
+  await new Promise((resolve, reject) => {
+    img.onload = resolve
+    img.onerror = reject
+    img.src = base64
+  })
+  return img
+}
+
+export const img2Canvas = async (img, canvasWidth) => {
+  canvasWidth ??= img.width
+  const canvas = document.createElement('canvas')
+  canvas.width = canvasWidth
+  canvas.height = img.height / img.width * canvas.width
+  const ctx = canvas.getContext('2d')
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+  return canvas
+}
+
+export const canvas2Img = canvas => {
+  return base64ToImg(canvas.toDataURL())
+}
+
+export const zoomImg = async (img, width = window.innerWidth) => {
+  return img2Canvas(img, width).then(canvas2Img)
+}
+
 export const loadScript = src => {
   const script = document.createElement('script')
   script.src = src
@@ -244,6 +272,10 @@ export default {
   isXPath,
   calcPixel,
   img2Base64,
+  base64ToImg,
+  img2Canvas,
+  canvas2Img,
+  zoomImg,
   loadScript,
   loadScripts,
   loadStyle,

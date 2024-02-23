@@ -1,4 +1,3 @@
-
 export const preview = (type, url) => {
   const baseSuffixes = ['png', 'jpg', 'jpeg', 'gif', 'txt']
   const officeSuffixes = ['doc', 'docx', 'ppt', 'pptx']
@@ -58,29 +57,8 @@ export const toType = async (file, type = 'text') => {
   })
 }
 
-export const dataurl2Img = async dataurl => {
-  const img = new Image()
-  await new Promise((resolve, reject) => {
-    img.onload = resolve
-    img.onerror = reject
-    img.src = dataurl
-  })
-  return img
-}
-
-export const zoomImage = async (img, width = window.innerWidth) => {
-  const canvas = document.createElement('canvas')
-  canvas.width = width
-  canvas.height = img.height / img.width * canvas.width
-  const ctx = canvas.getContext('2d')
-  ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-  return dataurl2Img(canvas.toDataURL())
-}
-
 export default {
   preview,
   select,
-  toType,
-  dataurl2Img,
-  zoomImage
+  toType
 }
