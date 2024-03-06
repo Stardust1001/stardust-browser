@@ -2,7 +2,7 @@
 export class Storage {
   constructor (storage) {
     this.storage = storage
-    this.noClearKeys = []
+    this.noClearKeys = new Set()
   }
 
   clear () {

@@ -2423,7 +2423,7 @@ var StardustBrowser = (() => {
   var Storage = class {
     constructor(storage) {
       this.storage = storage;
-      this.noClearKeys = [];
+      this.noClearKeys = /* @__PURE__ */ new Set();
     }
     clear() {
       const temp = {};
@@ -2477,7 +2477,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.150",
+    version: "1.0.151",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
