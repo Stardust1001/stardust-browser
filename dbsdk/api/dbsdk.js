@@ -22,35 +22,35 @@ export const createDbsdk = (rest = restful) => {
       this.model = this._database + '.' + this._table
     }
 
-    get (id) {
-      return rest.get(this.model, id)
+    get (id, key) {
+      return rest.get(this.model, id, key)
     }
 
-    add (data) {
-      return rest.add(this.model, data)
+    add (data, key) {
+      return rest.add(this.model, data, key)
     }
 
     search (data, key) {
       return rest.search(this.model, data, key)
     }
 
-    update (id, data) {
-      return rest.update(this.model, id, data)
+    update (id, data, key) {
+      return rest.update(this.model, id, data, key)
     }
 
-    remove (id) {
-      return rest.remove(this.model, id)
+    remove (id, key) {
+      return rest.remove(this.model, id, key)
     }
 
-    func (data) {
-      return rest.func(this.model, data)
+    func (data, key) {
+      return rest.func(this.model, data, key)
     }
 
-    batch (data) {
+    batch (data, key) {
       data.operations.forEach(ele => {
         ele.model = ele.model || this.model
       })
-      return rest.batch(data)
+      return rest.batch(data, key)
     }
   }
 
