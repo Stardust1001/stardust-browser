@@ -237,19 +237,29 @@ var StardustBrowser = (() => {
   // dbsdk/api/restful.js
   var createRestful = (req = request) => {
     return {
-      get(model, id) {
-        validates_default.validateGet(model, id);
-        return req({
-          url: `/restful?model=${model}&id=${id}`,
-          method: "get"
+      get(model, id, key) {
+        return __async(this, null, function* () {
+          validates_default.validateGet(model, id);
+          const res = yield req({
+            url: `/restful?model=${model}&id=${id}`,
+            method: "get"
+          });
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
         });
       },
-      add(model, data) {
-        validates_default.validateAdd(model, data);
-        return req({
-          url: `/restful/add?model=${model}`,
-          method: "post",
-          data
+      add(model, data, key) {
+        return __async(this, null, function* () {
+          validates_default.validateAdd(model, data);
+          const res = yield req({
+            url: `/restful/add?model=${model}`,
+            method: "post",
+            data
+          });
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
         });
       },
       search(model, data, key) {
@@ -265,35 +275,55 @@ var StardustBrowser = (() => {
           return StardustJs.highdict.get(res, key);
         });
       },
-      update(model, id, data) {
-        validates_default.validateUpdate(model, id, data);
-        return req({
-          url: `/restful?model=${model}&id=${id}`,
-          method: "put",
-          data
+      update(model, id, data, key) {
+        return __async(this, null, function* () {
+          validates_default.validateUpdate(model, id, data);
+          const res = yield req({
+            url: `/restful?model=${model}&id=${id}`,
+            method: "put",
+            data
+          });
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
         });
       },
-      remove(model, id) {
-        validates_default.validateRemove(model, id);
-        return req({
-          url: `/restful?model=${model}&id=${id}`,
-          method: "delete"
+      remove(model, id, key) {
+        return __async(this, null, function* () {
+          validates_default.validateRemove(model, id);
+          const res = yield req({
+            url: `/restful?model=${model}&id=${id}`,
+            method: "delete"
+          });
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
         });
       },
-      func(model, data) {
-        validates_default.validateFunc(model, data);
-        return req({
-          url: `/restful/func?model=${model}`,
-          method: "post",
-          data
+      func(model, data, key) {
+        return __async(this, null, function* () {
+          validates_default.validateFunc(model, data);
+          const res = yield req({
+            url: `/restful/func?model=${model}`,
+            method: "post",
+            data
+          });
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
         });
       },
-      batch(data) {
-        validates_default.validateData(data);
-        return req({
-          url: `/restful/batch`,
-          method: "post",
-          data
+      batch(data, key) {
+        return __async(this, null, function* () {
+          validates_default.validateData(data);
+          const res = yield req({
+            url: `/restful/batch`,
+            method: "post",
+            data
+          });
+          if (!key)
+            return res;
+          return StardustJs.highdict.get(res, key);
         });
       }
     };
@@ -2477,7 +2507,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.151",
+    version: "1.0.152",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
