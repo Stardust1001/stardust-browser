@@ -1,6 +1,6 @@
 {
   "name": "@stardust-js/browser",
-  "version": "1.0.153",
+  "version": "1.0.155",
   "description": "Everything I want to publish here",
   "type": "module",
   "main": "index.js",

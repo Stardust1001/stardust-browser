@@ -407,6 +407,7 @@ export class UIExecutor {
         th.textContent = key
         tr.appendChild(th)
       })
+      thead.appendChild(tr)
       table.appendChild(thead)
     }
     const tbody = document.createElement('tbody')
