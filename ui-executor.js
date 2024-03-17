@@ -139,6 +139,11 @@ export class EventGenerator {
   }
 }
 
+const inputElements = ['HTMLInputElement', 'HTMLTextAreaElement']
+const setters = {}
+inputElements.forEach(n => setters[n] = Object.getOwnPropertyDescriptor(window[n].prototype, 'value').set)
+const getInputElementPrototypeName = node => inputElements.find(n => node instanceof window[n])
+
 export class UIExecutor {
   constructor (config = {}) {
     this.config = {
@@ -511,21 +516,40 @@ export class UIExecutor {
     }
   }
 
-  async fill (node, text, options = {}) {
+  async fill (node, text, options = { }) {
     options = {
       fillInterval: this.config.interval,
+      customs: [],
+      isReact: false,
       ...options
     }
     node = await this.waitFor(node, options)
     this.focus(node)
     this.clear(node)
-    for (let key of text) {
-      if (options.fillInterval > 0) {
-        await this.sleep(options.fillInterval)
+
+    if (options.isReact) {
+      if (!options.customs.includes('input')) {
+        options.customs.push('input')
       }
-      this.keydown(node, key)
-      this.keyup(node, key)
-      node.value += key
+      const name = getInputElementPrototypeName(node)
+      if (!name) throw '未知的 input 元素类型'
+      setters[name].call(node, text)
+    } else {
+      for (let key of text) {
+        if (options.fillInterval > 0) {
+          await this.sleep(options.fillInterval)
+        }
+        this.keydown(node, key)
+        this.keypress(node, key)
+        this.keyup(node, key)
+        node.value += key
+      }
+    }
+    for (let name of options.customs) {
+      await this.custom(node, name)
+    }
+    if (options.isReact) {
+      this.blur(node)
     }
   }
 
@@ -760,6 +784,11 @@ export class UIExecutor {
   async keydown (node, key, options = {}) {
     node = await this.waitFor(node, options)
     this.keyboard(node, 'keydown', { key, ...options })
+  }
+
+  async keypress (node, key, options = {}) {
+    node = await this.waitFor(node, options)
+    this.keyboard(node, 'keypress', { key, ...options })
   }
 
   async keyup (node, key, options = {}) {

@@ -753,6 +753,10 @@ var StardustBrowser = (() => {
       }), options));
     }
   };
+  var inputElements = ["HTMLInputElement", "HTMLTextAreaElement"];
+  var setters = {};
+  inputElements.forEach((n) => setters[n] = Object.getOwnPropertyDescriptor(window[n].prototype, "value").set);
+  var getInputElementPrototypeName = (node) => inputElements.find((n) => node instanceof window[n]);
   var UIExecutor = class {
     constructor(config = {}) {
       this.config = __spreadValues({
@@ -1139,18 +1143,37 @@ var StardustBrowser = (() => {
     fill(_0, _1) {
       return __async(this, arguments, function* (node, text, options = {}) {
         options = __spreadValues({
-          fillInterval: this.config.interval
+          fillInterval: this.config.interval,
+          customs: [],
+          isReact: false
         }, options);
         node = yield this.waitFor(node, options);
         this.focus(node);
         this.clear(node);
-        for (let key of text) {
-          if (options.fillInterval > 0) {
-            yield this.sleep(options.fillInterval);
+        if (options.isReact) {
+          if (!options.customs.includes("input")) {
+            options.customs.push("input");
           }
-          this.keydown(node, key);
-          this.keyup(node, key);
-          node.value += key;
+          const name = getInputElementPrototypeName(node);
+          if (!name)
+            throw "\u672A\u77E5\u7684 input \u5143\u7D20\u7C7B\u578B";
+          setters[name].call(node, text);
+        } else {
+          for (let key of text) {
+            if (options.fillInterval > 0) {
+              yield this.sleep(options.fillInterval);
+            }
+            this.keydown(node, key);
+            this.keypress(node, key);
+            this.keyup(node, key);
+            node.value += key;
+          }
+        }
+        for (let name of options.customs) {
+          yield this.custom(node, name);
+        }
+        if (options.isReact) {
+          this.blur(node);
         }
       });
     }
@@ -1407,6 +1430,12 @@ var StardustBrowser = (() => {
       return __async(this, arguments, function* (node, key, options = {}) {
         node = yield this.waitFor(node, options);
         this.keyboard(node, "keydown", __spreadValues({ key }, options));
+      });
+    }
+    keypress(_0, _1) {
+      return __async(this, arguments, function* (node, key, options = {}) {
+        node = yield this.waitFor(node, options);
+        this.keyboard(node, "keypress", __spreadValues({ key }, options));
       });
     }
     keyup(_0, _1) {
@@ -2508,7 +2537,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.155",
+    version: "1.0.157",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
