@@ -1646,7 +1646,7 @@ var StardustBrowser = (() => {
           if (options.getRows)
             return options.getRows();
           const bodyTrs = ((_a2 = options.getBodyTrs) == null ? void 0 : _a2.call(options)) || $all(selectors.bodyTrs);
-          return bodyTrs.map((tr) => tr.$all(selectors.bodyTd).map((td) => {
+          return bodyTrs.filter((tr) => tr._rect().width).map((tr) => tr.$all(selectors.bodyTd).map((td) => {
             let temp;
             if (!options.withHidden) {
               temp = td.cloneNode(true);
@@ -2537,7 +2537,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.157",
+    version: "1.0.158",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

@@ -978,7 +978,7 @@ export class UIExecutor {
     const getRows = () => {
       if (options.getRows) return options.getRows()
       const bodyTrs = options.getBodyTrs?.() || $all(selectors.bodyTrs)
-      return bodyTrs.map(tr => tr.$all(selectors.bodyTd).map(td => {
+      return bodyTrs.filter(tr => tr._rect().width).map(tr => tr.$all(selectors.bodyTd).map(td => {
         let temp
         if (!options.withHidden) {
           temp = td.cloneNode(true)
