@@ -2327,6 +2327,8 @@ var StardustBrowser = (() => {
     return this.$all(selector2)[0];
   };
   Element.prototype.$all = function(selector2) {
+    if (selector2.startsWith("//") && this !== document)
+      selector2 = "." + selector2;
     const root = this.shadowRoot || this;
     const finder = this.shadowRoot ? sdqsa : qsa;
     let [first, ...others] = selector2.split(" >> ");
@@ -2373,10 +2375,10 @@ var StardustBrowser = (() => {
     return rect;
   };
   window.$one = document.$one = function(selector2) {
-    return Element.prototype.$one.call(document.documentElement, selector2);
+    return Element.prototype.$one.call(document, selector2);
   };
   window.$all = document.$all = function(selector2) {
-    return Element.prototype.$all.call(document.documentElement, selector2);
+    return Element.prototype.$all.call(document, selector2);
   };
   var $one2 = window.$one;
   var $all2 = window.$all;
@@ -2539,7 +2541,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.0",
+    version: "1.1.1",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

@@ -17,6 +17,7 @@ Element.prototype.$one = function (selector) {
   return this.$all(selector)[0]
 }
 Element.prototype.$all = function (selector) {
+  if (selector.startsWith('//') && this !== document) selector = '.' + selector
   const root = this.shadowRoot || this
   const finder = this.shadowRoot ? sdqsa : qsa
   let [first, ...others] = selector.split(' >> ')
@@ -60,10 +61,10 @@ Element.prototype._rect = function () {
 }
 
 window.$one = document.$one = function (selector) {
-  return Element.prototype.$one.call(document.documentElement, selector)
+  return Element.prototype.$one.call(document, selector)
 }
 window.$all = document.$all = function (selector) {
-  return Element.prototype.$all.call(document.documentElement, selector)
+  return Element.prototype.$all.call(document, selector)
 }
 
 export const $one = window.$one
