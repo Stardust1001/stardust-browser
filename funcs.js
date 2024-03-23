@@ -1,7 +1,7 @@
 
 export const isWindows = /(windows|win32)/i.test(navigator.platform)
 
-export const isXPath = selector => /^(\/\/|\.\.)/.test(selector.trim())
+export const isXPath = selector => /^(\/\/|\.(\.|\/))/.test(selector.trim())
 
 export const calcPixel = text => {
   if (typeof text === 'number') return text

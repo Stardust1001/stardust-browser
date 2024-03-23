@@ -2055,7 +2055,7 @@ var StardustBrowser = (() => {
 
   // funcs.js
   var isWindows = /(windows|win32)/i.test(navigator.platform);
-  var isXPath = (selector2) => /^(\/\/|\.\.)/.test(selector2.trim());
+  var isXPath = (selector2) => /^(\/\/|\.(\.|\/))/.test(selector2.trim());
   var calcPixel = (text) => {
     if (typeof text === "number")
       return text;
@@ -2368,7 +2368,9 @@ var StardustBrowser = (() => {
     }
   };
   Element.prototype._rect = function() {
-    return this.getBoundingClientRect();
+    const rect = this.getBoundingClientRect();
+    rect.visible = rect.width > 0 && rect.height > 0;
+    return rect;
   };
   window.$one = document.$one = function(selector2) {
     return Element.prototype.$one.call(document.documentElement, selector2);
@@ -2537,7 +2539,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.0.158",
+    version: "1.1.0",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

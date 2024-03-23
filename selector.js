@@ -1,4 +1,3 @@
-
 import { isXPath } from './funcs.js'
 
 export const xfind = (selector, root, all = false) => {
@@ -55,7 +54,9 @@ Element.prototype._text = function (value) {
   }
 }
 Element.prototype._rect = function () {
-  return this.getBoundingClientRect()
+  const rect = this.getBoundingClientRect()
+  rect.visible = rect.width > 0 && rect.height > 0
+  return rect
 }
 
 window.$one = document.$one = function (selector) {
