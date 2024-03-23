@@ -2375,10 +2375,10 @@ var StardustBrowser = (() => {
     return rect;
   };
   window.$one = document.$one = function(selector2) {
-    return Element.prototype.$one.call(document, selector2);
+    return Element.prototype.$one.call(document.documentElement, selector2);
   };
   window.$all = document.$all = function(selector2) {
-    return Element.prototype.$all.call(document, selector2);
+    return Element.prototype.$all.call(document.documentElement, selector2);
   };
   var $one2 = window.$one;
   var $all2 = window.$all;
@@ -2541,7 +2541,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.1",
+    version: "1.1.2",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

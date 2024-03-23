@@ -61,10 +61,10 @@ Element.prototype._rect = function () {
 }
 
 window.$one = document.$one = function (selector) {
-  return Element.prototype.$one.call(document, selector)
+  return Element.prototype.$one.call(document.documentElement, selector)
 }
 window.$all = document.$all = function (selector) {
-  return Element.prototype.$all.call(document, selector)
+  return Element.prototype.$all.call(document.documentElement, selector)
 }
 
 export const $one = window.$one
