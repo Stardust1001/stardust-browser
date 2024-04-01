@@ -524,8 +524,8 @@ export class UIExecutor {
       ...options
     }
     node = await this.waitFor(node, options)
-    this.focus(node)
-    this.clear(node)
+    await this.focus(node)
+    await this.clear(node)
 
     if (options.isReact) {
       if (!options.customs.includes('input')) {
@@ -778,7 +778,7 @@ export class UIExecutor {
     }
     node = await this.waitFor(node, options)
     const value = window.prompt(options.placeholder)
-    this.fill(node, value, options)
+    await this.fill(node, value, options)
   }
 
   async keydown (node, key, options = {}) {
@@ -807,9 +807,6 @@ export class UIExecutor {
   }
 
   async fillOcr (node, imgSelector, options = {}) {
-    options = {
-      ...options
-    }
     node = await this.waitFor(node, options)
     const { ocrCaptchaUrl } = options
     if (ocrCaptchaUrl) {

@@ -1148,8 +1148,8 @@ var StardustBrowser = (() => {
           isReact: false
         }, options);
         node = yield this.waitFor(node, options);
-        this.focus(node);
-        this.clear(node);
+        yield this.focus(node);
+        yield this.clear(node);
         if (options.isReact) {
           if (!options.customs.includes("input")) {
             options.customs.push("input");
@@ -1423,7 +1423,7 @@ var StardustBrowser = (() => {
         }, options);
         node = yield this.waitFor(node, options);
         const value = window.prompt(options.placeholder);
-        this.fill(node, value, options);
+        yield this.fill(node, value, options);
       });
     }
     keydown(_0, _1) {
@@ -1456,7 +1456,6 @@ var StardustBrowser = (() => {
     }
     fillOcr(_0, _1) {
       return __async(this, arguments, function* (node, imgSelector, options = {}) {
-        options = __spreadValues({}, options);
         node = yield this.waitFor(node, options);
         const { ocrCaptchaUrl } = options;
         if (ocrCaptchaUrl) {
@@ -2541,7 +2540,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.2",
+    version: "1.1.3",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
