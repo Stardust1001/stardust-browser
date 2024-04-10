@@ -41,7 +41,7 @@ export const base64ToImg = async base64 => {
   return img
 }
 
-export const img2Canvas = async (img, canvasWidth) => {
+export const img2Canvas = (img, canvasWidth) => {
   canvasWidth ??= img.width
   const canvas = document.createElement('canvas')
   canvas.width = canvasWidth

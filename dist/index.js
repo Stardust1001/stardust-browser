@@ -2091,7 +2091,7 @@ var StardustBrowser = (() => {
     });
     return img;
   });
-  var img2Canvas = (img, canvasWidth) => __async(void 0, null, function* () {
+  var img2Canvas = (img, canvasWidth) => {
     canvasWidth != null ? canvasWidth : canvasWidth = img.width;
     const canvas = document.createElement("canvas");
     canvas.width = canvasWidth;
@@ -2099,7 +2099,7 @@ var StardustBrowser = (() => {
     const ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     return canvas;
-  });
+  };
   var canvas2Img = (canvas) => {
     return base64ToImg(canvas.toDataURL());
   };
@@ -2540,7 +2540,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.3",
+    version: "1.1.5",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
