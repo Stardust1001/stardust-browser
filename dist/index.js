@@ -2104,7 +2104,7 @@ var StardustBrowser = (() => {
     return base64ToImg(canvas.toDataURL());
   };
   var zoomImg = (_0, ..._1) => __async(void 0, [_0, ..._1], function* (img, width = window.innerWidth) {
-    return img2Canvas(img, width).then(canvas2Img);
+    return canvas2Img(img2Canvas(img, width));
   });
   var loadScript = (src) => {
     const script = document.createElement("script");
@@ -2540,7 +2540,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.5",
+    version: "1.1.6",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

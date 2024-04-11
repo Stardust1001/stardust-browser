@@ -56,7 +56,7 @@ export const canvas2Img = canvas => {
 }
 
 export const zoomImg = async (img, width = window.innerWidth) => {
-  return img2Canvas(img, width).then(canvas2Img)
+  return canvas2Img(img2Canvas(img, width))
 }
 
 export const loadScript = src => {
