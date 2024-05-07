@@ -35,6 +35,9 @@ export const select = async (accept, multiple = false, dir = false) => {
       input.remove()
       resolve(multiple ? input.files : input.files[0])
     }
+    input.oncancel = () => {
+      input.remove()
+    }
     document.body.appendChild(input)
     input.click()
   })

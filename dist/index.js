@@ -2003,6 +2003,9 @@ var StardustBrowser = (() => {
         input.remove();
         resolve(multiple ? input.files : input.files[0]);
       };
+      input.oncancel = () => {
+        input.remove();
+      };
       document.body.appendChild(input);
       input.click();
     });
@@ -2540,7 +2543,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.6",
+    version: "1.1.7",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
