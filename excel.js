@@ -5,6 +5,11 @@ const exportTable2Excel = (id) => {
 }
 
 const export2Excel = options => {
+  const { header = [], data = [] } = options
+  const maxCols = Math.max.apply(null, [header, ...data].map(n => n.length))
+  if (header.length < maxCols) {
+    header.push(...new Array(maxCols - header.length).fill(''))
+  }
   Export2Excel.export_json_to_excel(options)
 }
 

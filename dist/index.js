@@ -599,6 +599,11 @@ var StardustBrowser = (() => {
     export_table_to_excel(id);
   };
   var export2Excel = (options) => {
+    const { header = [], data = [] } = options;
+    const maxCols = Math.max.apply(null, [header, ...data].map((n) => n.length));
+    if (header.length < maxCols) {
+      header.push(...new Array(maxCols - header.length).fill(""));
+    }
     export_json_to_excel(options);
   };
   var export2Csv = (options) => __async(void 0, null, function* () {
@@ -2543,7 +2548,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.7",
+    version: "1.1.8",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
