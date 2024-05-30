@@ -1475,6 +1475,42 @@ var StardustBrowser = (() => {
         return this.prompt(node, options);
       });
     }
+    autogui(_0) {
+      return __async(this, arguments, function* (operations, options = {}) {
+        var _a;
+        const autoguiUrl = (_a = options.autoguiUrl) != null ? _a : this.config.autoguiUrl;
+        if (!autoguiUrl)
+          throw "\u6CA1\u6709\u914D\u7F6E\u684C\u9762\u81EA\u52A8\u5316\u670D\u52A1\u7684\u7F51\u5740";
+        this._autogui || (this._autogui = {
+          baseURL: autoguiUrl,
+          fetcher: new StardustBrowser.Fetcher(autoguiUrl, {}),
+          fetch() {
+            return this.fetcher.fetch.bind(this.fetcher);
+          },
+          execute(operations2) {
+            return __async(this, null, function* () {
+              const data = yield this.fetch("/execute", { body: { operations: operations2 } });
+              return data.data;
+            });
+          },
+          find_window(class_name, window_name) {
+            return __async(this, null, function* () {
+              const data = yield this.fetch("/find_window", { body: { class_name, window_name } });
+              return data.data;
+            });
+          },
+          get_window_rect(handle) {
+            return __async(this, null, function* () {
+              const data = yield this.fetch("/get_window_rect", { body: { handle } });
+              return data.data;
+            });
+          }
+        });
+        if (operations.length) {
+          return this._autogui.execute(operations);
+        }
+      });
+    }
     save(_0, _1, _2) {
       return __async(this, arguments, function* (data, saveTo, key, options = {}) {
         if (typeof data === "function") {
@@ -2548,7 +2584,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.8",
+    version: "1.1.9",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

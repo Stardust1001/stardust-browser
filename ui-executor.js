@@ -821,6 +821,33 @@ export class UIExecutor {
     return this.prompt(node, options)
   }
 
+  async autogui (operations, options = {}) {
+    const autoguiUrl = options.autoguiUrl ?? this.config.autoguiUrl
+    if (!autoguiUrl) throw '没有配置桌面自动化服务的网址'
+    this._autogui ||= {
+      baseURL: autoguiUrl,
+      fetcher: new StardustBrowser.Fetcher(autoguiUrl, {}),
+      fetch () {
+        return this.fetcher.fetch.bind(this.fetcher)
+      },
+      async execute (operations) {
+        const data = await this.fetch('/execute', { body: { operations } })
+        return data.data
+      },
+      async find_window (class_name, window_name) {
+        const data = await this.fetch('/find_window', { body: { class_name, window_name } })
+        return data.data
+      },
+      async get_window_rect (handle) {
+        const data = await this.fetch('/get_window_rect', { body: { handle } })
+        return data.data
+      }
+    }
+    if (operations.length) {
+      return this._autogui.execute(operations)
+    }
+  }
+
   async save (data, saveTo, key, options = {}) {
     if (typeof data === 'function') {
       data = await data(this)
