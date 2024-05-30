@@ -1484,8 +1484,8 @@ var StardustBrowser = (() => {
         this._autogui || (this._autogui = {
           baseURL: autoguiUrl,
           fetcher: new StardustBrowser.Fetcher(autoguiUrl, {}),
-          fetch() {
-            return this.fetcher.fetch.bind(this.fetcher);
+          fetch(...props) {
+            return this.fetcher.fetch(...options);
           },
           execute(operations2) {
             return __async(this, null, function* () {
@@ -2584,7 +2584,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.1.9",
+    version: "1.2.0",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
