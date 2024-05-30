@@ -828,7 +828,7 @@ export class UIExecutor {
       baseURL: autoguiUrl,
       fetcher: new StardustBrowser.Fetcher(autoguiUrl, {}),
       fetch (...props) {
-        return this.fetcher.fetch(...options)
+        return this.fetcher.fetch(...props)
       },
       async execute (operations) {
         const data = await this.fetch('/execute', { body: { operations } })
