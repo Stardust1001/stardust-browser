@@ -71,6 +71,7 @@ var StardustBrowser = (() => {
   __export(stardust_browser_exports, {
     Fetcher: () => fetcher_default,
     SpeechRecognition: () => speech_recognition_default,
+    StardustEcharts: () => StardustEcharts_default,
     UIExecutor: () => ui_executor_default,
     clipboard: () => clipboard_default,
     cookies: () => cookies_default,
@@ -244,8 +245,7 @@ var StardustBrowser = (() => {
             url: `/restful?model=${model}&id=${id}`,
             method: "get"
           });
-          if (!key)
-            return res;
+          if (!key) return res;
           return StardustJs.highdict.get(res, key);
         });
       },
@@ -257,8 +257,7 @@ var StardustBrowser = (() => {
             method: "post",
             data
           });
-          if (!key)
-            return res;
+          if (!key) return res;
           return StardustJs.highdict.get(res, key);
         });
       },
@@ -270,8 +269,7 @@ var StardustBrowser = (() => {
             method: "post",
             data
           });
-          if (!key)
-            return res;
+          if (!key) return res;
           return StardustJs.highdict.get(res, key);
         });
       },
@@ -283,8 +281,7 @@ var StardustBrowser = (() => {
             method: "put",
             data
           });
-          if (!key)
-            return res;
+          if (!key) return res;
           return StardustJs.highdict.get(res, key);
         });
       },
@@ -295,8 +292,7 @@ var StardustBrowser = (() => {
             url: `/restful?model=${model}&id=${id}`,
             method: "delete"
           });
-          if (!key)
-            return res;
+          if (!key) return res;
           return StardustJs.highdict.get(res, key);
         });
       },
@@ -308,8 +304,7 @@ var StardustBrowser = (() => {
             method: "post",
             data
           });
-          if (!key)
-            return res;
+          if (!key) return res;
           return StardustJs.highdict.get(res, key);
         });
       },
@@ -321,8 +316,7 @@ var StardustBrowser = (() => {
             method: "post",
             data
           });
-          if (!key)
-            return res;
+          if (!key) return res;
           return StardustJs.highdict.get(res, key);
         });
       }
@@ -406,12 +400,10 @@ var StardustBrowser = (() => {
         var colspan = cell.getAttribute("colspan");
         var rowspan = cell.getAttribute("rowspan");
         var cellValue = cell.innerText;
-        if (cellValue !== "" && cellValue == +cellValue)
-          cellValue = +cellValue;
+        if (cellValue !== "" && cellValue == +cellValue) cellValue = +cellValue;
         ranges.forEach(function(range) {
           if (R >= range.s.r && R <= range.e.r && outRow.length >= range.s.c && outRow.length <= range.e.c) {
-            for (var i = 0; i <= range.e.c - range.s.c; ++i)
-              outRow.push(null);
+            for (var i = 0; i <= range.e.c - range.s.c; ++i) outRow.push(null);
           }
         });
         if (rowspan || colspan) {
@@ -431,16 +423,14 @@ var StardustBrowser = (() => {
         ;
         outRow.push(cellValue !== "" ? cellValue : null);
         if (colspan)
-          for (var k = 0; k < colspan - 1; ++k)
-            outRow.push(null);
+          for (var k = 0; k < colspan - 1; ++k) outRow.push(null);
       }
       out.push(outRow);
     }
     return [out, ranges];
   }
   function datenum(v, date1904) {
-    if (date1904)
-      v += 1462;
+    if (date1904) v += 1462;
     var epoch = Date.parse(v);
     return (epoch - new Date(Date.UTC(1899, 11, 30))) / (24 * 60 * 60 * 1e3);
   }
@@ -458,51 +448,40 @@ var StardustBrowser = (() => {
     };
     for (var R = 0; R != data.length; ++R) {
       for (var C = 0; C != data[R].length; ++C) {
-        if (range.s.r > R)
-          range.s.r = R;
-        if (range.s.c > C)
-          range.s.c = C;
-        if (range.e.r < R)
-          range.e.r = R;
-        if (range.e.c < C)
-          range.e.c = C;
+        if (range.s.r > R) range.s.r = R;
+        if (range.s.c > C) range.s.c = C;
+        if (range.e.r < R) range.e.r = R;
+        if (range.e.c < C) range.e.c = C;
         var cell = {
           v: data[R][C]
         };
-        if (cell.v == null)
-          continue;
+        if (cell.v == null) continue;
         var cell_ref = XLSX.utils.encode_cell({
           c: C,
           r: R
         });
-        if (typeof cell.v === "number")
-          cell.t = "n";
-        else if (typeof cell.v === "boolean")
-          cell.t = "b";
+        if (typeof cell.v === "number") cell.t = "n";
+        else if (typeof cell.v === "boolean") cell.t = "b";
         else if (cell.v instanceof Date) {
           cell.t = "n";
           cell.z = XLSX.SSF._table[14];
           cell.v = datenum(cell.v);
-        } else
-          cell.t = "s";
+        } else cell.t = "s";
         ws[cell_ref] = cell;
       }
     }
-    if (range.s.c < 1e7)
-      ws["!ref"] = XLSX.utils.encode_range(range);
+    if (range.s.c < 1e7) ws["!ref"] = XLSX.utils.encode_range(range);
     return ws;
   }
   function Workbook() {
-    if (!(this instanceof Workbook))
-      return new Workbook();
+    if (!(this instanceof Workbook)) return new Workbook();
     this.SheetNames = [];
     this.Sheets = {};
   }
   function s2ab(s) {
     var buf = new ArrayBuffer(s.length);
     var view = new Uint8Array(buf);
-    for (var i = 0; i != s.length; ++i)
-      view[i] = s.charCodeAt(i) & 255;
+    for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 255;
     return buf;
   }
   function export_table_to_excel(selector2) {
@@ -549,8 +528,7 @@ var StardustBrowser = (() => {
       var ws_name = "SheetJS";
       var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);
       if (merges.length > 0) {
-        if (!ws["!merges"])
-          ws["!merges"] = [];
+        if (!ws["!merges"]) ws["!merges"] = [];
         merges.forEach((item) => {
           ws["!merges"].push(XLSX.utils.decode_range(item));
         });
@@ -612,8 +590,7 @@ var StardustBrowser = (() => {
     let { header, data, filename = "table" } = options;
     const integerReg = /^\d{6,}$/;
     data = data.map((row) => {
-      if (!row || typeof row !== "object")
-        return row;
+      if (!row || typeof row !== "object") return row;
       if (Array.isArray(row)) {
         return row.map((value) => integerReg.test(value) ? value + "	" : value);
       }
@@ -811,14 +788,11 @@ var StardustBrowser = (() => {
         }, options);
         while (true) {
           if (typeof url === "string") {
-            if (location.href.includes(url))
-              return true;
+            if (location.href.includes(url)) return true;
           } else if (typeof url === "function") {
-            if (url(location.href))
-              return true;
+            if (url(location.href)) return true;
           } else if (url instanceof RegExp) {
-            if (url.test(location.href))
-              return true;
+            if (url.test(location.href)) return true;
           } else {
             throw "\u4E0D\u652F\u6301\u7684 url \u7C7B\u578B";
           }
@@ -833,8 +807,7 @@ var StardustBrowser = (() => {
         }, options);
         while (true) {
           try {
-            if (func(this))
-              break;
+            if (func(this)) break;
           } catch (e) {
           }
           yield this.sleep(options.interval);
@@ -975,8 +948,7 @@ var StardustBrowser = (() => {
         } else {
           percentNode.style.display = "none";
         }
-        if (isDone)
-          node.remove();
+        if (isDone) node.remove();
       });
     }
     reportTable({ data, header, maskStyle, closeStyle, contentStyle, tableStyle, tdStyle }) {
@@ -1160,8 +1132,7 @@ var StardustBrowser = (() => {
             options.customs.push("input");
           }
           const name = getInputElementPrototypeName(node);
-          if (!name)
-            throw "\u672A\u77E5\u7684 input \u5143\u7D20\u7C7B\u578B";
+          if (!name) throw "\u672A\u77E5\u7684 input \u5143\u7D20\u7C7B\u578B";
           setters[name].call(node, text);
         } else {
           for (let key of text) {
@@ -1402,8 +1373,7 @@ var StardustBrowser = (() => {
         let i = 0;
         while (true) {
           const ok = yield this.eval(func, options);
-          if (!ok)
-            break;
+          if (!ok) break;
           let ops = operations;
           if (typeof operations === "function") {
             ops = yield operations(this, i++);
@@ -1479,8 +1449,7 @@ var StardustBrowser = (() => {
       return __async(this, arguments, function* (operations, options = {}) {
         var _a;
         const autoguiUrl = (_a = options.autoguiUrl) != null ? _a : this.config.autoguiUrl;
-        if (!autoguiUrl)
-          throw "\u6CA1\u6709\u914D\u7F6E\u684C\u9762\u81EA\u52A8\u5316\u670D\u52A1\u7684\u7F51\u5740";
+        if (!autoguiUrl) throw "\u6CA1\u6709\u914D\u7F6E\u684C\u9762\u81EA\u52A8\u5316\u670D\u52A1\u7684\u7F51\u5740";
         this._autogui || (this._autogui = {
           baseURL: autoguiUrl,
           fetcher: new StardustBrowser.Fetcher(autoguiUrl, {}),
@@ -1594,22 +1563,19 @@ var StardustBrowser = (() => {
         selectors.bodyTd || (selectors.bodyTd = "td");
         if (selectors.root) {
           for (let key in selectors) {
-            if (key === "root")
-              continue;
+            if (key === "root") continue;
             selectors[key] = selectors.root + " " + selectors[key];
           }
         }
         const isFirst = () => {
-          if (options.isFirst)
-            return options.isFirst();
+          if (options.isFirst) return options.isFirst();
           const active = $one(selectors.active);
           const first = $one(selectors.first);
           const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
           return active === first || page2 === 1;
         };
         const isDone = () => {
-          if (options.isDone)
-            return options.isDone();
+          if (options.isDone) return options.isDone();
           const active = $one(selectors.active);
           const last = $one(selectors.last);
           const page2 = (active.value || active._text()).toString().match(/\d+/)[0] * 1;
@@ -1617,8 +1583,7 @@ var StardustBrowser = (() => {
         };
         const setFirst = () => __async(this, null, function* () {
           var _a2;
-          if (options.setFirst)
-            return options.setFirst();
+          if (options.setFirst) return options.setFirst();
           const first = $one(selectors.first);
           (_a2 = options.beforeSetFirst) == null ? void 0 : _a2.call(options, page);
           if (["INPUT", "TEXTAREA"].includes(first)) {
@@ -1631,20 +1596,17 @@ var StardustBrowser = (() => {
         const setNext = () => __async(this, null, function* () {
           var _a2;
           (_a2 = options.beforeSetNext) == null ? void 0 : _a2.call(options, page);
-          if (options.setNext)
-            return options.setNext();
+          if (options.setNext) return options.setNext();
           yield this.click($one(selectors.next));
         });
         const getCurrentSize = () => {
-          if (options.getCurrentSize)
-            return options.getCurrentSize();
+          if (options.getCurrentSize) return options.getCurrentSize();
           const node = $one(selectors.size);
           const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
           return page2;
         };
         const getSettingSize = () => {
-          if (options.getSettingSize)
-            return options.getSettingSize();
+          if (options.getSettingSize) return options.getSettingSize();
           const node = $one(selectors.pageSize);
           const page2 = (node.value || node._text()).toString().match(/\d+/)[0] * 1;
           return page2;
@@ -1652,8 +1614,7 @@ var StardustBrowser = (() => {
         const setSize = () => __async(this, null, function* () {
           var _a2;
           (_a2 = options.beforeSetSize) == null ? void 0 : _a2.call(options, page);
-          if (options.setSize)
-            return options.setSize();
+          if (options.setSize) return options.setSize();
           if (selectors.sizer) {
             const node = $one(selectors.sizer);
             if (node.nodeName === "SELECT") {
@@ -1666,8 +1627,7 @@ var StardustBrowser = (() => {
           yield this.click(selectors.pageSize);
         });
         const waitLoading = () => __async(this, null, function* () {
-          if (options.waitLoading)
-            return options.waitLoading();
+          if (options.waitLoading) return options.waitLoading();
           yield this.waitFor(selectors.loading);
           yield this.waitForFunction(() => {
             var _a2, _b2;
@@ -1676,15 +1636,13 @@ var StardustBrowser = (() => {
         });
         const getHeader = () => {
           var _a2;
-          if (options.getHeader)
-            return options.getHeader();
+          if (options.getHeader) return options.getHeader();
           const headerTr = ((_a2 = options.getHeaderTr) == null ? void 0 : _a2.call(options)) || $one(selectors.headerTr);
           return headerTr.$all(selectors.headerTh).map((th) => th._text());
         };
         const getRows = () => {
           var _a2;
-          if (options.getRows)
-            return options.getRows();
+          if (options.getRows) return options.getRows();
           const bodyTrs = ((_a2 = options.getBodyTrs) == null ? void 0 : _a2.call(options)) || $all(selectors.bodyTrs);
           return bodyTrs.filter((tr) => tr._rect().width).map((tr) => tr.$all(selectors.bodyTd).map((td) => {
             let temp;
@@ -1693,8 +1651,7 @@ var StardustBrowser = (() => {
               const walker = document.createTreeWalker(td, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null, false);
               const childs = [];
               let child;
-              while (child = walker.nextNode())
-                childs.push(child);
+              while (child = walker.nextNode()) childs.push(child);
               childs.filter((c) => {
                 var _a3;
                 return c.nodeName !== "#text" && !((_a3 = c._rect) == null ? void 0 : _a3.call(c).width);
@@ -1717,19 +1674,16 @@ var StardustBrowser = (() => {
         };
         const getPageCount = () => {
           var _a2;
-          if (options.getPageCount)
-            return options.getPageCount();
+          if (options.getPageCount) return options.getPageCount();
           return (((_a2 = $one(selectors.pageCount || selectors.last)) == null ? void 0 : _a2._text()) || 1) * 1;
         };
         const data = [];
         let pageCount = 0;
         let page = options.page;
-        if (options.report)
-          yield this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
+        if (options.report) yield this.report("\u51C6\u5907\u83B7\u53D6\u6570\u636E...");
         options.log("\u5F53\u524D\u9875 " + getRows().length + " \u6761\u6570\u636E\uFF0C\u6BCF\u9875\u9650\u5236 " + getCurrentSize() + " \u6761");
         if (getRows().length && getCurrentSize() !== getSettingSize()) {
-          if (options.report)
-            yield this.report("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
+          if (options.report) yield this.report("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
           options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570: " + getSettingSize());
           yield setSize();
           options.log("\u8BBE\u7F6E\u6BCF\u9875\u6761\u6570\u540E\u7B49\u5F85\u52A0\u8F7D");
@@ -1775,8 +1729,7 @@ var StardustBrowser = (() => {
         if (data.length && header.length > data[0].length) {
           header = header.slice(0, data[0].length);
         }
-        if ((_b = options.beforeExport) == null ? void 0 : _b.call(options, { header, data }))
-          return;
+        if ((_b = options.beforeExport) == null ? void 0 : _b.call(options, { header, data })) return;
         let method;
         if (options.type === "excel") {
           method = "export2Excel";
@@ -1916,16 +1869,12 @@ var StardustBrowser = (() => {
       this._baseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
     }
     headers(headers = {}, replace = false) {
-      if (replace)
-        this._headers = __spreadValues({}, headers);
-      else
-        Object.assign(this._headers, headers);
+      if (replace) this._headers = __spreadValues({}, headers);
+      else Object.assign(this._headers, headers);
     }
     options(options = {}, replace = false) {
-      if (replace)
-        this._options = __spreadValues({}, options);
-      else
-        Object.assign(this._options, options);
+      if (replace) this._options = __spreadValues({}, options);
+      else Object.assign(this._options, options);
     }
     fetch(url, options = {}) {
       options = __spreadValues(__spreadValues({}, this._options), options);
@@ -1959,8 +1908,7 @@ var StardustBrowser = (() => {
           } else if (contentType.includes("application/form-data")) {
             if (!(others.body instanceof FormData)) {
               const form = new FormData();
-              for (let key in others.body)
-                form.append(key, others.body[key]);
+              for (let key in others.body) form.append(key, others.body[key]);
               others.body = form;
             }
           }
@@ -1975,10 +1923,9 @@ var StardustBrowser = (() => {
         url = url.split("?")[0] + "?" + search;
       }
       return fetch(url, __spreadProps(__spreadValues({}, others), { headers, method })).then((res) => res[type]()).catch(() => {
-        if (retries)
-          return this.fetch(url, __spreadProps(__spreadValues({}, options), {
-            retries: retries - 1
-          }));
+        if (retries) return this.fetch(url, __spreadProps(__spreadValues({}, options), {
+          retries: retries - 1
+        }));
       });
     }
     queryAll(_0, _1, _2) {
@@ -1989,16 +1936,14 @@ var StardustBrowser = (() => {
         const [total, all] = yield func(1, size);
         count = all.length;
         const percent = (count / total * 100).toFixed(2) * 1;
-        if (report)
-          executor.report(title + " \u6293\u53D6\u5230 " + count + "\u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent + "%", percent);
+        if (report) executor.report(title + " \u6293\u53D6\u5230 " + count + "\u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent + "%", percent);
         onProgress == null ? void 0 : onProgress(percent, all);
         if (total > size) {
           const results = yield StardustJs.promises.schedule((i) => __async(this, null, function* () {
             const [_, rows] = yield func(i + 2, size);
             count += rows.length;
             const percent2 = (count / total * 100).toFixed(2) * 1;
-            if (report)
-              executor.report(title + " \u6293\u53D6\u5230 " + count + " \u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent2 + "%", percent2);
+            if (report) executor.report(title + " \u6293\u53D6\u5230 " + count + " \u6761\u6570\u636E\uFF0C\u5DF2\u5B8C\u6210 " + percent2 + "%", percent2);
             onProgress == null ? void 0 : onProgress(percent2, rows);
             return rows;
           }), Math.ceil(total / size) - 1, limit);
@@ -2078,15 +2023,13 @@ var StardustBrowser = (() => {
     return !!(document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
   };
   var open = (node) => {
-    if (isOpened())
-      return;
+    if (isOpened()) return;
     const root = document.documentElement;
     const func = root.requestFullscreen || root.msRequestFullscreen || root.mozRequestFullScreen || root.webkitRequestFullscreen;
     func.call(node || root);
   };
   var exit = () => {
-    if (!isOpened())
-      return;
+    if (!isOpened()) return;
     const func = document.exitFullscreen || document.msExitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen;
     func.call(document);
   };
@@ -2100,8 +2043,7 @@ var StardustBrowser = (() => {
   var isWindows = /(windows|win32)/i.test(navigator.platform);
   var isXPath = (selector2) => /^(\/\/|\.(\.|\/))/.test(selector2.trim());
   var calcPixel = (text) => {
-    if (typeof text === "number")
-      return text;
+    if (typeof text === "number") return text;
     text = text.toLowerCase();
     let number = parseFloat(text);
     if (text.includes("vw") || text.includes("%")) {
@@ -2186,8 +2128,7 @@ var StardustBrowser = (() => {
   var _nodes = {};
   var _zoom = 1;
   var _resize = () => {
-    if (!document.documentElement)
-      return;
+    if (!document.documentElement) return;
     _zoom = 1 / parseFloat(document.documentElement.style.zoom);
     setTimeout(() => {
       Object.values(_nodes).forEach((n) => n.style.zoom = _zoom);
@@ -2231,15 +2172,12 @@ var StardustBrowser = (() => {
     const detector = new BarcodeDetector(others);
     const detect = (source) => __async(void 0, null, function* () {
       let result = yield detector.detect(source);
-      if (details !== true)
-        result = result.map((r) => r.rawValue);
+      if (details !== true) result = result.map((r) => r.rawValue);
       return result;
     });
     if (mode === "image") {
-      if (Array.isArray(others.images))
-        return Promise.all(others.images.map(detect));
-      if (others.images)
-        return detect(others.images);
+      if (Array.isArray(others.images)) return Promise.all(others.images.map(detect));
+      if (others.images) return detect(others.images);
       let files = yield StardustBrowser.file.select("image/*", multiple);
       files = multiple ? [...files] : [files];
       const codes = yield Promise.all(files.map((file) => __async(void 0, null, function* () {
@@ -2253,8 +2191,7 @@ var StardustBrowser = (() => {
       })));
       return multiple ? codes : codes[0];
     }
-    if (continuous && (!onRecognize || !done))
-      throw "continuous need onRecognize and done";
+    if (continuous && (!onRecognize || !done)) throw "continuous need onRecognize and done";
     timeGap = Math.max(timeGap, 16);
     const stream = yield navigator.mediaDevices.getUserMedia(__spreadProps(__spreadValues({}, others), {
       video: {
@@ -2309,8 +2246,7 @@ var StardustBrowser = (() => {
     while (true) {
       let result = yield detector.detect(video);
       if (result.length) {
-        if (!details)
-          result = result.map((r) => r.rawValue);
+        if (!details) result = result.map((r) => r.rawValue);
         if (continuous) {
           onRecognize(result);
           if (done()) {
@@ -2355,8 +2291,7 @@ var StardustBrowser = (() => {
   // selector.js
   var xfind = (selector2, root, all = false) => {
     const iterator = document.evaluate(selector2, root || document);
-    if (!all)
-      return iterator.iterateNext();
+    if (!all) return iterator.iterateNext();
     const nodes = [];
     let n;
     while (n = iterator.iterateNext()) {
@@ -2370,8 +2305,7 @@ var StardustBrowser = (() => {
     return this.$all(selector2)[0];
   };
   Element.prototype.$all = function(selector2) {
-    if (selector2.startsWith("//") && this !== document)
-      selector2 = "." + selector2;
+    if (selector2.startsWith("//") && this !== document) selector2 = "." + selector2;
     const root = this.shadowRoot || this;
     const finder = this.shadowRoot ? sdqsa : qsa;
     let [first, ...others] = selector2.split(" >> ");
@@ -2400,8 +2334,7 @@ var StardustBrowser = (() => {
     let parent = this;
     while (level--) {
       parent = parent.parentNode;
-      if (!parent)
-        return parent;
+      if (!parent) return parent;
     }
     return parent;
   };
@@ -2441,8 +2374,7 @@ var StardustBrowser = (() => {
       this.tempText = "";
     }
     start() {
-      if (this.isStarted)
-        return;
+      if (this.isStarted) return;
       this.recorder = new RecorderManager(this.config.cdnUrl);
       this.recorder.onStart = this.onStart.bind(this);
       this.recorder.onFrameRecorded = this.onFrameRecorded.bind(this);
@@ -2488,16 +2420,14 @@ var StardustBrowser = (() => {
       if (data) {
         const str = data.ws.map((e2) => e2.cw[0].w).join("");
         if (data.pgs) {
-          if (data.pgs === "apd")
-            this.text = this.tempText;
+          if (data.pgs === "apd") this.text = this.tempText;
           this.tempText = this.text + str;
         } else {
           this.text += str;
         }
         this.onMessage(this.tempText || this.text || "");
       }
-      if (result.code || result.data.status === 2)
-        this.ws.close();
+      if (result.code || result.data.status === 2) this.ws.close();
     }
     onMessage(text) {
     }
@@ -2525,6 +2455,102 @@ var StardustBrowser = (() => {
     }
   };
   var speech_recognition_default = SpeechRecognition;
+
+  // StardustEcharts.js
+  var StardustEcharts = {
+    grouping: {
+      type: "StardustEcharts:grouping",
+      transform({ config, upstream }) {
+        const dimensions = upstream.cloneAllDimensionInfo();
+        const data = upstream.cloneRawData();
+        const { groupBy, valueBy, groupByName, valueByName, summary = "sum", postProcess } = config;
+        const resultMap = {};
+        const getByValue = (by, row) => {
+          if (!by._getter) {
+            const bys = Array.isArray(by) ? by : [by];
+            const byDimensions = bys.map((ele) => ele.dimension);
+            const byIndices = byDimensions.map((ele) => dimensions.findIndex((e) => e.name === ele || e.index === ele));
+            const byMethods = bys.map((ele) => ele.method);
+            const byProps = bys.map((ele) => ele.props);
+            by._getter = (row2) => {
+              const values = byIndices.map((i) => {
+                let value = row2[i];
+                if (byMethods[i]) {
+                  if (typeof byMethods[i] === "function") {
+                    value = byMethods[i](value, row2);
+                  } else {
+                    value = value[byMethods[i]](...byProps[i]);
+                  }
+                }
+                return value;
+              });
+              return values.length === 1 ? values[0] : values.join("-");
+            };
+          }
+          return by._getter(row);
+        };
+        const keys = [];
+        data.forEach((row) => {
+          const key = getByValue(groupBy, row);
+          if (!keys.includes(key)) keys.push(key);
+          resultMap[key] || (resultMap[key] = []);
+          resultMap[key].push(getByValue(valueBy, row));
+        });
+        const summaryMap = {};
+        for (let key in resultMap) {
+          const values = resultMap[key];
+          if (typeof summary === "function") {
+            summaryMap[key] = summary(key, values, resultMap);
+            continue;
+          }
+          switch (summary) {
+            case "first": {
+              summaryMap[key] = values[0];
+              break;
+            }
+            case "last": {
+              summaryMap[key] = values[values.length - 1];
+              break;
+            }
+            case "min": {
+              summaryMap[key] = Math.min.apply(null, values);
+              break;
+            }
+            case "max": {
+              summaryMap[key] = Math.max.apply(null, values);
+              break;
+            }
+            case "count": {
+              summaryMap[key] = values.length;
+              break;
+            }
+            case "sum": {
+              summaryMap[key] = values.reduce((sum, v) => sum + v, 0).toFixed(2) * 1;
+              break;
+            }
+            case "average": {
+              if (!values.length) {
+                summaryMap[key] = "";
+              } else {
+                const sum = values.reduce((sum2, v) => sum2 + v, 0).toFixed(2) * 1;
+                summaryMap[key] = (sum / values.length).toFixed(2) * 1;
+              }
+              break;
+            }
+          }
+        }
+        const result = {
+          dimensions: [
+            groupByName || groupBy.name || groupBy.dimension,
+            valueByName || valueBy.name || valueBy.dimension
+          ],
+          data: keys.map((key) => [key, summaryMap[key]])
+        };
+        return postProcess ? postProcess(result) : result;
+      }
+    }
+  };
+  var StardustEcharts_default = StardustEcharts;
 
   // storage.js
   var Storage = class {
@@ -2584,7 +2610,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.2.1",
+    version: "1.2.2",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
@@ -2595,6 +2621,7 @@ var StardustBrowser = (() => {
     funcs: funcs_default,
     selector: selector_default,
     SpeechRecognition: speech_recognition_default,
+    StardustEcharts: StardustEcharts_default,
     storage: storage_default,
     local: local2,
     session: session2,

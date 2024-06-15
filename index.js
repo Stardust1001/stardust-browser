@@ -8,6 +8,7 @@ import fullscreen from './fullscreen.js'
 import funcs from './funcs.js'
 import selector from './selector.js'
 import SpeechRecognition from './speech-recognition.js'
+import StardustEcharts from './StardustEcharts.js'
 import storage from './storage.js'
 import UIExecutor from './ui-executor.js'
 
@@ -24,6 +25,7 @@ export {
   funcs,
   selector,
   SpeechRecognition,
+  StardustEcharts,
   storage,
   local,
   session,
@@ -31,7 +33,7 @@ export {
 }
 
 export default {
-  version: '1.2.1',
+  version: '1.2.2',
   dbsdk,
   clipboard,
   cookies,
@@ -42,6 +44,7 @@ export default {
   funcs,
   selector,
   SpeechRecognition,
+  StardustEcharts,
   storage,
   local,
   session,
