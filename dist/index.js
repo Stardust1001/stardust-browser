@@ -1071,12 +1071,6 @@ var StardustBrowser = (() => {
         node.dispatchEvent(this.generator.mouse("click", options, node));
       });
     }
-    keyboard(_0, _1) {
-      return __async(this, arguments, function* (node, name, options = {}) {
-        node = yield this.waitFor(node, options);
-        node.dispatchEvent(this.generator.keyboard(name, options));
-      });
-    }
     eval(_0) {
       return __async(this, arguments, function* (func, args = {}) {
         if (typeof func === "function") {
@@ -1390,16 +1384,6 @@ var StardustBrowser = (() => {
     }
     func(func, ...props) {
       return this.eval(func, ...props);
-    }
-    prompt(_0) {
-      return __async(this, arguments, function* (node, options = {}) {
-        options = __spreadValues({
-          placeholder: "\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801"
-        }, options);
-        node = yield this.waitFor(node, options);
-        const value = window.prompt(options.placeholder);
-        yield this.fill(node, value, options);
-      });
     }
     keydown(_0, _1) {
       return __async(this, arguments, function* (node, key, options = {}) {
@@ -2610,7 +2594,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.2.2",
+    version: "1.2.3",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

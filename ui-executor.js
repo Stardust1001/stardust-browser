@@ -475,11 +475,6 @@ export class UIExecutor {
     node.dispatchEvent(this.generator.mouse('click', options, node))
   }
 
-  async keyboard (node, name, options = {}) {
-    node = await this.waitFor(node, options)
-    node.dispatchEvent(this.generator.keyboard(name, options))
-  }
-
   async eval (func, args = {}) {
     if (typeof func === 'function') {
       return func(this, args)
@@ -769,16 +764,6 @@ export class UIExecutor {
 
   func (func, ...props) {
     return this.eval(func, ...props)
-  }
-
-  async prompt (node, options = {}) {
-    options = {
-      placeholder: '请输入验证码',
-      ...options
-    }
-    node = await this.waitFor(node, options)
-    const value = window.prompt(options.placeholder)
-    await this.fill(node, value, options)
   }
 
   async keydown (node, key, options = {}) {
