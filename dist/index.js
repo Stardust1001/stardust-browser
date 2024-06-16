@@ -2475,7 +2475,8 @@ var StardustBrowser = (() => {
         };
         const keys = [];
         data.forEach((row) => {
-          const key = getByValue(groupBy, row);
+          var _a;
+          const key = (_a = getByValue(groupBy, row)) != null ? _a : "\u672A\u77E5";
           if (!keys.includes(key)) keys.push(key);
           resultMap[key] || (resultMap[key] = []);
           resultMap[key].push(getByValue(valueBy, row));
@@ -2595,7 +2596,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.2.5",
+    version: "1.2.6",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,

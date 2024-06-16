@@ -33,7 +33,7 @@ const StardustEcharts = {
       }
       const keys = []
       data.forEach(row => {
-        const key = getByValue(groupBy, row)
+        const key = getByValue(groupBy, row) ?? '未知'
         if (!keys.includes(key)) keys.push(key)
         resultMap[key] ||= []
         resultMap[key].push(getByValue(valueBy, row))
