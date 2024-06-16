@@ -4,7 +4,7 @@ const StardustEcharts = {
     transform ({ config, upstream }) {
       const dimensions = upstream.cloneAllDimensionInfo()
       const data = upstream.cloneRawData()
-      const { groupBy, valueBy, groupByName, valueByName, summary = 'sum', postProcess } = config
+      const { groupBy, valueBy, groupByName, valueByName, summary = 'sum', postProcess, print } = config
 
       const resultMap = {}
       const getByValue = (by, row) => {
@@ -89,6 +89,7 @@ const StardustEcharts = {
         ],
         data: keys.map(key => [key, summaryMap[key]])
       }
+      print && console.log(result)
       return postProcess ? postProcess(result) : result
     }
   }

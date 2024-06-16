@@ -2447,7 +2447,7 @@ var StardustBrowser = (() => {
       transform({ config, upstream }) {
         const dimensions = upstream.cloneAllDimensionInfo();
         const data = upstream.cloneRawData();
-        const { groupBy, valueBy, groupByName, valueByName, summary = "sum", postProcess } = config;
+        const { groupBy, valueBy, groupByName, valueByName, summary = "sum", postProcess, print } = config;
         const resultMap = {};
         const getByValue = (by, row) => {
           if (!by._getter) {
@@ -2530,6 +2530,7 @@ var StardustBrowser = (() => {
           ],
           data: keys.map((key) => [key, summaryMap[key]])
         };
+        print && console.log(result);
         return postProcess ? postProcess(result) : result;
       }
     }
@@ -2594,7 +2595,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.2.3",
+    version: "1.2.5",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
