@@ -2442,6 +2442,41 @@ var StardustBrowser = (() => {
 
   // StardustEcharts.js
   var StardustEcharts = {
+    generateOptions({ dimensions, source, category, series, value, summary, chartType }) {
+      const categoryIndex = dimensions.indexOf(category);
+      const seriesIndex = dimensions.indexOf(series);
+      const categories = [...new Set(source.map((ele) => ele[categoryIndex]))];
+      const serieses = [...new Set(source.map((ele) => ele[seriesIndex]))];
+      const option = { dataset: [], series: [] };
+      serieses.forEach((ele) => {
+        option.dataset.push({
+          id: category + "-" + ele,
+          transform: [
+            { type: "filter", config: { dimension: series, "=": ele } },
+            {
+              type: "StardustEcharts:grouping",
+              config: {
+                groupBy: [
+                  { dimension: category },
+                  { dimension: series }
+                ],
+                valueBy: { dimension: value },
+                print: true
+              }
+            }
+          ]
+        });
+        option.series.push({
+          type: chartType,
+          name: ele,
+          id: category + "-" + ele,
+          datasetId: category + "-" + ele,
+          label: { show: true, position: "top" },
+          encode: { x: 0, y: 2, tooltip: [0, 1, 2] }
+        });
+      });
+      return option;
+    },
     grouping: {
       type: "StardustEcharts:grouping",
       transform({ config, upstream }) {
@@ -2456,6 +2491,7 @@ var StardustBrowser = (() => {
             const byIndices = byDimensions.map((ele) => dimensions.findIndex((e) => e.name === ele || e.index === ele));
             const byMethods = bys.map((ele) => ele.method);
             const byProps = bys.map((ele) => ele.props);
+            by._dimensions = byDimensions;
             by._getter = (row2) => {
               const values = byIndices.map((i) => {
                 let value = row2[i];
@@ -2466,17 +2502,16 @@ var StardustBrowser = (() => {
                     value = value[byMethods[i]](...byProps[i]);
                   }
                 }
-                return value;
+                return value != null ? value : "\u672A\u77E5";
               });
-              return values.length === 1 ? values[0] : values.join("-");
+              return values.length === 1 ? values[0] : values.join("::");
             };
           }
           return by._getter(row);
         };
         const keys = [];
         data.forEach((row) => {
-          var _a;
-          const key = (_a = getByValue(groupBy, row)) != null ? _a : "\u672A\u77E5";
+          const key = getByValue(groupBy, row);
           if (!keys.includes(key)) keys.push(key);
           resultMap[key] || (resultMap[key] = []);
           resultMap[key].push(getByValue(valueBy, row));
@@ -2486,6 +2521,17 @@ var StardustBrowser = (() => {
           const values = resultMap[key];
           if (typeof summary === "function") {
             summaryMap[key] = summary(key, values, resultMap);
+            continue;
+          }
+          if (summary === "count") {
+            summaryMap[key] = values.length;
+            continue;
+          } else if (summary === "sum") {
+            summaryMap[key] = values.reduce((sum, v) => sum + v, 0).toFixed(2) * 1;
+            continue;
+          }
+          if (!values.length) {
+            summaryMap[key] = "";
             continue;
           }
           switch (summary) {
@@ -2505,31 +2551,19 @@ var StardustBrowser = (() => {
               summaryMap[key] = Math.max.apply(null, values);
               break;
             }
-            case "count": {
-              summaryMap[key] = values.length;
-              break;
-            }
-            case "sum": {
-              summaryMap[key] = values.reduce((sum, v) => sum + v, 0).toFixed(2) * 1;
-              break;
-            }
             case "average": {
-              if (!values.length) {
-                summaryMap[key] = "";
-              } else {
-                const sum = values.reduce((sum2, v) => sum2 + v, 0).toFixed(2) * 1;
-                summaryMap[key] = (sum / values.length).toFixed(2) * 1;
-              }
+              const sum = values.reduce((sum2, v) => sum2 + v, 0).toFixed(2) * 1;
+              summaryMap[key] = (sum / values.length).toFixed(2) * 1;
               break;
             }
           }
         }
         const result = {
           dimensions: [
-            groupByName || groupBy.name || groupBy.dimension,
-            valueByName || valueBy.name || valueBy.dimension
+            ...groupBy._dimensions,
+            ...valueBy._dimensions
           ],
-          data: keys.map((key) => [key, summaryMap[key]])
+          data: keys.map((key) => [...key.split("::"), summaryMap[key]])
         };
         print && console.log(result);
         return postProcess ? postProcess(result) : result;
@@ -2596,7 +2630,7 @@ var StardustBrowser = (() => {
   // index.js
   var { local: local2, session: session2 } = storage_default;
   var stardust_browser_default = {
-    version: "1.2.6",
+    version: "1.2.7",
     dbsdk: dbsdk_default2,
     clipboard: clipboard_default,
     cookies: cookies_default,
